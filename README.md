@@ -14,4 +14,4 @@
 - 探索敌人、收集卡牌；
 - 带着资源撤离或死于自己的贪婪。
 
-[游戏设计文档链接](https://ycnjn24iby37.feishu.cn/wiki/SBOmwdaiCiZekOkV64JcvGu9nof?from=from_copylink)
+[游戏设计文档链接](https://xcnsh7ye2vew.feishu.cn/wiki/RAzZwr00HiVfY6kAdFmcXslzn2l?from=from_copylink)
