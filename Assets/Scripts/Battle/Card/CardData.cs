@@ -2,72 +2,73 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardData : MonoBehaviour
+[CreateAssetMenu(fileName = "CardData", menuName = "ScriptableObject/CardData", order = 0)]
+public class CardData : ScriptableObject 
 {
     /// <summary>
     /// 卡牌的ID
     /// </summary>
-    public string Id{ get; private set; }
+    public string Id;
 
     /// <summary>
     /// 卡牌能力类型
     /// </summary>
-    public CardAbilityType AbilityType{ get; private set; }
+    public CardAbilityType AbilityType;
 
     /// <summary>
     /// 卡牌目标类型
     /// </summary>
-    public CardTargetType TargetType{ get; private set; }
+    public CardTargetType TargetType;
 
     /// <summary>
-    /// 卡牌名称
+    /// 卡牌稀有度类型
     /// </summary>
-    public string CardName{ get; private set; }
-
-    /// <summary>
-    /// 卡面描述
-    /// </summary>
-    public string CardDescription{ get; private set; }
-
-    /// <summary>
-    /// 卡面图片
-    /// </summary>
-    public Sprite CardImage{ get; private set; }
-
-    /// <summary>
-    /// 卡牌背景框图片
-    /// </summary>
-    public Sprite CardBackground{ get; private set; }
-
-    /// <summary>
-    /// 方块模式的图片
-    /// </summary>
-    public Sprite BlockImage{ get; private set; }
+    public CardRarityType RarityType;
 
     /// <summary>
     /// 卡牌的方块要组成的形状，通过一组向量表示每个方块相对原点的位置
     /// </summary>
-    public List<Vector2> CardShape{ get; private set; }
+    public List<Vector2> CardShape;
 
     /// <summary>
     /// 能触发卡牌特效的格子，通过一组向量表示其相对原点的位置
     /// </summary>
-    public List<Vector2> ConditionsShape{ get; private set; }
+    public List<Vector2> ConditionsShape;
 
     /// <summary>
     /// 卡牌的基础攻击力
     /// </summary>
-    public int BaseDamage{ get; private set; }
+    public int BaseDamage;
 
     /// <summary>
     /// 卡牌的基础防御力
     /// </summary>
-    public int BaseBlock{ get; private set; }
+    public int BaseDefense;
 
     /// <summary>
     /// 卡牌的基础特殊效果强度
     /// </summary>
-    public int BaseEffect{ get; private set; }
+    public int BaseEffect;
+
+    /// <summary>
+    /// 卡牌名称
+    /// </summary>
+    public string Name;
+
+    /// <summary>
+    /// 卡面描述
+    /// </summary>
+    public string Description;
+
+    /// <summary>
+    /// 卡面配图
+    /// </summary>
+    public Texture CardTex;
+
+    /// <summary>
+    /// 方块配图
+    /// </summary>
+    public Texture BlockTex;
 }
 
 /// <summary>
@@ -91,4 +92,14 @@ public enum CardTargetType
     SELF,
     SINGLE_ENEMY,
     ALL_ENEMY,
+}
+
+/// <summary>
+/// 卡牌稀有度的分类
+/// </summary>
+public enum CardRarityType
+{
+    COMMON,
+    UNCOMMON,
+    RARE,
 }

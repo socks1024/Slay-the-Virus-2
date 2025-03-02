@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class PlayerDeckManager : MonoSingleton<PlayerDeckManager>
 {
-    public Board board;
+    public BoardData board;
 }
-
-//PlayerStatManger?

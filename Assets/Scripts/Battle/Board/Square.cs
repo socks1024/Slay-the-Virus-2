@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Square : MonoBehaviour
 {
@@ -12,12 +13,12 @@ public class Square : MonoBehaviour
     /// <summary>
     /// 该格子能否被放置卡牌
     /// </summary>
-    public bool Active
+    public bool IsActive
     { 
-        get { return active; }
-        set { active = value; }
+        get { return isActive; }
+        set { isActive = value; }
     }
-    bool active;
+    bool isActive = true;
 
     [HideInInspector]
     /// <summary>
@@ -29,5 +30,5 @@ public class Square : MonoBehaviour
     /// <summary>
     /// 被填充的卡牌
     /// </summary>
-    public CardData CardData{ get; set; }
+    public CardBehaviour CardData{ get; set; }
 }

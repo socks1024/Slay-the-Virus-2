@@ -9,7 +9,6 @@ public class CardPosition : MonoBehaviour
     /// </summary>
     Vector2 cardCoord;
 
-    [HideInInspector]
     /// <summary>
     /// 特殊条件格子
     /// </summary>
@@ -19,7 +18,7 @@ public class CardPosition : MonoBehaviour
         {
             List<Square> result = new List<Square>();
 
-            foreach (Vector2 coord in GetComponent<CardData>().ConditionsShape)
+            foreach (Vector2 coord in GetComponent<CardBehaviour>().ConditionsShape)
             {
                 result.Add(PlayerDeckManager.Instance.board.GetSquare(cardCoord + coord));
             }
@@ -51,9 +50,9 @@ public class CardPosition : MonoBehaviour
     /// 获取满足特殊条件的卡牌
     /// </summary>
     /// <returns>满足特殊条件的卡牌</returns>
-    public List<CardData> GetCardsSatisfiedCondition()
+    public List<CardBehaviour> GetCardsSatisfiedCondition()
     {
-        List<CardData> cardDatas= new List<CardData>();
+        List<CardBehaviour> cardDatas= new List<CardBehaviour>();
 
         foreach (Square square in ConditionedSquares)
         {
