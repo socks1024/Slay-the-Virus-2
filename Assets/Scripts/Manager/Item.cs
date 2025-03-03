@@ -5,11 +5,17 @@ using UnityEngine;
 
 //仓库 保存卡牌棋盘和道具
 public enum ItemCategory{ ChessBoard,Prop};
+public enum ResourceCatogory { Nutrition };
+[System.Serializable]
 public abstract class Item : ScriptableObject
 {
     public string Name;
     public ItemCategory Category;
     public int MaxAmount;
+
+    public int price;
+    public ResourceCatogory resourceCatogory;//购买消耗的资源种类
+    public int StorageAmount;//商店中的库存数量
 
 }
 
@@ -17,7 +23,12 @@ public abstract class Item : ScriptableObject
 [CreateAssetMenu(fileName = "棋盘", menuName = "ScriptableObject/棋盘", order = 1)]
 public class ChessBoard:Item
 {
-   
+    ChessBoard()
+    {
+        this.Category = ItemCategory.ChessBoard;
+        this.MaxAmount = 1;
+        this.resourceCatogory = ResourceCatogory.Nutrition;//默认购买消耗营养
+    }
     public BoardData chessboard;//来源于board data
     
 }
@@ -26,6 +37,12 @@ public class ChessBoard:Item
 [CreateAssetMenu(fileName = "道具", menuName = "ScriptableObject/道具", order = 2)]
 public class Prop:Item
 {
+    Prop()
+    {
+        this.Category = ItemCategory.Prop;
+        this.MaxAmount = 99;
+        this.resourceCatogory = ResourceCatogory.Nutrition;//默认购买消耗营养
+    }
     public int amount;
     
 }

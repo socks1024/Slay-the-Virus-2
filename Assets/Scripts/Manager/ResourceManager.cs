@@ -5,11 +5,13 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
    public static ResourceManager Instance { get; private set; }
+    
 
     [SerializeField]
     private int Nutrition;  //营养
     [SerializeField]
     private int Health,MaxHealth;   //血量和最大血量
+
 
     private void Awake()
     {

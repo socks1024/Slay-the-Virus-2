@@ -30,6 +30,16 @@ public class PlayerHold : MonoBehaviour
         return false;
     }
 
+    public bool StoreToStorage(Item item,int amount)//把玩家手里的东西放回仓库
+    {
+        if (amount > CarriedItems[item])
+        {
+            return false;
+        }
+        CarriedItems[item] -= amount;
+        return ItemManager.Instance.AddItem(item, amount);
+    }
+
     public bool BoardChoice(Item item)//选棋盘
     {
         int CurrentAmount = ItemManager.Instance.GetItemCount(item);

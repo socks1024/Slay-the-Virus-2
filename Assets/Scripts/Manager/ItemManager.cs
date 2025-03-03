@@ -53,5 +53,29 @@ public class ItemManager : MonoBehaviour
         return inventory.TryGetValue(item, out int amount) ? amount : 0;
     }
 
-    
+    public Dictionary<Item,int> GetItemByCategory(ItemCategory category)//返回一类物品
+    {
+        Dictionary<Item, int> ItemOfTheCatogory = new Dictionary<Item, int>();
+       foreach (var kvp in inventory)
+        {
+            if (kvp.Key.Category == category)
+            {
+                ItemOfTheCatogory[kvp.Key] = kvp.Value;
+            }
+        }
+        return ItemOfTheCatogory;
+    }
+
+    public int SumOfCatogory(ItemCategory category)//返回一类物品的总数
+    {
+        int sum = 0;
+        foreach (var kvp in inventory)
+        {
+            if (kvp.Key.Category == category)
+            {
+                sum += kvp.Value;
+            }
+        }
+        return sum;
+    }
 }
