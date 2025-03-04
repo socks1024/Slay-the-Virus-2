@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCreature : MonoBehaviour
+public class AnimateIntention : MonoBehaviour
 {
     /// <summary>
-    /// 身份识别
+    /// 意图所在的位置
     /// </summary>
-    public string ID;
-
-    
-
-    
+    public Transform intentionOffset;
 }

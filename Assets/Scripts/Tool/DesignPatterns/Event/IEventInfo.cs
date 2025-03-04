@@ -10,20 +10,20 @@ public interface IEventInfo
 
 public class EventInfo : IEventInfo
 {
-    public UnityEvent actions;
+    public UnityAction actions;
 
     public EventInfo(UnityAction action)
     {
-        this.actions.AddListener(action);
+        this.actions += action;
     }
 }
 
 public class EventInfo<T> : IEventInfo
 {
-    public UnityEvent<T> actions;
+    public UnityAction<T> actions;
 
     public EventInfo(UnityAction<T> action)
     {
-        this.actions.AddListener(action);
+        this.actions += action;
     }
 }

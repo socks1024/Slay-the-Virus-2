@@ -23,7 +23,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo).actions?.AddListener(action);
+            (eventDic[name] as EventInfo).actions += action;
         }
         else
         {
@@ -43,7 +43,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo).actions?.RemoveListener(action);
+            (eventDic[name] as EventInfo).actions -= action;
         }
     }
 
@@ -55,7 +55,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo<T>).actions?.AddListener(action);
+            (eventDic[name] as EventInfo<T>).actions += action;
         }
         else
         {
@@ -75,7 +75,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo<T>).actions?.RemoveListener(action);
+            (eventDic[name] as EventInfo<T>).actions -= action;
         }
     }
 

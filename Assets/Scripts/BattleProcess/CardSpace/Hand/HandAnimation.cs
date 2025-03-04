@@ -58,7 +58,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void AddCard(CardBehaviour card)
     {
-        card.transform.parent.SetParent(transform);
+        card.transform.parent = transform;
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void RemoveCard(CardBehaviour card)
     {
-        card.transform.parent.SetParent(transform.parent);
+        card.transform.parent = transform.parent;
     }
 
     /// <summary>

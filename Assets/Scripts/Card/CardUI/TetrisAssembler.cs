@@ -38,7 +38,6 @@ public class TetrisAssembler : MonoBehaviour
         tetrisRoot = transform.Find("BlockMode");
 
         AssembleBlocks();
-        print("assemble blocks");
     }
 
     /// <summary>

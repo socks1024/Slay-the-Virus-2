@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CardPosition))]
+[RequireComponent(typeof(CardUI))]
+[RequireComponent(typeof(CardSwitchMode))]
+[RequireComponent(typeof(TetrisAssembler))]
 public abstract class CardBehaviour : MonoBehaviour
 {
     #region CardDataReference
