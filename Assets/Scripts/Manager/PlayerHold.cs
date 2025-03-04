@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerHold : MonoBehaviour
@@ -48,6 +49,11 @@ public class PlayerHold : MonoBehaviour
 
         chessboard = item;
         return true;
+    }
+
+    public int GetItemCount(Item item)//获取玩家手里某物品数量
+    {
+        return CarriedItems[item];
     }
 
 }

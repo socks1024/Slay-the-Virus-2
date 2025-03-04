@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //仓库 保存卡牌棋盘和道具
-public enum ItemCategory{ ChessBoard,Prop};
+public enum ItemCategory{ ChessBoard,Prop,Card};
 public enum ResourceCatogory { Nutrition };
 [System.Serializable]
 public abstract class Item : ScriptableObject
@@ -16,6 +16,8 @@ public abstract class Item : ScriptableObject
     public int price;
     public ResourceCatogory resourceCatogory;//购买消耗的资源种类
     public int StorageAmount;//商店中的库存数量
+    public int sellprice;//售卖的价格
+    public int weight;//抽奖的权重，最小1
 
 }
 
@@ -46,6 +48,20 @@ public class Prop:Item
     public int amount;
     
 }
+
+[CreateAssetMenu(fileName = "卡牌", menuName = "ScriptableObject/卡牌", order = 3)]
+public class Card : Item
+{
+    Card()
+    {
+        this.Category = ItemCategory.Card;
+        this.MaxAmount = 99;
+        this.resourceCatogory = ResourceCatogory.Nutrition;//默认购买消耗营养
+    }
+    public int amount;
+
+}
+
 
 
 

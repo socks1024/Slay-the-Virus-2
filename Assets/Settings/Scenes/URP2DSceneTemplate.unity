@@ -401,9 +401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ceb27ca9625dd488455d679dcf7aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StorageItems:
-  - {fileID: 11400000, guid: 4886467eebb97044d9b04e6fc35d0d40, type: 2}
+  StorageItems: []
+  ExtractItems:
   - {fileID: 11400000, guid: 7e4d3c4dc28332f4da1a9140976a1dd5, type: 2}
+  - {fileID: 11400000, guid: ce8169430ce4e5f45afdd90f252bf2de, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
