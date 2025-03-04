@@ -67,7 +67,15 @@ public class BoardData : MonoBehaviour
     /// <returns>目标格子,若超出范围则返回null</returns>
     public Square GetSquare(Vector2 coord)
     {
-        return squares[(int)coord.x, (int)coord.y];
+        if (coord.x < 0 || coord.x > 4 ||
+            coord.y < 0 || coord.y > 4)
+        {
+            return null;
+        }
+        else
+        {
+            return squares[(int)coord.x, (int)coord.y];
+        }
     }
 
     /// <summary>
@@ -118,7 +126,6 @@ public class BoardData : MonoBehaviour
     {
         if (hoveredSquare == null)
         {
-            print("no hovered");
             return false;
         }
         
@@ -144,9 +151,6 @@ public class BoardData : MonoBehaviour
         {
             Square s = GetSquare(hoveredSquare,v);
             s.CardData = cardData;
-
-            //触发卡牌的ActOnPlaced回调
-            //cardData.GetComponent<CardData>()?.ActOnPlaced();
         }
         if (IsAllFilled())
         {
@@ -168,9 +172,6 @@ public class BoardData : MonoBehaviour
                 //square.CardData.UIState = hand (or discard)
                 square.CardData = null;
             }
-
-            //触发卡牌的ActOnRemoved回调
-            //cardData.GetComponent<CardData>().ActOnRemoved();
         }
     }
 

@@ -85,5 +85,13 @@ public class EventCenter : BaseSingleton<EventCenter>
 
 public enum EventType
 {
+    //战斗事件
     PLAYER_DEAD,
+    SINGLE_ENEMY_KILLED,
+    BATTLE_WIN,
+    //回合内事件
+    TURN_START,
+    TURN_END,
+    CARD_ACT_END,
+    ENEMY_ACT_END,
 }
