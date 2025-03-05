@@ -42,7 +42,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private Item Extract()
+    private Item Extract()//³é½±£¡
     {
         int totalweight = 0;
         foreach(int weight in extract.Values)
