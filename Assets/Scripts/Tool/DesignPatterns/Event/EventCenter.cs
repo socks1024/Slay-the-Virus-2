@@ -86,6 +86,7 @@ public class EventCenter : BaseSingleton<EventCenter>
 public enum EventType
 {
     //Õ½¶·ÊÂ¼þ
+    BATTLE_START,
     PLAYER_DEAD,
     SINGLE_ENEMY_KILLED,
     BATTLE_WIN,

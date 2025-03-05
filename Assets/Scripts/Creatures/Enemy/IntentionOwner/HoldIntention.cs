@@ -23,4 +23,12 @@ public class HoldIntention : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// 执行队列最前端的意图
+    /// </summary>
+    public void TriggerIntention()
+    {
+
+    }
 }

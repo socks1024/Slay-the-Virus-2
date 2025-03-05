@@ -24,6 +24,11 @@ public class IntentionData : ScriptableObject
     /// 意图的强度
     /// </summary>
     public int Amount;
+
+    /// <summary>
+    /// 意图的描述
+    /// </summary>
+    public string Description;
 }
 
 public enum IntentionType

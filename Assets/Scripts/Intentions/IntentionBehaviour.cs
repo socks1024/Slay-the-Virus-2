@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(IntentionShow))]
 public abstract class IntentionBehaviour : MonoBehaviour
 {
     /// <summary>
@@ -33,12 +34,20 @@ public abstract class IntentionBehaviour : MonoBehaviour
     /// <summary>
     /// 意图的目标
     /// </summary>
-    public CreatureBehaviour<CreatureData> target;
+    CreatureBehaviour<CreatureData> target;
     
     /// <summary>
     /// 意图的来源
     /// </summary>
-    public CreatureBehaviour<CreatureData> source;
+    CreatureBehaviour<CreatureData> source;
+
+    /// <summary>
+    /// 意图的行为
+    /// </summary>
+    public void ActOnEnemyTurn()
+    {
+
+    }
 }
 
 

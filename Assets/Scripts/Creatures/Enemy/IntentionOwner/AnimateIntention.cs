@@ -8,4 +8,6 @@ public class AnimateIntention : MonoBehaviour
     /// 意图所在的位置
     /// </summary>
     public Transform intentionOffset;
+
+    
 }
