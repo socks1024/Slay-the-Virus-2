@@ -61,8 +61,9 @@ public abstract class EnemyBehaviour : CreatureBehaviour<SimpleEnemyData>
         GetComponent<AnimateIntention>().SetIntentionPosition();
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, ActOnBattleStart);
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
         EventCenter.Instance.AddEventListener(EventType.CARD_ACT_END, ActOnEnemyMove);

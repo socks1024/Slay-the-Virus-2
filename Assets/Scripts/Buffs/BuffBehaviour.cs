@@ -42,7 +42,7 @@ public abstract class BuffBehaviour : MonoBehaviour
 
     #endregion
 
-    void Start()
+    protected virtual void Start()
     {
         EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
     }

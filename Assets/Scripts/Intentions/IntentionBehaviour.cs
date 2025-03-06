@@ -52,6 +52,11 @@ public abstract class IntentionBehaviour : MonoBehaviour
     {
 
     }
+
+    protected virtual void Start()
+    {
+        
+    }
 }
 
 

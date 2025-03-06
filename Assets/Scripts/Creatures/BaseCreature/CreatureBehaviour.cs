@@ -19,5 +19,21 @@ public abstract class CreatureBehaviour<T> : MonoBehaviour where T : CreatureDat
     /// <summary>
     /// 最大生命值
     /// </summary>
-    public int MaxHealth{ get{ return creatureData.MaxHealth;}}    
+    public int MaxHealth{ get{ return creatureData.MaxHealth;}}
+
+    /// <summary>
+    /// 死亡时触发的回调
+    /// </summary>
+    public abstract void OnDead();
+
+    /// <summary>
+    /// 战斗开始时触发的回调
+    /// </summary>
+    public abstract void OnBattleStart();
+
+    protected virtual void Start()
+    {
+        GetComponent<TakeDamage>().ActOnDead += OnDead;
+        EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
+    }
 }

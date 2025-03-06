@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class DefaultEnemy : EnemyBehaviour
 {
+    public override void OnBattleStart()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public override void OnDead()
+    {
+        //throw new System.NotImplementedException();
+    }
+
     public override void SetIntention(int turnCount)
     {
         if (turnCount % 2 == 1)

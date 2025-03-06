@@ -116,4 +116,14 @@ public class CardFlowController : MonoBehaviour
         discardPile.ClearCards();
         drawPile.ShuffleCard();
     }
+
+    /// <summary>
+    /// 将一些卡牌加入抽牌堆
+    /// </summary>
+    /// <param name="cards">要加入的卡牌</param>
+    public void FillDrawPile(List<CardBehaviour> cards)
+    {
+        drawPile.AddCards(cards);
+    }
+
 }

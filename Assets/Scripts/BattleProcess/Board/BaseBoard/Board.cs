@@ -23,7 +23,7 @@ public class Board : MonoBehaviour
     /// </summary>
     public Square hoveredSquare{get { return GetHoveredSquare(); } }
 
-    void Start()
+    protected virtual void Start()
     {
         InitGetAllSquares();
         //InitializeSquares();
