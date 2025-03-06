@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 5208818032247089569}
   - component: {fileID: 5420087582556749565}
   - component: {fileID: 5243978757651986605}
+  - component: {fileID: 5769126888941523294}
   m_Layer: 5
   m_Name: BGImage
   m_TagString: Untagged
@@ -222,6 +223,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressable: 0
+--- !u!114 &5769126888941523294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759832651718438435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e021b8494f6bcc4e85816f997fb219f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1842771434572183849
 GameObject:
   m_ObjectHideFlags: 0

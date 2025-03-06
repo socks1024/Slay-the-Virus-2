@@ -15,7 +15,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     /// <summary>
     /// 卡牌数据
     /// </summary>
-    CardBehaviour cardData;
+    CardBehaviour card;
 
     /// <summary>
     /// 卡牌UI控制
@@ -30,7 +30,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     /// <summary>
     /// 板子
     /// </summary>
-    BoardData boardData;
+    Board boardData;
 
     /// <summary>
     /// 是否处于可拖拽状态
@@ -41,17 +41,17 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         mainCam = Camera.main;
         cardRoot = transform.parent.parent;
-        cardData = cardRoot.GetComponent<CardBehaviour>();
+        card = cardRoot.GetComponent<CardBehaviour>();
         cardUI = cardRoot.GetComponent<CardUI>();
-        boardData = PlayerBattleManager.Instance.board;
+        boardData = BattleManager.Instance.board;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (cardUI.UIState == UIStates.PLACED)
         {
-            boardData.RemoveCard(cardData);
-            cardData.ActOnRemoved();
+            boardData.RemoveCard(card);
+            card.ActOnRemoved();
         }
         cardUI.UIState = UIStates.DRAG;
     }
@@ -70,7 +70,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (boardData.CanPlaceCard(cardRoot.GetComponent<CardBehaviour>()))
         {
             boardData.PlaceCard(cardRoot.GetComponent<CardBehaviour>());
-            cardData.ActOnPlaced();
+            card.ActOnPlaced();
             cardUI.UIState = UIStates.PLACED;
         }
         else

@@ -20,7 +20,7 @@ public class CardPosition : MonoBehaviour
 
             foreach (Vector2 coord in GetComponent<CardBehaviour>().ConditionsShape)
             {
-                result.Add(PlayerBattleManager.Instance.board.GetSquare(cardCoord + coord));
+                result.Add(BattleManager.Instance.board.GetSquare(cardCoord + coord));
             }
 
             return result;

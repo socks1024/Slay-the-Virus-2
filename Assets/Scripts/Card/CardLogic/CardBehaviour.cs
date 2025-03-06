@@ -66,9 +66,14 @@ public abstract class CardBehaviour : MonoBehaviour
     #region CardActs
 
     /// <summary>
+    /// 单个目标时瞄准的目标敌人
+    /// </summary>
+    public EnemyBehaviour targetEnemy;
+
+    /// <summary>
     /// 卡牌的回合结束时效果
     /// </summary>
-    public abstract void ActOnTurnEnd();
+    public abstract void ActOnCardAct();
 
     /// <summary>
     /// 卡牌的填充时效果
@@ -91,7 +96,7 @@ public abstract class CardBehaviour : MonoBehaviour
     {
         CardShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.CardShape);
         ConditionsShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.ConditionsShape);
-        EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
+        //EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
     }
 
 }

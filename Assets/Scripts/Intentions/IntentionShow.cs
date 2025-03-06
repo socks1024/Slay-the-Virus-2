@@ -22,48 +22,48 @@ public class IntentionShow : MonoBehaviour
 
     #region texture
 
-    public Sprite AttackIntentionSprite;
-    public Sprite DefenseIntentionSprite;
-    public Sprite GainBuffIntentionSprite;
-    public Sprite ApplyBuffIntentionSprite;
-    public Sprite HealIntentionSprite;
-    public Sprite StunIntentionSprite;
-    public Sprite UnknownIntentionSprite;
+    // public Sprite AttackIntentionSprite;
+    // public Sprite DefenseIntentionSprite;
+    // public Sprite GainBuffIntentionSprite;
+    // public Sprite ApplyBuffIntentionSprite;
+    // public Sprite HealIntentionSprite;
+    // public Sprite StunIntentionSprite;
+    // public Sprite UnknownIntentionSprite;
 
     #endregion
 
     void Start()
     {
-        tmp = GetComponentInChildren<TextMeshPro>();
-        sr = GetComponent<SpriteRenderer>();
+        tmp = GetComponent<TextMeshPro>();
+        //sr = GetComponent<SpriteRenderer>();
         intention = GetComponent<IntentionBehaviour>();
 
-        tmp.text = intention.Amount.ToString();
+        tmp.text = intention.Description;
 
-        switch (intention.intentionType)
-        {
-            case IntentionType.ATTACK:
-                sr.sprite = AttackIntentionSprite;
-                break;
-            case IntentionType.DEFENSE:
-                sr.sprite = DefenseIntentionSprite;
-                break;
-            case IntentionType.GAIN_BUFF:
-                sr.sprite = GainBuffIntentionSprite;
-                break;
-            case IntentionType.GIVE_DEBUFF:
-                sr.sprite = ApplyBuffIntentionSprite;
-                break;
-            case IntentionType.HEAL:
-                sr.sprite = HealIntentionSprite;
-                break;
-            case IntentionType.STUN:
-                sr.sprite = StunIntentionSprite;
-                break;
-            case IntentionType.UNKNOWN:
-                sr.sprite = UnknownIntentionSprite;
-                break;
-        }
+        // switch (intention.intentionType)
+        // {
+        //     case IntentionType.ATTACK:
+        //         sr.sprite = AttackIntentionSprite;
+        //         break;
+        //     case IntentionType.DEFENSE:
+        //         sr.sprite = DefenseIntentionSprite;
+        //         break;
+        //     case IntentionType.GAIN_BUFF:
+        //         sr.sprite = GainBuffIntentionSprite;
+        //         break;
+        //     case IntentionType.GIVE_DEBUFF:
+        //         sr.sprite = ApplyBuffIntentionSprite;
+        //         break;
+        //     case IntentionType.HEAL:
+        //         sr.sprite = HealIntentionSprite;
+        //         break;
+        //     case IntentionType.STUN:
+        //         sr.sprite = StunIntentionSprite;
+        //         break;
+        //     case IntentionType.UNKNOWN:
+        //         sr.sprite = UnknownIntentionSprite;
+        //         break;
+        // }
     }
 
 

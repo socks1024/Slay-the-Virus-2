@@ -6,7 +6,7 @@ using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BoardData : MonoBehaviour
+public class Board : MonoBehaviour
 {
     /// <summary>
     /// 游戏盘包含的所有格子
@@ -240,4 +240,34 @@ public class BoardData : MonoBehaviour
     {
         return GetFilledSquareCount() == 5 * 5;
     }
+
+    # region Play Cards
+
+    /// <summary>
+    /// 一次性打出所有不需要选择目标的卡牌
+    /// </summary>
+    public void PlayNonTargetCards()
+    {
+        foreach (CardBehaviour card in GetPlacedCards())
+        {
+            if (card.TargetType != CardTargetType.SINGLE_ENEMY)
+            {
+                PlayCard(card);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 打出一张卡牌
+    /// </summary>
+    /// <param name="card"></param>
+    public void PlayCard(CardBehaviour card)
+    {
+        print(card.Id);
+        RemoveCard(card);
+        card.ActOnCardAct();
+        //进入弃牌堆
+    }
+
+    # endregion
 }

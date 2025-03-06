@@ -30,8 +30,12 @@ public abstract class IntentionBehaviour : MonoBehaviour
     /// 意图的强度
     /// </summary>
     public int Amount{ get{return intentionData.Amount;}}
-    
+
     /// <summary>
+    /// 意图的描述
+    /// </summary>
+    public string Description{ get{return intentionData.Description;}}
+
     /// 意图的目标
     /// </summary>
     CreatureBehaviour<CreatureData> target;

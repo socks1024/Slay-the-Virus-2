@@ -19,7 +19,7 @@ public class DefaultCard : CardBehaviour
         print("RemoveCard");
     }
 
-    public override void ActOnTurnEnd()
+    public override void ActOnCardAct()
     {
         print("TurnEnd");
     }

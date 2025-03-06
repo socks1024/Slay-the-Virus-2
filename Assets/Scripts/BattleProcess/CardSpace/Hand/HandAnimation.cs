@@ -6,9 +6,9 @@ using UnityEngine;
 public class HandAnimation : MonoBehaviour
 {
     /// <summary>
-    /// 存储手牌的牌堆，通过CardAnimation类表现出来
+    /// 存储手牌的牌堆，通过这个类表现出来
     /// </summary>
-    public CardPile hand = new CardPile();
+    public CardPile hand;
 
     // [SerializeField]
     // /// <summary>
@@ -32,17 +32,18 @@ public class HandAnimation : MonoBehaviour
     /// <summary>
     /// 抽牌的位置
     /// </summary>
-    Vector3 drawPosition;
+    Transform drawPosition;
 
     [SerializeField]
     /// <summary>
     /// 弃牌的位置
     /// </summary>
-    Vector3 discardPosition;
+    Transform discardPosition;
 
     void Start()
     {
-        DOTween.Init();
+        //DOTween.Init();
+        hand = GetComponent<CardFlowController>().hand;
     }
 
     /// <summary>
@@ -53,21 +54,27 @@ public class HandAnimation : MonoBehaviour
         
     }
 
+    # region hand & screen
+
     /// <summary>
-    /// 
+    /// 将一张牌直接加入手牌
     /// </summary>
-    public void AddCard(CardBehaviour card)
+    public void AddCardAnim(CardBehaviour card)
     {
         card.transform.parent = transform;
     }
 
     /// <summary>
-    /// 
+    /// 将一张牌释放到屏幕空间
     /// </summary>
-    public void RemoveCard(CardBehaviour card)
+    public void ReleaseCardAnim(CardBehaviour card)
     {
         card.transform.parent = transform.parent;
     }
+
+    # endregion
+
+    # region discard
 
     /// <summary>
     /// 将一张牌置入弃牌堆
@@ -75,31 +82,22 @@ public class HandAnimation : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCardAnim(CardBehaviour card)
     {
-
+        card.transform.parent = null;
     }
 
-    /// <summary>
-    /// 将所有牌置入弃牌堆
-    /// </summary>
-    public void DiscardAllCardAnim()
-    {
+    #endregion
 
-    }
+    # region draw
 
     /// <summary>
     /// 将一张牌从抽牌堆加入手牌
     /// </summary>
-    public void DrawCardAnim()
+    public void DrawCardAnim(CardBehaviour card)
     {
-
+        card.transform.parent = transform;
     }
 
-    /// <summary>
-    /// 将多张牌从抽牌堆加入手牌
-    /// </summary>
-    /// <param name="count">抽牌数目</param>
-    public void DrawCardsAnim(int count)
-    {
+    # endregion
 
-    }
+
 }
