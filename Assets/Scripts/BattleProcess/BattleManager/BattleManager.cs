@@ -11,6 +11,7 @@ public class BattleManager : MonoSingleton<BattleManager>
 
     public void Start()
     {
+        EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
         EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, OnAllActEnd);
         EventCenter.Instance.AddEventListener(EventType.PLAYER_DEAD, OnPlayerDead);
     }
@@ -20,7 +21,7 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// </summary>
     public void OnBattleStart()
     {
-
+        EventCenter.Instance.TriggerEvent(EventType.TURN_START);
     }
 
     /// <summary>
