@@ -94,7 +94,6 @@ public class CardFlowController : MonoBehaviour
         drawPile.GetCards().ForEach(card => { print(card);} );
         if (drawPile.IsEmpty)
         {
-            print("empty draw pile");
             ReshuffleDrawPileFromDiscardPile();
         }
         CardBehaviour card = drawPile.DrawCard();

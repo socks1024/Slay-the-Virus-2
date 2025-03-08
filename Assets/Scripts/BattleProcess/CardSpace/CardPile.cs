@@ -13,7 +13,7 @@ public class CardPile
     /// <summary>
     /// 该牌堆是否为空
     /// </summary>
-    public bool IsEmpty{ get{ return cards.Count > 0;}}
+    public bool IsEmpty{ get{ return cards.Count <= 0;}}
 
     /// <summary>
     /// 该牌堆牌的数量
