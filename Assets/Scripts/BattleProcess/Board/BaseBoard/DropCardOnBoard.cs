@@ -9,7 +9,7 @@ public class DropCardOnBoard : MonoBehaviour
     /// <summary>
     /// 板子引用
     /// </summary>
-    Board board;
+    BoardBehaviour board;
 
     GraphicRaycaster gr;
 
@@ -17,7 +17,7 @@ public class DropCardOnBoard : MonoBehaviour
 
     void Start()
     {
-        board = GetComponentInParent<Board>();
+        board = GetComponentInParent<BoardBehaviour>();
     }
 
     public void Show()

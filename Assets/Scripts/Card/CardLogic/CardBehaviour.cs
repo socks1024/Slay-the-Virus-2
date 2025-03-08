@@ -65,6 +65,7 @@ public abstract class CardBehaviour : MonoBehaviour
 
     #region CardActs
 
+    [HideInInspector]
     /// <summary>
     /// 单个目标时瞄准的目标敌人
     /// </summary>

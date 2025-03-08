@@ -99,7 +99,7 @@ public class TakeDamage : MonoBehaviour
 
     void Start()
     {
-        MaxHealth = GetComponent<CreatureBehaviour<CreatureData>>().MaxHealth;
+        MaxHealth = GetComponent<CreatureBehaviour>().MaxHealth;
         Health = MaxHealth;
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearBlock);
     }

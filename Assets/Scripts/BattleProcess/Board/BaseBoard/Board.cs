@@ -6,7 +6,7 @@ using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Board : MonoBehaviour
+public abstract class BoardBehaviour : MonoBehaviour
 {
     /// <summary>
     /// 游戏盘包含的所有格子
@@ -23,7 +23,10 @@ public class Board : MonoBehaviour
     /// </summary>
     public Square hoveredSquare{get { return GetHoveredSquare(); } }
 
-    protected virtual void Start()
+    /// <summary>
+    /// 初始化棋盘
+    /// </summary>
+    protected virtual void InitializeBoard()
     {
         InitGetAllSquares();
         //InitializeSquares();
@@ -49,7 +52,6 @@ public class Board : MonoBehaviour
     /// </summary>
     public void InitializeSquares()
     {
-        bool[,] activateSquares = GetComponent<BoardBehaviour>().activateSquares;
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
@@ -155,7 +157,7 @@ public class Board : MonoBehaviour
         if (IsAllFilled())
         {
             //触发游戏盘的ActOnAllFilledTurnEnd回调
-            GetComponent<BoardBehaviour>()?.ActOnAllFilledTurnEnd();
+            ActOnAllFilledTurnEnd();
         }
     }
 
@@ -270,4 +272,19 @@ public class Board : MonoBehaviour
     }
 
     # endregion
+
+    /// <summary>
+    /// 游戏盘初始的格子启用情况
+    /// </summary>
+    protected bool[,] activateSquares = {};
+
+    /// <summary>
+    /// 游戏盘的背景
+    /// </summary>
+    public Texture2D background;
+
+    /// <summary>
+    /// 被填满时结束回合触发的效果
+    /// </summary>
+    public abstract void ActOnAllFilledTurnEnd();
 }

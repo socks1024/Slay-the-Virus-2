@@ -38,12 +38,12 @@ public abstract class IntentionBehaviour : MonoBehaviour
 
     /// 意图的目标
     /// </summary>
-    CreatureBehaviour<CreatureData> target;
+    CreatureBehaviour target;
     
     /// <summary>
     /// 意图的来源
     /// </summary>
-    CreatureBehaviour<CreatureData> source;
+    CreatureBehaviour source;
 
     /// <summary>
     /// 意图的行为

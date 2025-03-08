@@ -4,16 +4,36 @@ using UnityEngine;
 
 public class BattleManager : MonoSingleton<BattleManager>
 {
-    public Board board;
+    [HideInInspector]
+    public BoardBehaviour board;
+
+    public Transform boardRoot;
+
     public CardFlowController cardFlow;
+
     public EnemyGroup enemyGroup;
+
     public PlayerBehaviour player;
+
 
     public void Start()
     {
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
         EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, OnAllActEnd);
         EventCenter.Instance.AddEventListener(EventType.PLAYER_DEAD, OnPlayerDead);
+    }
+
+    /// <summary>
+    /// 初始化遭遇战并开始战斗
+    /// </summary>
+    public void InitializeEncounter(List<EnemyBehaviour> enemies)
+    {
+        board = player.board;
+        board.transform.parent = boardRoot;
+
+        enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e.GetComponent<EnemyBehaviour>(),0);});
+
+        EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
     }
 
     /// <summary>
@@ -37,7 +57,7 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// </summary>
     public void OnBattleWin()
     {
-
+        board.transform.parent = null;
     }
 
     /// <summary>

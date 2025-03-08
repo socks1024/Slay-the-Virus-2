@@ -30,7 +30,7 @@ public class BuffOwner : MonoBehaviour
         if (!hasSameBuff)
         {
             Buffs.Add(newBuff);
-            newBuff.Owner = GetComponent<CreatureBehaviour<CreatureData>>();
+            newBuff.Owner = GetComponent<CreatureBehaviour>();
         }
     }
 

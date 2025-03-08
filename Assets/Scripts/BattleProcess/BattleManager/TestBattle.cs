@@ -5,20 +5,26 @@ using UnityEngine;
 public class TestBattle : MonoBehaviour
 {
     /// <summary>
-    /// 玩家的背包情况
+    /// 卡组
     /// </summary>
-    PlayerBackPack backPack;
+    public List<CardBehaviour> cards;
 
     /// <summary>
-    /// 遭遇战的数据
+    /// 棋盘
     /// </summary>
-    EncounterData encounter;
+    public BoardBehaviour board;
+
+    /// <summary>
+    /// 所有敌人
+    /// </summary>
+    public List<EnemyBehaviour> enemies;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+            BattleManager.Instance.player.SetBackpack(cards, board, 0);
+            BattleManager.Instance.InitializeEncounter(enemies);
         }
     }
 

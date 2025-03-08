@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class PlayerBackPack
 {
-    public Deck deck;
     
-    public int nutrition = 0;
 }

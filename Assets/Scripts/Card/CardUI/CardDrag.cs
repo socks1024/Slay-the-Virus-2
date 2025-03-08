@@ -30,7 +30,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     /// <summary>
     /// 板子
     /// </summary>
-    Board boardData;
+    BoardBehaviour boardData;
 
     /// <summary>
     /// 是否处于可拖拽状态

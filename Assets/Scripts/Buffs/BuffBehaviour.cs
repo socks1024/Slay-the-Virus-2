@@ -29,7 +29,7 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// <summary>
     /// 状态效果的持有者
     /// </summary>
-    public CreatureBehaviour<CreatureData> Owner{ get; set;}
+    public CreatureBehaviour Owner{ get; set;}
 
     #endregion
 

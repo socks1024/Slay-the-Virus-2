@@ -77,7 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8020a2418021bb646b873e8bb04ac184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureData: {fileID: 11400000, guid: 802a50af95c05954588905599350792f, type: 2}
+  ID: DefaultEnemy
+  MaxHealth: 10
   IntentionsAvailable:
   - {fileID: 5618804424645045575, guid: bd093b924154c6743ae5811004064132, type: 3}
   - {fileID: -2863881502213159561, guid: a553412ea42be3849b1ac4972f9d67a5, type: 3}
+  intention: {fileID: 0}
+  sprite: {fileID: 21300000, guid: be157a438c9ac5841986a56b12b2c780, type: 3}

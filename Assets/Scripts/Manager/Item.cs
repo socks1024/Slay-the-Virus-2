@@ -31,7 +31,7 @@ public class ChessBoard:Item
         this.MaxAmount = 1;
         this.resourceCatogory = ResourceCatogory.Nutrition;//默认购买消耗营养
     }
-    public Board chessboard;//来源于board data
+    public BoardBehaviour chessboard;//来源于board data
     
 }
 
