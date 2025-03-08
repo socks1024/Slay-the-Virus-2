@@ -15,7 +15,7 @@ public class TakeDamage : MonoBehaviour
     /// </summary>
     public int Health
     { 
-        get { return Health; }
+        get { return health; }
         set
         {
             if (value < 0)
@@ -28,25 +28,27 @@ public class TakeDamage : MonoBehaviour
                 value = MaxHealth;
             }
 
-            Health = value;
+            health = value;
         }
     }
+    int health;
 
     /// <summary>
     /// 现有的格挡
     /// </summary>
     public int Block
     {
-        get { return Block; }
+        get { return block; }
         set
         {
             if (value < 0)
             {
                 value = 0;
             }
-            Block = value;
+            block = value;
         }
     }
+    int block;
 
     /// <summary>
     /// 死亡时触发的回调

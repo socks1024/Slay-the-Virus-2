@@ -96,7 +96,7 @@ public class CardUI : MonoBehaviour
     void Start()
     {
         cardBehaviour = GetComponent<CardBehaviour>();
-        UIState = UIStates.HAND;
+        UIState = UIStates.ANIMATE;
         foreach (Transform t in GetComponentsInChildren<Transform>())
         {
             t.gameObject.SetActive(true);

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerBehaviour : CreatureBehaviour
 {
     [HideInInspector]
-    public List<CardBehaviour> deck;
+    public List<CardBehaviour> deck = new List<CardBehaviour>();
 
     [HideInInspector]
     public BoardBehaviour board;
@@ -17,12 +17,13 @@ public class PlayerBehaviour : CreatureBehaviour
     /// <summary>
     /// 设置玩家的持有物
     /// </summary>
-    /// <param name="cards">卡牌</param>
+    /// <param name="deck">卡牌</param>
     /// <param name="board">棋盘</param>
     /// <param name="nutrition">货币</param>
-    public void SetBackpack(List<CardBehaviour> cards, BoardBehaviour board, int nutrition)
+    public void SetBackpack(List<CardBehaviour> deck, BoardBehaviour board, int nutrition)
     {
-        deck = cards;
+        this.deck.Clear();
+        this.deck.AddRange(deck);
         this.board = board;
         this.nutrition = nutrition;
     }

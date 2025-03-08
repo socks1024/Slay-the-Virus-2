@@ -61,7 +61,8 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void AddCardAnim(CardBehaviour card)
     {
-        card.transform.parent = transform;
+        card.transform.SetParent(transform, false);
+        card.GetComponent<CardUI>().UIState = UIStates.HAND;
     }
 
     /// <summary>
@@ -94,7 +95,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void DrawCardAnim(CardBehaviour card)
     {
-        card.transform.parent = transform;
+        card.transform.SetParent(transform, false);
     }
 
     # endregion

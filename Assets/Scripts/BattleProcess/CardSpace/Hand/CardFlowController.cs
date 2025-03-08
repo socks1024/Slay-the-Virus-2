@@ -86,8 +86,15 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void DrawCard()
     {
+        if (hand.Count >= handLimit)
+        {
+            print("Hand Full");
+            return;
+        }
+        drawPile.GetCards().ForEach(card => { print(card);} );
         if (drawPile.IsEmpty)
         {
+            print("empty draw pile");
             ReshuffleDrawPileFromDiscardPile();
         }
         CardBehaviour card = drawPile.DrawCard();

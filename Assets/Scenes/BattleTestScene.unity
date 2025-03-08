@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cba70cb219a6f24ca45d2b34c4c7c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 000
+  ID: Player
   MaxHealth: 10
   deck: []
   board: {fileID: 0}
@@ -232,7 +232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -345}
+  m_AnchoredPosition: {x: 444, y: -421}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547637796
@@ -299,6 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581629620}
   - component: {fileID: 581629621}
+  - component: {fileID: 581629622}
   m_Layer: 5
   m_Name: Enemies
   m_TagString: Untagged
@@ -322,8 +323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -541, y: 0}
+  m_SizeDelta: {x: 600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581629621
 MonoBehaviour:
@@ -337,6 +338,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254f757440eae3d45a7711306d4a57b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &581629622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581629619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &645845126
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c44cfa25618744871ba39b75d3860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards:
+  cardPrefabs:
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
@@ -594,8 +621,8 @@ MonoBehaviour:
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  board: {fileID: 1539335273934944882, guid: f787eb90280b90b4e878f83f5faf2995, type: 3}
-  enemies:
+  boardPrefab: {fileID: 1539335273934944882, guid: f787eb90280b90b4e878f83f5faf2995, type: 3}
+  enemyPrefabs:
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}

@@ -29,9 +29,10 @@ public class BattleManager : MonoSingleton<BattleManager>
     public void InitializeEncounter(List<EnemyBehaviour> enemies)
     {
         board = player.board;
-        board.transform.parent = boardRoot;
+        board.transform.SetParent(boardRoot, false);
+        cardFlow.FillDrawPile(player.deck);
 
-        enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e.GetComponent<EnemyBehaviour>(),0);});
+        enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
 
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
     }

@@ -8,7 +8,7 @@ public class EnemyGroup : MonoBehaviour
     /// <summary>
     /// 本场战斗的全部敌人，按照行动顺序排列
     /// </summary>
-    List<EnemyBehaviour> enemies;
+    List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class EnemyGroup : MonoBehaviour
     /// <param name="moveIndex">敌人的行动顺序（从0开始）</param>
     public void AddEnemyToBattle(EnemyBehaviour enemy, int moveIndex)
     {
-        enemy.transform.parent = transform;
+        enemy.transform.SetParent(transform, false);
         enemies.Insert(moveIndex, enemy);
     }
 
@@ -79,6 +79,9 @@ public class EnemyGroup : MonoBehaviour
     /// </summary>
     public void ClearEnemy()
     {
-        enemies.ForEach(enemy => { DestroyEnemyFromBattle(enemy); });
+        for (int i = enemies.Count - 1; i >= 0; i--)
+        {
+            DestroyEnemyFromBattle(enemies[i]);
+        }
     }
 }

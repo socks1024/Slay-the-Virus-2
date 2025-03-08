@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(HoldIntention))]
 [RequireComponent(typeof(AnimateIntention))]
-[RequireComponent(typeof(SimpleEnemyShow))]
 public abstract class EnemyBehaviour : CreatureBehaviour
 {
     /// <summary>
@@ -18,11 +17,6 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// 将会被触发的意图
     /// </summary>
     public IntentionBehaviour intention;
-
-    /// <summary>
-    /// 敌人图片
-    /// </summary>
-    public Sprite sprite;
 
     /// <summary>
     /// 该敌人经历的总回合数

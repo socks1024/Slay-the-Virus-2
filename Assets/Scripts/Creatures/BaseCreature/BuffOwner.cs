@@ -8,7 +8,7 @@ public class BuffOwner : MonoBehaviour
     /// <summary>
     /// 持有的各种状态效果
     /// </summary>
-    List<BuffBehaviour> Buffs{ get; set;}
+    List<BuffBehaviour> buffs = new List<BuffBehaviour>();
 
     /// <summary>
     /// 获得一些Buff
@@ -18,7 +18,7 @@ public class BuffOwner : MonoBehaviour
     {
         bool hasSameBuff = false;
 
-        foreach (BuffBehaviour oldBuff in Buffs)
+        foreach (BuffBehaviour oldBuff in buffs)
         {
             if (oldBuff.ID == newBuff.ID)
             {
@@ -29,7 +29,7 @@ public class BuffOwner : MonoBehaviour
 
         if (!hasSameBuff)
         {
-            Buffs.Add(newBuff);
+            buffs.Add(newBuff);
             newBuff.Owner = GetComponent<CreatureBehaviour>();
         }
     }
@@ -41,7 +41,7 @@ public class BuffOwner : MonoBehaviour
     /// <returns>特定Buff的持有量</returns>
     public int GetBuffAmount(string ID)
     {
-        foreach (BuffBehaviour oldBuff in Buffs)
+        foreach (BuffBehaviour oldBuff in buffs)
         {
             if (oldBuff.ID == ID)
             {
@@ -56,7 +56,7 @@ public class BuffOwner : MonoBehaviour
     /// </summary>
     public void ClearBuff()
     {
-        Buffs.Clear();
+        buffs.Clear();
     }
 
     void Start()

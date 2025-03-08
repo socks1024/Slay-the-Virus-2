@@ -8,7 +8,7 @@ public class CardPile
     /// <summary>
     /// 该牌堆里存储的所有卡牌的列表
     /// </summary>
-    List<CardBehaviour> cards;
+    List<CardBehaviour> cards = new List<CardBehaviour>();
 
     /// <summary>
     /// 该牌堆是否为空
@@ -81,9 +81,13 @@ public class CardPile
     /// <returns>该牌堆中的第一张牌</returns>
     public CardBehaviour DrawCard()
     {
-        CardBehaviour card = cards[0];
-        cards.RemoveAt(0);
-        return card;
+        if (!IsEmpty)
+        {
+            CardBehaviour card = cards[0];
+            cards.RemoveAt(0);
+            return card;
+        }
+        return null;
     }
 
     /// <summary>
@@ -96,27 +100,20 @@ public class CardPile
     }
 
     /// <summary>
-    /// 抽取指定数量张牌
-    /// </summary>
-    /// <param name="count">指定数量</param>
-    /// <returns>包含指定数量张牌的队列</returns>
-    public List<CardBehaviour> DrawCards(int count)
-    {
-        List<CardBehaviour> retCards = new List<CardBehaviour>();
-        for (int i = 0; i < count; i++)
-        {
-            retCards.Add(DrawCard());
-        }
-        return retCards;
-    }
-
-    /// <summary>
     /// 将指定的一队列卡牌加入该牌堆
     /// </summary>
     /// <param name="newCards">指定卡牌队列</param>
     public void AddCards(List<CardBehaviour> newCards)
     {
+        if(newCards == null || newCards.Count == 0)
+        {
+            Debug.Log("nothing added");
+        }
         cards.AddRange(newCards);
+        if (cards.Count <= 0)
+        {
+            Debug.Log("add failed");
+        }
     }
 
     /// <summary>
