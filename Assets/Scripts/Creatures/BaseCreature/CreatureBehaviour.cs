@@ -25,7 +25,7 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// </summary>
     public abstract void OnBattleStart();
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         GetComponent<TakeDamage>().ActOnDead += OnDead;
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);

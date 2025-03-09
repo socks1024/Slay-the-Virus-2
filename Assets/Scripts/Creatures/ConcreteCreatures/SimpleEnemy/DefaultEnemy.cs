@@ -18,11 +18,11 @@ public class DefaultEnemy : EnemyBehaviour
     {
         if (turnCount % 2 == 1)
         {
-            GetComponent<HoldIntention>().SetIntention("DefaultIntention1");
+            holdIntention.SetIntention("Default1");
         }
         else
         {
-            GetComponent<HoldIntention>().SetIntention("DefaultIntention2");
+            holdIntention.SetIntention("Default2");
         }
     }
 }

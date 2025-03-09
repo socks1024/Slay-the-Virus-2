@@ -17,7 +17,7 @@ public class EnemyGroup : MonoBehaviour
             enemies.Add(enemy);
         }
         EventCenter.Instance.AddEventListener(EventType.CARD_ACT_END, EnemyAct);
-        EventCenter.Instance.AddEventListener(EventType.BATTLE_START, ClearEnemy);
+        EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearEnemy);
     }
 
     /// <summary>
@@ -55,8 +55,8 @@ public class EnemyGroup : MonoBehaviour
     /// <param name="enemy">要销毁的敌人</param>
     public void DestroyEnemyFromBattle(EnemyBehaviour enemy)
     {
-        Destroy(enemy);
         enemies.Remove(enemy);
+        Destroy(enemy.gameObject);
         if (enemies.Count == 0)
         {
             EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
@@ -72,6 +72,17 @@ public class EnemyGroup : MonoBehaviour
         {
             enemy.ActOnEnemyMove();
         }
+        //在这之间加动画？
+        TriggerEnemyActEnd();
+    }
+
+    /// <summary>
+    /// 敌人行动结束时调用
+    /// </summary>
+    public void TriggerEnemyActEnd()
+    {
+        enemies.ForEach(enemy => { enemy.ActOnEnemyTurnEnd(); });
+        EventCenter.Instance.TriggerEvent(EventType.ENEMY_ACT_END);
     }
 
     /// <summary>

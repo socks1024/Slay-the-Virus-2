@@ -15,7 +15,7 @@ public class AnimationController : MonoSingleton<AnimationController>
     /// </summary>
     public void OnCardActAnimationEnd()
     {
-        EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
+        //EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
     }
 
     
@@ -25,6 +25,6 @@ public class AnimationController : MonoSingleton<AnimationController>
     /// </summary>
     public void OnEnemyActAnimationEnd()
     {
-        EventCenter.Instance.TriggerEvent(EventType.ENEMY_ACT_END);
+        //EventCenter.Instance.TriggerEvent(EventType.ENEMY_ACT_END);
     }
 }

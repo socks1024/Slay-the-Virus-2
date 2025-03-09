@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d1ac2cc34c67140a7787b243a11bdf, type: 3}
   m_Name: DefaultIntention2
   m_EditorClassIdentifier: 
-  ID: DefaultIntention2
+  ID: Default2
   intentionType: 6
   targetType: 4
   Amount: 0

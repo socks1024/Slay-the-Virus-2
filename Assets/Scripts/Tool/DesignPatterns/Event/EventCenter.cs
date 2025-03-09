@@ -33,6 +33,7 @@ public class EventCenter : BaseSingleton<EventCenter>
 
     public void TriggerEvent(EventType name)
     {
+        Debug.Log("！！！！！！" + name + "！！！！！！");
         if (eventDic.ContainsKey(name))
         {
             (eventDic[name] as EventInfo).actions?.Invoke();
@@ -98,6 +99,7 @@ public class EventCenter : BaseSingleton<EventCenter>
 
     public void EventTrigger_Priority(EventType name)
     {
+        Debug.Log("！！！！！！" + name + "！！！！！！");
         if (eventDic.ContainsKey(name))
         {
             (eventDic[name] as PriorityEventInfo).allActions.ForEach(val => { val.Action?.Invoke(); });
@@ -157,7 +159,7 @@ public enum EventType
     BATTLE_WIN,
     //指栽坪並周
     TURN_START,
-    TURN_END,
+    ACT_START,
     CARD_ACT_END,
     ENEMY_ACT_END,
 }

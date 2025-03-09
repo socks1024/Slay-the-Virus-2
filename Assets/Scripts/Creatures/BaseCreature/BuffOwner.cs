@@ -62,6 +62,6 @@ public class BuffOwner : MonoBehaviour
     void Start()
     {
         ClearBuff();
-        EventCenter.Instance.AddEventListener(EventType.TURN_END, ClearBuff);
+        EventCenter.Instance.AddEventListener(EventType.ACT_START, ClearBuff);
     }
 }

@@ -30,14 +30,21 @@ public class TetrisAssembler : MonoBehaviour
     /// </summary>
     Transform tetrisRoot;
 
+    /// <summary>
+    /// 卡牌核心组件
+    /// </summary>
+    CardBehaviour card;
+
     void Start()
     {
-        CardShape = GetComponent<CardBehaviour>().CardShape;
-        ConditionsShape = GetComponent<CardBehaviour>().ConditionsShape;
-        BlockTex = GetComponent<CardBehaviour>().cardData.BlockTex;
+        card = GetComponent<CardBehaviour>();
+        CardShape = card.CardShape;
+        ConditionsShape = card.ConditionsShape;
+        BlockTex = card.cardData.BlockTex;
         tetrisRoot = transform.Find("BlockMode");
 
         AssembleBlocks();
+        card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
     }
 
     /// <summary>
@@ -45,6 +52,10 @@ public class TetrisAssembler : MonoBehaviour
     /// </summary>
     void AssembleBlocks()
     {
+        if (CardShape == null)
+        {
+            print("null shape");
+        }
         foreach (Vector2 v in CardShape)
         {
             GameObject block = new GameObject("block" + v.ToString());

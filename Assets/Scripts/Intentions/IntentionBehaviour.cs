@@ -50,7 +50,7 @@ public abstract class IntentionBehaviour : MonoBehaviour
     /// </summary>
     public void ActOnEnemyTurn()
     {
-
+        print(Description + "Act");
     }
 
     protected virtual void Start()

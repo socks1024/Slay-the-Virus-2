@@ -26,11 +26,14 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <summary>
     /// 初始化棋盘
     /// </summary>
-    protected virtual void InitializeBoard()
+    protected virtual void Start()
     {
         InitGetAllSquares();
-        //InitializeSquares();
+        InitializeSquares();
+        EventCenter.Instance.AddEventListener(EventType.ACT_START, OnActStart);
     }
+
+    # region Place cards
 
     /// <summary>
     /// 获取所有格子子物体并保存,x坐标为行，y坐标为列
@@ -128,6 +131,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     {
         if (hoveredSquare == null)
         {
+            print("no hovered");
             return false;
         }
         
@@ -243,12 +247,35 @@ public abstract class BoardBehaviour : MonoBehaviour
         return GetFilledSquareCount() == 5 * 5;
     }
 
+    /// <summary>
+    /// 检查整张游戏盘是否为空
+    /// </summary>
+    /// <returns>是否为空</returns>
+    public bool IsEmptyBoard()
+    {
+        return GetFilledSquareCount() == 0;
+    }
+
+    # endregion
+
     # region Play Cards
+
+    /// <summary>
+    /// 玩家按下ACT时触发的回调
+    /// </summary>
+    public void OnActStart()
+    {
+        if (IsEmptyBoard())
+        {
+            TriggerCardActEnd();
+        }
+        PlayNoTargetCards();
+    }
 
     /// <summary>
     /// 一次性打出所有不需要选择目标的卡牌
     /// </summary>
-    public void PlayNonTargetCards()
+    public void PlayNoTargetCards()
     {
         foreach (CardBehaviour card in GetPlacedCards())
         {
@@ -268,7 +295,20 @@ public abstract class BoardBehaviour : MonoBehaviour
         print(card.Id);
         RemoveCard(card);
         card.ActOnCardAct();
-        //进入弃牌堆
+        BattleManager.Instance.cardFlow.DiscardCard(card);
+
+        if (IsEmptyBoard())
+        {
+            TriggerCardActEnd();
+        }
+    }
+
+    /// <summary>
+    /// 所有卡牌都打完时触发
+    /// </summary>
+    public void TriggerCardActEnd()
+    {
+        EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
     }
 
     # endregion
@@ -276,7 +316,14 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <summary>
     /// 游戏盘初始的格子启用情况
     /// </summary>
-    protected bool[,] activateSquares = {};
+    protected bool[,] activateSquares = new bool[5,5]
+    {
+        {true,true,true,true,true},
+        {true,true,true,true,true},
+        {true,true,true,true,true},
+        {true,true,true,true,true},
+        {true,true,true,true,true},
+    };
 
     /// <summary>
     /// 游戏盘的背景

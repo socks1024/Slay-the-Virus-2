@@ -6,6 +6,6 @@ public class ActButton : MonoBehaviour
 {
     public void Act()
     {
-        EventCenter.Instance.TriggerEvent(EventType.TURN_END);
+        EventCenter.Instance.TriggerEvent(EventType.ACT_START);
     }
 }

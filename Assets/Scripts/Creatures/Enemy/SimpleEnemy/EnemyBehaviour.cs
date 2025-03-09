@@ -10,26 +10,27 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// <summary>
     /// 可以触发的所有意图
     /// </summary>
-    public List<IntentionBehaviour> IntentionsAvailable;
+    public List<IntentionBehaviour> IntentionPrefabsAvailable;
 
-    [HideInInspector]
     /// <summary>
     /// 将会被触发的意图
     /// </summary>
     public IntentionBehaviour intention;
 
     /// <summary>
-    /// 该敌人经历的总回合数
+    /// 该敌人经历的总回合数，从 1 开始计算，每回合结束 + 1
     /// </summary>
-    int turnCount = 0;
+    protected int turnCount{ get{ return BattleManager.Instance.turnCount; }}
 
     /// <summary>
-    /// 在战斗开始时被调用
+    /// 意图逻辑处理组件
     /// </summary>
-    public virtual void ActOnBattleStart()
-    {
-        
-    }
+    protected HoldIntention holdIntention;
+
+    /// <summary>
+    /// 意图显示处理组件
+    /// </summary>
+    protected AnimateIntention animateIntention;
 
     /// <summary>
     /// 在每个回合开始时被调用
@@ -38,7 +39,7 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     {
         //设置意图
         SetIntention(turnCount);
-        GetComponent<AnimateIntention>().SetIntentionPosition();
+        animateIntention.SetIntentionPosition();
     }
 
     /// <summary>
@@ -47,21 +48,26 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     public virtual void ActOnEnemyMove()
     {
         //执行意图
-        GetComponent<HoldIntention>().TriggerIntention();
-        GetComponent<AnimateIntention>().PlayIntentionAnimation();
-
-        //消去意图
-        GetComponent<HoldIntention>().ClearIntention();
-        GetComponent<AnimateIntention>().SetIntentionPosition();
+        holdIntention.TriggerIntention();
+        animateIntention.PlayIntentionAnimation();
     }
 
-    protected override void Start()
+    /// <summary>
+    /// 在敌人行动结束之后调用
+    /// </summary>
+    public virtual void ActOnEnemyTurnEnd()
     {
-        base.Start();
-        EventCenter.Instance.AddEventListener(EventType.BATTLE_START, ActOnBattleStart);
+        //消去意图
+        animateIntention.ClearIntention();
+        holdIntention.ClearIntention();
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        holdIntention = GetComponent<HoldIntention>();
+        animateIntention = GetComponent<AnimateIntention>();
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
-        EventCenter.Instance.AddEventListener(EventType.CARD_ACT_END, ActOnEnemyMove);
-        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, () => turnCount++ );
     }
 
     /// <summary>

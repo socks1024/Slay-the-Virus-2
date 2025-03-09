@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e50b574931a0b04eb327dae82e35fd2, type: 3}
   m_Name: DefaultCard
   m_EditorClassIdentifier: 
-  Id: 000
+  Id: DefaultCard
   AbilityType: 0
   TargetType: 1
   RarityType: 0

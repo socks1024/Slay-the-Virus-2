@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 93
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: DefaultEnemy
   MaxHealth: 10
-  IntentionsAvailable:
+  IntentionPrefabsAvailable:
   - {fileID: 5618804424645045575, guid: bd093b924154c6743ae5811004064132, type: 3}
   - {fileID: -2863881502213159561, guid: a553412ea42be3849b1ac4972f9d67a5, type: 3}
   intention: {fileID: 0}

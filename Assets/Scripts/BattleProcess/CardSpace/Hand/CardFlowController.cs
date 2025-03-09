@@ -38,7 +38,7 @@ public class CardFlowController : MonoBehaviour
     {
         handAnimation = GetComponent<HandAnimation>();
         EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(autoDrawAmount); });
-        EventCenter.Instance.AddEventListener(EventType.TURN_END, () => { DiscardAllCard(); });
+        EventCenter.Instance.AddEventListener(EventType.ACT_START, () => { DiscardAllCard(); });
     }
 
     /// <summary>
@@ -46,6 +46,7 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void AddCardToHand(CardBehaviour card)
     {
+        card.GetComponent<CardUI>().UIState = UIStates.HAND;
         hand.AddCard(card);
         handAnimation.AddCardAnim(card);
     }
@@ -66,6 +67,9 @@ public class CardFlowController : MonoBehaviour
     public void DiscardCard(CardBehaviour card)
     {
         hand.RemoveCard(card);
+
+        card.ActOnDiscard();
+        
         discardPile.AddCard(card);
         handAnimation.DiscardCardAnim(card);
     }
@@ -75,9 +79,9 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void DiscardAllCard()
     {
-        foreach (CardBehaviour card in hand.GetCards())
+        for (int i = hand.Count - 1; i >= 0; i--)
         {
-            DiscardCard(card);
+            DiscardCard(hand.GetCards()[0]);
         }
     }
 
@@ -91,14 +95,11 @@ public class CardFlowController : MonoBehaviour
             print("Hand Full");
             return;
         }
-        drawPile.GetCards().ForEach(card => { print(card);} );
         if (drawPile.IsEmpty)
         {
             ReshuffleDrawPileFromDiscardPile();
         }
-        CardBehaviour card = drawPile.DrawCard();
-        hand.AddCard(card);
-        handAnimation.DrawCardAnim(card);
+        AddCardToHand(drawPile.DrawCard());
     }
 
     /// <summary>
@@ -118,8 +119,10 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void ReshuffleDrawPileFromDiscardPile()
     {
-        drawPile.AddCards(discardPile.GetCards());
-        discardPile.ClearCards();
+        for (int i = discardPile.Count - 1; i >= 0; --i)
+        {
+            drawPile.AddCard(discardPile.DrawCard());
+        }
         drawPile.ShuffleCard();
     }
 

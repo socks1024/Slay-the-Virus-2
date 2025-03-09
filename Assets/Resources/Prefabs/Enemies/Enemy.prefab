@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6686561371691483152}
   - component: {fileID: 7579927599571553805}
   - component: {fileID: 5628389649302327424}
+  - component: {fileID: -5939539951567239746}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: SimpleEnemy
@@ -160,3 +161,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8124231872743290648}
   m_CullTransparentMesh: 1
+--- !u!65 &-5939539951567239746
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8124231872743290648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 400, y: 300, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

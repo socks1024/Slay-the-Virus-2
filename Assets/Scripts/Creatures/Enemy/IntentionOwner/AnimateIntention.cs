@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AnimateIntention : MonoBehaviour
@@ -23,8 +24,8 @@ public class AnimateIntention : MonoBehaviour
     /// </summary>
     public void SetIntentionPosition()
     {
-        intention.transform.parent = intentionOffset;
-        intention.transform.position = Vector3.zero;
+        intention.transform.SetParent(intentionOffset.transform, false);
+        intention.transform.localPosition = Vector3.zero;
         intention.gameObject.SetActive(true);
     }
 
@@ -41,10 +42,7 @@ public class AnimateIntention : MonoBehaviour
     /// </summary>
     public void ClearIntention()
     {
-        foreach (Transform intention in intentionOffset.GetComponentsInChildren<Transform>())
-        {
-            intention.parent = null;
-        }
+        Destroy(intention.gameObject);
     }
 
     
