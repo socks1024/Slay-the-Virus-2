@@ -29,6 +29,8 @@ public class TakeDamage : MonoBehaviour
             }
 
             health = value;
+            
+            OnHealthChange?.Invoke(health, block);
         }
     }
     int health;
@@ -46,9 +48,16 @@ public class TakeDamage : MonoBehaviour
                 value = 0;
             }
             block = value;
+            
+            OnHealthChange?.Invoke(health, block);
         }
     }
     int block;
+
+    /// <summary>
+    /// 改变生命状态时触发的回调
+    /// </summary>
+    public UnityAction<int,int> OnHealthChange;
 
     /// <summary>
     /// 死亡时触发的回调

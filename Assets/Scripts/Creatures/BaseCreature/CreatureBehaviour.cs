@@ -15,6 +15,7 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// 最大生命值
     /// </summary>
     public int MaxHealth;
+    
     /// <summary>
     /// 死亡时触发的回调
     /// </summary>

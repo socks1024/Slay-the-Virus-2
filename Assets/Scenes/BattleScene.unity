@@ -569,6 +569,7 @@ MonoBehaviour:
   cardFlow: {fileID: 547637798}
   enemyGroup: {fileID: 581629621}
   player: {fileID: 193435146}
+  turnCount: 1
 --- !u!4 &978686530
 Transform:
   m_ObjectHideFlags: 0

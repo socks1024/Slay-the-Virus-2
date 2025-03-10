@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class BuffOwner : MonoBehaviour
@@ -9,6 +10,11 @@ public class BuffOwner : MonoBehaviour
     /// 持有的各种状态效果
     /// </summary>
     List<BuffBehaviour> buffs = new List<BuffBehaviour>();
+
+    /// <summary>
+    /// 改变Buff时触发的回调
+    /// </summary>
+    public UnityAction<List<BuffBehaviour>> OnChangeBuff;
 
     /// <summary>
     /// 获得一些Buff
@@ -64,4 +70,6 @@ public class BuffOwner : MonoBehaviour
         ClearBuff();
         EventCenter.Instance.AddEventListener(EventType.ACT_START, ClearBuff);
     }
+
+
 }
