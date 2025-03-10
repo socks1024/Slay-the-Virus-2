@@ -13,7 +13,7 @@ public class CardPile
     /// <summary>
     /// 该牌堆是否为空
     /// </summary>
-    public bool IsEmpty{ get{ return cards.Count > 0;}}
+    public bool IsEmpty{ get{ return cards.Count <= 0;}}
 
     /// <summary>
     /// 该牌堆牌的数量
@@ -105,15 +105,7 @@ public class CardPile
     /// <param name="newCards">指定卡牌队列</param>
     public void AddCards(List<CardBehaviour> newCards)
     {
-        if(newCards == null || newCards.Count == 0)
-        {
-            Debug.Log("nothing added");
-        }
         cards.AddRange(newCards);
-        if (cards.Count <= 0)
-        {
-            Debug.Log("add failed");
-        }
     }
 
     /// <summary>

@@ -19,12 +19,16 @@ public class TestBattle : MonoBehaviour
     /// </summary>
     public List<EnemyBehaviour> enemyPrefabs;
 
+    bool b = true;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && b)
         {
             BattleManager.Instance.player.SetBackpack(InstantiateHelper.MultipleInstatiate<CardBehaviour>(cardPrefabs), Instantiate(boardPrefab), 0);
             BattleManager.Instance.InitializeEncounter(InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(enemyPrefabs));
+            EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+            b = false;
         }
     }
 

@@ -8,7 +8,7 @@ public class IntentionShow : MonoBehaviour
     /// <summary>
     /// 显示意图强度的文字
     /// </summary>
-    TextMeshPro tmp;
+    TextMeshProUGUI tmp;
 
     /// <summary>
     /// 显示意图图片
@@ -34,7 +34,7 @@ public class IntentionShow : MonoBehaviour
 
     void Start()
     {
-        tmp = GetComponent<TextMeshPro>();
+        tmp = GetComponent<TextMeshProUGUI>();
         //sr = GetComponent<SpriteRenderer>();
         intention = GetComponent<IntentionBehaviour>();
 

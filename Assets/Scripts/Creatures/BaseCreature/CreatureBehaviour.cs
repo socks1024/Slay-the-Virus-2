@@ -15,6 +15,7 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// 最大生命值
     /// </summary>
     public int MaxHealth;
+    
     /// <summary>
     /// 死亡时触发的回调
     /// </summary>
@@ -25,7 +26,7 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// </summary>
     public abstract void OnBattleStart();
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         GetComponent<TakeDamage>().ActOnDead += OnDead;
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);

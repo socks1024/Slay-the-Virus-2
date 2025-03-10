@@ -44,6 +44,7 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void Start()
     {
+        mainCam = Camera.main;
         card = transform.parent.parent.GetComponent<CardBehaviour>();
         targetType = card.TargetType;
         cardUI = card.GetComponent<CardUI>();
@@ -77,6 +78,15 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             {
                 card.transform.position = originPosition;
             }
+        }
+    }
+
+    public void OnDrawGizmos()
+    {
+        if (targetSettable)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
         }
     }
 }

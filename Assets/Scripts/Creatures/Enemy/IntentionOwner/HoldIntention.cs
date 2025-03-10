@@ -19,11 +19,11 @@ public class HoldIntention : MonoBehaviour
     /// <param name="ID">该意图的ID</param>
     public void SetIntention(string ID)
     {
-        foreach (IntentionBehaviour intention in GetComponent<EnemyBehaviour>().IntentionsAvailable)
+        foreach (IntentionBehaviour intentionPrefab in GetComponent<EnemyBehaviour>().IntentionPrefabsAvailable)
         {
-            if(ID == intention.ID)
+            if(ID.Equals(intentionPrefab.ID))
             {
-                this.intention = intention;
+                intention = Instantiate(intentionPrefab);
             }
         }
     }

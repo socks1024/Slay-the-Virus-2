@@ -70,7 +70,8 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void ReleaseCardAnim(CardBehaviour card)
     {
-        card.transform.parent = transform.parent;
+        card.transform.SetParent(transform.parent, false);
+        card.GetComponent<CardUI>().UIState = UIStates.DRAG;
     }
 
     # endregion
@@ -83,7 +84,7 @@ public class HandAnimation : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCardAnim(CardBehaviour card)
     {
-        card.transform.parent = null;
+        card.transform.SetParent(null);
     }
 
     #endregion

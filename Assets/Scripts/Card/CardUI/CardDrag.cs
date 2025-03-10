@@ -48,12 +48,16 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (cardUI.UIState == UIStates.PLACED)
+        if (cardUI.UIState != UIStates.SETTING_TARGET)
         {
-            boardData.RemoveCard(card);
-            card.ActOnRemoved();
+            if (cardUI.UIState == UIStates.PLACED)
+            {
+                boardData.RemoveCard(card);
+                card.ActOnRemoved();
+            }
+            BattleManager.Instance.cardFlow.ReleaseCardFromHand(card);
         }
-        cardUI.UIState = UIStates.DRAG;
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -67,16 +71,20 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (boardData.CanPlaceCard(cardRoot.GetComponent<CardBehaviour>()))
+        if (cardUI.UIState != UIStates.SETTING_TARGET)
         {
-            boardData.PlaceCard(cardRoot.GetComponent<CardBehaviour>());
-            card.ActOnPlaced();
-            cardUI.UIState = UIStates.PLACED;
+            if (boardData.CanPlaceCard(cardRoot.GetComponent<CardBehaviour>()))
+            {
+                boardData.PlaceCard(cardRoot.GetComponent<CardBehaviour>());
+                card.ActOnPlaced();
+                cardUI.UIState = UIStates.PLACED;
+            }
+            else
+            {
+                BattleManager.Instance.cardFlow.AddCardToHand(card);
+            }
         }
-        else
-        {
-            cardUI.UIState = UIStates.HAND;
-        }
+
     }
     
 }

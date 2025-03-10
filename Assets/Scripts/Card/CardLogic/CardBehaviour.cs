@@ -93,7 +93,7 @@ public abstract class CardBehaviour : MonoBehaviour
 
     #endregion
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         CardShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.CardShape);
         ConditionsShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.ConditionsShape);

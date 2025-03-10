@@ -15,6 +15,8 @@ public class BattleManager : MonoSingleton<BattleManager>
 
     public PlayerBehaviour player;
 
+    public int turnCount = 1;
+
 
     public void Start()
     {
@@ -33,8 +35,6 @@ public class BattleManager : MonoSingleton<BattleManager>
         cardFlow.FillDrawPile(player.deck);
 
         enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
-
-        EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
     }
 
     /// <summary>
@@ -50,6 +50,7 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// </summary>
     public void OnAllActEnd()
     {
+        turnCount += 1;
         EventCenter.Instance.TriggerEvent(EventType.TURN_START);
     }
 

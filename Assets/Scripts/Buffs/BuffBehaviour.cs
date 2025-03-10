@@ -44,7 +44,7 @@ public abstract class BuffBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-        EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
+        EventCenter.Instance.AddEventListener(EventType.ACT_START, ActOnTurnEnd);
     }
 }
 

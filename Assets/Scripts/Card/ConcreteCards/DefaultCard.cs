@@ -21,6 +21,6 @@ public class DefaultCard : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        print("TurnEnd");
+        print("CardAct");
     }
 }
