@@ -23,7 +23,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo).actions?.AddListener(action);
+            (eventDic[name] as EventInfo).actions += action;
         }
         else
         {
@@ -43,7 +43,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo).actions?.RemoveListener(action);
+            (eventDic[name] as EventInfo).actions -= action;
         }
     }
 
@@ -55,7 +55,7 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo<T>).actions?.AddListener(action);
+            (eventDic[name] as EventInfo<T>).actions += action;
         }
         else
         {
@@ -75,17 +75,83 @@ public class EventCenter : BaseSingleton<EventCenter>
     {
         if (eventDic.ContainsKey(name))
         {
-            (eventDic[name] as EventInfo<T>).actions?.RemoveListener(action);
+            (eventDic[name] as EventInfo<T>).actions -= action;
         }
     }
 
     #endregion
 
+    #region no argument has priority
+
+    public void AddEventListener(EventType name, PriorityAction priorityAction) 
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            //因为是父类（IEventInfo）装子类（EventInfo），先as为子类（EventInfo），再使用其中的actions
+            (eventDic[name] as PriorityEventInfo).Remove(priorityAction);
+        }
+        else
+        {
+            eventDic.Add(name, new PriorityEventInfo(priorityAction));
+        }
+    }
+
+    public void EventTrigger_Priority(EventType name)
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            (eventDic[name] as PriorityEventInfo).allActions.ForEach(val => { val.Action?.Invoke(); });
+        }
+    }
+
+    public void RemoveEventListenerEventListener(EventType name, PriorityAction priorityAction) 
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            (eventDic[name] as PriorityEventInfo).RemoveEvent(priorityAction);
+        }
+    }
+
+    #endregion
+
+    #region has argument and priority
+
+    public void AddEventListener<T>(EventType name, PriorityAction<T> priorityAction) 
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            //因为是父类（IEventInfo）装子类（EventInfo），先as为子类（EventInfo），再使用其中的actions
+            (eventDic[name] as PriorityEventInfo<T>).RemoveEvent(priorityAction);
+        }
+        else
+        {
+            eventDic.Add(name, new PriorityEventInfo<T>(priorityAction));
+        }
+    }
+
+    public void EventTrigger_Priority<T>(EventType name, T info)
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            (eventDic[name] as PriorityEventInfo<T>).allActions.ForEach(val => { val.Action?.Invoke(info); });
+        }
+    }
+
+    public void RemoveEventListenerEventListener<T>(EventType name, PriorityAction<T> priorityAction) 
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            (eventDic[name] as PriorityEventInfo<T>).RemoveEvent(priorityAction);
+        }
+    }
+
+    #endregion
 }
 
 public enum EventType
 {
     //战斗事件
+    BATTLE_START,
     PLAYER_DEAD,
     SINGLE_ENEMY_KILLED,
     BATTLE_WIN,

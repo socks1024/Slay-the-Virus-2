@@ -42,9 +42,11 @@ public class CardUI : MonoBehaviour
             switch(uiState)
             {
                 case UIStates.HAND:
-                    PlayerBattleManager.Instance.hand.RemoveCard(cardBehaviour);
+                    BattleManager.Instance.cardFlow.ReleaseCardFromHand(cardBehaviour);
                     break;
                 case UIStates.PLACED:
+                    break;
+                case UIStates.SETTING_TARGET:
                     break;
                 case UIStates.DRAG:
                     break;
@@ -61,12 +63,15 @@ public class CardUI : MonoBehaviour
             switch(uiState)
             {
                 case UIStates.HAND:
-                    PlayerBattleManager.Instance.hand.AddCard(cardBehaviour);
+                    BattleManager.Instance.cardFlow.AddCardToHand(cardBehaviour);
                     GetComponent<CardRotate>().Homing();
                     SetAllUIProp(CardMode.CARD,true,false,true);
                     break;
                 case UIStates.PLACED:
                     SetAllUIProp(CardMode.BLOCKS,true,false,true);
+                    break;
+                case UIStates.SETTING_TARGET:
+                    SetAllUIProp(CardMode.BLOCKS,false,false,true);
                     break;
                 case UIStates.DRAG:
                     SetAllUIProp(CardMode.BLOCKS,true,false,false);
@@ -91,11 +96,12 @@ public class CardUI : MonoBehaviour
     void Start()
     {
         cardBehaviour = GetComponent<CardBehaviour>();
-        UIState = UIStates.HAND;
+        UIState = UIStates.ANIMATE;
         foreach (Transform t in GetComponentsInChildren<Transform>())
         {
             t.gameObject.SetActive(true);
         }
+        EventCenter.Instance.AddEventListener(EventType.TURN_END, OnTurnEnd);
     }
 
     /// <summary>
@@ -150,6 +156,21 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 玩家按下回合结束按钮时自动切换卡牌模式
+    /// </summary>
+    void OnTurnEnd()
+    {
+        if (UIState == UIStates.PLACED)
+        {
+            UIState = UIStates.SETTING_TARGET;
+        }
+        else
+        {
+            UIState = UIStates.ANIMATE;
+        }
+    }
+
 }
 
 /// <summary>
@@ -159,6 +180,7 @@ public enum UIStates
 {
     HAND,//CARD,DRAGABLE,HOVER_PREVIEW
     PLACED,//BLOCK,DRAGABLE,HOVER_PREVIEW
+    SETTING_TARGET,//BLOCK,HOVER_PREVIEW,SET_TARGET
     DRAG,//BLOCK,DRAGABLE
     ANIMATE,//CARD
     SHOW_CARD,//CARD,HOVER_PREVIEW

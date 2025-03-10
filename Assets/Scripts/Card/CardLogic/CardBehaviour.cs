@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CardPosition))]
+[RequireComponent(typeof(CardUI))]
+[RequireComponent(typeof(CardSwitchMode))]
+[RequireComponent(typeof(TetrisAssembler))]
 public abstract class CardBehaviour : MonoBehaviour
 {
     #region CardDataReference
@@ -61,10 +65,16 @@ public abstract class CardBehaviour : MonoBehaviour
 
     #region CardActs
 
+    [HideInInspector]
+    /// <summary>
+    /// 单个目标时瞄准的目标敌人
+    /// </summary>
+    public EnemyBehaviour targetEnemy;
+
     /// <summary>
     /// 卡牌的回合结束时效果
     /// </summary>
-    public abstract void ActOnTurnEnd();
+    public abstract void ActOnCardAct();
 
     /// <summary>
     /// 卡牌的填充时效果
@@ -83,11 +93,11 @@ public abstract class CardBehaviour : MonoBehaviour
 
     #endregion
 
-    void Start()
+    protected virtual void Start()
     {
         CardShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.CardShape);
         ConditionsShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.ConditionsShape);
-        EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
+        //EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
     }
 
 }

@@ -38,7 +38,6 @@ public class TetrisAssembler : MonoBehaviour
         tetrisRoot = transform.Find("BlockMode");
 
         AssembleBlocks();
-        print("assemble blocks");
     }
 
     /// <summary>
@@ -54,6 +53,7 @@ public class TetrisAssembler : MonoBehaviour
             block.AddComponent<CardDrag>();
             block.AddComponent<CardHover>();
             block.AddComponent<CardPress>();
+            block.AddComponent<CardSetTarget>();
 
             block.transform.localPosition = new Vector2(v.x, v.y);
             block.transform.localScale *= 0.01f;
