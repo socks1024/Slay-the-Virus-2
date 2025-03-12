@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BattleManager : MonoSingleton<BattleManager>
 {
-    [HideInInspector]
-    public BoardBehaviour board;
+    [HideInInspector] public BoardBehaviour board;
 
     public Transform boardRoot;
 
@@ -15,7 +14,7 @@ public class BattleManager : MonoSingleton<BattleManager>
 
     public PlayerBehaviour player;
 
-    public int turnCount = 1;
+    [HideInInspector] public int turnCount = 1;
 
 
     public void Start()
@@ -30,6 +29,8 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// </summary>
     public void InitializeEncounter(List<EnemyBehaviour> enemies)
     {
+        //还没有添加道具初始化
+
         board = player.board;
         board.transform.SetParent(boardRoot, false);
         cardFlow.FillDrawPile(player.deck);

@@ -10,6 +10,8 @@ public class PlayerBehaviour : CreatureBehaviour
 
     [HideInInspector]
     public BoardBehaviour board;
+
+    //public List<ItemBehaviour> items;
     
     [HideInInspector]
     public int nutrition = 0;

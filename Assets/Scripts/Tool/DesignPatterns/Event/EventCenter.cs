@@ -152,6 +152,7 @@ public class EventCenter : BaseSingleton<EventCenter>
 
 public enum EventType
 {
+    //副本事件
     //战斗事件
     BATTLE_START,
     PLAYER_DEAD,

@@ -19,12 +19,12 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// <summary>
     /// 生命处理组件的引用
     /// </summary>
-    public TakeDamage takeDamage;
+    [HideInInspector]public TakeDamage takeDamage;
 
     /// <summary>
     /// buff处理组件的引用
     /// </summary>
-    public BuffOwner buffOwner;
+    [HideInInspector]public BuffOwner buffOwner;
     
     /// <summary>
     /// 死亡时触发的回调
