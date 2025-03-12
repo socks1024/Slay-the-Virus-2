@@ -108,10 +108,11 @@ public class TakeDamage : MonoBehaviour
         Block = 0;
     }
 
-    void Start()
+    void Awake()
     {
         MaxHealth = GetComponent<CreatureBehaviour>().MaxHealth;
         Health = MaxHealth;
+        ClearBlock();
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearBlock);
     }
 }

@@ -11,7 +11,8 @@ public class DefaultEnemy : EnemyBehaviour
 
     public override void OnDead()
     {
-        //throw new System.NotImplementedException();
+        print(name + " Dead");
+        BattleManager.Instance.enemyGroup.DestroyEnemyFromBattle(this);
     }
 
     public override void SetIntention(int turnCount)

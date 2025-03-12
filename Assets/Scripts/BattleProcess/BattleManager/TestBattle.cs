@@ -21,6 +21,8 @@ public class TestBattle : MonoBehaviour
 
     bool b = true;
 
+    public Vector3 testPos = Vector3.zero;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && b)
@@ -29,6 +31,11 @@ public class TestBattle : MonoBehaviour
             BattleManager.Instance.InitializeEncounter(InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(enemyPrefabs));
             EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
             b = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AnimationManager.Instance.PlayAnimEffect(testPos, "beat");
         }
     }
 

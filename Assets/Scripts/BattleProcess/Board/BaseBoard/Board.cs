@@ -292,7 +292,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <param name="card"></param>
     public void PlayCard(CardBehaviour card)
     {
-        print(card.Id);
+        print("play:" + card.Id);
         RemoveCard(card);
         card.ActOnCardAct();
         BattleManager.Instance.cardFlow.DiscardCard(card);

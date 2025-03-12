@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class AnimEffectController : MonoBehaviour
 {
-    /// <summary>
-    /// animation组件
-    /// </summary>
-    Animation anim;
-
-    void Start()
+    public void Play()
     {
-        anim = GetComponent<Animation>();
+        GetComponent<SequenceFrame>().PlayAnimation();
+        print("Play Animation:" + name);
     }
 
-    void Update()
+    public void OnAnimationEnd()
     {
-        if (!anim.isPlaying)
-        {
-            Destroy(anim.gameObject);
-        }
+        Destroy(gameObject);
     }
 }

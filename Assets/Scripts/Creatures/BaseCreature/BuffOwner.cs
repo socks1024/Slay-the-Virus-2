@@ -65,7 +65,7 @@ public class BuffOwner : MonoBehaviour
         buffs.Clear();
     }
 
-    void Start()
+    void Awake()
     {
         ClearBuff();
         EventCenter.Instance.AddEventListener(EventType.ACT_START, ClearBuff);

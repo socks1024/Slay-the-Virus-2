@@ -7,7 +7,7 @@ public class AnimationManager : MonoSingleton<AnimationManager>
     /// <summary>
     /// 动画特效列表
     /// </summary>
-    public List<Animation> animEffects = new List<Animation>();
+    public SerializableDictionary<string, SequenceFrame> clips;
 
     /// <summary>
     /// 在特定的位置播放特定的动画特效
@@ -16,6 +16,8 @@ public class AnimationManager : MonoSingleton<AnimationManager>
     /// <param name="name">动画名称</param>
     public void PlayAnimEffect(Vector3 position, string name)
     {
-        
+        position.z -= 1;
+        AnimEffectController anim = Instantiate(clips[name], position, Quaternion.identity).GetComponent<AnimEffectController>();
+        anim.Play();
     }
 }

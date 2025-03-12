@@ -30,7 +30,7 @@ public class StatBar : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         buffsRoot = transform.Find("BuffList");
 
-        healthBar.maxValue = healthOwner.Health;
+        healthBar.maxValue = healthOwner.MaxHealth;
         healthBar.value = healthBar.maxValue;
         
         healthOwner.OnHealthChange += UpdateHealth;

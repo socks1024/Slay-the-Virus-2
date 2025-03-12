@@ -15,6 +15,16 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// 最大生命值
     /// </summary>
     public int MaxHealth;
+
+    /// <summary>
+    /// 生命处理组件的引用
+    /// </summary>
+    public TakeDamage takeDamage;
+
+    /// <summary>
+    /// buff处理组件的引用
+    /// </summary>
+    public BuffOwner buffOwner;
     
     /// <summary>
     /// 死亡时触发的回调
@@ -28,7 +38,10 @@ public abstract class CreatureBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        GetComponent<TakeDamage>().ActOnDead += OnDead;
+        takeDamage = GetComponent<TakeDamage>();
+        buffOwner = GetComponent<BuffOwner>();
+
+        takeDamage.ActOnDead += OnDead;
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
     }
 }

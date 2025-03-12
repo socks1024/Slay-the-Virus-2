@@ -21,6 +21,6 @@ public class DefaultCard : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        print("CardAct");
+        ActionLib.DamageAction(targetEnemy, BattleManager.Instance.player, BaseDamage);
     }
 }
