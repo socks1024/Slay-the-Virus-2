@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class DungeonManager : MonoBehaviour
+public class DungeonManager : MonoSingleton<DungeonManager>
 {
+    #region dungeon process
+
     //进入副本的玩家的数据：携带的卡牌等
     //副本的数据：地图的生成逻辑是什么，包含哪些事件，可能产生哪些遭遇战，最终BOSS是什么
 
@@ -13,29 +16,29 @@ public class DungeonManager : MonoBehaviour
 
     //地图事件（数据Info类 + 工厂模式？由地图生成算法产出，包括事件数据类和遭遇战数据类等等）
 
+    #endregion
 
-
-
-
+    #region battle management
 
     /// <summary>
-    /// 目前已经通过的房间数
+    /// 战斗处理器
     /// </summary>
-    public int passedRoomCount = 0;
+    public BattleManager battleManager;
 
-    public void EnterDungeon()
+    #endregion
+
+    #region event management
+
+    [Header("Event Management")]
+    /// <summary>
+    /// 事件处理脚本
+    /// </summary>
+    public EventManager eventManager;
+
+    #endregion
+
+    public void Start()
     {
-
-    }
-
-    public void ExitDungeon()
-    {
-
-    }
-
-    DungeonEventInfo GetDungeonEvent()
-    {
-        DungeonEventInfo dungeonEvent = null;
-        return dungeonEvent;
+        
     }
 }

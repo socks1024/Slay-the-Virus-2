@@ -20,7 +20,7 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// <summary>
     /// 该敌人经历的总回合数，从 1 开始计算，每回合结束 + 1
     /// </summary>
-    protected int turnCount{ get{ return BattleManager.Instance.turnCount; }}
+    protected int turnCount{ get{ return DungeonManager.Instance.battleManager.turnCount; }}
 
     /// <summary>
     /// 意图逻辑处理组件

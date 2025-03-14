@@ -10,6 +10,11 @@ public class CardPosition : MonoBehaviour
     Vector2 cardCoord;
 
     /// <summary>
+    /// 当前的棋盘
+    /// </summary>
+    BoardBehaviour board{ get{ return DungeonManager.Instance.battleManager.board; } }
+
+    /// <summary>
     /// 特殊条件格子
     /// </summary>
     List<Square> ConditionedSquares
@@ -20,7 +25,7 @@ public class CardPosition : MonoBehaviour
 
             foreach (Vector2 coord in GetComponent<CardBehaviour>().ConditionsShape)
             {
-                result.Add(BattleManager.Instance.board.GetSquare(cardCoord + coord));
+                result.Add(board.GetSquare(cardCoord + coord));
             }
 
             return result;
@@ -64,6 +69,4 @@ public class CardPosition : MonoBehaviour
 
         return cardDatas;
     }
-
-    
 }

@@ -48,7 +48,7 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         card = transform.parent.parent.GetComponent<CardBehaviour>();
         targetType = card.TargetType;
         cardUI = card.GetComponent<CardUI>();
-        enemyGroup = BattleManager.Instance.enemyGroup;
+        enemyGroup = DungeonManager.Instance.battleManager.enemyGroup;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -72,7 +72,7 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             if (enemyGroup.GetHoveredEnemy() != null)
             {
                 card.targetEnemy = enemyGroup.GetHoveredEnemy();
-                BattleManager.Instance.board.PlayCard(card);
+                DungeonManager.Instance.battleManager.board.PlayCard(card);
             }
             else
             {

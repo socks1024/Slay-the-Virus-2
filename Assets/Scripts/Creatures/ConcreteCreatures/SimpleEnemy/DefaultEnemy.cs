@@ -12,7 +12,7 @@ public class DefaultEnemy : EnemyBehaviour
     public override void OnDead()
     {
         print(name + " Dead");
-        BattleManager.Instance.enemyGroup.DestroyEnemyFromBattle(this);
+        DungeonManager.Instance.battleManager.enemyGroup.DestroyEnemyFromBattle(this);
     }
 
     public override void SetIntention(int turnCount)

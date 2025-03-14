@@ -43,7 +43,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         cardRoot = transform.parent.parent;
         card = cardRoot.GetComponent<CardBehaviour>();
         cardUI = cardRoot.GetComponent<CardUI>();
-        boardData = BattleManager.Instance.board;
+        boardData = DungeonManager.Instance.battleManager.board;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -55,7 +55,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 boardData.RemoveCard(card);
                 card.ActOnRemoved();
             }
-            BattleManager.Instance.cardFlow.ReleaseCardFromHand(card);
+            DungeonManager.Instance.battleManager.cardFlow.ReleaseCardFromHand(card);
         }
         
     }
@@ -81,7 +81,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             }
             else
             {
-                BattleManager.Instance.cardFlow.AddCardToHand(card);
+                DungeonManager.Instance.battleManager.cardFlow.AddCardToHand(card);
             }
         }
 

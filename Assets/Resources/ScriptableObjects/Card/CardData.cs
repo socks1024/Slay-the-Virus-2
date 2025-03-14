@@ -46,19 +46,24 @@ public class CardData : ScriptableObject
     public int BaseDefense;
 
     /// <summary>
+    /// 卡牌的基础治疗量
+    /// </summary>
+    public int BaseHeal;
+
+    /// <summary>
     /// 卡牌的基础特殊效果强度
     /// </summary>
     public int BaseEffect;
 
-    /// <summary>
-    /// 卡牌名称
-    /// </summary>
-    public string Name;
+    // /// <summary>
+    // /// 卡牌名称
+    // /// </summary>
+    // public string Name;
 
-    /// <summary>
-    /// 卡面描述
-    /// </summary>
-    public string Description;
+    // /// <summary>
+    // /// 卡面描述
+    // /// </summary>
+    // public string Description;
 
     /// <summary>
     /// 卡面配图
@@ -102,4 +107,5 @@ public enum CardRarityType
     COMMON,
     UNCOMMON,
     RARE,
+    UNIQUE,
 }
