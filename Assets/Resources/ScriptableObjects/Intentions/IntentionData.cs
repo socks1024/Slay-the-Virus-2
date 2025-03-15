@@ -21,11 +21,6 @@ public class IntentionData : ScriptableObject
     public TargetType targetType;
 
     /// <summary>
-    /// 意图的强度
-    /// </summary>
-    public int Amount;
-
-    /// <summary>
     /// 意图的描述
     /// </summary>
     public string Description;

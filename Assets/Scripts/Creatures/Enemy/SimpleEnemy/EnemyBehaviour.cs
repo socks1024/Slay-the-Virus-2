@@ -7,6 +7,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AnimateIntention))]
 public abstract class EnemyBehaviour : CreatureBehaviour
 {
+    # region intents
+
+    /// <summary>
+    /// 敌人图片
+    /// </summary>
+    public Sprite enemySprite;
+
     /// <summary>
     /// 可以触发的所有意图
     /// </summary>
@@ -15,7 +22,7 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// <summary>
     /// 将会被触发的意图
     /// </summary>
-    public IntentionBehaviour intention;
+    [HideInInspector]public IntentionBehaviour intention;
 
     /// <summary>
     /// 该敌人经历的总回合数，从 1 开始计算，每回合结束 + 1
@@ -31,6 +38,8 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// 意图显示处理组件
     /// </summary>
     protected AnimateIntention animateIntention;
+
+    #endregion
 
     /// <summary>
     /// 在每个回合开始时被调用
@@ -75,5 +84,10 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// </summary>
     /// <param name="turnCount">回合数</param>
     public abstract void SetIntention(int turnCount);
+
+    /// <summary>
+    /// 进入战斗时调用
+    /// </summary>
+    public abstract void ActOnEnterBattle();
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Square : MonoBehaviour
@@ -16,7 +17,18 @@ public class Square : MonoBehaviour
     public bool IsActive
     { 
         get { return isActive; }
-        set { isActive = value; }
+        set 
+        { 
+            isActive = value; 
+            if (IsActive)
+            {
+                GetComponent<Image>().color = new Color(0,0,0,0);
+            }
+            else
+            {
+                GetComponent<Image>().color = Color.white;
+            }
+        }
     }
     bool isActive = true;
 
@@ -31,4 +43,20 @@ public class Square : MonoBehaviour
     /// 被填充的卡牌
     /// </summary>
     public CardBehaviour CardData{ get; set; }
+
+    /// <summary>
+    /// 对当前格子上的卡牌所作的调整
+    /// </summary>
+    public UnityAction<CardBehaviour> CardAdjustment;
+
+    /// <summary>
+    /// 对当前格子上的卡牌应用调整
+    /// </summary>
+    public void AdjustCardOnSquare()
+    {
+        if (HasCard)
+        {
+            CardAdjustment?.Invoke(CardData);
+        }
+    }
 }

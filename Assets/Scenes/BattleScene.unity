@@ -293,6 +293,7 @@ MonoBehaviour:
   buffOwner: {fileID: 0}
   deck: []
   board: {fileID: 0}
+  items: []
   nutrition: 0
 --- !u!114 &193435147
 MonoBehaviour:
@@ -1098,7 +1099,7 @@ MonoBehaviour:
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  boardPrefab: {fileID: 1539335273934944882, guid: f787eb90280b90b4e878f83f5faf2995, type: 3}
+  boardPrefab: {fileID: 8270045261509145139, guid: 2ef436fe5218f9440bf2898cda148275, type: 3}
   enemyPrefabs:
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
@@ -1215,7 +1216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 448.17, y: -26.245}
+  m_AnchoredPosition: {x: 448.17, y: -26.244995}
   m_SizeDelta: {x: 596.53, y: 52.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102598648
@@ -1565,6 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5c830f63b1f4e41a0401c40ffae3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleInfo: {fileID: 0}
   board: {fileID: 0}
   boardRoot: {fileID: 710570353}
   cardFlow: {fileID: 547637798}

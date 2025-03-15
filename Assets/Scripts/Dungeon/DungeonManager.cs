@@ -16,6 +16,11 @@ public class DungeonManager : MonoSingleton<DungeonManager>
 
     //地图事件（数据Info类 + 工厂模式？由地图生成算法产出，包括事件数据类和遭遇战数据类等等）
 
+    /// <summary>
+    /// 玩家数据
+    /// </summary>
+    public PlayerBehaviour Player{ get { return battleManager.player; } }
+
     #endregion
 
     #region battle management
@@ -29,7 +34,6 @@ public class DungeonManager : MonoSingleton<DungeonManager>
 
     #region event management
 
-    [Header("Event Management")]
     /// <summary>
     /// 事件处理脚本
     /// </summary>

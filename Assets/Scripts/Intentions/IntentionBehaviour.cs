@@ -29,29 +29,27 @@ public abstract class IntentionBehaviour : MonoBehaviour
     /// <summary>
     /// 意图的强度
     /// </summary>
-    public int Amount{ get{return intentionData.Amount;}}
+    [HideInInspector]public int Amount;
 
     /// <summary>
     /// 意图的描述
     /// </summary>
     public string Description{ get{return intentionData.Description;}}
 
+    /// <summary>
     /// 意图的目标
     /// </summary>
-    CreatureBehaviour target;
+    [HideInInspector]public CreatureBehaviour target;
     
     /// <summary>
     /// 意图的来源
     /// </summary>
-    CreatureBehaviour source;
+    [HideInInspector]public CreatureBehaviour source;
 
     /// <summary>
     /// 意图的行为
     /// </summary>
-    public void ActOnEnemyTurn()
-    {
-        print(Description + "Act");
-    }
+    public abstract void ActOnEnemyTurn();
 
     protected virtual void Start()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardUI : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class CardUI : MonoBehaviour
         {
             switch(uiState)
             {
+                case UIStates.CUSTOM:
+                    break;
                 case UIStates.HAND:
                     break;
                 case UIStates.PLACED:
@@ -61,36 +64,43 @@ public class CardUI : MonoBehaviour
             uiState = value;
             switch(uiState)
             {
+                case UIStates.CUSTOM:
+                    break;
                 case UIStates.HAND:
                     transform.localScale = new Vector3(100, 100, 100);
                     GetComponent<CardRotate>().Homing();
-                    SetAllUIProp(CardMode.CARD,true,false,true);
+                    SetAllUIPropPrivate(CardMode.CARD,true,false,true);
                     break;
                 case UIStates.PLACED:
-                    SetAllUIProp(CardMode.BLOCKS,true,false,true);
+                    SetAllUIPropPrivate(CardMode.BLOCKS,true,false,true);
                     break;
                 case UIStates.SETTING_TARGET:
-                    SetAllUIProp(CardMode.BLOCKS,false,false,true);
+                    SetAllUIPropPrivate(CardMode.BLOCKS,false,false,true);
                     break;
                 case UIStates.DRAG:
-                    SetAllUIProp(CardMode.BLOCKS,true,false,false);
+                    SetAllUIPropPrivate(CardMode.BLOCKS,true,false,false);
                     break;
                 case UIStates.ANIMATE:
-                    SetAllUIProp(CardMode.CARD,false,false,false);
+                    SetAllUIPropPrivate(CardMode.CARD,false,false,false);
                     break;
                 case UIStates.SHOW_CARD:
-                    SetAllUIProp(CardMode.CARD,false,false,true);
+                    SetAllUIPropPrivate(CardMode.CARD,false,false,true);
                     break;
                 case UIStates.SHOW_DECK:
-                    SetAllUIProp(CardMode.BLOCKS,false,false,true);
+                    SetAllUIPropPrivate(CardMode.BLOCKS,false,false,true);
                     break;
                 case UIStates.BUTTON:
-                    SetAllUIProp(CardMode.CARD,false,true,true);
+                    SetAllUIPropPrivate(CardMode.CARD,false,true,true);
                     break;
             }
         }
     }
     UIStates uiState = UIStates.ANIMATE;
+
+    /// <summary>
+    /// 按下时回调
+    /// </summary>
+    public UnityAction OnPress;
 
     void Start()
     {
@@ -110,12 +120,27 @@ public class CardUI : MonoBehaviour
     /// <param name="dragable">能否拖拽</param>
     /// <param name="pressable">能否点击</param>
     /// <param name="hoverable">能否悬浮预览</param>
-    void SetAllUIProp(CardMode cardMode, bool dragable, bool pressable, bool hoverable)
+    void SetAllUIPropPrivate(CardMode cardMode, bool dragable, bool pressable, bool hoverable)
     {
         Mode = cardMode;
         SetDragable(dragable);
         SetPressable(pressable);
         SetHoverPreview(hoverable);
+    }
+
+    /// <summary>
+    /// 从外部快速设置所有UI属性
+    /// </summary>
+    /// <param name="cardMode">卡牌所处图形状态</param>
+    /// <param name="dragable">能否拖拽</param>
+    /// <param name="pressable">能否点击</param>
+    /// <param name="hoverable">能否悬浮预览</param>
+    public void SetAllUIProp(CardMode cardMode, bool dragable, bool pressable, bool hoverable)
+    {
+        if (UIState == UIStates.CUSTOM)
+        {
+            SetAllUIPropPrivate(cardMode,dragable,pressable,hoverable);
+        }
     }
 
     /// <summary>
@@ -177,6 +202,7 @@ public class CardUI : MonoBehaviour
 /// </summary>
 public enum UIStates
 {
+    CUSTOM,
     HAND,//CARD,DRAGABLE,HOVER_PREVIEW
     PLACED,//BLOCK,DRAGABLE,HOVER_PREVIEW
     SETTING_TARGET,//BLOCK,HOVER_PREVIEW,SET_TARGET
@@ -189,6 +215,13 @@ public enum UIStates
 
 public enum CardMode
 {
+    /// <summary>
+    /// 显示为卡牌的外形
+    /// </summary>
     CARD,
+
+    /// <summary>
+    /// 显示为方块的外形
+    /// </summary>
     BLOCKS,
 }
