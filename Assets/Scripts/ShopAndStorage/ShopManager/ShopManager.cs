@@ -17,13 +17,18 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private List<Item> ExtractItems = new List<Item>();//抽奖池物品放这里
 
+    private Item OneItem;
+
     public Dictionary<Item, int> storage = new Dictionary<Item, int>();
     public Dictionary<Item, int> extract = new Dictionary<Item, int>();
+
+    public static ShopManager Instance { get; private set; }
     private void Start()
     {
         InitStorage();
         InitExtract();
         //for (int i = 0; i < 10; i++) Extract();
+        Instance = this;
     }
     private void InitStorage()
     {
@@ -89,28 +94,29 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    private bool Purchase(Item item,int amount)//用对应资源购买物品添加到仓库
+    public bool Purchase(Item item,int amount)//用对应资源购买物品添加到仓库
     {
         int need = amount * item.price;
-        if (amount > storage[item])
+       /* if (amount > storage[item])
         {
             return false;
-        }
+        }*/
 
 
         switch (item.resourceCatogory)
         {
             case ResourceCatogory.Nutrition:
-                if (ResourceManager.Instance.nutrition > need)
+                if (ResourceManager.Instance.nutrition() >= need)
                 {
                     ResourceManager.Instance.RemoveNutrition(need);
-                    storage[item] -= amount;
+                    ItemManager.Instance.AddItem(item, amount);
+                    //storage[item] -= amount;
                     break;
                 }
                 else return false;
         }
-
-        return ItemManager.Instance.AddItem(item, amount); 
+        return true;
+        //return ItemManager.Instance.AddItem(item, amount); 
     }
 
     private bool SellItem(Item item,int amount)//从仓库里卖东西
@@ -133,6 +139,7 @@ public class ShopManager : MonoBehaviour
 
 
     }
+
 
 }
 

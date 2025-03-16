@@ -8,7 +8,7 @@ public class ResourceManager : MonoBehaviour
     
 
     [SerializeField]
-    private int Nutrition;  //营养
+    private int Nutrition=50;  //营养
     [SerializeField]
     private int Health,MaxHealth;   //血量和最大血量
 
@@ -17,9 +17,9 @@ public class ResourceManager : MonoBehaviour
     {
         Instance = this;
     }
-    public int nutrition
+    public int nutrition()
     {
-        get { return Nutrition; }
+       return Nutrition;
     }
     public void AddNutrition(int amount){
         Nutrition += amount;

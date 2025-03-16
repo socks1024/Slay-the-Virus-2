@@ -49,18 +49,7 @@ public class Prop:Item
     
 }
 
-[CreateAssetMenu(fileName = "卡牌", menuName = "ScriptableObject/卡牌", order = 3)]
-public class Card : Item
-{
-    Card()
-    {
-        this.Category = ItemCategory.Card;
-        this.MaxAmount = 99;
-        this.resourceCatogory = ResourceCatogory.Nutrition;//默认购买消耗营养
-    }
-    public int amount;
 
-}
 
 
 
