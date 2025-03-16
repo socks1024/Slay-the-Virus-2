@@ -47,19 +47,24 @@ public abstract class CardBehaviour : MonoBehaviour
     public List<Vector2> ConditionsShape{ get; set; }
 
     /// <summary>
-    /// 卡牌的基础攻击力
+    /// 下一次打出卡牌的攻击力
     /// </summary>
-    public int BaseDamage{ get{return cardData.BaseDamage;} }
+    public int nextDamage;
 
     /// <summary>
-    /// 卡牌的基础防御力
+    /// 下一次打出卡牌的防御力
     /// </summary>
-    public int BaseDefense{ get{return cardData.BaseDefense;} }
+    public int nextDefense;
 
     /// <summary>
-    /// 卡牌的基础特殊效果强度
+    /// 下一次打出卡牌的治疗量
     /// </summary>
-    public int BaseEffect{ get{return cardData.BaseEffect;} }
+    public int nextHeal;
+
+    /// <summary>
+    /// 下一次打出卡牌的效果强度
+    /// </summary>
+    public int nextEffect;
 
     #endregion
 
@@ -70,6 +75,11 @@ public abstract class CardBehaviour : MonoBehaviour
     /// 单个目标时瞄准的目标敌人
     /// </summary>
     public EnemyBehaviour targetEnemy;
+
+    /// <summary>
+    /// 与卡牌位置相关逻辑的处理组件
+    /// </summary>
+    public CardPosition cardPosition;
 
     /// <summary>
     /// 卡牌的回合结束时效果
@@ -95,10 +105,30 @@ public abstract class CardBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
+        cardPosition = GetComponent<CardPosition>();
+        
         CardShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.CardShape);
         ConditionsShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.ConditionsShape);
-        //EventCenter.Instance.AddEventListener(EventType.TURN_END, ActOnTurnEnd);
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, ResetData);
+
+        nextDamage = cardData.BaseDamage;
+        nextDefense = cardData.BaseDefense;
+        nextHeal = cardData.BaseHeal;
+        nextEffect = cardData.BaseEffect;
     }
+
+    /// <summary>
+    /// 刷新卡牌的数据，每回合开始时调用
+    /// </summary>
+    protected virtual void ResetData()
+    {
+        nextDamage = cardData.BaseDamage;
+        nextDefense = cardData.BaseDefense;
+        nextHeal = cardData.BaseHeal;
+        nextEffect = cardData.BaseEffect;
+    }
+
+
 
 }
 

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class DefaultEnemy : EnemyBehaviour
 {
+    public override void ActOnEnterBattle()
+    {
+        print(name + " Enter Battle");
+    }
+
     public override void OnBattleStart()
     {
-        //throw new System.NotImplementedException();
+        print(name + " Battle Start");
     }
 
     public override void OnDead()
@@ -26,4 +31,22 @@ public class DefaultEnemy : EnemyBehaviour
             holdIntention.SetIntention("Default2");
         }
     }
+
+    public override void ActOnTurnStart()
+    {
+        base.ActOnTurnStart();
+    }
+
+    public override void ActOnEnemyMove()
+    {
+        base.ActOnEnemyMove();
+    }
+
+    public override void ActOnEnemyTurnEnd()
+    {
+        base.ActOnEnemyTurnEnd();
+    }
+
 }
+
+

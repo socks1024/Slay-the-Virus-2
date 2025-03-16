@@ -81,12 +81,12 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    public void OnDrawGizmos()
-    {
-        if (targetSettable)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
-        }
-    }
+    // public void OnDrawGizmos()
+    // {
+    //     if (targetSettable)
+    //     {
+    //         Gizmos.color = Color.yellow;
+    //         Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
+    //     }
+    // }
 }

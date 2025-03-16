@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardPosition : MonoBehaviour
 {
@@ -68,5 +69,21 @@ public class CardPosition : MonoBehaviour
         }
 
         return cardDatas;
+    }
+
+    /// <summary>
+    /// 将卡牌调整设置到条件格子上
+    /// </summary>
+    public void AddCardAdjustmentToConditionedSquares(UnityAction<CardBehaviour> adjustment)
+    {
+        ConditionedSquares.ForEach(square => { square.CardAdjustment += adjustment; });
+    }
+
+    /// <summary>
+    /// 将卡牌调整从条件格子上移除
+    /// </summary>
+    public void RemoveCardAdjustmentFromConditionedSquares(UnityAction<CardBehaviour> adjustment)
+    {
+        ConditionedSquares.ForEach(square => { square.CardAdjustment -= adjustment; });
     }
 }

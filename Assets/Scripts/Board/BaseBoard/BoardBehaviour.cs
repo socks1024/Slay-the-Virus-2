@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UIElements;
 
 public abstract class BoardBehaviour : MonoBehaviour
@@ -28,8 +29,9 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     protected virtual void Start()
     {
+        InitializeBoard();
         InitGetAllSquares();
-        InitializeSquares();
+        InitializeSquares(activateSquares);
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnActStart);
     }
 
@@ -53,7 +55,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <summary>
     /// 格子初始化
     /// </summary>
-    public void InitializeSquares()
+    public void InitializeSquares(bool[,] activateSquares)
     {
         for (int i = 0; i < 5; i++)
         {
@@ -265,11 +267,28 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public void OnActStart()
     {
+        ApplyAllCardAdjustments();
+
         if (IsEmptyBoard())
         {
             TriggerCardActEnd();
         }
+
         PlayNoTargetCards();
+    }
+
+    /// <summary>
+    /// 将所有卡牌调整应用到卡牌上
+    /// </summary>
+    void ApplyAllCardAdjustments()
+    {
+        for (int i = 0; i < squares.GetLength(0); i++)
+        {
+            for (int j = 0; j < squares.GetLength(1); j++)
+            {
+                squares[i,j].AdjustCardOnSquare();
+            }
+        }
     }
 
     /// <summary>
@@ -314,21 +333,36 @@ public abstract class BoardBehaviour : MonoBehaviour
     # endregion
 
     /// <summary>
-    /// 游戏盘初始的格子启用情况
+    /// 游戏盘的ID
+    /// </summary>
+    public string ID;
+
+    /// <summary>
+    /// 游戏盘的默认初始格子启用情况
     /// </summary>
     protected bool[,] activateSquares = new bool[5,5]
     {
-        {true,true,true,true,true},
-        {true,true,true,true,true},
-        {true,true,true,true,true},
-        {true,true,true,true,true},
-        {true,true,true,true,true},
+        {false,false,false,false,false},
+        {false,true,true,true,false},
+        {false,true,true,true,false},
+        {false,true,true,true,false},
+        {false,false,false,false,false},
     };
+
+    /// <summary>
+    /// 初始化游戏盘，在此为初始格子启用情况赋值
+    /// </summary>
+    protected abstract void InitializeBoard();
 
     /// <summary>
     /// 游戏盘的背景
     /// </summary>
-    public Texture2D background;
+    public Sprite background;
+
+    /// <summary>
+    /// 禁用时显示的图片
+    /// </summary>
+    public Sprite disabledSprite;
 
     /// <summary>
     /// 被填满时结束回合触发的效果

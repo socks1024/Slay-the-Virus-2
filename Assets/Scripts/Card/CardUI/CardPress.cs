@@ -23,9 +23,16 @@ public class CardPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// </summary>
     public UnityAction callback;
 
+    /// <summary>
+    /// 卡牌的UI控制组件
+    /// </summary>
+    CardUI cardUI;
+
     void Start()
     {
         cardImg = GetComponent<Image>();
+        cardUI = transform.parent.parent.GetComponent<CardUI>();
+        callback += cardUI.OnPress;
     }
 
     public void OnPointerDown(PointerEventData eventData)

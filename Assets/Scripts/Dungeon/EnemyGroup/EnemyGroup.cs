@@ -47,6 +47,7 @@ public class EnemyGroup : MonoBehaviour
     {
         enemy.transform.SetParent(transform, false);
         enemies.Insert(moveIndex, enemy);
+        enemy.ActOnEnterBattle();
     }
 
     /// <summary>
