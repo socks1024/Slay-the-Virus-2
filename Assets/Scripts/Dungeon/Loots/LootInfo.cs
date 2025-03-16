@@ -14,7 +14,7 @@ public class LootInfo : ScriptableObject
     /// <summary>
     /// 战利品中所有可能出现的道具
     /// </summary>
-    public List<ItemBehaviour> itemPool;
+    public List<RelicBehaviour> relicPool;
 
     /// <summary>
     /// 胜利获得金钱的数量
@@ -42,13 +42,13 @@ public class LootInfo : ScriptableObject
     /// </summary>
     /// <param name="count">抽取道具的数量</param>
     /// <returns>抽到的道具</returns>
-    public List<ItemBehaviour> RandomGetItems(int count)
+    public List<RelicBehaviour> RandomGetItems(int count)
     {
-        List<ItemBehaviour> items = new List<ItemBehaviour>();
+        List<RelicBehaviour> items = new List<RelicBehaviour>();
         for (int i = 0; i < count; i++)
         {
-            int index = Random.Range(0, itemPool.Count);
-            items.Add(itemPool[index]);
+            int index = Random.Range(0, relicPool.Count);
+            items.Add(relicPool[index]);
         }
         return items;
     }

@@ -18,7 +18,7 @@ public class PlayerBehaviour : CreatureBehaviour
     /// <summary>
     /// 玩家持有的物品
     /// </summary>
-    [HideInInspector]public List<ItemBehaviour> items;
+    [HideInInspector]public List<RelicBehaviour> relics;
     
     /// <summary>
     /// 玩家持有的营养货币
@@ -32,12 +32,12 @@ public class PlayerBehaviour : CreatureBehaviour
     /// <param name="board">棋盘</param>
     /// <param name="items">道具</param>
     /// <param name="nutrition">货币</param>
-    public void SetBackpack(List<CardBehaviour> deck, BoardBehaviour board, List<ItemBehaviour> items, int nutrition)
+    public void SetBackpack(List<CardBehaviour> deck, BoardBehaviour board, List<RelicBehaviour> items, int nutrition)
     {
         this.deck.Clear();
         this.deck.AddRange(deck);
-        this.items.Clear();
-        this.items.AddRange(items);
+        this.relics.Clear();
+        this.relics.AddRange(items);
         this.board = board;
         this.nutrition = nutrition;
     }

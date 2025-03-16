@@ -293,7 +293,7 @@ MonoBehaviour:
   buffOwner: {fileID: 0}
   deck: []
   board: {fileID: 0}
-  items: []
+  relics: []
   nutrition: 0
 --- !u!114 &193435147
 MonoBehaviour:
@@ -2507,15 +2507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

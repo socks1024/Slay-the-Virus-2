@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemBehaviour : MonoBehaviour
+public abstract class RelicBehaviour : MonoBehaviour
 {
-    /// <summary>
-    /// 道具的数据
-    /// </summary>
-    public ItemData item;
+    // /// <summary>
+    // /// 道具的数据
+    // /// </summary>
+    // public ItemData item;
 
     /// <summary>
     /// 道具的ID
     /// </summary>
-    public string ID{ get{ return item.ID; } }
+    public string ID;
 
     /// <summary>
     /// 检视道具时显示的名称
     /// </summary>
-    public string Name{ get{ return item.Name; } }
+    public string Name;
 
     /// <summary>
     /// 检视道具时显示的描述
     /// </summary>
-    public string Description{ get{ return item.Description; } }
+    public string Description;
 
     /// <summary>
     /// 战斗开始时触发的回调
