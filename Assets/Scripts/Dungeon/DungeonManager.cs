@@ -45,4 +45,18 @@ public class DungeonManager : MonoSingleton<DungeonManager>
     {
         
     }
+
+    /// <summary>
+    /// 开启一场测试战斗
+    /// </summary>
+    /// <param name="deck">玩家牌组</param>
+    /// <param name="board">玩家使用的棋盘</param>
+    /// <param name="enemies">所有敌人</param>
+    public void EnterBattleForTest(List<CardBehaviour> deck, BoardBehaviour board, List<EnemyBehaviour> enemies)
+    {
+        Player.SetBackpack(deck,board,null,0);
+        battleManager.InitializeEncounter(enemies);
+        battleManager.gameObject.SetActive(true);
+        EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+    }
 }

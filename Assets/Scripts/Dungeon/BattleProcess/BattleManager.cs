@@ -37,6 +37,21 @@ public class BattleManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 初始化遭遇战并开始战斗
+    /// </summary>
+    public void InitializeEncounter(List<EnemyBehaviour> enemies)
+    {
+        //还没有添加道具初始化
+        //还没有添加战利品初始化
+
+        board = player.board;
+        board.transform.SetParent(boardRoot, false);
+        cardFlow.FillDrawPile(player.deck);
+
+        InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(enemies).ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+    }
+
+    /// <summary>
     /// 战斗开始时触发的回调
     /// </summary>
     void OnBattleStart()
