@@ -21,3 +21,4 @@ MonoBehaviour:
   sellprice: 0
   weight: 0
   amount: 0
+  cardData: {fileID: 11400000, guid: 3d57dc8db6e04964984a2f409cf57599, type: 2}

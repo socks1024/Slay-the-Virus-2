@@ -12,5 +12,5 @@ public class CardItem : Item
         this.resourceCatogory = ResourceCatogory.Nutrition;//默认购买消耗营养
     }
     public int amount;
-   
+    public CardData cardData;
 }
