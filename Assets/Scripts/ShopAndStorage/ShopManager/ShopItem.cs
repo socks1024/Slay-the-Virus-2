@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShopItemCard : MonoBehaviour
 {
     [SerializeField]
-    private CardItem carditem;
+    private Item item;
     [SerializeField]
     private Toggle toggle;
     private ShopUI shopUI;
@@ -15,7 +15,7 @@ public class ShopItemCard : MonoBehaviour
     private void Start()
     {
         toggle.onValueChanged.AddListener(OnToggleValueChanged);
-        toggle.group = GetComponentInParent<ToggleGroup>();
+       // toggle.group = GetComponentInParent<ToggleGroup>();
         shopUI = GetComponentInParent<ShopUI>();
     }
 
@@ -28,19 +28,18 @@ public class ShopItemCard : MonoBehaviour
         else
         {
             RemoveFromBuy();
-            shopUI.RemoveOneItem();
         }
     }
     public void AddToBuy()
     {
         Debug.Log("Add");
-        shopUI.GetOneItem(carditem);
+        shopUI.GetOneItem(item);
     }
 
     public void RemoveFromBuy()
     {
         Debug.Log("Remove");
-        shopUI.RemoveOneItem();
+        shopUI.RemoveOneItem(item);
     }
 
 }
