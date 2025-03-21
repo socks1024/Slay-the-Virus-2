@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a723d0b8db1997343bcefc0dd835b5d7, type: 3}
-  m_Name: CardItemDefault
+  m_Name: CardItemTest2
   m_EditorClassIdentifier: 
-  Name: BaseCard
+  Name: Test
   Category: 2
   MaxAmount: 99
-  price: 50
+  price: 25
   resourceCatogory: 0
   StorageAmount: 99
   sellprice: 0
   weight: 0
   amount: 0
-  cardData: {fileID: 11400000, guid: 3d57dc8db6e04964984a2f409cf57599, type: 2}
+  cardData: {fileID: 0}

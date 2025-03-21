@@ -16,19 +16,30 @@ public class ItemManager : MonoBehaviour
 
     public bool AddItem(Item item,int amount)//添加
     {
-        bool hasItem = inventory.TryGetValue(item, out int currentAmount);
+        /* bool hasItem = inventory.TryGetValue(item, out int currentAmount);
 
-        int maxAdd = hasItem ? (item.MaxAmount - currentAmount) : item.MaxAmount;
+         int maxAdd = hasItem ? (item.MaxAmount - currentAmount) : item.MaxAmount;
 
-        int Add = Mathf.Min(maxAdd, amount);
-        if (Add <= 0)   //物品数量达上限
+         int Add = Mathf.Min(maxAdd, amount);
+         if (Add <= 0)   //物品数量达上限
+         {
+             return false;
+         }
+
+         inventory[item] = (hasItem ? currentAmount : 0) + Add;
+         return true;*/
+
+        if (inventory.ContainsKey(item))
         {
-            return false;
+            inventory[item] += amount;
+            return true;
         }
-
-        inventory[item] = (hasItem ? currentAmount : 0) + Add;
-        return true;
-
+        else
+        {
+            inventory.Add(item, amount);
+            return true;
+        }
+       
     }
 
     public bool RemoveItem(Item item,int amount)//移除

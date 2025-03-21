@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using static UnityEditor.Progress;
 
-public class PlayerHold : MonoBehaviour
+public class PlayerHold : MonoSingleton<PlayerHold>
 {
     public static PlayerHold Instance { get; private set; }
     private Dictionary<Item, int> CarriedItems = new Dictionary<Item, int>();  //玩家持有物品的列表
+    private Dictionary<CardData,int>CarriedCards= new Dictionary<CardData, int>();//玩家持有的卡牌
     private Item chessboard;//玩家只能选一个棋盘（如果我没理解错的话...）
 
     private void Awake()
@@ -54,6 +56,32 @@ public class PlayerHold : MonoBehaviour
     public int GetItemCount(Item item)//获取玩家手里某物品数量
     {
         return CarriedItems[item];
+    }
+
+    public bool AddCard(CardData card)
+    {
+        Debug.Log("card added!");
+        if (CarriedCards.ContainsKey(card))
+        {
+            CarriedCards[card] += 1;
+            return true;
+        }
+        else
+        {
+            CarriedCards.Add(card, 1);
+            return true;
+        }
+    }
+
+    public bool RemoveCard(CardData card)
+    {
+        if (CarriedCards.ContainsKey(card) && CarriedCards[card] > 0)
+        {
+            Debug.Log("card removed!");
+            CarriedCards[card] -= 1;
+            return true;
+        }
+        else return false;
     }
 
 }
