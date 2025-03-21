@@ -64,4 +64,5 @@ public class ShopUI : MonoBehaviour
             resource.color = Color.green;
         else resource.color = Color.red;
     }
+
 }
