@@ -36,8 +36,13 @@ public class PlayerBehaviour : CreatureBehaviour
     {
         this.deck.Clear();
         this.deck.AddRange(deck);
-        this.relics.Clear();
-        this.relics.AddRange(items);
+
+        if (items != null)
+        {
+            this.relics.Clear();
+            this.relics.AddRange(items);
+        }
+
         this.board = board;
         this.nutrition = nutrition;
     }

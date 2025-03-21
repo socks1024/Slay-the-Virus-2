@@ -54,6 +54,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22cf962b929a324cbc5ee45c6a1bc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 8042003111653947051}
+  descriptionText: {fileID: 7723613646176426591}
+  cardBG: {fileID: 497456780272803253}
+  cardImage: {fileID: 0}
+  AttackCardBG: {fileID: 21300000, guid: f3375d04d403c2b4ba522e73366192a5, type: 3}
+  DefenseCardBG: {fileID: 21300000, guid: ad572a2fa721ebe4caa594704bd0d5c5, type: 3}
+  HealCardBG: {fileID: 21300000, guid: ba618edadd071ce479b753894892e061, type: 3}
+  SkillCardBG: {fileID: 21300000, guid: 243cbe32dbe418349833dd7fcd6ed5dd, type: 3}
+  ExpandCardBG: {fileID: 21300000, guid: 1a68b96977e0aa949a4040b2cc5dbfa6, type: 3}
+  TrashCardBG: {fileID: 21300000, guid: d9e1fb22559f0f640b2b159962247025, type: 3}
 --- !u!114 &2359035785780278894
 MonoBehaviour:
   m_ObjectHideFlags: 0

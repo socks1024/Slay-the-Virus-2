@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class CardFlowController : MonoBehaviour
@@ -34,7 +35,7 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     HandAnimation handAnimation;
 
-    void Start()
+    void Awake()
     {
         handAnimation = GetComponent<HandAnimation>();
         EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(autoDrawAmount); });
@@ -46,7 +47,6 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void AddCardToHand(CardBehaviour card)
     {
-        card.GetComponent<CardUI>().UIState = UIStates.HAND;
         hand.AddCard(card);
         handAnimation.AddCardAnim(card);
     }
@@ -66,10 +66,7 @@ public class CardFlowController : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCard(CardBehaviour card)
     {
-        hand.RemoveCard(card);
-
         card.ActOnDiscard();
-        
         discardPile.AddCard(card);
         handAnimation.DiscardCardAnim(card);
     }
@@ -79,9 +76,9 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void DiscardAllCard()
     {
-        for (int i = hand.Count - 1; i >= 0; i--)
+        for (int i = 0; i < hand.Count; i++)
         {
-            DiscardCard(hand.GetCards()[0]);
+            DiscardCard(hand.GetCards()[i]);
         }
     }
 
@@ -92,14 +89,15 @@ public class CardFlowController : MonoBehaviour
     {
         if (hand.Count >= handLimit)
         {
-            print("Hand Full");
             return;
         }
         if (drawPile.IsEmpty)
         {
             ReshuffleDrawPileFromDiscardPile();
         }
-        AddCardToHand(drawPile.DrawCard());
+        CardBehaviour card = drawPile.DrawCard();
+        hand.AddCard(card);
+        handAnimation.DrawCardAnim(card);
     }
 
     /// <summary>

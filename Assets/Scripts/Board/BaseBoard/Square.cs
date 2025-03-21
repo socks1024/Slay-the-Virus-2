@@ -42,7 +42,7 @@ public class Square : MonoBehaviour
     /// <summary>
     /// 被填充的卡牌
     /// </summary>
-    public CardBehaviour CardData{ get; set; }
+    public CardBehaviour CardData = null;
 
     /// <summary>
     /// 对当前格子上的卡牌所作的调整

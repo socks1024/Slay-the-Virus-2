@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using DG.Tweening;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class HandAnimation : MonoBehaviour
@@ -10,23 +12,23 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public CardPile hand;
 
-    // [SerializeField]
-    // /// <summary>
-    // /// 卡牌之间间隔的距离
-    // /// </summary>
-    // float cardOffset = 200f;
+    [SerializeField]
+    /// <summary>
+    /// 卡牌之间间隔的距离
+    /// </summary>
+    float cardOffset = 20f;
 
-    // [SerializeField]
-    // /// <summary>
-    // /// 卡牌的最大旋转程度
-    // /// </summary>
-    // float rotationMax = 1f;
+    [SerializeField]
+    /// <summary>
+    /// 卡牌之间旋转角度的差距
+    /// </summary>
+    float rotationDiff = 1f;
 
-    // [SerializeField]
-    // /// <summary>
-    // /// 完成卡牌摆放的时间
-    // /// </summary>
-    // float arrangeTime = 2f;
+    [SerializeField]
+    /// <summary>
+    /// 完成卡牌摆放的时间
+    /// </summary>
+    float arrangeTime = 2f;
 
     [SerializeField]
     /// <summary>
@@ -42,7 +44,6 @@ public class HandAnimation : MonoBehaviour
 
     void Start()
     {
-        //DOTween.Init();
         hand = GetComponent<CardFlowController>().hand;
     }
 
@@ -51,8 +52,35 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void ArrangeCardsInHand()
     {
-        
+        List<CardBehaviour> cards = hand.GetCards();
+
+        for (int i = 0; i < cards.Count; i++)
+        {
+            CardBehaviour card = cards[i];
+            card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
+
+
+            Vector3 rot = Vector3.zero;
+            rot.z += rotationDiff * ((cards.Count - 1) / 2 - i);
+
+            card.transform.DORotate(rot, arrangeTime);
+
+
+            Vector3 pos = transform.position;
+            pos.x += cardOffset * (i - (cards.Count - 0.5f) / 2);
+
+            card.transform.DOMove(pos, arrangeTime).OnComplete(() => {
+                card.GetComponent<CardUI>().UIState = UIStates.HAND;
+            });
+        }
     }
+
+    //目前手牌数 count
+    //卡牌间距 offset
+    //基础位置 position
+    //起始位置 position.x - offset * count / 2
+
+    //(count - 1) / 2 * rotationDiff + rotationDiff * i
 
     # region hand & screen
 
@@ -61,8 +89,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void AddCardAnim(CardBehaviour card)
     {
-        card.transform.SetParent(transform, false);
-        card.GetComponent<CardUI>().UIState = UIStates.HAND;
+        ArrangeCardsInHand();
     }
 
     /// <summary>
@@ -70,8 +97,9 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void ReleaseCardAnim(CardBehaviour card)
     {
-        card.transform.SetParent(transform.parent, false);
         card.GetComponent<CardUI>().UIState = UIStates.DRAG;
+        card.transform.rotation = Quaternion.identity;
+        ArrangeCardsInHand();
     }
 
     # endregion
@@ -84,7 +112,17 @@ public class HandAnimation : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCardAnim(CardBehaviour card)
     {
-        card.transform.SetParent(null);
+        //card.transform.SetParent(null);
+        card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
+
+        card.transform.DOMove(discardPosition.position, arrangeTime).OnComplete(() => {
+            card.transform.SetParent(null);
+            hand.RemoveCard(card);
+            if (hand.IsEmpty)
+            {
+                DungeonManager.Instance.battleManager.DiscardAnimFinished = true;
+            }
+        });
     }
 
     #endregion
@@ -97,6 +135,8 @@ public class HandAnimation : MonoBehaviour
     public void DrawCardAnim(CardBehaviour card)
     {
         card.transform.SetParent(transform, false);
+        card.transform.position = drawPosition.position;
+        ArrangeCardsInHand();
     }
 
     # endregion

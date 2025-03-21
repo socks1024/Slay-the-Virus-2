@@ -39,32 +39,32 @@ public abstract class CardBehaviour : MonoBehaviour
     /// <summary>
     /// 卡牌的方块要组成的形状，通过一组向量表示每个方块相对原点的位置
     /// </summary>
-    public List<Vector2> CardShape{ get; set; }
+    public List<Vector2> CardShape;
 
     /// <summary>
     /// 能触发卡牌特效的格子，通过一组向量表示其相对原点的位置
     /// </summary>
-    public List<Vector2> ConditionsShape{ get; set; }
+    public List<Vector2> ConditionsShape;
 
     /// <summary>
     /// 下一次打出卡牌的攻击力
     /// </summary>
-    public int nextDamage;
+    [HideInInspector]public int nextDamage;
 
     /// <summary>
     /// 下一次打出卡牌的防御力
     /// </summary>
-    public int nextDefense;
+    [HideInInspector]public int nextDefense;
 
     /// <summary>
     /// 下一次打出卡牌的治疗量
     /// </summary>
-    public int nextHeal;
+    [HideInInspector]public int nextHeal;
 
     /// <summary>
     /// 下一次打出卡牌的效果强度
     /// </summary>
-    public int nextEffect;
+    [HideInInspector]public int nextEffect;
 
     #endregion
 
@@ -76,6 +76,7 @@ public abstract class CardBehaviour : MonoBehaviour
     /// </summary>
     public EnemyBehaviour targetEnemy;
 
+    [HideInInspector]
     /// <summary>
     /// 与卡牌位置相关逻辑的处理组件
     /// </summary>
@@ -128,7 +129,16 @@ public abstract class CardBehaviour : MonoBehaviour
         nextEffect = cardData.BaseEffect;
     }
 
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        CardShape.ForEach(shape => {
+            Vector3 vec = transform.position;
+            vec.x += shape.x;
+            vec.y += shape.y;
+            Gizmos.DrawCube(vec, Vector3.one);
+        });
+    }
 
 }
 

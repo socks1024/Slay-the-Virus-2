@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour
 {
@@ -102,6 +104,38 @@ public class CardUI : MonoBehaviour
     /// </summary>
     public UnityAction OnPress;
 
+    /// <summary>
+    /// 卡牌名字的显示组件
+    /// </summary>
+    public TextMeshProUGUI nameText;
+
+    /// <summary>
+    /// 卡牌描述的显示组件
+    /// </summary>
+    public TextMeshProUGUI descriptionText;
+
+    /// <summary>
+    /// 卡牌的背景
+    /// </summary>
+    public Image cardBG;
+
+    /// <summary>
+    /// 卡面配图
+    /// </summary>
+    public Image cardImage;
+
+    #region card background
+
+    [Header("Card Background")]
+    public Sprite AttackCardBG;
+    public Sprite DefenseCardBG;
+    public Sprite HealCardBG;
+    public Sprite SkillCardBG;
+    public Sprite ExpandCardBG;
+    public Sprite TrashCardBG;
+
+    #endregion
+
     void Start()
     {
         cardBehaviour = GetComponent<CardBehaviour>();
@@ -111,6 +145,7 @@ public class CardUI : MonoBehaviour
         }
         Mode = CardMode.CARD;
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnCardAct);
+        SetCardUI();
     }
 
     /// <summary>
@@ -192,6 +227,43 @@ public class CardUI : MonoBehaviour
         else
         {
             UIState = UIStates.ANIMATE;
+        }
+    }
+
+    /// <summary>
+    /// 显示卡牌的基础UI信息
+    /// </summary>
+    void SetCardUI()
+    {
+        CardData data = cardBehaviour.cardData;
+        //nameText.text = data.;
+        //descriptionText.text = data.;
+        
+        if (cardImage != null)
+        {
+            cardImage.sprite = data.CardTex;
+        }
+
+        switch (data.AbilityType)
+        {
+            case CardAbilityType.ATTACK:
+                cardBG.sprite = AttackCardBG;
+                break;
+            case CardAbilityType.DEFEND:
+                cardBG.sprite = DefenseCardBG;
+                break;
+            case CardAbilityType.HEAL:
+                cardBG.sprite = HealCardBG;
+                break;
+            case CardAbilityType.SKILL:
+                cardBG.sprite = SkillCardBG;
+                break;
+            case CardAbilityType.EXPAND:
+                cardBG.sprite = ExpandCardBG;
+                break;
+            case CardAbilityType.TRASH:
+                cardBG.sprite = TrashCardBG;
+                break;
         }
     }
 

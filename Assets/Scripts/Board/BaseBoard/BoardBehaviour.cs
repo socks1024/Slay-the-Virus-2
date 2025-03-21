@@ -5,7 +5,7 @@ using System.Data;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public abstract class BoardBehaviour : MonoBehaviour
 {
@@ -33,6 +33,8 @@ public abstract class BoardBehaviour : MonoBehaviour
         InitGetAllSquares();
         InitializeSquares(activateSquares);
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnActStart);
+
+        InitializeSprites();
     }
 
     # region Place cards
@@ -61,8 +63,8 @@ public abstract class BoardBehaviour : MonoBehaviour
         {
             for (int j = 0; j < 5; j++)
             {
-                squares[i,j].IsActive = activateSquares[i,j];
-                squares[i,j].CardData = null;
+                squares[j,i].IsActive = activateSquares[i,j];
+                squares[j,i].CardData = null;
             }
         }
     }
@@ -140,8 +142,22 @@ public abstract class BoardBehaviour : MonoBehaviour
         foreach (Vector2 v in cardData.CardShape)
         {
             Square s = GetSquare(hoveredSquare,v);
-            if (s == null || !s.IsActive || s.HasCard)
+            if (s == null)
             {
+                print("no square");
+                return false;
+            }
+
+            print(s.squareCoord);
+            if (!s.IsActive)
+            {
+                print(" : inactive");
+                return false;
+            }
+
+            if (s.HasCard)
+            {
+                print(" : has card " + s.CardData.Id);
                 return false;
             }
         }
@@ -327,7 +343,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public void TriggerCardActEnd()
     {
-        EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
+        DungeonManager.Instance.battleManager.PlayAnimFinished = true;
     }
 
     # endregion
@@ -368,4 +384,20 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// 被填满时结束回合触发的效果
     /// </summary>
     public abstract void ActOnAllFilledTurnEnd();
+
+    /// <summary>
+    /// 填充棋盘的美术资源
+    /// </summary>
+    public void InitializeSprites()
+    {
+        GetComponent<Image>().sprite = background;
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                squares[i,j].GetComponent<Image>().sprite = disabledSprite;
+            }
+        }
+    }
 }

@@ -18,6 +18,8 @@ public class BattleManager : MonoBehaviour
 
     [HideInInspector] public int turnCount = 1;
 
+    #region battle start phase
+
     /// <summary>
     /// 初始化遭遇战并开始战斗
     /// </summary>
@@ -37,9 +39,10 @@ public class BattleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 初始化遭遇战并开始战斗
+    /// 初始化遭遇战
     /// </summary>
-    public void InitializeEncounter(List<EnemyBehaviour> enemies)
+    /// <param name="p_enemies">敌人预制体列表</param>
+    public void InitializeEncounter(List<EnemyBehaviour> p_enemies)
     {
         //还没有添加道具初始化
         //还没有添加战利品初始化
@@ -48,7 +51,7 @@ public class BattleManager : MonoBehaviour
         board.transform.SetParent(boardRoot, false);
         cardFlow.FillDrawPile(player.deck);
 
-        InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(enemies).ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+        InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(p_enemies).ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
     }
 
     /// <summary>
@@ -59,6 +62,60 @@ public class BattleManager : MonoBehaviour
         EventCenter.Instance.TriggerEvent(EventType.TURN_START);
     }
 
+    #endregion
+
+    #region turn logic phase
+
+    // BATTLE_START:
+    // TURN_START:
+    // ACT_START:按下按钮触发
+    // CARD_ACT_END:弃牌动画播放完毕 && 所有卡牌动画播放完毕
+    // ENEMY_ACT_END:所有敌人动画播放完毕
+
+    /// <summary>
+    /// 弃牌动画是否已经结束
+    /// </summary>
+    public bool DiscardAnimFinished
+    {
+        get{ return discardAnimFinished; }
+        set
+        {
+            discardAnimFinished = value;
+            if (discardAnimFinished && playAnimFinished)
+            {
+                TriggerCardActEnd();
+            }
+        }
+    }
+    bool discardAnimFinished;
+
+    /// <summary>
+    /// 出牌动画是否已经结束
+    /// </summary>
+    public bool PlayAnimFinished
+    {
+        get{ return playAnimFinished; }
+        set
+        {
+            playAnimFinished = value;
+            if (discardAnimFinished && playAnimFinished)
+            {
+                TriggerCardActEnd();
+            }
+        }
+    }
+    bool playAnimFinished;
+
+    /// <summary>
+    /// 当 弃牌动画播放完毕 && 所有卡牌动画播放完毕 时，触发卡牌行动结束
+    /// </summary>
+    void TriggerCardActEnd()
+    {
+        EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
+        discardAnimFinished = false;
+        playAnimFinished = false;
+    }
+
     /// <summary>
     /// 在所有行动结束时触发
     /// </summary>
@@ -66,9 +123,10 @@ public class BattleManager : MonoBehaviour
     {
         turnCount += 1;
         EventCenter.Instance.TriggerEvent(EventType.TURN_START);
-        battleInfo.OnAllActEndCallback(turnCount);
-        
+        battleInfo?.OnAllActEndCallback(turnCount);
     }
+
+    #endregion
 
     /// <summary>
     /// 战斗胜利时触发的回调
@@ -87,7 +145,7 @@ public class BattleManager : MonoBehaviour
         //死回家直接结算
     }
 
-    void Start()
+    void Awake()
     {
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
         EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, OnAllActEnd);

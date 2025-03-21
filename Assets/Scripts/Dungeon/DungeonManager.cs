@@ -52,11 +52,15 @@ public class DungeonManager : MonoSingleton<DungeonManager>
     /// <param name="deck">玩家牌组</param>
     /// <param name="board">玩家使用的棋盘</param>
     /// <param name="enemies">所有敌人</param>
-    public void EnterBattleForTest(List<CardBehaviour> deck, BoardBehaviour board, List<EnemyBehaviour> enemies)
+    public void EnterBattleForTest(List<CardBehaviour> p_deck, BoardBehaviour p_board, List<EnemyBehaviour> p_enemies)
     {
+        List<CardBehaviour> deck = InstantiateHelper.MultipleInstatiate<CardBehaviour>(p_deck);
+        BoardBehaviour board = Instantiate(p_board);
+
         Player.SetBackpack(deck,board,null,0);
-        battleManager.InitializeEncounter(enemies);
+        battleManager.InitializeEncounter(p_enemies);
         battleManager.gameObject.SetActive(true);
+        eventManager.gameObject.SetActive(false);
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
     }
 }

@@ -21,16 +21,8 @@ public class HoldIntention : MonoBehaviour
     /// <param name="amount">该意图的强度</param>
     public void SetIntention(string ID, CreatureBehaviour target, int amount = 0)
     {
-        foreach (IntentionBehaviour intentionPrefab in GetComponent<EnemyBehaviour>().IntentionPrefabsAvailable)
-        {
-            if(ID.Equals(intentionPrefab.ID))
-            {
-                intention = Instantiate(intentionPrefab);
-                intention.source = GetComponent<EnemyBehaviour>();
-                intention.target = target;
-                intention.Amount = amount;
-            }
-        }
+        SetIntention(ID, amount);
+        intention.target = target;
     }
 
     /// <summary>
@@ -40,16 +32,24 @@ public class HoldIntention : MonoBehaviour
     /// <param name="amount">该意图的强度</param>
     public void SetIntention(string ID, int amount = 0)
     {
+        foreach (IntentionBehaviour intentionPrefab in GetComponent<EnemyBehaviour>().IntentionPrefabsAvailable)
+        {
+            if(ID.Equals(intentionPrefab.ID))
+            {
+                intention = Instantiate(intentionPrefab);
+                intention.source = GetComponent<EnemyBehaviour>();
+                intention.target = null;
+                intention.Amount = amount;
+            }
+        }
+
         switch (intention.targetType)
         {
             case TargetType.SELF:
-                SetIntention(ID, GetComponent<EnemyBehaviour>(), amount);
+                intention.target = GetComponent<EnemyBehaviour>();
                 break;
             case TargetType.PLAYER:
-                SetIntention(ID, DungeonManager.Instance.Player, amount);
-                break;
-            default:
-                SetIntention(ID, null, amount);
+                intention.target = DungeonManager.Instance.Player;
                 break;
         }
     }
