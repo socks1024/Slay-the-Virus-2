@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class CardInventoryUI : MonoBehaviour
 {
@@ -119,10 +121,15 @@ public class CardInventoryUI : MonoBehaviour
     public void TranslateToBattleTest()//Ωˆπ©≤‚ ‘”√
     {
         List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 2; i++)
         {
             enemies.Add(enemyBehaviour);
         }
-        DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
+        Messenger.enterBattleInfoTest.p_Enemies = enemies;
+        Messenger.enterBattleInfoTest.p_Board = boardBehaviour;
+        Messenger.enterBattleInfoTest.p_Cards = PlayerHold.Instance.GetCardBehaviours();
+        SceneManager.LoadScene("BattleScene");
+        
+        //DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
     }
 }
