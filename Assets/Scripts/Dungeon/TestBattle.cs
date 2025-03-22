@@ -13,9 +13,13 @@ public class TestBattle : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             DungeonManager.Instance.EnterBattleForTest(deck, board, enemies);
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            DungeonManager.Instance.EnterBattleForTest(Messenger.enterBattleInfoTest);
         }
     }
 }

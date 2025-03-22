@@ -25,7 +25,7 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <summary>
     /// 遭遇战的怪物群组
     /// </summary>
-    EnemyGroup enemyGroup;
+    EnemyGroup enemyGroup{get{return DungeonManager.Instance.battleManager.enemyGroup;}}
 
     /// <summary>
     /// 是否需要选择目标
@@ -48,7 +48,6 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         card = transform.parent.parent.GetComponent<CardBehaviour>();
         targetType = card.TargetType;
         cardUI = card.GetComponent<CardUI>();
-        enemyGroup = DungeonManager.Instance.battleManager.enemyGroup;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

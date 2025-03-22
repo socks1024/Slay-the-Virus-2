@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DungeonManager : MonoSingleton<DungeonManager>
+public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 {
     #region dungeon process
 
@@ -62,5 +62,14 @@ public class DungeonManager : MonoSingleton<DungeonManager>
         battleManager.gameObject.SetActive(true);
         eventManager.gameObject.SetActive(false);
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+    }
+
+    /// <summary>
+    /// 开启一场测试战斗
+    /// </summary>
+    /// <param name="infoTest">战斗数据</param>
+    public void EnterBattleForTest(EnterBattleInfoTest infoTest)
+    {
+        EnterBattleForTest(infoTest.p_Cards, infoTest.p_Board, infoTest.p_Enemies);
     }
 }

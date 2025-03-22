@@ -30,7 +30,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     /// <summary>
     /// 板子
     /// </summary>
-    BoardBehaviour boardData;
+    BoardBehaviour boardData{ get{ return DungeonManager.Instance.battleManager.board; }}
 
     /// <summary>
     /// 是否处于可拖拽状态
@@ -43,7 +43,6 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         cardRoot = transform.parent.parent;
         card = cardRoot.GetComponent<CardBehaviour>();
         cardUI = cardRoot.GetComponent<CardUI>();
-        boardData = DungeonManager.Instance.battleManager.board;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
