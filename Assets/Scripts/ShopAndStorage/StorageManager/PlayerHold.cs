@@ -8,7 +8,7 @@ public class PlayerHold : MonoSingleton<PlayerHold>
 {
     public static PlayerHold Instance { get; private set; }
     private Dictionary<Item, int> CarriedItems = new Dictionary<Item, int>();  //玩家持有物品的列表
-    private Dictionary<CardData,int>CarriedCards= new Dictionary<CardData, int>();//玩家持有的卡牌
+    private Dictionary<CardBehaviour,int>CarriedCards= new Dictionary<CardBehaviour, int>();//玩家持有的卡牌
     private Item chessboard;//玩家只能选一个棋盘（如果我没理解错的话...）
 
     private void Awake()
@@ -58,7 +58,7 @@ public class PlayerHold : MonoSingleton<PlayerHold>
         return CarriedItems[item];
     }
 
-    public bool AddCard(CardData card)
+    public bool AddCard(CardBehaviour card)
     {
         Debug.Log("card added!");
         if (CarriedCards.ContainsKey(card))
@@ -73,7 +73,7 @@ public class PlayerHold : MonoSingleton<PlayerHold>
         }
     }
 
-    public bool RemoveCard(CardData card)
+    public bool RemoveCard(CardBehaviour card)
     {
         if (CarriedCards.ContainsKey(card) && CarriedCards[card] > 0)
         {
@@ -84,4 +84,18 @@ public class PlayerHold : MonoSingleton<PlayerHold>
         else return false;
     }
 
+    public List<CardBehaviour> GetCardBehaviours()
+    {
+        
+        List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
+        foreach(var cardBehaviour in CarriedCards)
+        {
+           for(int i = 0; i < cardBehaviour.Value; i++)
+            {
+                cardBehaviours.Add(cardBehaviour.Key);
+            }
+        }
+
+        return cardBehaviours;
+    }
 }

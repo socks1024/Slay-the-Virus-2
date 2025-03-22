@@ -9,9 +9,11 @@ public class CardInventoryUI : MonoBehaviour
 {
     public RectTransform detailPanel;
     public GameObject ContentPanel;
+    public EnemyBehaviour enemyBehaviour;
+    public BoardBehaviour boardBehaviour;
     private GameObject Detailed;
     private CardItemInventory inventoryitem;
-    public int sum = 0;
+    private int sum = 0;
     private int num = 0;
     private List<GameObject> blanks=new List<GameObject>();
     private List<int> chosencards = new List<int>();
@@ -29,7 +31,7 @@ public class CardInventoryUI : MonoBehaviour
         inventoryitem = card.GetComponent<CardItemInventory>();
         
 
-        if (inventoryitem.showstate==0)
+        if (inventoryitem.showstate==0)//放大
         {
             inventoryitem.showstate = 1;
             detailPanel.gameObject.SetActive(true);
@@ -37,21 +39,22 @@ public class CardInventoryUI : MonoBehaviour
             Detailed.transform.localScale = inventoryitem.originalscale * 2.0f;
             Detailed.transform.localPosition = Vector3.zero;
         }
-      else if (inventoryitem.showstate == 1)
+      else if (inventoryitem.showstate == 1)//选中
         {
             CancelDetail();
             inventoryitem.showstate = 2;
             ClearBlank();
             sum += 1;
             num = 4 - (sum % 4);
-            if (num == 4)
-                num = 0;
+            //if (num == 4)
+            //    num = 0;
             Detailed.transform.SetSiblingIndex(0);
-            PlayerHold.Instance.AddCard(inventoryitem.carditem.cardData);
+            PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
             chosencards.Add(inventoryitem.index);
+            if(sum>0)
             FillBlank();
         }
-        else if (inventoryitem.showstate == 2)
+        else if (inventoryitem.showstate == 2)//放回
         {
             inventoryitem.showstate = 0;
             ClearBlank();
@@ -59,17 +62,18 @@ public class CardInventoryUI : MonoBehaviour
             Detailed.transform.SetParent (null);
             Detailed.transform.SetParent(inventoryitem.originalparent);
             Detailed.transform.SetSiblingIndex(inventoryitem.index+sum+num-Search(inventoryitem.index)-1);
-            PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardData);
+            PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
             chosencards.Remove(inventoryitem.index);
             sum -= 1;
             num = 4 - (sum % 4);
-            if (num == 4)
-                num = 0;
+            //if (num == 4)
+            //    num = 0;
+            if(sum>0)
             FillBlank();
         }
     }
 
-    public void CancelDetail()
+    public void CancelDetail()//取消预览
     {
         detailPanel.gameObject.SetActive(false);
         Detailed.transform.SetParent( inventoryitem.originalparent);
@@ -110,5 +114,15 @@ public class CardInventoryUI : MonoBehaviour
                 count++;
         }
         return count;
+    }
+
+    public void TranslateToBattleTest()//仅供测试用
+    {
+        List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
+        for(int i = 0; i < 3; i++)
+        {
+            enemies.Add(enemyBehaviour);
+        }
+        DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
     }
 }
