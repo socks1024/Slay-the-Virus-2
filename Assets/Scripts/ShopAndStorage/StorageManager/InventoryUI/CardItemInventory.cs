@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CardItemInventory : MonoBehaviour
 {
@@ -12,13 +13,14 @@ public class CardItemInventory : MonoBehaviour
     public Transform originalparent;
     public int showstate = 0;
    
+   
     void Start()
     {
         index = transform.GetSiblingIndex();
         originalposition = transform.position;
         originalscale = transform.localScale;
         originalparent = transform.parent;
+        
     }
-
-    
+   
 }

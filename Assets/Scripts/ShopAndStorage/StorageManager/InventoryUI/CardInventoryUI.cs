@@ -11,10 +11,11 @@ public class CardInventoryUI : MonoBehaviour
 {
     public RectTransform detailPanel;
     public GameObject ContentPanel;
+    public GameObject PlayerHoldPanel;
     public EnemyBehaviour enemyBehaviour;
     public BoardBehaviour boardBehaviour;
-    private GameObject Detailed;
-    private CardItemInventory inventoryitem;
+    public GameObject Detailed;
+    public CardItemInventory inventoryitem;
     private int sum = 0;
     private int num = 0;
     private List<GameObject> blanks=new List<GameObject>();
@@ -43,18 +44,7 @@ public class CardInventoryUI : MonoBehaviour
         }
       else if (inventoryitem.showstate == 1)//选中
         {
-            CancelDetail();
-            inventoryitem.showstate = 2;
-            ClearBlank();
-            sum += 1;
-            num = 4 - (sum % 4);
-            //if (num == 4)
-            //    num = 0;
-            Detailed.transform.SetSiblingIndex(0);
-            PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
-            chosencards.Add(inventoryitem.index);
-            if(sum>0)
-            FillBlank();
+            SetToPlayer();
         }
         else if (inventoryitem.showstate == 2)//放回
         {
@@ -63,15 +53,16 @@ public class CardInventoryUI : MonoBehaviour
             Debug.Log(inventoryitem.originalparent.childCount - 8);
             Detailed.transform.SetParent (null);
             Detailed.transform.SetParent(inventoryitem.originalparent);
-            Detailed.transform.SetSiblingIndex(inventoryitem.index+sum+num-Search(inventoryitem.index)-1);
+            Detailed.transform.SetSiblingIndex(inventoryitem.index-Search(inventoryitem.index));
+            Detailed.transform.localScale = inventoryitem.originalscale;
             PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
             chosencards.Remove(inventoryitem.index);
-            sum -= 1;
-            num = 4 - (sum % 4);
+            //sum -= 1;
+            //num = 4 - (sum % 4);
             //if (num == 4)
             //    num = 0;
-            if(sum>0)
-            FillBlank();
+            //if(sum>0)
+            //FillBlank();
         }
     }
 
@@ -79,8 +70,7 @@ public class CardInventoryUI : MonoBehaviour
     {
         detailPanel.gameObject.SetActive(false);
         Detailed.transform.SetParent( inventoryitem.originalparent);
-        Detailed.transform.SetSiblingIndex(inventoryitem.index + sum + num - Search(inventoryitem.index));
-        Debug.Log(Search(inventoryitem.index));
+        Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
         Detailed.transform.localScale = inventoryitem.originalscale;
         Detailed.transform.localPosition = inventoryitem.originalposition;
         inventoryitem.showstate = 0;
@@ -131,5 +121,21 @@ public class CardInventoryUI : MonoBehaviour
         SceneManager.LoadScene("BattleScene");
         
         //DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
+    }
+
+    public void SetToPlayer()
+    {
+        CancelDetail();
+        inventoryitem.showstate = 2;
+        //ClearBlank();
+        sum += 1;
+        num = 4 - (sum % 4);
+        Detailed.transform.SetParent(PlayerHoldPanel.transform);
+        Detailed.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
+        Detailed.transform.SetSiblingIndex(0);
+        PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
+        chosencards.Add(inventoryitem.index);
+        //if(sum>0)
+        //FillBlank();
     }
 }
