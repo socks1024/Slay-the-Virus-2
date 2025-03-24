@@ -128,6 +128,10 @@ public class CardPile
     /// </summary>
     public void ClearCards()
     {
+        for (int i = cards.Count - 1; i >= 0; i--)
+        {
+            MonoBehaviour.Destroy(cards[i].gameObject);
+        }
         cards.Clear();
     }
 

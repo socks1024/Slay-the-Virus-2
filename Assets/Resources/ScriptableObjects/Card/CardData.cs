@@ -108,4 +108,5 @@ public enum CardRarityType
     UNCOMMON,
     RARE,
     UNIQUE,
+    TRASH,
 }

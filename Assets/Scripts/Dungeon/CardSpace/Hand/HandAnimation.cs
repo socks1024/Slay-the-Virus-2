@@ -57,20 +57,20 @@ public class HandAnimation : MonoBehaviour
         for (int i = 0; i < cards.Count; i++)
         {
             CardBehaviour card = cards[i];
-            card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
+            //card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
 
 
             Vector3 rot = Vector3.zero;
             rot.z += rotationDiff * ((cards.Count - 1) / 2 - i);
 
-            card.transform.DORotate(rot, arrangeTime);
+            card.GetComponent<CardSwitchMode>().cardMode.transform.DORotate(rot, arrangeTime);
 
 
             Vector3 pos = transform.position;
             pos.x += cardOffset * (i - (cards.Count - 0.5f) / 2);
 
             card.transform.DOMove(pos, arrangeTime).OnComplete(() => {
-                card.GetComponent<CardUI>().UIState = UIStates.HAND;
+                //card.GetComponent<CardUI>().UIState = UIStates.HAND;
             });
         }
     }
@@ -89,6 +89,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void AddCardAnim(CardBehaviour card)
     {
+        card.GetComponent<CardUI>().UIState = UIStates.HAND;
         ArrangeCardsInHand();
     }
 
@@ -98,7 +99,6 @@ public class HandAnimation : MonoBehaviour
     public void ReleaseCardAnim(CardBehaviour card)
     {
         card.GetComponent<CardUI>().UIState = UIStates.DRAG;
-        card.transform.rotation = Quaternion.identity;
         ArrangeCardsInHand();
     }
 
@@ -112,12 +112,13 @@ public class HandAnimation : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCardAnim(CardBehaviour card)
     {
-        //card.transform.SetParent(null);
-        card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
+        //card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
 
         card.transform.DOMove(discardPosition.position, arrangeTime).OnComplete(() => {
             card.transform.SetParent(null);
             hand.RemoveCard(card);
+            GetComponent<CardFlowController>().discardPile.AddCard(card);
+            card.ActOnDiscard();
             if (hand.IsEmpty)
             {
                 DungeonManager.Instance.battleManager.DiscardAnimFinished = true;
@@ -134,6 +135,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void DrawCardAnim(CardBehaviour card)
     {
+        card.GetComponent<CardUI>().UIState = UIStates.HAND;
         card.transform.SetParent(transform, false);
         card.transform.position = drawPosition.position;
         ArrangeCardsInHand();

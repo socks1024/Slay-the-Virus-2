@@ -19,10 +19,10 @@ public class CardUI : MonoBehaviour
             switch (mode)
             {
                 case CardMode.CARD:
-                    GetComponent<CardSwitchMode>().SwitchToCardMode();
+                    GetComponent<CardSwitchMode>()?.SwitchToCardMode();
                     break;
                 case CardMode.BLOCKS:
-                    GetComponent<CardSwitchMode>().SwitchToBlockMode();
+                    GetComponent<CardSwitchMode>()?.SwitchToBlockMode();
                     break;
             }
         }
@@ -120,19 +120,31 @@ public class CardUI : MonoBehaviour
     public Image cardBG;
 
     /// <summary>
+    /// 卡牌的稀有度框
+    /// </summary>
+    public Image rarityFrame;
+
+    /// <summary>
     /// 卡面配图
     /// </summary>
     public Image cardImage;
 
-    #region card background
+    #region card art
 
     [Header("Card Background")]
-    public Sprite AttackCardBG;
-    public Sprite DefenseCardBG;
-    public Sprite HealCardBG;
-    public Sprite SkillCardBG;
-    public Sprite ExpandCardBG;
-    public Sprite TrashCardBG;
+    public Sprite AttackBG;
+    public Sprite DefenseBG;
+    public Sprite HealBG;
+    public Sprite SkillBG;
+    public Sprite ExpandBG;
+    public Sprite TrashBG;
+
+    [Header("Card Rarity Frame")]
+    public Sprite CommonFrame;
+    public Sprite UncommonFrame;
+    public Sprite RareFrame;
+    public Sprite UniqueFrame;
+    public Sprite TrashFrame;
 
     #endregion
 
@@ -146,6 +158,11 @@ public class CardUI : MonoBehaviour
         Mode = CardMode.CARD;
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnCardAct);
         SetCardUI();
+    }
+
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.ACT_START, OnCardAct);
     }
 
     /// <summary>
@@ -247,22 +264,41 @@ public class CardUI : MonoBehaviour
         switch (data.AbilityType)
         {
             case CardAbilityType.ATTACK:
-                cardBG.sprite = AttackCardBG;
+                cardBG.sprite = AttackBG;
                 break;
             case CardAbilityType.DEFEND:
-                cardBG.sprite = DefenseCardBG;
+                cardBG.sprite = DefenseBG;
                 break;
             case CardAbilityType.HEAL:
-                cardBG.sprite = HealCardBG;
+                cardBG.sprite = HealBG;
                 break;
             case CardAbilityType.SKILL:
-                cardBG.sprite = SkillCardBG;
+                cardBG.sprite = SkillBG;
                 break;
             case CardAbilityType.EXPAND:
-                cardBG.sprite = ExpandCardBG;
+                cardBG.sprite = ExpandBG;
                 break;
             case CardAbilityType.TRASH:
-                cardBG.sprite = TrashCardBG;
+                cardBG.sprite = TrashBG;
+                break;
+        }
+
+        switch(data.RarityType)
+        {
+            case CardRarityType.COMMON:
+                rarityFrame.sprite = CommonFrame;
+                break;
+            case CardRarityType.UNCOMMON:
+                rarityFrame.sprite = UncommonFrame;
+                break;
+            case CardRarityType.RARE:
+                rarityFrame.sprite = RareFrame;
+                break;
+            case CardRarityType.UNIQUE:
+                rarityFrame.sprite = UniqueFrame;
+                break;
+            case CardRarityType.TRASH:
+                rarityFrame.sprite = TrashFrame;
                 break;
         }
     }

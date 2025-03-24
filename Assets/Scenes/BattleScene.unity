@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 547637795}
   - component: {fileID: 547637797}
   - component: {fileID: 547637798}
+  - component: {fileID: 547637799}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -630,7 +631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -421}
+  m_AnchoredPosition: {x: -6, y: -435.18005}
   m_SizeDelta: {x: 2000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547637797
@@ -664,6 +665,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handLimit: 10
   autoDrawAmount: 5
+--- !u!114 &547637799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547637794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 200, y: 300}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &581629619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,16 +1240,6 @@ MonoBehaviour:
   deck:
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
-  - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   board: {fileID: 8270045261509145139, guid: 2ef436fe5218f9440bf2898cda148275, type: 3}
   enemies:
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
@@ -1654,7 +1669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1579175741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1668,12 +1683,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 710570353}
-  - {fileID: 547637795}
   - {fileID: 581629620}
   - {fileID: 1998230320}
   - {fileID: 1974392198}
   - {fileID: 690340520}
   - {fileID: 107909879}
+  - {fileID: 547637795}
   m_Father: {fileID: 1697188987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2626,23 +2641,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

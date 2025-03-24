@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    [HideInInspector] public BattleInfo battleInfo;
+    [HideInInspector] public DungeonBattleInfo battleInfo;
 
     [HideInInspector] public BoardBehaviour board;
 
@@ -23,17 +23,19 @@ public class BattleManager : MonoBehaviour
     /// <summary>
     /// 初始化遭遇战并开始战斗
     /// </summary>
-    public void InitializeEncounter(BattleInfo battleInfo)
+    public void InitializeEncounter(DungeonBattleInfo battleInfo)
     {
+        this.battleInfo = battleInfo;
+
         //还没有添加道具初始化
         //还没有添加战利品初始化
 
-        board = player.board;
+        board = player.p_Board;
         board.transform.SetParent(boardRoot, false);
-        cardFlow.FillDrawPile(player.deck);
+        cardFlow.FillDrawPile(player.p_Deck);
 
         List<EnemyBehaviour> enemyBehaviours = new List<EnemyBehaviour>();
-        battleInfo.enemies.ForEach(e => enemyBehaviours.Add(e.GetComponent<EnemyBehaviour>()));
+        battleInfo.p_Enemies.ForEach(e => enemyBehaviours.Add(e.GetComponent<EnemyBehaviour>()));
         InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(enemyBehaviours);
         enemyBehaviours.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
     }
@@ -47,9 +49,10 @@ public class BattleManager : MonoBehaviour
         //还没有添加道具初始化
         //还没有添加战利品初始化
 
-        board = player.board;
+        board = Instantiate(player.p_Board);
         board.transform.SetParent(boardRoot, false);
-        cardFlow.FillDrawPile(player.deck);
+
+        cardFlow.FillDrawPile(InstantiateHelper.MultipleInstatiate<CardBehaviour>(player.p_Deck));
 
         InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(p_enemies).ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
     }
@@ -123,7 +126,7 @@ public class BattleManager : MonoBehaviour
     {
         turnCount += 1;
         EventCenter.Instance.TriggerEvent(EventType.TURN_START);
-        battleInfo?.OnAllActEndCallback(turnCount);
+        battleInfo.OnAllActEndCallback.Invoke(turnCount);
     }
 
     #endregion
@@ -133,6 +136,7 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnBattleWin()
     {
+        EndBattle();
         board.transform.parent = null;
         //获得战利品
     }
@@ -142,7 +146,22 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnPlayerDead()
     {
+        EndBattle();
         //死回家直接结算
+    }
+
+    /// <summary>
+    /// 战斗结束后的清理
+    /// </summary>
+    void EndBattle()
+    {
+        Destroy(board.gameObject);
+
+        cardFlow.hand.ClearCards();
+        cardFlow.drawPile.ClearCards();
+        cardFlow.discardPile.ClearCards();
+
+        enemyGroup.ClearEnemy();
     }
 
     void Awake()

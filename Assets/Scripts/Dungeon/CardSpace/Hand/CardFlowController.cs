@@ -66,8 +66,6 @@ public class CardFlowController : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCard(CardBehaviour card)
     {
-        card.ActOnDiscard();
-        discardPile.AddCard(card);
         handAnimation.DiscardCardAnim(card);
     }
 
@@ -76,7 +74,7 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     public void DiscardAllCard()
     {
-        for (int i = 0; i < hand.Count; i++)
+        for (int i = hand.Count - 1; i >= 0; i--)
         {
             DiscardCard(hand.GetCards()[i]);
         }
@@ -89,12 +87,20 @@ public class CardFlowController : MonoBehaviour
     {
         if (hand.Count >= handLimit)
         {
+            print("hand full");
             return;
         }
+
         if (drawPile.IsEmpty)
         {
+            if (discardPile.IsEmpty)
+            {
+                print("empty discard pile");
+                return;
+            }
             ReshuffleDrawPileFromDiscardPile();
         }
+        
         CardBehaviour card = drawPile.DrawCard();
         hand.AddCard(card);
         handAnimation.DrawCardAnim(card);
@@ -131,6 +137,7 @@ public class CardFlowController : MonoBehaviour
     public void FillDrawPile(List<CardBehaviour> cards)
     {
         drawPile.AddCards(cards);
+        drawPile.ShuffleCard();
     }
 
 }

@@ -30,6 +30,43 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     public BattleManager battleManager;
 
+    /// <summary>
+    /// 触发战斗
+    /// </summary>
+    /// <param name="battleInfo">战斗所需的信息</param>
+    public void EnterBattle(DungeonBattleInfo battleInfo)
+    {
+        battleManager.InitializeEncounter(battleInfo);
+
+        battleManager.gameObject.SetActive(true);
+        eventManager.gameObject.SetActive(false);
+
+        EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+    }
+
+    /// <summary>
+    /// 清除所有回合内触发的回调
+    /// </summary>
+    public void ClearAllInTurnEvent()
+    {
+        EventCenter.Instance.RemoveAllEventListener(EventType.TURN_START);
+        EventCenter.Instance.RemoveAllEventListener(EventType.ACT_START);
+        EventCenter.Instance.RemoveAllEventListener(EventType.CARD_ACT_END);
+        EventCenter.Instance.RemoveAllEventListener(EventType.ENEMY_ACT_END);
+    }
+
+    /// <summary>
+    /// 清除所有与战斗相关的回调
+    /// </summary>
+    public void ClearAllBattleEvent()
+    {
+        ClearAllInTurnEvent();
+        EventCenter.Instance.RemoveAllEventListener(EventType.BATTLE_START);
+        EventCenter.Instance.RemoveAllEventListener(EventType.PLAYER_DEAD);
+        EventCenter.Instance.RemoveAllEventListener(EventType.SINGLE_ENEMY_KILLED);
+        EventCenter.Instance.RemoveAllEventListener(EventType.BATTLE_WIN);
+    }
+
     #endregion
 
     #region event management
@@ -39,12 +76,26 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     public EventManager eventManager;
 
+    /// <summary>
+    /// 触发事件
+    /// </summary>
+    /// <param name="eventInfo">事件所需的信息</param>
+    public void EnterEvent(DungeonEventInfo eventInfo)
+    {
+        eventManager.SetEvent(eventInfo);
+
+        battleManager.gameObject.SetActive(false);
+        eventManager.gameObject.SetActive(true);
+    }
+
     #endregion
 
-    public void Start()
+    protected override void Init()
     {
-        
+        ClearAllBattleEvent();
     }
+
+    #region test
 
     /// <summary>
     /// 开启一场测试战斗
@@ -54,13 +105,13 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// <param name="enemies">所有敌人</param>
     public void EnterBattleForTest(List<CardBehaviour> p_deck, BoardBehaviour p_board, List<EnemyBehaviour> p_enemies)
     {
-        List<CardBehaviour> deck = InstantiateHelper.MultipleInstatiate<CardBehaviour>(p_deck);
-        BoardBehaviour board = Instantiate(p_board);
+        Player.SetBackpack(p_deck,p_board,null,0);
 
-        Player.SetBackpack(deck,board,null,0);
         battleManager.InitializeEncounter(p_enemies);
+
         battleManager.gameObject.SetActive(true);
         eventManager.gameObject.SetActive(false);
+
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
     }
 
@@ -72,4 +123,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     {
         EnterBattleForTest(infoTest.p_Cards, infoTest.p_Board, infoTest.p_Enemies);
     }
+
+    #endregion
+
+    
 }

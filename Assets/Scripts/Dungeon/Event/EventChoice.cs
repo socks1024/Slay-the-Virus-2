@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EventChoice
+public struct EventChoice
 {
     /// <summary>
     /// 选项的描述性文本

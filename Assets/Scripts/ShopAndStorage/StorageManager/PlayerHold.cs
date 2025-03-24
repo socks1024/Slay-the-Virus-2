@@ -1,20 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
-using static UnityEditor.Progress;
 
-public class PlayerHold : MonoSingleton<PlayerHold>
+public class PlayerHold : MonoSingletonDestroyOnLoad<PlayerHold>
 {
-    public static PlayerHold Instance { get; private set; }
     private Dictionary<Item, int> CarriedItems = new Dictionary<Item, int>();  //玩家持有物品的列表
     private Dictionary<CardBehaviour,int>CarriedCards= new Dictionary<CardBehaviour, int>();//玩家持有的卡牌
     private Item chessboard;//玩家只能选一个棋盘（如果我没理解错的话...）
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     public bool TakeFromStorage(Item item,int amount)//从仓库中拿去一定量的物品到玩家持有的物品
     {

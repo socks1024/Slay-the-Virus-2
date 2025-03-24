@@ -79,6 +79,11 @@ public abstract class EnemyBehaviour : CreatureBehaviour
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 
+    protected void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ActOnTurnStart);
+    }
+
     /// <summary>
     /// 根据当前回合数设置意图
     /// </summary>

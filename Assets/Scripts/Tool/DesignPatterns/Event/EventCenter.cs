@@ -48,6 +48,14 @@ public class EventCenter : BaseSingleton<EventCenter>
         }
     }
 
+    public void RemoveAllEventListener(EventType name)
+    {
+        if (eventDic.ContainsKey(name))
+        {
+            eventDic.Remove(name);
+        }
+    }
+
     #endregion
 
     #region has argument
@@ -164,3 +172,4 @@ public enum EventType
     CARD_ACT_END,
     ENEMY_ACT_END,
 }
+

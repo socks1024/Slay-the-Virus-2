@@ -118,6 +118,11 @@ public abstract class CardBehaviour : MonoBehaviour
         nextEffect = cardData.BaseEffect;
     }
 
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ResetData);
+    }
+
     /// <summary>
     /// 刷新卡牌的数据，每回合开始时调用
     /// </summary>

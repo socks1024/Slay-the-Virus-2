@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationManager : MonoSingleton<AnimationManager>
+public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
 {
     /// <summary>
     /// 动画特效列表

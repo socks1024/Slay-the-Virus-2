@@ -7,7 +7,6 @@ public class AnimEffectController : MonoBehaviour
     public void Play()
     {
         GetComponent<SequenceFrame>().PlayAnimation();
-        print("Play Animation:" + name);
     }
 
     public void OnAnimationEnd()

@@ -24,9 +24,6 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public Square hoveredSquare{get { return GetHoveredSquare(); } }
 
-    /// <summary>
-    /// 初始化棋盘
-    /// </summary>
     protected virtual void Start()
     {
         InitializeBoard();
@@ -35,6 +32,11 @@ public abstract class BoardBehaviour : MonoBehaviour
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnActStart);
 
         InitializeSprites();
+    }
+
+    protected virtual void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.ACT_START, OnActStart);
     }
 
     # region Place cards
@@ -148,7 +150,6 @@ public abstract class BoardBehaviour : MonoBehaviour
                 return false;
             }
 
-            print(s.squareCoord);
             if (!s.IsActive)
             {
                 print(" : inactive");
@@ -327,7 +328,6 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <param name="card"></param>
     public void PlayCard(CardBehaviour card)
     {
-        print("play:" + card.Id);
         RemoveCard(card);
         card.ActOnCardAct();
         DungeonManager.Instance.battleManager.cardFlow.DiscardCard(card);

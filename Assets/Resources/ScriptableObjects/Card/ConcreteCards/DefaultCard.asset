@@ -26,4 +26,5 @@ MonoBehaviour:
   BaseDefense: 1
   BaseHeal: 1
   BaseEffect: 1
+  CardTex: {fileID: 21300000, guid: 413115b7526660847842e9e00f10d399, type: 3}
   BlockTex: {fileID: 21300000, guid: e8b20cc522a2db9409ff65f1bc876525, type: 3}
