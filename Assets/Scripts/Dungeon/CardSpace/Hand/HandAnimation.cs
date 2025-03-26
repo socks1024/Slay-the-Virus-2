@@ -57,21 +57,16 @@ public class HandAnimation : MonoBehaviour
         for (int i = 0; i < cards.Count; i++)
         {
             CardBehaviour card = cards[i];
-            //card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
-
 
             Vector3 rot = Vector3.zero;
             rot.z += rotationDiff * ((cards.Count - 1) / 2 - i);
 
             card.GetComponent<CardSwitchMode>().cardMode.transform.DORotate(rot, arrangeTime);
 
-
             Vector3 pos = transform.position;
             pos.x += cardOffset * (i - (cards.Count - 0.5f) / 2);
 
-            card.transform.DOMove(pos, arrangeTime).OnComplete(() => {
-                //card.GetComponent<CardUI>().UIState = UIStates.HAND;
-            });
+            card.transform.DOMove(pos, arrangeTime);
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    [HideInInspector] public DungeonBattleInfo battleInfo;
+    [HideInInspector] public BattleNode battleInfo;
 
     [HideInInspector] public BoardBehaviour board;
 
@@ -23,21 +23,21 @@ public class BattleManager : MonoBehaviour
     /// <summary>
     /// 初始化遭遇战并开始战斗
     /// </summary>
-    public void InitializeEncounter(DungeonBattleInfo battleInfo)
+    public void InitializeEncounter(BattleNode battleInfo)
     {
         this.battleInfo = battleInfo;
 
         //还没有添加道具初始化
         //还没有添加战利品初始化
 
-        board = player.p_Board;
+        board = Instantiate(player.p_Board);
         board.transform.SetParent(boardRoot, false);
-        cardFlow.FillDrawPile(player.p_Deck);
 
-        List<EnemyBehaviour> enemyBehaviours = new List<EnemyBehaviour>();
-        battleInfo.p_Enemies.ForEach(e => enemyBehaviours.Add(e.GetComponent<EnemyBehaviour>()));
-        InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(enemyBehaviours);
-        enemyBehaviours.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+        List<CardBehaviour> deck = InstantiateHelper.MultipleInstatiate(player.p_Deck);
+        cardFlow.FillDrawPile(deck);
+
+        List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(battleInfo.p_Enemies);
+        enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
     }
 
     /// <summary>
@@ -136,9 +136,8 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnBattleWin()
     {
-        EndBattle();
-        board.transform.parent = null;
         //获得战利品
+        ClearBattleElements();
     }
 
     /// <summary>
@@ -146,16 +145,18 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnPlayerDead()
     {
-        EndBattle();
         //死回家直接结算
+        ClearBattleElements();
     }
 
     /// <summary>
     /// 战斗结束后的清理
     /// </summary>
-    void EndBattle()
+    void ClearBattleElements()
     {
+        //板子淡出
         Destroy(board.gameObject);
+        board = null;
 
         cardFlow.hand.ClearCards();
         cardFlow.drawPile.ClearCards();

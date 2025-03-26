@@ -14,4 +14,10 @@ public struct EventChoice
     /// 被按下时触发的回调
     /// </summary>
     public UnityAction OnChoose;
+
+    public EventChoice(string choiceText, UnityAction onChoose)
+    {
+        this.choiceText = choiceText;
+        this.OnChoose = onChoose;
+    }
 }

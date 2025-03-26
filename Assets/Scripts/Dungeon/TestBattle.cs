@@ -9,6 +9,10 @@ public class TestBattle : MonoBehaviour
 
     [SerializeField]List<EnemyBehaviour> enemies;
 
+    void Start()
+    {
+        //enemies.ForEach(enemy => DungeonNodeLib.AddEnemy(enemy));
+    }
 
     void Update()
     {

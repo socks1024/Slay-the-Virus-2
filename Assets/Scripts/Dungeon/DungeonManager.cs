@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 {
-    #region dungeon process
+    #region dungeon data
 
     //进入副本的玩家的数据：携带的卡牌等
     //副本的数据：地图的生成逻辑是什么，包含哪些事件，可能产生哪些遭遇战，最终BOSS是什么
@@ -34,14 +35,15 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// 触发战斗
     /// </summary>
     /// <param name="battleInfo">战斗所需的信息</param>
-    public void EnterBattle(DungeonBattleInfo battleInfo)
+    void EnterBattle(BattleNode battleInfo)
     {
-        battleManager.InitializeEncounter(battleInfo);
-
-        battleManager.gameObject.SetActive(true);
         eventManager.gameObject.SetActive(false);
 
-        EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+        RightBG.DOMove(rightBGBattlePos, BGMoveTime).OnComplete(() => {
+            battleManager.gameObject.SetActive(true);
+            battleManager.InitializeEncounter(battleInfo);
+            EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+        });
     }
 
     /// <summary>
@@ -80,18 +82,62 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// 触发事件
     /// </summary>
     /// <param name="eventInfo">事件所需的信息</param>
-    public void EnterEvent(DungeonEventInfo eventInfo)
+    void EnterEvent(EventNode eventInfo)
     {
-        eventManager.SetEvent(eventInfo);
-
         battleManager.gameObject.SetActive(false);
-        eventManager.gameObject.SetActive(true);
+
+        RightBG.DOMove(Vector3.zero, BGMoveTime).OnComplete(() => {
+            eventManager.SetEvent(eventInfo);
+            eventManager.gameObject.SetActive(true);
+        });
+    }
+
+    #endregion
+
+    #region dungeon UI
+
+    [Header("UI")]
+    public Transform LeftBG;
+    public Transform RightBG;
+    
+    /// <summary>
+    /// 右侧背景的战斗时位置
+    /// </summary>
+    Vector3 rightBGBattlePos = new Vector3(8,0,0);
+
+    /// <summary>
+    /// 背景移动花费的时间
+    /// </summary>
+    public float BGMoveTime = 0.5f;
+
+    #endregion
+
+    #region map
+
+    MapGenerator mapGenerator;
+
+    /// <summary>
+    /// 进入下一个节点
+    /// </summary>
+    public void EnterNode(DungeonNode node)
+    {
+        if (node is BattleNode)
+        {
+            EnterBattle(node as BattleNode);
+        }
+        else if (node is EventNode)
+        {
+            EnterEvent(node as EventNode);
+        }
+
+        node.visited = true;
     }
 
     #endregion
 
     protected override void Init()
     {
+        mapGenerator = GetComponent<MapGenerator>();
         ClearAllBattleEvent();
     }
 
@@ -107,12 +153,11 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     {
         Player.SetBackpack(p_deck,p_board,null,0);
 
-        battleManager.InitializeEncounter(p_enemies);
+        BattleNode battleNode = new BattleNode();
+        battleNode.p_Enemies = p_enemies;
+        battleNode.OnAllActEndCallback += (i) => {Debug.Log("Turn" + i + "End"); };
 
-        battleManager.gameObject.SetActive(true);
-        eventManager.gameObject.SetActive(false);
-
-        EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
+        EnterNode(battleNode);
     }
 
     /// <summary>
