@@ -8,7 +8,7 @@ public static class DungeonNodeLib
     /// <summary>
     /// 节点总存储
     /// </summary>
-    public static Dictionary<string,DungeonNode> dungeonNodes = new Dictionary<string, DungeonNode>();
+    public static Dictionary<string,DungeonNodeInfo> dungeonNodes = new Dictionary<string, DungeonNodeInfo>();
 
     /// <summary>
     /// 获取某个给定的节点
@@ -16,7 +16,9 @@ public static class DungeonNodeLib
     /// <param name="nodeID">节点的ID</param>
     public static DungeonNode GetNode(string nodeID)
     {
-        return dungeonNodes[nodeID];
+        DungeonNode node = new DungeonNode();
+        node.nodeInfo = dungeonNodes[nodeID];
+        return node;
     }
 
     /// <summary>
@@ -36,7 +38,7 @@ public static class DungeonNodeLib
     /// <param name="relativeAdress">相对于DungeonNodes文件夹的地址</param>
     static void LoadDungeonNode(string relativeAdress)
     {
-        DungeonNode dungeonNode = Resources.Load<DungeonNode>("ScriptableObjects/DungeonNodes/" + relativeAdress);
+        DungeonNodeInfo dungeonNode = Resources.Load<DungeonNodeInfo>("ScriptableObjects/DungeonNodes/" + relativeAdress);
         dungeonNodes.Add(dungeonNode.nodeID, dungeonNode);
     }
 

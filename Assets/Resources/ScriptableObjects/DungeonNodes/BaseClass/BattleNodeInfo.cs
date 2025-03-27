@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BattleNode", menuName = "ScriptableObject/DungeonNode/BattleNode")]
+[CreateAssetMenu(fileName = "BattleNodeInfo", menuName = "ScriptableObject/DungeonNode/BattleNodeInfo")]
 /// <summary>
 /// 战斗节点
 /// </summary>
-public class BattleNode : DungeonNode
+public class BattleNodeInfo : DungeonNodeInfo
 {
     /// <summary>
     /// 敌人预制体列表

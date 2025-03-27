@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    [HideInInspector] public BattleNode battleInfo;
+    [HideInInspector] public DungeonNode battleNode;
 
     [HideInInspector] public BoardBehaviour board;
 
@@ -23,9 +23,9 @@ public class BattleManager : MonoBehaviour
     /// <summary>
     /// 初始化遭遇战并开始战斗
     /// </summary>
-    public void InitializeEncounter(BattleNode battleInfo)
+    public void InitializeEncounter(DungeonNode battleInfo)
     {
-        this.battleInfo = battleInfo;
+        this.battleNode = battleInfo;
 
         //还没有添加道具初始化
         //还没有添加战利品初始化
@@ -36,12 +36,12 @@ public class BattleManager : MonoBehaviour
         List<CardBehaviour> deck = InstantiateHelper.MultipleInstatiate(player.p_Deck);
         cardFlow.FillDrawPile(deck);
 
-        List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(battleInfo.p_Enemies);
+        List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate((battleInfo.nodeInfo as BattleNodeInfo).p_Enemies);
         enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
 
-        if (battleInfo is EvacuateBattleNode)
+        if (battleInfo.nodeInfo is EvacuateBattleNodeInfo)
         {
-            moreEnemies = (battleInfo as EvacuateBattleNode).p_AfterEnemies;
+            moreEnemies = (battleInfo.nodeInfo as EvacuateBattleNodeInfo).p_AfterEnemies;
         }
     }
 
@@ -140,12 +140,12 @@ public class BattleManager : MonoBehaviour
     /// <summary>
     /// 当前战斗是否为耐久战斗
     /// </summary>
-    bool IsEnduranceBattle{ get{ return battleInfo is EvacuateBattleNode;}}
+    bool IsEnduranceBattle{ get{ return battleNode.nodeInfo is EvacuateBattleNodeInfo;}}
 
     /// <summary>
     /// 战斗的耐久回合数
     /// </summary>
-    int enduranceTurn{ get{ return (battleInfo as EvacuateBattleNode).enduranceTurn;}}
+    int enduranceTurn{ get{ return (battleNode.nodeInfo as EvacuateBattleNodeInfo).enduranceTurn;}}
 
     /// <summary>
     /// 当前耐久战斗进展到的波数
@@ -168,7 +168,7 @@ public class BattleManager : MonoBehaviour
     {
         //获得战利品
         ResetBattleElements();
-        DungeonManager.Instance.EnterNode(battleInfo.connectedNodes[0]);
+        DungeonManager.Instance.EnterNode(battleNode.connectedNodes[0]);
     }
 
     /// <summary>

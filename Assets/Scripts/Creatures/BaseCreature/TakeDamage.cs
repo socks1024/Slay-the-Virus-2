@@ -18,9 +18,10 @@ public class TakeDamage : MonoBehaviour
         get { return health; }
         set
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 value = 0;
+                ActOnDead?.Invoke();
             }
 
             if (value > MaxHealth)

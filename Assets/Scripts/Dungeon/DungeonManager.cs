@@ -35,7 +35,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// 触发战斗
     /// </summary>
     /// <param name="battleInfo">战斗所需的信息</param>
-    void EnterBattle(BattleNode battleInfo)
+    void EnterBattle(DungeonNode battleInfo)
     {
         eventManager.gameObject.SetActive(false);
 
@@ -82,7 +82,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// 触发事件
     /// </summary>
     /// <param name="eventInfo">事件所需的信息</param>
-    void EnterEvent(EventNode eventInfo)
+    void EnterEvent(DungeonNode eventInfo)
     {
         battleManager.gameObject.SetActive(false);
 
@@ -121,13 +121,13 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     public void EnterNode(DungeonNode node)
     {
-        if (node is BattleNode)
+        if (node.nodeInfo is BattleNodeInfo)
         {
-            EnterBattle(node as BattleNode);
+            EnterBattle(node);
         }
-        else if (node is EventNode)
+        else if (node.nodeInfo is EventNodeInfo)
         {
-            EnterEvent(node as EventNode);
+            EnterEvent(node);
         }
 
         node.visited = true;
@@ -135,15 +135,19 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     #endregion
 
-    protected override void Init()
+    protected override void Awake()
     {
+        base.Awake();
         mapGenerator = GetComponent<MapGenerator>();
-        ClearAllBattleEvent();
+        //ClearAllBattleEvent();
     }
 
-    public void StartAdventure()
+    public void StartAdventure(EnterDungeonInfo enterDungeonInfo)
     {
+        Player.SetBackpack(enterDungeonInfo.p_Cards, enterDungeonInfo.p_Board, null, 0);
+
         mapGenerator.GenerateMap();
+
         EnterNode(mapGenerator.startNode);
     }
 

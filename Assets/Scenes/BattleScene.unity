@@ -1438,8 +1438,6 @@ MonoBehaviour:
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   - {fileID: -4455470699046448990, guid: 492247bae403f304f8ddff46b6b15872, type: 3}
   board: {fileID: 8270045261509145139, guid: 2ef436fe5218f9440bf2898cda148275, type: 3}
-  enemies:
-  - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
 --- !u!114 &978686532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,7 +1995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5c830f63b1f4e41a0401c40ffae3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleInfo: {fileID: 0}
   board: {fileID: 0}
   boardRoot: {fileID: 710570353}
   cardFlow: {fileID: 547637798}
@@ -2194,7 +2191,6 @@ MonoBehaviour:
   titleText: {fileID: 1001332510}
   buttonsRoot: {fileID: 483725002}
   image: {fileID: 721840893}
-  nextNode: {fileID: 0}
 --- !u!1 &1697188983
 GameObject:
   m_ObjectHideFlags: 0

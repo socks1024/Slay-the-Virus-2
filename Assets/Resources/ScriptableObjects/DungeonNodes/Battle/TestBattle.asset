@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: TestBattle
   m_EditorClassIdentifier: 
   nodeID: TestBattle
-  connectedNodes: []
-  visited: 0
   p_Enemies:
-  - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
   - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}

@@ -7,11 +7,9 @@ using UnityEngine.Events;
 /// <summary>
 /// 地牢节点
 /// </summary>
-public abstract class DungeonNode : ScriptableObject
+public abstract class DungeonNodeInfo : ScriptableObject
 {
     public string nodeID;
 
-    [HideInInspector]public List<DungeonNode> connectedNodes;
-
-    [HideInInspector]public bool visited = false;
+    
 }

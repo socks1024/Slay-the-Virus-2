@@ -155,6 +155,10 @@ public class CardUI : MonoBehaviour
         {
             t.gameObject.SetActive(true);
         }
+        foreach (TextMeshProUGUI t in GetComponentsInChildren<TextMeshProUGUI>())
+        {
+            t.raycastTarget = false;
+        }
         Mode = CardMode.CARD;
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnCardAct);
         SetCardUI();

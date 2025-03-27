@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EvacuateBattleNode", menuName = "ScriptableObject/DungeonNode/EvacuateBattleNode")]
+[CreateAssetMenu(fileName = "EvacuateBattleNodeInfo", menuName = "ScriptableObject/DungeonNode/EvacuateBattleNodeInfo")]
 /// <summary>
 /// 撤离时的无尽耐久战斗
 /// </summary>
-public class EvacuateBattleNode : BattleNode
+public class EvacuateBattleNodeInfo : BattleNodeInfo
 {
     /// <summary>
     /// 第二批及之后的敌人预制体，最后一批敌人会重复出现

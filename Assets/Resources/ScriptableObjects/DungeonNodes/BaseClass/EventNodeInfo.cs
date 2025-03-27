@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EventNode", menuName = "ScriptableObject/DungeonNode/EventNode")]
+[CreateAssetMenu(fileName = "EventNodeInfo", menuName = "ScriptableObject/DungeonNodeInfo/EventNodeInfo")]
 /// <summary>
 /// 事件节点
 /// </summary>
-public class EventNode : DungeonNode
+public class EventNodeInfo : DungeonNodeInfo
 {
     /// <summary>
     /// 事件标题
@@ -57,7 +57,7 @@ public class EventChoice
 
     public BoardBehaviour p_Board;
 
-    public DungeonNode nextNode;
+    public DungeonNodeInfo nextNodeInfo;
 
     #endregion
 
@@ -86,7 +86,7 @@ public class EventChoice
                     //
                     break;
                 case EventChoiceType.NEW_NODE:
-                    DungeonManager.Instance.eventManager.nextNode = nextNode;
+                    DungeonManager.Instance.eventManager.nextNode = DungeonNodeLib.GetNode(nextNodeInfo.nodeID);
                     break;
             }
         }

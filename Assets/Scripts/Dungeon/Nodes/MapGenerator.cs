@@ -9,8 +9,6 @@ public class MapGenerator : MonoBehaviour
     public int roadsPerLayer = 3;
     public int minNodesPerRoad = 2;
     public int maxNodesPerRoad = 4;
-    // public float layerSpacing = 3f;
-    // public float nodeSpacing = 2f;
 
     [Header("节点类型权重")]
     public int battleNodeChance;
@@ -33,12 +31,14 @@ public class MapGenerator : MonoBehaviour
 
         for (int i = 0; i < layers; i++)
         {
-            evacuateNodes.Add(null);//添加撤离节点
+            evacuateNodes.Add(GetRandomNodeForEvacuateEvent(i));//添加撤离节点
 
             //将上一个 Layer 的最后一列节点连接到新撤离节点
             if (i == 0)
             {
-                startNode.connectedNodes.Add(evacuateNodes[i]);
+                startNode.connectedNodes.Add(evacuateNodes[0]);
+                print(startNode.connectedNodes.Count);
+                startNode.connectedNodes.ForEach(e => { print(e.nodeInfo.nodeID); });
             }
             else
             {
@@ -51,6 +51,8 @@ public class MapGenerator : MonoBehaviour
             //一共 roadsPerLayer 条岔路
             for (int j = 0; j < roadsPerLayer; j++)
             {
+                List<DungeonNode> road = new List<DungeonNode>();
+
                 //每条岔路上有 minNodesPerRoad 到 maxNodesPerRoad 个节点
                 for (int k = 0; k < nodesInRoad; k++)
                 {
@@ -58,7 +60,7 @@ public class MapGenerator : MonoBehaviour
                 
                     newNode = GetRandomNodeForRoad(i);
                     
-                    currentLayer[j].Add(newNode);
+                    road.Add(newNode);
 
                     //将新节点与前一个节点连接
                     if (k == 0)
@@ -67,9 +69,11 @@ public class MapGenerator : MonoBehaviour
                     }
                     else
                     {
-                        currentLayer[j][k-1].connectedNodes.Add(newNode);
+                        road[k-1].connectedNodes.Add(newNode);
                     }
                 }
+
+                currentLayer.Add(road);
             }
             
             mapLayers.Add(currentLayer);
@@ -126,9 +130,9 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     /// <param name="depth">节点深度</param>
     /// <returns>遭遇战节点</returns>
-    public BattleNode GetRandomNodeForEncounter(int depth)
+    public DungeonNode GetRandomNodeForEncounter(int depth)
     {
-        return DungeonNodeLib.GetNode("TestBattle") as BattleNode;
+        return DungeonNodeLib.GetNode("TestBattle");
     }
 
     /// <summary>
@@ -136,9 +140,9 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     /// <param name="depth">节点深度</param>
     /// <returns>奖励事件节点</returns>
-    public EventNode GetRandomNodeForAwardEvent(int depth)
+    public DungeonNode GetRandomNodeForAwardEvent(int depth)
     {
-        return DungeonNodeLib.GetNode("TestEvent") as EventNode;
+        return DungeonNodeLib.GetNode("TestEvent");
     }
 
     /// <summary>
@@ -146,8 +150,18 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     /// <param name="depth">节点深度</param>
     /// <returns>挑战事件节点</returns>
-    public EventNode GetRandomNodeForChallengeEvent(int depth)
+    public DungeonNode GetRandomNodeForChallengeEvent(int depth)
     {
-        return DungeonNodeLib.GetNode("TestEvent") as EventNode;
+        return DungeonNodeLib.GetNode("TestEvent");
+    }
+
+    /// <summary>
+    /// 抽取撤离事件节点
+    /// </summary>
+    /// <param name="depth">节点深度</param>
+    /// <returns>撤离事件节点</returns>
+    public DungeonNode GetRandomNodeForEvacuateEvent(int depth)
+    {
+        return DungeonNodeLib.GetNode("TestEvacuateEvent");
     }
 }
