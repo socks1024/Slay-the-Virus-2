@@ -23,7 +23,17 @@ public class PlayerBehaviour : CreatureBehaviour
     /// <summary>
     /// 玩家持有的营养货币
     /// </summary>
-    [HideInInspector]public int nutrition = 0;
+    int nutrition = 0;
+    public int Nutrition
+    {
+        get { return nutrition; }
+        set 
+        { 
+            if (value < 0) value = 0;
+            nutrition = value; 
+        }
+    }
+
 
     /// <summary>
     /// 设置玩家的持有物

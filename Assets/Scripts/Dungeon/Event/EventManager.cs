@@ -12,9 +12,19 @@ public class EventManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI eventDescription;
 
     /// <summary>
+    /// 事件的标题
+    /// </summary>
+    [SerializeField] TextMeshProUGUI titleText;
+
+    /// <summary>
     /// 所有事件响应按钮的根物体
     /// </summary>
     [SerializeField] GameObject buttonsRoot;
+
+    /// <summary>
+    /// 所有事件响应按钮的根物体
+    /// </summary>
+    [SerializeField] Image image;
 
     /// <summary>
     /// 所有的事件响应按钮
@@ -24,7 +34,7 @@ public class EventManager : MonoBehaviour
     /// <summary>
     /// 当前事件
     /// </summary>
-    EventNode node;
+    [HideInInspector]public DungeonNode nextNode;
 
     /// <summary>
     /// 设置常规事件
@@ -32,7 +42,9 @@ public class EventManager : MonoBehaviour
     /// <param name="node">节点</param>
     void SetNormalEvent(EventNode node)
     {
+        titleText.text = node.title;
         eventDescription.text = node.eventDescription;
+        image.sprite = node.sprite;
         for (int i = 0; i < node.choices.Count; i++)
         {
             buttons[i].gameObject.SetActive(true);
@@ -48,12 +60,13 @@ public class EventManager : MonoBehaviour
     /// <param name="eventInfo">事件信息</param>
     public void SetEvent(EventNode eventInfo)
     {
-        node = eventInfo;
+        nextNode = eventInfo;
 
-        if (eventInfo is EvacuateNode)
+        if (eventInfo is EvacuateEventNode)
         {
-            (eventInfo as EvacuateNode).SetUpRoads();
+            (eventInfo as EvacuateEventNode).SetUpRoads();
         }
+
         SetNormalEvent(eventInfo);
     }
 
@@ -62,14 +75,8 @@ public class EventManager : MonoBehaviour
     /// </summary>
     void EndEvent()
     {
-        if (node is not EvacuateNode)
-        {
-            DungeonManager.Instance.EnterNode(node.connectedNodes[0]);
-        }
-        else
-        {
-            DungeonManager.Instance.EnterNode((node as EvacuateNode).nextNode);
-        }
+        ClearEvent();
+        DungeonManager.Instance.EnterNode(nextNode);
     }
 
     /// <summary>

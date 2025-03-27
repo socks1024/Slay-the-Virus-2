@@ -7,18 +7,16 @@ public class TestBattle : MonoBehaviour
 
     [SerializeField]BoardBehaviour board;
 
-    [SerializeField]List<EnemyBehaviour> enemies;
-
     void Start()
     {
-        //enemies.ForEach(enemy => DungeonNodeLib.AddEnemy(enemy));
+        
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            DungeonManager.Instance.EnterBattleForTest(deck, board, enemies);
+            DungeonManager.Instance.EnterBattleForTest(deck, board);
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {

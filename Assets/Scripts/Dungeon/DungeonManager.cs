@@ -141,6 +141,12 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         ClearAllBattleEvent();
     }
 
+    public void StartAdventure()
+    {
+        mapGenerator.GenerateMap();
+        EnterNode(mapGenerator.startNode);
+    }
+
     #region test
 
     /// <summary>
@@ -148,16 +154,11 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     /// <param name="deck">玩家牌组</param>
     /// <param name="board">玩家使用的棋盘</param>
-    /// <param name="enemies">所有敌人</param>
-    public void EnterBattleForTest(List<CardBehaviour> p_deck, BoardBehaviour p_board, List<EnemyBehaviour> p_enemies)
+    public void EnterBattleForTest(List<CardBehaviour> p_deck, BoardBehaviour p_board)
     {
         Player.SetBackpack(p_deck,p_board,null,0);
 
-        BattleNode battleNode = new BattleNode();
-        battleNode.p_Enemies = p_enemies;
-        battleNode.OnAllActEndCallback += (i) => {Debug.Log("Turn" + i + "End"); };
-
-        EnterNode(battleNode);
+        EnterNode(DungeonNodeLib.GetNode("TestBattle"));
     }
 
     /// <summary>
@@ -166,7 +167,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// <param name="infoTest">战斗数据</param>
     public void EnterBattleForTest(EnterBattleInfoTest infoTest)
     {
-        EnterBattleForTest(infoTest.p_Cards, infoTest.p_Board, infoTest.p_Enemies);
+        EnterBattleForTest(infoTest.p_Cards, infoTest.p_Board);
     }
 
     #endregion

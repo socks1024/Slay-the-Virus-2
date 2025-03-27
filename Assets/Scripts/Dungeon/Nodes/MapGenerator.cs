@@ -17,10 +17,10 @@ public class MapGenerator : MonoBehaviour
     public int awardNodeChance;
     public int challengeNodeChance;
 
-    private List<List<List<DungeonNode>>> mapLayers = new List<List<List<DungeonNode>>>();
-    private List<DungeonNode> evacuateNodes = new List<DungeonNode>();
-    private DungeonNode startNode;
-    private DungeonNode bossNode;
+    [HideInInspector]public List<List<List<DungeonNode>>> mapLayers = new List<List<List<DungeonNode>>>();
+    [HideInInspector]public List<DungeonNode> evacuateNodes = new List<DungeonNode>();
+    [HideInInspector]public DungeonNode startNode;
+    [HideInInspector]public DungeonNode bossNode;
 
     /// <summary>
     /// 将mapLayers填充为正式地图
@@ -29,7 +29,7 @@ public class MapGenerator : MonoBehaviour
     {
         mapLayers.Clear();
 
-        startNode = null;//添加起始遭遇战节点
+        startNode = GetRandomNodeForStart();//添加起始遭遇战节点
 
         for (int i = 0; i < layers; i++)
         {
@@ -56,7 +56,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     DungeonNode newNode;
                 
-                    newNode = GetRandomNode(i);
+                    newNode = GetRandomNodeForRoad(i);
                     
                     currentLayer[j].Add(newNode);
 
@@ -75,7 +75,7 @@ public class MapGenerator : MonoBehaviour
             mapLayers.Add(currentLayer);
         }
 
-        bossNode = null;//添加BOSS战节点
+        bossNode = GetRandomNodeForBoss();//添加BOSS战节点
 
         //将BOSS战节点连接到上一列节点
         mapLayers[mapLayers.Count - 1].ForEach(road => road[road.Count-1].connectedNodes.Add(bossNode));
@@ -85,7 +85,7 @@ public class MapGenerator : MonoBehaviour
     /// 抽取中间节点
     /// </summary>
     /// <returns>下一个中间节点</returns>
-    public DungeonNode GetRandomNode(int mapDepth)
+    public DungeonNode GetRandomNodeForRoad(int mapDepth)
     {
         float r = Random.value;
 
@@ -96,10 +96,58 @@ public class MapGenerator : MonoBehaviour
 
         
         if (r < battleChance) 
-            return null;//添加遭遇战节点
+            return GetRandomNodeForEncounter(mapDepth);//添加遭遇战节点
         if (r < battleChance + awardChance)
-            return null;//添加奖励事件节点
+            return GetRandomNodeForAwardEvent(mapDepth);//添加奖励事件节点
         else
-            return null;//添加挑战事件节点
+            return GetRandomNodeForChallengeEvent(mapDepth);//添加挑战事件节点
+    }
+
+    /// <summary>
+    /// 抽取起始节点
+    /// </summary>
+    /// <returns>起始节点</returns>
+    public DungeonNode GetRandomNodeForStart()
+    {
+        return DungeonNodeLib.GetNode("TestBattle");
+    }
+
+    /// <summary>
+    /// 抽取BOSS节点
+    /// </summary>
+    /// <returns>BOSS节点</returns>
+    public DungeonNode GetRandomNodeForBoss()
+    {
+        return DungeonNodeLib.GetNode("TestBattle");
+    }
+
+    /// <summary>
+    /// 抽取遭遇战节点
+    /// </summary>
+    /// <param name="depth">节点深度</param>
+    /// <returns>遭遇战节点</returns>
+    public BattleNode GetRandomNodeForEncounter(int depth)
+    {
+        return DungeonNodeLib.GetNode("TestBattle") as BattleNode;
+    }
+
+    /// <summary>
+    /// 抽取奖励事件节点
+    /// </summary>
+    /// <param name="depth">节点深度</param>
+    /// <returns>奖励事件节点</returns>
+    public EventNode GetRandomNodeForAwardEvent(int depth)
+    {
+        return DungeonNodeLib.GetNode("TestEvent") as EventNode;
+    }
+
+    /// <summary>
+    /// 抽取挑战事件节点
+    /// </summary>
+    /// <param name="depth">节点深度</param>
+    /// <returns>挑战事件节点</returns>
+    public EventNode GetRandomNodeForChallengeEvent(int depth)
+    {
+        return DungeonNodeLib.GetNode("TestEvent") as EventNode;
     }
 }

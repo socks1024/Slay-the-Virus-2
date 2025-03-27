@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57b9cce0e8afa42bf103c930660065, type: 3}
+  m_Name: TestEvacuateEvent
+  m_EditorClassIdentifier: 
+  nodeID: TestEvacuateEvent
+  connectedNodes: []
+  visited: 0
+  title: "\u6D4B\u8BD5\u64A4\u79BB\u70B9"
+  sprite: {fileID: 0}
+  eventDescription: "\u8FD9\u662F\u4E2A\u6D4B\u8BD5\u7528\u7684\u64A4\u79BB\u70B9\u3002"
+  choices: []
+  evacuateBattle: {fileID: 11400000, guid: a4fc171c75cc740479de7b7758edae36, type: 2}

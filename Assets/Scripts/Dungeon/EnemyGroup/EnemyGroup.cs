@@ -12,10 +12,6 @@ public class EnemyGroup : MonoBehaviour
 
     void Start()
     {
-        foreach (EnemyBehaviour enemy in GetComponentsInChildren<EnemyBehaviour>())
-        {
-            enemies.Add(enemy);
-        }
         EventCenter.Instance.AddEventListener(EventType.CARD_ACT_END, EnemyAct);
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearEnemy);
     }
@@ -60,7 +56,7 @@ public class EnemyGroup : MonoBehaviour
         Destroy(enemy.gameObject);
         if (enemies.Count == 0)
         {
-            EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
+            DungeonManager.Instance.battleManager.OnAllEnemyDestroyed();
         }
     }
 
@@ -95,5 +91,13 @@ public class EnemyGroup : MonoBehaviour
         {
             DestroyEnemyFromBattle(enemies[i]);
         }
+    }
+
+    /// <summary>
+    /// 重置敌人组
+    /// </summary>
+    public void ResetEnemyGroup()
+    {
+        ClearEnemy();
     }
 }

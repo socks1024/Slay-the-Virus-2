@@ -38,23 +38,11 @@ public class BattleManager : MonoBehaviour
 
         List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(battleInfo.p_Enemies);
         enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
-    }
 
-    /// <summary>
-    /// 初始化遭遇战
-    /// </summary>
-    /// <param name="p_enemies">敌人预制体列表</param>
-    public void InitializeEncounter(List<EnemyBehaviour> p_enemies)
-    {
-        //还没有添加道具初始化
-        //还没有添加战利品初始化
-
-        board = Instantiate(player.p_Board);
-        board.transform.SetParent(boardRoot, false);
-
-        cardFlow.FillDrawPile(InstantiateHelper.MultipleInstatiate<CardBehaviour>(player.p_Deck));
-
-        InstantiateHelper.MultipleInstatiate<EnemyBehaviour>(p_enemies).ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+        if (battleInfo is EvacuateBattleNode)
+        {
+            moreEnemies = (battleInfo as EvacuateBattleNode).p_AfterEnemies;
+        }
     }
 
     /// <summary>
@@ -110,7 +98,7 @@ public class BattleManager : MonoBehaviour
     bool playAnimFinished;
 
     /// <summary>
-    /// 当 弃牌动画播放完毕 && 所有卡牌动画播放完毕 时，触发卡牌行动结束
+    /// 当 弃牌动画播放完毕 & 所有卡牌动画播放完毕 时，触发卡牌行动结束
     /// </summary>
     void TriggerCardActEnd()
     {
@@ -126,10 +114,52 @@ public class BattleManager : MonoBehaviour
     {
         turnCount += 1;
         EventCenter.Instance.TriggerEvent(EventType.TURN_START);
-        battleInfo.OnAllActEndCallback.Invoke(turnCount);
+    }
+
+    /// <summary>
+    /// 当所有敌人都被击杀时触发
+    /// </summary>
+    public void OnAllEnemyDestroyed()
+    {
+        if (IsEnduranceBattle && turnCount <= enduranceTurn)
+        {
+            List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(moreEnemies[currentWave]);
+            if (currentWave < moreEnemies.Count - 1) currentWave++;
+            enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+        }
+        else
+        {
+            EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
+        }
     }
 
     #endregion
+
+    #region endurance battle
+
+    /// <summary>
+    /// 当前战斗是否为耐久战斗
+    /// </summary>
+    bool IsEnduranceBattle{ get{ return battleInfo is EvacuateBattleNode;}}
+
+    /// <summary>
+    /// 战斗的耐久回合数
+    /// </summary>
+    int enduranceTurn{ get{ return (battleInfo as EvacuateBattleNode).enduranceTurn;}}
+
+    /// <summary>
+    /// 当前耐久战斗进展到的波数
+    /// </summary>
+    int currentWave = 0;
+
+    /// <summary>
+    /// 接下来的数波敌人
+    /// </summary>
+    List<List<EnemyBehaviour>> moreEnemies;
+
+    #endregion
+
+    #region battle end
 
     /// <summary>
     /// 战斗胜利时触发的回调
@@ -137,7 +167,8 @@ public class BattleManager : MonoBehaviour
     void OnBattleWin()
     {
         //获得战利品
-        ClearBattleElements();
+        ResetBattleElements();
+        DungeonManager.Instance.EnterNode(battleInfo.connectedNodes[0]);
     }
 
     /// <summary>
@@ -146,13 +177,13 @@ public class BattleManager : MonoBehaviour
     void OnPlayerDead()
     {
         //死回家直接结算
-        ClearBattleElements();
+        ResetBattleElements();
     }
 
     /// <summary>
     /// 战斗结束后的清理
     /// </summary>
-    void ClearBattleElements()
+    void ResetBattleElements()
     {
         //板子淡出
         Destroy(board.gameObject);
@@ -162,8 +193,12 @@ public class BattleManager : MonoBehaviour
         cardFlow.drawPile.ClearCards();
         cardFlow.discardPile.ClearCards();
 
-        enemyGroup.ClearEnemy();
+        enemyGroup.ResetEnemyGroup();
+
+        currentWave = 0;
     }
+
+    #endregion
 
     void Awake()
     {
