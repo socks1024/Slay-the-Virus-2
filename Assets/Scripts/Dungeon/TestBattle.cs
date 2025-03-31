@@ -18,7 +18,7 @@ public class TestBattle : MonoBehaviour
         {
             DungeonManager.Instance.EnterBattleForTest(Messenger.enterBattleInfoTest);
         }
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             EnterDungeonInfo info = new EnterDungeonInfo();
             info.p_Cards = deck;

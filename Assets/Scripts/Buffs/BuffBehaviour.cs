@@ -7,19 +7,24 @@ public abstract class BuffBehaviour : MonoBehaviour
     #region Buff Data
 
     /// <summary>
-    /// 状态效果数据的引用
+    /// 身份识别
     /// </summary>
-    BuffData buffData;
+    public string ID;
 
     /// <summary>
-    /// 状态效果的ID
+    /// Buff的名称
     /// </summary>
-    public string ID{ get{ return buffData.ID; } }
+    public string Name;
+
+    /// <summary>
+    /// 状态效果的图片
+    /// </summary>
+    public Sprite BuffSprite;
 
     /// <summary>
     /// 状态效果的类型
     /// </summary>
-    public BuffType buffType{ get{ return buffData.Type;}}
+    public BuffType Type;
 
     /// <summary>
     /// 状态效果的持有量
@@ -46,6 +51,17 @@ public abstract class BuffBehaviour : MonoBehaviour
     {
         EventCenter.Instance.AddEventListener(EventType.ACT_START, ActOnTurnEnd);
     }
+
+    protected virtual void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.ACT_START, ActOnTurnEnd);
+    }
+}
+
+public enum BuffType
+{
+    POSITIVE,
+    NEGATIVE,
 }
 
 

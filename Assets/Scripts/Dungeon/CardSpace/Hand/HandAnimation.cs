@@ -10,7 +10,7 @@ public class HandAnimation : MonoBehaviour
     /// <summary>
     /// 存储手牌的牌堆，通过这个类表现出来
     /// </summary>
-    public CardPile hand;
+    public CardPile Hand{ get{ return GetComponent<CardFlowController>().hand; } }
 
     [SerializeField]
     /// <summary>
@@ -44,7 +44,7 @@ public class HandAnimation : MonoBehaviour
 
     void Start()
     {
-        hand = GetComponent<CardFlowController>().hand;
+
     }
 
     /// <summary>
@@ -52,7 +52,9 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void ArrangeCardsInHand()
     {
-        List<CardBehaviour> cards = hand.GetCards();
+        if (Hand == null) print("hand is null");
+        if (Hand.GetCards() == null) print("cards is null");
+        List<CardBehaviour> cards = Hand.GetCards();
 
         for (int i = 0; i < cards.Count; i++)
         {
@@ -107,14 +109,12 @@ public class HandAnimation : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCardAnim(CardBehaviour card)
     {
-        //card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
-
+        card.ActOnDiscard();
         card.transform.DOMove(discardPosition.position, arrangeTime).OnComplete(() => {
             card.transform.SetParent(null);
-            hand.RemoveCard(card);
+            Hand.RemoveCard(card);
             GetComponent<CardFlowController>().discardPile.AddCard(card);
-            card.ActOnDiscard();
-            if (hand.IsEmpty)
+            if (Hand.IsEmpty)
             {
                 DungeonManager.Instance.battleManager.DiscardAnimFinished = true;
             }

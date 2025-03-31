@@ -20,22 +20,27 @@ public class EventManager : MonoBehaviour
     /// <summary>
     /// 所有事件响应按钮的根物体
     /// </summary>
-    [SerializeField] GameObject buttonsRoot;
-
-    /// <summary>
-    /// 所有事件响应按钮的根物体
-    /// </summary>
     [SerializeField] Image image;
 
     /// <summary>
     /// 所有的事件响应按钮
     /// </summary>
-    Button[] buttons{ get{ return buttonsRoot.GetComponentsInChildren<Button>(); }}
+    [SerializeField] List<Button> buttons;
 
     /// <summary>
     /// 当前事件
     /// </summary>
-    [HideInInspector]public DungeonNode nextNode;
+    [HideInInspector] public DungeonNode currNode;
+
+    /// <summary>
+    /// 下一个事件
+    /// </summary>
+    [HideInInspector] public DungeonNode nextNode;
+
+    /// <summary>
+    /// 当前事件的信息
+    /// </summary>
+    EventNodeInfo Info{ get{ return currNode.nodeInfo as EventNodeInfo; }}
 
     /// <summary>
     /// 设置常规事件
@@ -43,13 +48,15 @@ public class EventManager : MonoBehaviour
     /// <param name="node">节点</param>
     void SetNormalEvent(DungeonNode node)
     {
-        titleText.text = (node.nodeInfo as EventNodeInfo).title;
-        eventDescription.text = (node.nodeInfo as EventNodeInfo).eventDescription;
-        image.sprite = (node.nodeInfo as EventNodeInfo).sprite;
+        nextNode = currNode.connectedNodes[0];
+
+        titleText.text = Info.title;
+        eventDescription.text = Info.eventDescription;
+        image.sprite = Info.sprite;
         
-        for (int i = 0; i < (node.nodeInfo as EventNodeInfo).choices.Count; i++)
+        for (int i = 0; i < Info.choices.Count; i++)
         {
-            SetButton(i,(node.nodeInfo as EventNodeInfo).choices[i].choiceText,(node.nodeInfo as EventNodeInfo).choices[i].OnChoose);
+            SetButton(i,Info.choices[i].choiceText,Info.choices[i].OnChoose);
         }
     }
 
@@ -59,33 +66,9 @@ public class EventManager : MonoBehaviour
     /// <param name="node">事件信息</param>
     public void SetEvent(DungeonNode node)
     {
-        nextNode = node;
-
-        if (node.nodeInfo is EvacuateEventNodeInfo)
-        {
-            GenerateEvacuateEventChoices(node);
-        }
-        else
-        {
-            SetNormalEvent(node);
-        }
-    }
-
-    /// <summary>
-    /// 设置撤离点事件显示
-    /// </summary>
-    /// <param name="node">撤离点信息</param>
-    void GenerateEvacuateEventChoices(DungeonNode node)
-    {
-        EvacuateEventNodeInfo info = node.nodeInfo as EvacuateEventNodeInfo;
-
-        titleText.text = info.title;
-        eventDescription.text = info.eventDescription;
-        image.sprite = info.sprite;
-
-        SetButton(0, info.evacuateButtonText, () => {
-            DungeonManager.Instance.eventManager.nextNode = DungeonNodeLib.GetNode(info.evacuateBattle.nodeID);
-        });
+        currNode = node;
+        
+        SetNormalEvent(node);
     }
 
     /// <summary>
@@ -96,6 +79,7 @@ public class EventManager : MonoBehaviour
     /// <param name="action">按下按钮时触发的事件</param>
     void SetButton(int index, string text, UnityAction action)
     {
+        print("setting button "+ index);
         buttons[index].gameObject.SetActive(true);
         buttons[index].GetComponentInChildren<TextMeshProUGUI>().text = text;
         buttons[index].onClick.AddListener(action);
@@ -117,16 +101,17 @@ public class EventManager : MonoBehaviour
     public void ClearEvent()
     {
         eventDescription.text = "";
+
         foreach (Button button in buttons)
         {
             button.GetComponentInChildren<TextMeshProUGUI>().text = "";
-            button.onClick = null;
+            button.onClick.RemoveAllListeners();
             button.gameObject.SetActive(false);
         }
     }
 
-    void Awake()
-    {
-        ClearEvent();
-    }
+    // void Awake()
+    // {
+    //     ClearEvent();
+    // }
 }

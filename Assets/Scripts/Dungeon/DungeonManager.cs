@@ -37,8 +37,6 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// <param name="battleInfo">战斗所需的信息</param>
     void EnterBattle(DungeonNode battleInfo)
     {
-        eventManager.gameObject.SetActive(false);
-
         RightBG.DOMove(rightBGBattlePos, BGMoveTime).OnComplete(() => {
             battleManager.gameObject.SetActive(true);
             battleManager.InitializeEncounter(battleInfo);
@@ -84,13 +82,28 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// <param name="eventInfo">事件所需的信息</param>
     void EnterEvent(DungeonNode eventInfo)
     {
-        battleManager.gameObject.SetActive(false);
-
-        RightBG.DOMove(Vector3.zero, BGMoveTime).OnComplete(() => {
-            eventManager.SetEvent(eventInfo);
-            eventManager.gameObject.SetActive(true);
-        });
+        eventManager.SetEvent(eventInfo);
+        eventManager.gameObject.SetActive(true);
     }
+
+    #endregion
+
+    #region rest management
+
+    /// <summary>
+    /// 休息点处理脚本
+    /// </summary>
+    public RestManager restManager;
+
+    /// <summary>
+    /// 触发休息点
+    /// </summary>
+    /// <param name="restNode">休息点</param>
+    void EnterRest(RestNode restNode)
+    {
+        restManager.SetRest(restNode);
+        restManager.gameObject.SetActive(true);
+    }  
 
     #endregion
 
@@ -110,25 +123,74 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     public float BGMoveTime = 0.5f;
 
+    /// <summary>
+    /// 将背景移动回去
+    /// </summary>
+    /// <param name="onComplete">移动结束时触发的回调</param>
+    public void RightBGReturnBack(UnityAction onComplete)
+    {
+        RightBG.DOMove(Vector3.zero, BGMoveTime).OnComplete(onComplete.Invoke);
+    }
+
     #endregion
 
     #region map
-
+    
     MapGenerator mapGenerator;
+
+    /// <summary>
+    /// 当前进行到的地牢节点
+    /// </summary>
+    public DungeonNode CurrNode
+    {
+        get { return currNode;}
+        set 
+        {
+            if (currNode == value)
+            {
+                return;
+            }
+
+            if (currNode != null)
+            {
+                switch (currNode.nodeType)
+                {
+                    case DungeonNodeType.BATTLE:
+                        battleManager.gameObject.SetActive(false);
+                        break;
+                    case DungeonNodeType.EVENT:
+                        eventManager.gameObject.SetActive(false);
+                        break;
+                    case DungeonNodeType.REST:
+                        restManager.gameObject.SetActive(false);
+                        break;
+                }
+            }
+
+            switch (value.nodeType)
+            {
+                case DungeonNodeType.BATTLE:
+                    EnterBattle(value);
+                    break;
+                case DungeonNodeType.EVENT:
+                    EnterEvent(value);
+                    break;
+                case DungeonNodeType.REST:
+                    EnterRest(value as RestNode);
+                    break;
+            }
+
+            currNode = value;
+        }
+    }
+    DungeonNode currNode;
 
     /// <summary>
     /// 进入下一个节点
     /// </summary>
     public void EnterNode(DungeonNode node)
     {
-        if (node.nodeInfo is BattleNodeInfo)
-        {
-            EnterBattle(node);
-        }
-        else if (node.nodeInfo is EventNodeInfo)
-        {
-            EnterEvent(node);
-        }
+        CurrNode = node;
 
         node.visited = true;
     }
@@ -139,7 +201,9 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     {
         base.Awake();
         mapGenerator = GetComponent<MapGenerator>();
-        //ClearAllBattleEvent();
+        battleManager.gameObject.SetActive(false);
+        eventManager.gameObject.SetActive(false);
+        restManager.gameObject.SetActive(false);
     }
 
     public void StartAdventure(EnterDungeonInfo enterDungeonInfo)
@@ -175,6 +239,6 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     }
 
     #endregion
-
-    
 }
+
+

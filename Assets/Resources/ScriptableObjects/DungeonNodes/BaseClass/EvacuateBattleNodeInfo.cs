@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EvacuateBattleNodeInfo", menuName = "ScriptableObject/DungeonNode/EvacuateBattleNodeInfo")]
+[CreateAssetMenu(fileName = "EvacuateBattleNodeInfo", menuName = "ScriptableObject/DungeonNodeInfo/EvacuateBattleNodeInfo")]
 /// <summary>
 /// 撤离时的无尽耐久战斗
 /// </summary>

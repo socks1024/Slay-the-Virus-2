@@ -10,11 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e57b9cce0e8afa42bf103c930660065, type: 3}
-  m_Name: TestEvacuateEvent
+  m_Name: TestRest
   m_EditorClassIdentifier: 
-  nodeID: TestEvacuateEvent
-  title: "\u6D4B\u8BD5\u64A4\u79BB\u70B9"
-  sprite: {fileID: 0}
-  eventDescription: "\u8FD9\u662F\u4E2A\u6D4B\u8BD5\u7528\u7684\u64A4\u79BB\u70B9\u3002"
-  choices: []
+  nodeID: TestRest
   evacuateBattle: {fileID: 11400000, guid: a4fc171c75cc740479de7b7758edae36, type: 2}

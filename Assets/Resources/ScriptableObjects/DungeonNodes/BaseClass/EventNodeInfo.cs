@@ -83,10 +83,9 @@ public class EventChoice
                     //
                     break;
                 case EventChoiceType.BOARD_LOOT:
-                    //
                     break;
                 case EventChoiceType.NEW_NODE:
-                    DungeonManager.Instance.eventManager.nextNode = DungeonNodeLib.GetNode(nextNodeInfo.nodeID);
+                    DungeonManager.Instance.eventManager.currNode = DungeonNodeLib.GetNode(nextNodeInfo.nodeID);
                     break;
             }
         }

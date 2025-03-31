@@ -80,8 +80,9 @@ public abstract class EnemyBehaviour : CreatureBehaviour
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 
-    protected void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 

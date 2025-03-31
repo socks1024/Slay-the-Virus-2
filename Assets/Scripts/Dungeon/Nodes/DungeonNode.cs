@@ -18,4 +18,16 @@ public class DungeonNode
     /// 该节点是否被访问过
     /// </summary>
     public bool visited = false;
+
+    /// <summary>
+    /// 该节点的类型
+    /// </summary>
+    public DungeonNodeType nodeType;
+}
+
+public enum DungeonNodeType
+{
+    BATTLE,
+    EVENT,
+    REST,
 }

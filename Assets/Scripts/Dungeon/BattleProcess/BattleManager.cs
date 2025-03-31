@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class BattleManager : MonoBehaviour
 
     [HideInInspector] public BoardBehaviour board;
 
+    [Header("战斗时元素/UI")]
     public Transform boardRoot;
 
     public CardFlowController cardFlow;
@@ -161,14 +165,40 @@ public class BattleManager : MonoBehaviour
 
     #region battle end
 
+    [Header("战利品UI")]
+    [SerializeField] RewardsHolder rewardPanel;
+
     /// <summary>
     /// 战斗胜利时触发的回调
     /// </summary>
     void OnBattleWin()
     {
-        //获得战利品
+        ShowRewards();
+    }
+
+    /// <summary>
+    /// 展示战利品
+    /// </summary>
+    void ShowRewards()
+    {
+        rewardPanel.gameObject.SetActive(true);
+        rewardPanel.ShowRewards((battleNode.nodeInfo as BattleNodeInfo).lootInfo);
+        //显示战利品
+    }
+
+    /// <summary>
+    /// 获得战利品后触发的回调
+    /// </summary>
+    public void OnGetRewards()
+    {
+        //将战利品加入背包
+        
         ResetBattleElements();
-        DungeonManager.Instance.EnterNode(battleNode.connectedNodes[0]);
+        rewardPanel.gameObject.SetActive(false);
+
+        DungeonManager.Instance.RightBGReturnBack(() => {
+            DungeonManager.Instance.EnterNode(battleNode.connectedNodes[0]);
+        });
     }
 
     /// <summary>
@@ -197,6 +227,10 @@ public class BattleManager : MonoBehaviour
 
         currentWave = 0;
     }
+
+    #endregion
+
+    #region BG UI
 
     #endregion
 

@@ -44,4 +44,9 @@ public abstract class CreatureBehaviour : MonoBehaviour
         takeDamage.ActOnDead += OnDead;
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
     }
+
+    protected virtual void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_START, OnBattleStart);
+    }
 }

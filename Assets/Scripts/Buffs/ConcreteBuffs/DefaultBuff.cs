@@ -6,6 +6,6 @@ public class DefaultBuff : BuffBehaviour
 {
     public override void ActOnTurnEnd()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
