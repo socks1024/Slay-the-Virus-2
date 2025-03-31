@@ -6,6 +6,6 @@ public class DefaultBuff : BuffBehaviour
 {
     public override void ActOnTurnEnd()
     {
-        
+        print("Default Buff Amount: " + Amount);
     }
 }

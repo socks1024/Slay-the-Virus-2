@@ -8514,6 +8514,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2610965257917989567, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610965257917989567, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 71.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610965257917989567, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610965257917989567, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -56.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630681094261940751, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_Spacing
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630681094261940751, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5517907134473848111, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_Name
       value: PlayerStateBar
@@ -8525,6 +8549,14 @@ PrefabInstance:
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984717625284795555, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_Spacing.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984717625284795555, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_Spacing.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.x

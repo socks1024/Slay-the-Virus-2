@@ -71,5 +71,10 @@ public class BuffOwner : MonoBehaviour
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, ClearBuff);
     }
 
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_START, ClearBuff);
+    }
+
 
 }

@@ -14,6 +14,8 @@ public static class ActionLib
         target.takeDamage.Health += amount;
     }
 
+    #region battle related actions
+
     /// <summary>
     /// 造成伤害
     /// </summary>
@@ -35,6 +37,20 @@ public static class ActionLib
     {
         target.takeDamage.Health += heal;
     }
+
+    /// <summary>
+    /// 给予特定Buff
+    /// </summary>
+    /// <param name="target">要获得buff目标</param>
+    /// <param name="source">给予buff的来源</param>
+    /// <param name="buffName">buff的名字</param>
+    /// <param name="amount">buff的层数</param>
+    public static void ApplyBuffAction(CreatureBehaviour target, CreatureBehaviour source, string buffName, int amount)
+    {
+        target.buffOwner.GainBuff(DungeonBuffLib.GetBuff(buffName, amount));
+    }
+
+    #endregion
 
     #region Dungeon Related Actions
 
