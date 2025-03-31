@@ -26,5 +26,7 @@ MonoBehaviour:
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 0
+  Name: "\u9ED8\u8BA4\u5361\u724C"
+  Description: "\u9020\u6210999\u4F24\u5BB3"
   CardTex: {fileID: 21300000, guid: 413115b7526660847842e9e00f10d399, type: 3}
   BlockTex: {fileID: 21300000, guid: e8b20cc522a2db9409ff65f1bc876525, type: 3}

@@ -12,6 +12,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public CardPile Hand{ get{ return GetComponent<CardFlowController>().hand; } }
 
+    [Header("手牌排布与动画")]
     [SerializeField]
     /// <summary>
     /// 卡牌之间间隔的距离
@@ -44,7 +45,7 @@ public class HandAnimation : MonoBehaviour
 
     void Start()
     {
-
+        SetCardPilePanels();
     }
 
     /// <summary>
@@ -52,8 +53,6 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void ArrangeCardsInHand()
     {
-        if (Hand == null) print("hand is null");
-        if (Hand.GetCards() == null) print("cards is null");
         List<CardBehaviour> cards = Hand.GetCards();
 
         for (int i = 0; i < cards.Count; i++)
@@ -111,7 +110,7 @@ public class HandAnimation : MonoBehaviour
     {
         card.ActOnDiscard();
         card.transform.DOMove(discardPosition.position, arrangeTime).OnComplete(() => {
-            card.transform.SetParent(null);
+            card.transform.SetParent(DungeonManager.Instance.storage);
             Hand.RemoveCard(card);
             GetComponent<CardFlowController>().discardPile.AddCard(card);
             if (Hand.IsEmpty)
@@ -134,6 +133,48 @@ public class HandAnimation : MonoBehaviour
         card.transform.SetParent(transform, false);
         card.transform.position = drawPosition.position;
         ArrangeCardsInHand();
+    }
+
+    # endregion
+
+    # region card pile
+
+    [Header("牌堆显示窗口")]
+    public ShowCardPilePanel DrawPilePanel;
+    public ShowCardPilePanel DiscardPilePanel;
+    public ShowCardPilePanel ExhaustedPilePanel;
+
+    /// <summary>
+    /// 初始化牌堆显示窗口
+    /// </summary>
+    public void SetCardPilePanels()
+    {
+        CardFlowController flow = GetComponent<CardFlowController>();
+
+        DrawPilePanel.pile = flow.drawPile;
+        DiscardPilePanel.pile = flow.discardPile;
+        ExhaustedPilePanel.pile = flow.exhaustedPile;
+    }
+
+    public void ShowDrawPile()
+    {
+        ShowPile(DrawPilePanel);
+    }
+
+    public void ShowDiscardPile()
+    {
+        ShowPile(DiscardPilePanel);
+    }
+
+    public void ShowExhaustedPile()
+    {
+        ShowPile(ExhaustedPilePanel);
+    }
+
+    void ShowPile(ShowCardPilePanel panel)
+    {
+        panel.gameObject.SetActive(true);
+        panel.ShowCards();
     }
 
     # endregion

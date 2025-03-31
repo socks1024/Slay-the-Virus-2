@@ -28,23 +28,58 @@ public class TetrisAssembler : MonoBehaviour
     /// <summary>
     /// 所有方块的根Transform
     /// </summary>
-    Transform tetrisRoot;
+    [SerializeField] Transform tetrisRoot;
 
     /// <summary>
     /// 卡牌核心组件
     /// </summary>
     CardBehaviour card;
 
+    /// <summary>
+    /// 方块预制体
+    /// </summary>
+    [SerializeField] GameObject BlockPrefab;
+
+    [Header("方块配图")]
+    [SerializeField] Sprite AttackTex;
+    [SerializeField] Sprite DefendTex;
+    [SerializeField] Sprite HealTex;
+    [SerializeField] Sprite SkillTex;
+    [SerializeField] Sprite ExpandTex;
+    [SerializeField] Sprite TrashTex;
+
     void Start()
     {
         card = GetComponent<CardBehaviour>();
         CardShape = card.CardShape;
         ConditionsShape = card.ConditionsShape;
-        BlockTex = card.cardData.BlockTex;
-        tetrisRoot = transform.Find("BlockMode");
+
+        switch (card.AbilityType)
+        {
+            case CardAbilityType.ATTACK:
+                BlockTex = AttackTex;
+                break;
+            case CardAbilityType.DEFEND:
+                BlockTex = DefendTex;
+                break;
+            case CardAbilityType.HEAL:
+                BlockTex = HealTex;
+                break;
+            case CardAbilityType.SKILL:
+                BlockTex = SkillTex;
+                break;
+            case CardAbilityType.EXPAND:
+                BlockTex = ExpandTex;
+                break;
+            case CardAbilityType.TRASH:
+                BlockTex = TrashTex;
+                break;
+        }
+        
 
         AssembleBlocks();
-        card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
+        
+        card.GetComponent<CardUI>().UIState = UIStates.HAND;
     }
 
     /// <summary>
@@ -52,19 +87,10 @@ public class TetrisAssembler : MonoBehaviour
     /// </summary>
     void AssembleBlocks()
     {
-        if (CardShape == null)
-        {
-            print("null shape");
-        }
         foreach (Vector2 v in CardShape)
         {
-            GameObject block = new GameObject("block" + v.ToString());
+            GameObject block = Instantiate(BlockPrefab);
             block.transform.SetParent(tetrisRoot, false);
-            block.AddComponent<Image>();
-            block.AddComponent<CardDrag>();
-            block.AddComponent<CardHover>();
-            block.AddComponent<CardPress>();
-            block.AddComponent<CardSetTarget>();
 
             block.transform.localPosition = new Vector2(v.x, v.y);
             block.transform.localScale *= 0.01f;
@@ -73,13 +99,14 @@ public class TetrisAssembler : MonoBehaviour
 
         foreach (Vector2 v in ConditionsShape)
         {
-            GameObject block = new GameObject("block" + v.ToString());
+            GameObject block = Instantiate(BlockPrefab);
             block.transform.SetParent(tetrisRoot, false);
-            block.AddComponent<Image>();
 
             block.transform.localPosition = new Vector2(v.x, v.y);
             block.transform.localScale *= 0.01f;
             block.GetComponent<Image>().sprite = ConditionTex;
+
+            block.GetComponent<Image>().raycastTarget = false;
         }
     }
 }

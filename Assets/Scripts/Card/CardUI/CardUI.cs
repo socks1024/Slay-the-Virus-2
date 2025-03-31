@@ -151,14 +151,14 @@ public class CardUI : MonoBehaviour
     void Start()
     {
         cardBehaviour = GetComponent<CardBehaviour>();
-        foreach (Transform t in GetComponentsInChildren<Transform>())
-        {
-            t.gameObject.SetActive(true);
-        }
-        foreach (TextMeshProUGUI t in GetComponentsInChildren<TextMeshProUGUI>())
-        {
-            t.raycastTarget = false;
-        }
+        // foreach (Transform t in GetComponentsInChildren<Transform>())
+        // {
+        //     t.gameObject.SetActive(true);
+        // }
+        // foreach (TextMeshProUGUI t in GetComponentsInChildren<TextMeshProUGUI>())
+        // {
+        //     t.raycastTarget = false;
+        // }
         Mode = CardMode.CARD;
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnCardAct);
         SetCardUI();
@@ -179,60 +179,27 @@ public class CardUI : MonoBehaviour
     void SetAllUIPropPrivate(CardMode cardMode, bool dragable, bool pressable, bool hoverable)
     {
         Mode = cardMode;
-        SetDragable(dragable);
-        SetPressable(pressable);
-        SetHoverPreview(hoverable);
     }
 
     /// <summary>
-    /// 从外部快速设置所有UI属性
+    /// 设置自定义UI模式
     /// </summary>
-    /// <param name="cardMode">卡牌所处图形状态</param>
-    /// <param name="dragable">能否拖拽</param>
-    /// <param name="pressable">能否点击</param>
-    /// <param name="hoverable">能否悬浮预览</param>
-    public void SetAllUIProp(CardMode cardMode, bool dragable, bool pressable, bool hoverable)
+    /// <param name="cardMode">卡牌处于牌状态还是砖块状态</param>
+    /// <param name="onBeginDrag">开始拖拽时回调</param>
+    /// <param name="onDrag">拖拽中回调</param>
+    /// <param name="onEndDrag">拖拽结束回调</param>
+    /// <param name="onPointerDown">鼠标按下回调</param>
+    /// <param name="onPointerUp">鼠标抬起回调</param>
+    /// <param name="onPointerEnter">鼠标进入回调</param>
+    /// <param name="onPointerExit">鼠标离开回调</param>
+    public void SetCustomUIMode(CardMode cardMode, 
+        UnityAction onBeginDrag, UnityAction onDrag, UnityAction onEndDrag, 
+        UnityAction onPointerDown, UnityAction onPointerUp,
+        UnityAction onPointerEnter, UnityAction onPointerExit)
     {
         if (UIState == UIStates.CUSTOM)
         {
-            SetAllUIPropPrivate(cardMode,dragable,pressable,hoverable);
-        }
-    }
-
-    /// <summary>
-    /// 设置卡牌的可拖拽性
-    /// </summary>
-    /// <param name="dragable">可拖拽性</param>
-    void SetDragable(bool dragable)
-    {
-        foreach (CardDrag cardDrag in GetComponentsInChildren<CardDrag>())
-        {
-            cardDrag.dragable = dragable;
-        }
-        
-    }
-
-    /// <summary>
-    /// 设置卡牌的可点击性
-    /// </summary>
-    /// <param name="pressable">可点击性</param>
-    void SetPressable(bool pressable)
-    {
-        foreach (CardPress cardPress in GetComponentsInChildren<CardPress>())
-        {
-            cardPress.pressable = pressable;
-        }
-    }
-
-    /// <summary>
-    /// 设置卡牌能否悬浮预览
-    /// </summary>
-    /// <param name="hoverable">能否悬浮预览</param>
-    void SetHoverPreview(bool hoverable)
-    {
-        foreach (CardHover cardHover in GetComponentsInChildren<CardHover>())
-        {
-            cardHover.hoverable = hoverable;
+            
         }
     }
 
@@ -257,13 +224,10 @@ public class CardUI : MonoBehaviour
     void SetCardUI()
     {
         CardData data = cardBehaviour.cardData;
-        //nameText.text = data.;
-        //descriptionText.text = data.;
-        
-        if (cardImage != null)
-        {
-            cardImage.sprite = data.CardTex;
-        }
+        nameText.text = data.Name;
+        descriptionText.text = data.Description;
+
+        cardImage.sprite = data.CardTex;
 
         switch (data.AbilityType)
         {

@@ -22,6 +22,11 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     public PlayerBehaviour Player{ get { return battleManager.player; } }
 
+    /// <summary>
+    /// 各种UI元素在画面外的临时储存点
+    /// </summary>
+    public RectTransform storage;
+
     #endregion
 
     #region battle management

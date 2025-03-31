@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
 {
@@ -14,10 +15,11 @@ public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
     /// </summary>
     /// <param name="position">动画位置</param>
     /// <param name="name">动画名称</param>
-    public void PlayAnimEffect(Vector3 position, string name)
+    public void PlayAnimEffect(Vector3 position, string name, UnityAction onComplete)
     {
         position.z -= 1;
         AnimEffectController anim = Instantiate(clips[name], position, Quaternion.identity).GetComponent<AnimEffectController>();
+        anim.onComplete += onComplete;
         anim.Play();
     }
 }

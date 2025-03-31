@@ -21,6 +21,11 @@ public class CardFlowController : MonoBehaviour
     public CardPile discardPile = new CardPile();
 
     /// <summary>
+    /// 弃牌堆
+    /// </summary>
+    public CardPile exhaustedPile = new CardPile();
+
+    /// <summary>
     /// 手牌的上限
     /// </summary>
     public int handLimit = 10;
@@ -138,6 +143,11 @@ public class CardFlowController : MonoBehaviour
     {
         drawPile.AddCards(cards);
         drawPile.ShuffleCard();
+
+        foreach (CardBehaviour card in cards)
+        {
+            card.transform.SetParent(DungeonManager.Instance.storage);
+        }
     }
 
 }

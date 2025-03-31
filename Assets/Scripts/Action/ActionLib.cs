@@ -12,7 +12,6 @@ public static class ActionLib
     public static void DirectlyChangeHealthAction(CreatureBehaviour target, int amount)
     {
         target.takeDamage.Health += amount;
-        Debug.Log("Health of " + target + " now is " + target.takeDamage.Health);
     }
 
     /// <summary>
@@ -23,9 +22,7 @@ public static class ActionLib
     /// <param name="damage">伤害数值</param>
     public static void DamageAction(CreatureBehaviour target, CreatureBehaviour source, int damage)
     {
-        target.takeDamage.GetDamage(damage);
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat");
-        Debug.Log("Deal " + damage + " damage to " + target.name);
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {target.takeDamage.GetDamage(damage);});
     }
 
     /// <summary>
@@ -37,7 +34,6 @@ public static class ActionLib
     public static void HealAction(CreatureBehaviour target, CreatureBehaviour source, int heal)
     {
         target.takeDamage.Health += heal;
-        Debug.Log("Heal" + heal);
     }
 
     #region Dungeon Related Actions

@@ -37,18 +37,54 @@ public class CardPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (pressable)
+        switch(cardUI.UIState)
         {
-            cardImg.color = Color.gray;
-            callback?.Invoke();
+            case UIStates.CUSTOM:
+                break;
+            case UIStates.HAND:
+                break;
+            case UIStates.PLACED:
+                break;
+            case UIStates.SETTING_TARGET:
+                break;
+            case UIStates.DRAG:
+                break;
+            case UIStates.ANIMATE:
+                break;
+            case UIStates.SHOW_CARD:
+                break;
+            case UIStates.SHOW_DECK:
+                break;
+            case UIStates.BUTTON:
+                cardImg.color = Color.gray;
+                callback?.Invoke();
+                break;
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if(pressable)
+        switch(cardUI.UIState)
         {
-            cardImg.color = Color.white;
+            case UIStates.CUSTOM:
+                break;
+            case UIStates.HAND:
+                break;
+            case UIStates.PLACED:
+                break;
+            case UIStates.SETTING_TARGET:
+                break;
+            case UIStates.DRAG:
+                break;
+            case UIStates.ANIMATE:
+                break;
+            case UIStates.SHOW_CARD:
+                break;
+            case UIStates.SHOW_DECK:
+                break;
+            case UIStates.BUTTON:
+                cardImg.color = Color.white;
+                break;
         }
     }
 }

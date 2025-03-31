@@ -55,25 +55,21 @@ public class CardData : ScriptableObject
     /// </summary>
     public int BaseEffect;
 
-    // /// <summary>
-    // /// 卡牌名称
-    // /// </summary>
-    // public string Name;
+    [Header("卡牌UI")]
+    /// <summary>
+    /// 卡牌名称
+    /// </summary>
+    public string Name;
 
-    // /// <summary>
-    // /// 卡面描述
-    // /// </summary>
-    // public string Description;
+    /// <summary>
+    /// 卡面描述
+    /// </summary>
+    [TextArea] public string Description;
 
     /// <summary>
     /// 卡面配图
     /// </summary>
     public Sprite CardTex;
-
-    /// <summary>
-    /// 方块配图
-    /// </summary>
-    public Sprite BlockTex;
 }
 
 /// <summary>
