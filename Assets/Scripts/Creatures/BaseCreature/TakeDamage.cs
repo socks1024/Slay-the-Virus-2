@@ -48,6 +48,11 @@ public class TakeDamage : MonoBehaviour
             {
                 value = 0;
             }
+            else if (value > 99)
+            {
+                value = 99;
+            }
+
             block = value;
             
             OnHealthChange?.Invoke(health, block);

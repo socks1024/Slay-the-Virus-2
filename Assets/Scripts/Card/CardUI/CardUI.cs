@@ -151,14 +151,6 @@ public class CardUI : MonoBehaviour
     void Start()
     {
         cardBehaviour = GetComponent<CardBehaviour>();
-        // foreach (Transform t in GetComponentsInChildren<Transform>())
-        // {
-        //     t.gameObject.SetActive(true);
-        // }
-        // foreach (TextMeshProUGUI t in GetComponentsInChildren<TextMeshProUGUI>())
-        // {
-        //     t.raycastTarget = false;
-        // }
         Mode = CardMode.CARD;
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnCardAct);
         SetCardUI();
