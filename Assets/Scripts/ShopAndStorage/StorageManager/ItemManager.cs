@@ -9,6 +9,7 @@ public class ItemManager : MonoBehaviour
    public static ItemManager Instance { get; private set; }
 
     private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
+    private Dictionary<CardItem, int> cardinventory = new Dictionary<CardItem, int>();
     private void Awake()
     {
         Instance = this;
@@ -71,7 +72,7 @@ public class ItemManager : MonoBehaviour
         {
             if (kvp.Key.Category == category)
             {
-                ItemOfTheCatogory[kvp.Key] = kvp.Value;
+                ItemOfTheCatogory.Add(kvp.Key, kvp.Value);
             }
         }
         return ItemOfTheCatogory;

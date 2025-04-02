@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StartPanel : MonoBehaviour
+{
+    public GameObject CreateNewFilePanel;
+    public GameObject[] SaveSlots = new GameObject[3];
+
+    private void Start()
+    {
+        CreateNewFilePanel.SetActive(false);
+    }
+
+    public void updateslots()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            SaveSlots[i].GetComponent<SaveSlot>().Start();
+        }
+    }
+
+    public void Create(int index)
+    {
+        CreateNewFilePanel.GetComponent<CreateNewSaveUI>().thisindex = index;
+        CreateNewFilePanel.SetActive(true);
+    }
+}

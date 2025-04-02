@@ -14,11 +14,11 @@ public class QuickAdd : MonoBehaviour,IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right&&card.GetComponent<CardItemInventory>().showstate==0)
         {
             inventoryUI.Detailed = card;
             inventoryUI.inventoryitem = card.GetComponent<CardItemInventory>();
-            inventoryUI.SetToPlayer();
+            inventoryUI.Preview();
         }
     }
 }

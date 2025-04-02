@@ -36,11 +36,8 @@ public class CardInventoryUI : MonoBehaviour
 
         if (inventoryitem.showstate==0)//放大
         {
-            inventoryitem.showstate = 1;
-            detailPanel.gameObject.SetActive(true);
-            Detailed.transform.SetParent (detailPanel.transform);
-            Detailed.transform.localScale = inventoryitem.originalscale * 2.0f;
-            Detailed.transform.localPosition = Vector3.zero;
+            SetToPlayer();
+            //Preview();
         }
       else if (inventoryitem.showstate == 1)//选中
         {
@@ -49,7 +46,7 @@ public class CardInventoryUI : MonoBehaviour
         else if (inventoryitem.showstate == 2)//放回
         {
             inventoryitem.showstate = 0;
-            ClearBlank();
+            //ClearBlank();
             Debug.Log(inventoryitem.originalparent.childCount - 8);
             Detailed.transform.SetParent (null);
             Detailed.transform.SetParent(inventoryitem.originalparent);
@@ -137,5 +134,14 @@ public class CardInventoryUI : MonoBehaviour
         chosencards.Add(inventoryitem.index);
         //if(sum>0)
         //FillBlank();
+    }
+
+    public void Preview()
+    {
+        inventoryitem.showstate = 1;
+        detailPanel.gameObject.SetActive(true);
+        Detailed.transform.SetParent(detailPanel.transform);
+        Detailed.transform.localScale = inventoryitem.originalscale * 1.75f;
+        Detailed.transform.localPosition = Vector3.zero;
     }
 }
