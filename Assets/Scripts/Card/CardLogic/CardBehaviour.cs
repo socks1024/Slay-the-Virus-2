@@ -27,6 +27,16 @@ public abstract class CardBehaviour : MonoBehaviour
     public CardAbilityType AbilityType{ get{return cardData.AbilityType;} }
 
     /// <summary>
+    /// 卡牌行动类型
+    /// </summary>
+    public CardActType ActType{ get{return cardData.ActType;} }
+
+    /// <summary>
+    /// 卡牌条件类型
+    /// </summary>
+    public CardConditionType ConditionType{ get{return cardData.ConditionType;} }
+
+    /// <summary>
     /// 卡牌目标类型
     /// </summary>
     public CardTargetType TargetType{ get{return cardData.TargetType;} }
@@ -39,12 +49,12 @@ public abstract class CardBehaviour : MonoBehaviour
     /// <summary>
     /// 卡牌的方块要组成的形状，通过一组向量表示每个方块相对原点的位置
     /// </summary>
-    public List<Vector2> CardShape;
+    [HideInInspector]public List<Vector2> CardShape;
 
     /// <summary>
     /// 能触发卡牌特效的格子，通过一组向量表示其相对原点的位置
     /// </summary>
-    public List<Vector2> ConditionsShape;
+    [HideInInspector]public List<Vector2> ConditionsShape;
 
     /// <summary>
     /// 下一次打出卡牌的攻击力
@@ -81,6 +91,18 @@ public abstract class CardBehaviour : MonoBehaviour
     /// 与卡牌位置相关逻辑的处理组件
     /// </summary>
     public CardPosition cardPosition;
+
+    [HideInInspector]
+    /// <summary>
+    /// 是否被锁定在板子上
+    /// </summary>
+    public bool lockedOnBoard;
+
+    [HideInInspector]
+    /// <summary>
+    /// 是否被消耗
+    /// </summary>
+    public bool Exhausted{ get{ return DungeonManager.Instance.battleManager.cardFlow.exhaustedPile.GetCards().Contains(this); }}
 
     /// <summary>
     /// 卡牌的回合结束时效果
@@ -132,6 +154,8 @@ public abstract class CardBehaviour : MonoBehaviour
         nextDefense = cardData.BaseDefense;
         nextHeal = cardData.BaseHeal;
         nextEffect = cardData.BaseEffect;
+
+        lockedOnBoard = false;
     }
 
     void OnDrawGizmos()

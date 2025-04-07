@@ -16,6 +16,16 @@ public class CardData : ScriptableObject
     public CardAbilityType AbilityType;
 
     /// <summary>
+    /// 卡牌行动类型
+    /// </summary>
+    public CardActType ActType;
+
+    /// <summary>
+    /// 卡牌条件类型
+    /// </summary>
+    public CardConditionType ConditionType;
+
+    /// <summary>
     /// 卡牌目标类型
     /// </summary>
     public CardTargetType TargetType;
@@ -90,6 +100,7 @@ public enum CardAbilityType
 /// </summary>
 public enum CardTargetType
 {
+    NONE,
     SELF,
     SINGLE_ENEMY,
     ALL_ENEMY,
@@ -105,4 +116,25 @@ public enum CardRarityType
     RARE,
     UNIQUE,
     TRASH,
+}
+
+/// <summary>
+/// 卡牌行动方式的分类
+/// </summary>
+public enum CardActType
+{
+    BATTLE_FIELD,
+    COMMAND,
+    VIRUS,
+}
+
+/// <summary>
+/// 卡牌特殊位置触发逻辑的分类
+/// </summary>
+public enum CardConditionType
+{
+    NONE,
+    TRIGGER,
+    AFFECT,
+    EXPAND,
 }

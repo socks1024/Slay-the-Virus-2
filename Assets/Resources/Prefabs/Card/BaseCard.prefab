@@ -59,12 +59,9 @@ MonoBehaviour:
   cardBG: {fileID: 497456780272803253}
   rarityFrame: {fileID: 1622150546900789399}
   cardImage: {fileID: 5617256686868036519}
-  AttackBG: {fileID: 21300000, guid: 2c8f542af5818784887179fbf6eb5106, type: 3}
-  DefenseBG: {fileID: 21300000, guid: 8ec7b415f35e0374bb82b08438f4c963, type: 3}
-  HealBG: {fileID: 21300000, guid: 5fa77cefd53398142a0ffec4b19d6fd4, type: 3}
-  SkillBG: {fileID: 21300000, guid: 4604f1cd2027d674d88dab84daf9bf37, type: 3}
-  ExpandBG: {fileID: 21300000, guid: 46572370664cb8d42a84ef57956eb53f, type: 3}
-  TrashBG: {fileID: 21300000, guid: 363e0e420827f524f8416bb0faad98a0, type: 3}
+  BattleFieldBG: {fileID: 21300000, guid: 2c8f542af5818784887179fbf6eb5106, type: 3}
+  CommandBG: {fileID: 21300000, guid: 4604f1cd2027d674d88dab84daf9bf37, type: 3}
+  VirusBG: {fileID: 21300000, guid: 363e0e420827f524f8416bb0faad98a0, type: 3}
   CommonFrame: {fileID: 21300000, guid: a1e914732ec9f3f43bf07e2c134ac3de, type: 3}
   UncommonFrame: {fileID: 21300000, guid: f17f27200911ab1448db6d6a9217f58c, type: 3}
   RareFrame: {fileID: 21300000, guid: a91a918012b655f42b2d9d9594009dc7, type: 3}
@@ -104,6 +101,9 @@ MonoBehaviour:
   SkillTex: {fileID: 21300000, guid: 012e7411817c76c4c89c6f2a7e315c42, type: 3}
   ExpandTex: {fileID: 21300000, guid: 66136b4c1a1d2b6418c48849252dd947, type: 3}
   TrashTex: {fileID: 21300000, guid: 724aed548b14edf4398817bd30d976ce, type: 3}
+  TriggerSquareTex: {fileID: 21300000, guid: 5bd32d14641801c4390f3e43eb863496, type: 3}
+  AffectSquareTex: {fileID: 21300000, guid: 0c86531430e82814a84adf83cdd17679, type: 3}
+  ExpandSquareTex: {fileID: 21300000, guid: f91dcd0fdcc999e4c970a9dd7561ad20, type: 3}
 --- !u!114 &8294401681459355877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

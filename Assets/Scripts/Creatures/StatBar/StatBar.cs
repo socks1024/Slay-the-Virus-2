@@ -48,6 +48,9 @@ public class StatBar : MonoBehaviour
         
         healthOwner.OnHealthChange += UpdateHealth;
         buffOwner.OnChangeBuff += UpdateBuffs;
+
+        shieldText.text = "";
+        shield.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -64,8 +67,8 @@ public class StatBar : MonoBehaviour
         }
         else
         {
-            shield.gameObject.SetActive(false);
             shieldText.text = "";
+            shield.gameObject.SetActive(false);
         }
     }
 
@@ -78,6 +81,12 @@ public class StatBar : MonoBehaviour
         {
             buff.transform.SetParent(buffsRoot, false);
         }
+    }
+
+    void OnDestroy()
+    {
+        healthOwner.OnHealthChange -= UpdateHealth;
+        buffOwner.OnChangeBuff -= UpdateBuffs;
     }
 
 

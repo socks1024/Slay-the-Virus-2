@@ -71,7 +71,10 @@ public class CardFlowController : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCard(CardBehaviour card)
     {
-        handAnimation.DiscardCardAnim(card);
+        if (hand.GetCards().Contains(card))
+        {
+            handAnimation.DiscardCardAnim(card);
+        }
     }
 
     /// <summary>
@@ -83,6 +86,20 @@ public class CardFlowController : MonoBehaviour
         {
             DiscardCard(hand.GetCards()[i]);
         }
+    }
+
+    /// <summary>
+    /// 将一张卡牌消耗
+    /// </summary>
+    /// <param name="card">要消耗的卡牌</param>
+    public void ExhaustCard(CardBehaviour card)
+    {
+        if (hand.GetCards().Contains(card))
+        {
+            hand.RemoveCard(card);
+        }
+
+        exhaustedPile.AddCard(card);
     }
 
     /// <summary>

@@ -26,16 +26,18 @@ public static class DungeonBuffLib
     [InitializeOnLoadMethod]
     public static void LoadBuffs()
     {
-        LoadBuff("DefaultBuff");
+        LoadBuff();
     }
 
     /// <summary>
     /// 加载Buff
     /// </summary>
-    /// <param name="name">Buff名称</param>
-    static void LoadBuff(string name)
+    static void LoadBuff()
     {
-        BuffBehaviour buff = Resources.Load<BuffBehaviour>("Prefabs/Buffs/ConcreteBuffs/" + name);
-        buffPrefabs.Add(buff.ID, buff);
+        BuffBehaviour[] buffs = Resources.LoadAll<BuffBehaviour>("Prefabs/Buffs/ConcreteBuffs");
+        foreach (BuffBehaviour buff in buffs)
+        {
+            buffPrefabs.Add(buff.ID, buff);
+        }
     }
 }

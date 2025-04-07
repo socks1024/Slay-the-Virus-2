@@ -18,7 +18,7 @@ public class CardPosition : MonoBehaviour
     /// <summary>
     /// 特殊条件格子
     /// </summary>
-    List<Square> ConditionedSquares
+    [HideInInspector]public List<Square> ConditionedSquares
     {
         get
         {

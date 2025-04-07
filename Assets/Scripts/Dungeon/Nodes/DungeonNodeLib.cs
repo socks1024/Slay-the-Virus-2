@@ -44,47 +44,47 @@ public static class DungeonNodeLib
     /// 初始化时获取所有地图节点
     /// </summary>
     [InitializeOnLoadMethod]
-    public static void InitGetNodes()
+    public static void InitSetNodes()
     {
-        LoadBattleNodeInfo("TestBattle");
-        LoadEventNodeInfo("TestEvent");
-        LoadRestNodeInfo("TestRest");
+        LoadDungeonNodeInfo();
     }
 
     /// <summary>
-    /// 将一个地图节点加载入总存储
+    /// 将地图节点加载入总存储
     /// </summary>
-    /// <param name="relativeAdress">相对于DungeonNodes文件夹的地址</param>
-    static void LoadDungeonNodeInfo(string relativeAdress)
+    static void LoadDungeonNodeInfo()
     {
-        DungeonNodeInfo dungeonNode = Resources.Load<DungeonNodeInfo>("ScriptableObjects/DungeonNodes/" + relativeAdress);
-        dungeonNodes.Add(dungeonNode.nodeID, dungeonNode);
+        DungeonNodeInfo[] nodes = Resources.LoadAll<DungeonNodeInfo>("ScriptableObjects/DungeonNodes/");
+        foreach (DungeonNodeInfo dungeonNode in nodes)
+        {
+            dungeonNodes.Add(dungeonNode.nodeID, dungeonNode);
+        }
+        
     }
 
-    /// <summary>
-    /// 将一个战斗节点加入总存储
-    /// </summary>
-    /// <param name="name">节点的名字</param>
-    static void LoadBattleNodeInfo(string name)
-    {
-        LoadDungeonNodeInfo("Battle/" + name);
-    }
+    // /// <summary>
+    // /// 将一个战斗节点加入总存储
+    // /// </summary>
+    // static void LoadBattleNodeInfo()
+    // {
+    //     LoadDungeonNodeInfo("Battle");
+    // }
 
-    /// <summary>
-    /// 将一个事件节点加入总存储
-    /// </summary>
-    /// <param name="name">节点的名字</param>
-    static void LoadEventNodeInfo(string name)
-    {
-        LoadDungeonNodeInfo("Event/" + name);
-    }
+    // /// <summary>
+    // /// 将一个事件节点加入总存储
+    // /// </summary>
+    // /// <param name="name">节点的名字</param>
+    // static void LoadEventNodeInfo(string name)
+    // {
+    //     LoadDungeonNodeInfo("Event/" + name);
+    // }
 
-    /// <summary>
-    /// 将一个休息节点加入总存储
-    /// </summary>
-    /// <param name="name">节点的名字</param>
-    static void LoadRestNodeInfo(string name)
-    {
-        LoadDungeonNodeInfo("Rest/" + name);
-    }
+    // /// <summary>
+    // /// 将一个休息节点加入总存储
+    // /// </summary>
+    // /// <param name="name">节点的名字</param>
+    // static void LoadRestNodeInfo(string name)
+    // {
+    //     LoadDungeonNodeInfo("Rest/" + name);
+    // }
 }

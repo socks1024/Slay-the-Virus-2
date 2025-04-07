@@ -22,5 +22,15 @@ public class DefaultCard : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
+
+        if (cardPosition.GetSatisfiedSquaresCount() > 0)
+        {
+            print("Triggered");
+        }
+
+        if (cardPosition.GetCardsSatisfiedCondition().Count > 0)
+        {
+            cardPosition.GetCardsSatisfiedCondition().ForEach(x => {print(x.Id);});
+        }
     }
 }

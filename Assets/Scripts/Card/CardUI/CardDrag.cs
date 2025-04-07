@@ -77,9 +77,12 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 DungeonManager.Instance.battleManager.cardFlow.ReleaseCardFromHand(card);
                 break;
             case UIStates.PLACED:
-                boardData.RemoveCard(card);
-                card.ActOnRemoved();
-                cardUI.UIState = UIStates.DRAG;
+                if (!card.lockedOnBoard)
+                {
+                    boardData.RemoveCard(card);
+                    card.ActOnRemoved();
+                    cardUI.UIState = UIStates.DRAG;
+                }
                 break;
             case UIStates.SETTING_TARGET:
                 originPosition = card.transform.position;

@@ -137,6 +137,19 @@ public class HandAnimation : MonoBehaviour
 
     # endregion
 
+    # region exhaust
+
+    /// <summary>
+    /// 消耗卡牌的动画
+    /// </summary>
+    /// <param name="card">要消耗的卡牌</param>
+    public void ExhaustCardAnim(CardBehaviour card)
+    {
+        print("ExhaustCardAnim:" + card.name);
+    }
+
+    # endregion
+
     # region card pile
 
     [Header("牌堆显示窗口")]

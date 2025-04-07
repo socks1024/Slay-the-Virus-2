@@ -49,6 +49,7 @@ public class SequenceFrame : MonoBehaviour
                 isPlaying = false;
                 seconds = 0;
                 sr.sprite = sprites[0];
+                
                 OnAnimationEnd.Invoke();
             }
             else

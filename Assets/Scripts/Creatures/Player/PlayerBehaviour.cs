@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class PlayerBehaviour : CreatureBehaviour
@@ -31,8 +32,12 @@ public class PlayerBehaviour : CreatureBehaviour
         { 
             if (value < 0) value = 0;
             nutrition = value; 
+
+            OnNutritionChange.Invoke(nutrition);
         }
     }
+
+    public UnityAction<int> OnNutritionChange;
 
 
     /// <summary>

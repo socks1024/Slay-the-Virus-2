@@ -131,13 +131,18 @@ public class CardUI : MonoBehaviour
 
     #region card art
 
-    [Header("Card Background")]
-    public Sprite AttackBG;
-    public Sprite DefenseBG;
-    public Sprite HealBG;
-    public Sprite SkillBG;
-    public Sprite ExpandBG;
-    public Sprite TrashBG;
+    // [Header("Card Background")]
+    // public Sprite AttackBG;
+    // public Sprite DefenseBG;
+    // public Sprite HealBG;
+    // public Sprite SkillBG;
+    // public Sprite ExpandBG;
+    // public Sprite TrashBG;
+
+    [Header("Card New Background")]
+    public Sprite BattleFieldBG;
+    public Sprite CommandBG;
+    public Sprite VirusBG;
 
     [Header("Card Rarity Frame")]
     public Sprite CommonFrame;
@@ -221,25 +226,38 @@ public class CardUI : MonoBehaviour
 
         cardImage.sprite = data.CardTex;
 
-        switch (data.AbilityType)
+        // switch (data.AbilityType)
+        // {
+        //     case CardAbilityType.ATTACK:
+        //         cardBG.sprite = AttackBG;
+        //         break;
+        //     case CardAbilityType.DEFEND:
+        //         cardBG.sprite = DefenseBG;
+        //         break;
+        //     case CardAbilityType.HEAL:
+        //         cardBG.sprite = HealBG;
+        //         break;
+        //     case CardAbilityType.SKILL:
+        //         cardBG.sprite = SkillBG;
+        //         break;
+        //     case CardAbilityType.EXPAND:
+        //         cardBG.sprite = ExpandBG;
+        //         break;
+        //     case CardAbilityType.TRASH:
+        //         cardBG.sprite = TrashBG;
+        //         break;
+        // }
+
+        switch (data.ActType)
         {
-            case CardAbilityType.ATTACK:
-                cardBG.sprite = AttackBG;
+            case CardActType.BATTLE_FIELD:
+                cardBG.sprite = BattleFieldBG;
                 break;
-            case CardAbilityType.DEFEND:
-                cardBG.sprite = DefenseBG;
+            case CardActType.COMMAND:
+                cardBG.sprite = CommandBG;
                 break;
-            case CardAbilityType.HEAL:
-                cardBG.sprite = HealBG;
-                break;
-            case CardAbilityType.SKILL:
-                cardBG.sprite = SkillBG;
-                break;
-            case CardAbilityType.EXPAND:
-                cardBG.sprite = ExpandBG;
-                break;
-            case CardAbilityType.TRASH:
-                cardBG.sprite = TrashBG;
+            case CardActType.VIRUS:
+                cardBG.sprite = VirusBG;
                 break;
         }
 

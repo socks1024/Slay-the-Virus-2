@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "EventNodeInfo", menuName = "ScriptableObject/DungeonNodeInfo/EventNodeInfo")]
 /// <summary>
@@ -41,9 +42,9 @@ public class EventChoice
     public string choiceText;
 
     /// <summary>
-    /// 该选项会触发的选项操作类型
+    /// 该选项会触发的选项操作类型及每个类型触发的概率
     /// </summary>
-    public List<EventChoiceType> choiceTypes;
+    public SerializableDictionary<EventChoiceType,float> choiceTypes;
 
     #region Choice Parameters
 
@@ -55,11 +56,39 @@ public class EventChoice
 
     public RelicBehaviour p_Relic;
 
+    public CardBehaviour p_Card;
+
     public BoardBehaviour p_Board;
 
     public DungeonNodeInfo nextNodeInfo;
 
+    public bool repeatable;
+
     #endregion
+
+    public bool Available
+    { 
+        get
+        {
+            if (choiceTypes.Contains(EventChoiceType.MONEY))
+            {
+                if (DungeonManager.Instance.Player.Nutrition < moneyVariation)
+                {
+                    return false;
+                }
+            }
+
+            if (choiceTypes.Contains(EventChoiceType.HEALTH_CHANGE))
+            {
+                if (DungeonManager.Instance.Player.takeDamage.Health + healthVariation <= 0)
+                {
+                    return false;
+                }
+            }
+
+            return true; 
+        } 
+    }
 
     /// <summary>
     /// 选择选项会触发的行动
@@ -68,25 +97,29 @@ public class EventChoice
     {
         foreach (var choice in choiceTypes)
         {
-            switch (choice)
+            switch (choice.Key)
             {
                 case EventChoiceType.MONEY:
-                    ActionLib.PlayerChangeMoney(moneyVariation);
+                    if(Random.value < choice.Value) ActionLib.PlayerChangeMoney(moneyVariation);
                     break;
                 case EventChoiceType.HEALTH_CHANGE:
-                    ActionLib.DirectlyChangeHealthAction(DungeonManager.Instance.Player, healthVariation);
+                    if(Random.value < choice.Value) ActionLib.DirectlyChangeHealthAction(DungeonManager.Instance.Player, healthVariation);
                     break;
                 case EventChoiceType.RELIC_LOOT:
-                    ActionLib.PlayerGainRelic(p_Relic);
+                    if(Random.value < choice.Value) ActionLib.PlayerGainRelic(p_Relic);
                     break;
                 case EventChoiceType.CARD_LOOT:
-                    //
+                    if(Random.value < choice.Value) ActionLib.PlayerAddCardToDeck(p_Card);
+                    break;
+                case EventChoiceType.PACK_LOOT:
                     break;
                 case EventChoiceType.BOARD_LOOT:
                     break;
-                case EventChoiceType.NEW_NODE:
-                    DungeonManager.Instance.eventManager.currNode = DungeonNodeLib.GetNode(nextNodeInfo.nodeID);
-                    break;
+                // case EventChoiceType.NEW_NODE:
+                //     DungeonNode node = DungeonNodeLib.GetNode(nextNodeInfo.nodeID);
+                //     node.connectedNodes.Add();
+                //     if(Random.value < choice.Value) DungeonManager.Instance.eventManager.currNode = ;
+                //     break;
             }
         }
     }
@@ -97,8 +130,9 @@ public enum EventChoiceType
     MONEY,
     CARD_LOOT,
     RELIC_LOOT,
+    PACK_LOOT,
     BOARD_LOOT,
-    NEW_NODE,
+    // NEW_NODE,
     HEALTH_CHANGE,
 }
 
