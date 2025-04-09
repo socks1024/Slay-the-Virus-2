@@ -41,6 +41,23 @@ public class BuffOwner : MonoBehaviour
     }
 
     /// <summary>
+    /// 获取对象是否持有特定Buff
+    /// </summary>
+    /// <param name="ID">buffID</param>
+    /// <returns>是否持有</returns>
+    public bool HasBuff(string ID)
+    {
+        foreach (BuffBehaviour oldBuff in buffs)
+        {
+            if (oldBuff.ID == ID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
     /// 获取特定Buff的持有量
     /// </summary>
     /// <param name="ID">特定Buff的ID</param>

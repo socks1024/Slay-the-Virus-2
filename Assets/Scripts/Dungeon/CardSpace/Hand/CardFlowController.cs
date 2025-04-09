@@ -33,7 +33,9 @@ public class CardFlowController : MonoBehaviour
     /// <summary>
     /// 每回合开始时自动抽牌的数量
     /// </summary>
-    public int autoDrawAmount = 5;
+    [SerializeField] int autoDrawAmount = 5;
+
+    public int AutoDrawAmount{ get{ return autoDrawAmount + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("Supplies"); }}
 
     /// <summary>
     /// 手牌的动画处理器
@@ -43,7 +45,7 @@ public class CardFlowController : MonoBehaviour
     void Awake()
     {
         handAnimation = GetComponent<HandAnimation>();
-        EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(autoDrawAmount); });
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(AutoDrawAmount); });
         EventCenter.Instance.AddEventListener(EventType.ACT_START, () => { DiscardAllCard(); });
     }
 

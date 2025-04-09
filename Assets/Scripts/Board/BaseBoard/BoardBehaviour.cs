@@ -328,8 +328,9 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <param name="card"></param>
     public void PlayCard(CardBehaviour card)
     {
-        RemoveCard(card);
         card.ActOnCardAct();
+        RemoveCard(card);
+        card.ActOnRemoved();
         DungeonManager.Instance.battleManager.cardFlow.DiscardCard(card);
 
         if (IsEmptyBoard())

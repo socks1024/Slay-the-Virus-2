@@ -52,6 +52,8 @@ public class CardPosition : MonoBehaviour
         return count;
     }
 
+    public bool Conditioned{ get{ return GetSatisfiedSquaresCount() > 0;}}
+
     /// <summary>
     /// 获取满足特殊条件的卡牌
     /// </summary>

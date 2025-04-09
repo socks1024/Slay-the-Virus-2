@@ -29,7 +29,19 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// <summary>
     /// 状态效果的持有量
     /// </summary>
-    public int Amount{ get; set; }
+    public int Amount
+    { 
+        get { return amount; }
+        set 
+        {
+            amount = value;
+            if (amount == 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+    int amount;
 
     /// <summary>
     /// 状态效果的持有者

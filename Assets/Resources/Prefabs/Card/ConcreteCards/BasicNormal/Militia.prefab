@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625452091c86dad459178fe289cae8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
+  cardData: {fileID: 11400000, guid: a1c60e5ce90d35c48875c4f8ead8f17d, type: 2}
   CardShape: []
   ConditionsShape: []
   nextDamage: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   nextEffect: 0
   targetEnemy: {fileID: 0}
   cardPosition: {fileID: 0}
+  lockedOnBoard: 0

@@ -24,9 +24,18 @@ public static class ActionLib
     /// <param name="damage">伤害数值</param>
     public static void DamageAction(CreatureBehaviour target, CreatureBehaviour source, int damage)
     {
+        damage += source.buffOwner.GetBuffAmount("Strength");
+
+        damage -= source.buffOwner.GetBuffAmount("Paralyze");
+        if (damage < 0) damage = 0;
+
+        if (source.buffOwner.HasBuff("Weakness")) damage *= 2;
+
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
             target.takeDamage.GetDamage(damage);
         });
+
+        if (source.buffOwner.HasBuff("Counter")) CounterAction(source, target, source.buffOwner.GetBuffAmount("Counter"));
     }
 
     /// <summary>
@@ -69,12 +78,11 @@ public static class ActionLib
     /// <param name="amount">格挡的数量</param>
     public static void GainBlockAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
     {
-        // 获得格挡动画
+        amount += source.buffOwner.GetBuffAmount("Tenacity");
 
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
             target.takeDamage.Block += amount;
         });
-        
     }
 
     /// <summary>
@@ -108,6 +116,57 @@ public static class ActionLib
         }
     }
 
+    /// <summary>
+    /// 通过受伤状态被伤害
+    /// </summary>
+    /// <param name="owner">主人</param>
+    /// <param name="amount">量</param>
+    public static void WoundAction(CreatureBehaviour owner, int amount)
+    {
+        AnimationManager.Instance.PlayAnimEffect(owner.transform.position, "beat", () => {
+            owner.takeDamage.GetDamage(amount);
+        });
+    }
+
+    /// <summary>
+    /// 反击
+    /// </summary>
+    /// <param name="target">反击目标</param>
+    /// <param name="source">反击来源</param>
+    /// <param name="amount">反击量</param>
+    public static void CounterAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
+    {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+            target.takeDamage.GetDamage(amount);
+        });
+    }
+
+    /// <summary>
+    /// 将一张卡牌加入手牌和卡组
+    /// </summary>
+    /// <param name="p_card_ID">卡牌ID</param>
+    /// <param name="amount">卡牌数量</param>
+    public static void AddCardToHand(string p_card_ID, int amount)
+    {
+        CardBehaviour p_card = CardLib.GetCard(p_card_ID);
+
+        for (int i = 0; i < amount; i++)
+        {
+            PlayerAddCardToDeck(p_card);
+            CardBehaviour card = MonoBehaviour.Instantiate(p_card);
+            DungeonManager.Instance.battleManager.cardFlow.AddCardToHand(card);
+        }
+    }
+
+    /// <summary>
+    /// 将一张卡牌从战斗中和牌组中移除
+    /// </summary>
+    /// <param name="card">要移除的卡牌</param>
+    public static void RemoveCardFromBattle(CardBehaviour card)
+    {
+        PlayerRemoveCardFromDeck(card.Id);
+        MonoBehaviour.Destroy(card.gameObject);
+    }
 
     #endregion
 
@@ -138,6 +197,22 @@ public static class ActionLib
     public static void PlayerAddCardToDeck(CardBehaviour card)
     {
         DungeonManager.Instance.Player.p_Deck.Add(card);
+    }
+
+    /// <summary>
+    /// 从卡组中移除一张特定卡牌
+    /// </summary>
+    /// <param name="ID">卡牌ID</param>
+    public static void PlayerRemoveCardFromDeck(string ID)
+    {
+        foreach (CardBehaviour card in DungeonManager.Instance.Player.p_Deck)
+        {
+            if (card.Id == ID)
+            {
+                DungeonManager.Instance.Player.p_Deck.Remove(card);
+                return;
+            }
+        }
     }
 
     #endregion

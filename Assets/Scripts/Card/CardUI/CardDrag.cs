@@ -79,8 +79,8 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             case UIStates.PLACED:
                 if (!card.lockedOnBoard)
                 {
-                    boardData.RemoveCard(card);
                     card.ActOnRemoved();
+                    boardData.RemoveCard(card);
                     cardUI.UIState = UIStates.DRAG;
                 }
                 break;
