@@ -11,7 +11,8 @@ public class Steroid : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        // print("PlaceCard");
+        ActionLib.ApplyBuffAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, "Strength", nextEffect);
+        ActionLib.RemoveCardFromBattle(this);
     }
 
     public override void ActOnRemoved()
@@ -21,7 +22,6 @@ public class Steroid : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.ApplyBuffAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, "Strength", nextEffect);
-        ActionLib.RemoveCardFromBattle(this);
+        
     }
 }

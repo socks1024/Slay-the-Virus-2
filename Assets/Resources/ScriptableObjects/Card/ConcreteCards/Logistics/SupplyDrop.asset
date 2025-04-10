@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50b574931a0b04eb327dae82e35fd2, type: 3}
+  m_Name: SupplyDrop
+  m_EditorClassIdentifier: 
+  Id: SupplyDrop
+  AbilityType: 0
+  ActType: 0
+  ConditionType: 0
+  TargetType: 2
+  RarityType: 1
+  CardShape:
+  - {x: 0, y: 0}
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  - {x: 0, y: 1}
+  ConditionsShape: []
+  BaseDamage: 5
+  BaseDefense: 0
+  BaseHeal: 0
+  BaseEffect: 1
+  Name: "\u7A7A\u6295\u8865\u7ED9"
+  Description: "\u9020\u62105\u70B9\u4F24\u5BB3\u3002\n\u6BCF\u670910\u8425\u517B\uFF0C\u989D\u5916\u9020\u62101\u70B9\u4F24\u5BB3\u3002"
+  CardTex: {fileID: 21300000, guid: 37b3cb7e85d2fba449bfea02dab7a049, type: 3}

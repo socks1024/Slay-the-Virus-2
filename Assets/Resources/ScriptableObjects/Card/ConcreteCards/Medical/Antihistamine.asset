@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50b574931a0b04eb327dae82e35fd2, type: 3}
+  m_Name: Antihistamine
+  m_EditorClassIdentifier: 
+  Id: Steroid
+  AbilityType: 3
+  ActType: 1
+  ConditionType: 0
+  TargetType: 1
+  RarityType: 2
+  CardShape:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  ConditionsShape: []
+  BaseDamage: 0
+  BaseDefense: 0
+  BaseHeal: 0
+  BaseEffect: 3
+  Name: "\u6297\u7EC4\u80FA\u5242"
+  Description: "\u83B7\u5F973\u5C42\u575A\u97E7\u3002\n\u6467\u6BC1\u3002"
+  CardTex: {fileID: 21300000, guid: b254ba7cde3b5664cac28260a391eac2, type: 3}

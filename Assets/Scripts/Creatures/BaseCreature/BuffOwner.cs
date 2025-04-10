@@ -75,6 +75,28 @@ public class BuffOwner : MonoBehaviour
     }
 
     /// <summary>
+    /// 获取最高的负面buff
+    /// </summary>
+    /// <returns></returns>
+    public BuffBehaviour GetHighestDebuff()
+    {
+        int amount = 0;
+
+        BuffBehaviour retBuff = null;
+
+        foreach (BuffBehaviour buff in buffs)
+        {
+            if (buff.Amount > amount && buff.Type == BuffType.NEGATIVE)
+            {
+                amount = buff.Amount;
+                retBuff = buff;
+            }
+        }
+
+        return retBuff;
+    }
+
+    /// <summary>
     /// 清除所有Buff
     /// </summary>
     public void ClearBuff()

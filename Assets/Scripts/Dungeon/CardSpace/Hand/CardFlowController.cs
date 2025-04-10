@@ -35,7 +35,7 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     [SerializeField] int autoDrawAmount = 5;
 
-    public int AutoDrawAmount{ get{ return autoDrawAmount + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("Supplies"); }}
+    public int AutoDrawAmount{ get{ return autoDrawAmount + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("Supplies") + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("SystemEngineer"); }}
 
     /// <summary>
     /// 手牌的动画处理器

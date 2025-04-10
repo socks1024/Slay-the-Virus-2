@@ -86,6 +86,8 @@ public abstract class CardBehaviour : MonoBehaviour
     /// </summary>
     public EnemyBehaviour targetEnemy;
 
+    protected PlayerBehaviour Player{ get{return DungeonManager.Instance.Player;} }
+
     [HideInInspector]
     /// <summary>
     /// 与卡牌位置相关逻辑的处理组件

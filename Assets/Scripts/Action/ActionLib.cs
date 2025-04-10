@@ -165,7 +165,57 @@ public static class ActionLib
     public static void RemoveCardFromBattle(CardBehaviour card)
     {
         PlayerRemoveCardFromDeck(card.Id);
+
+        DungeonManager.Instance.battleManager.board.RemoveCard(card);
         MonoBehaviour.Destroy(card.gameObject);
+    }
+
+    /// <summary>
+    /// 开启棋盘上随机格子
+    /// </summary>
+    /// <param name="amount">开启的数量</param>
+    public static void EnableRandomSquareAction(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            List<Square> s = DungeonManager.Instance.battleManager.board.AllDisabledSquares;
+            int randIndex = Random.Range(0,s.Count);
+            s[randIndex].IsActive = true;
+        }
+    }
+
+    /// <summary>
+    /// 造成伤害
+    /// </summary>
+    /// <param name="target">要受到伤害的目标</param>
+    /// <param name="source">攻击的来源</param>
+    /// <param name="damage">伤害数值</param>
+    public static void RandomDamageAction(CreatureBehaviour source, int damage)
+    {
+        DamageAction(DungeonManager.Instance.battleManager.enemyGroup.GetRandomEnemy(), source, damage);
+    }
+
+    /// <summary>
+    /// 给予所有敌人特定Buff
+    /// </summary>
+    /// <param name="source">给予buff的来源</param>
+    /// <param name="buffName">buff的名字</param>
+    /// <param name="amount">buff的层数</param>
+    public static void ApplyBuffToAllEnemyAction(CreatureBehaviour source, string buffName, int amount)
+    {
+        foreach (EnemyBehaviour enemy in DungeonManager.Instance.battleManager.enemyGroup.enemies)
+        {
+            ApplyBuffAction(enemy, source, buffName, amount);
+        }
+    }
+
+    /// <summary>
+    /// 去除最高的Debuff
+    /// </summary>
+    /// <param name="target"></param>
+    public static void ClearHighestDebuffAction(CreatureBehaviour target)
+    {
+        target.buffOwner.GetHighestDebuff().Amount = 0;
     }
 
     #endregion

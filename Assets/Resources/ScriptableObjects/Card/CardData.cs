@@ -104,6 +104,7 @@ public enum CardTargetType
     SELF,
     SINGLE_ENEMY,
     ALL_ENEMY,
+    RANDOM,
 }
 
 /// <summary>

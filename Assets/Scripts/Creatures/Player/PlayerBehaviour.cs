@@ -67,9 +67,21 @@ public class PlayerBehaviour : CreatureBehaviour
         
     }
 
+    public void OnBattleWin()
+    {
+        buffOwner.ClearBuff();
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, OnBattleWin);
+    }
+
     public override void OnDead()
     {
         print("PlayerDead");
         EventCenter.Instance.TriggerEvent(EventType.PLAYER_DEAD);
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, OnBattleWin);
     }
 }

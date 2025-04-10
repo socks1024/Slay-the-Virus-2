@@ -17,7 +17,7 @@ MonoBehaviour:
   ActType: 1
   ConditionType: 0
   TargetType: 0
-  RarityType: 2
+  RarityType: 1
   CardShape:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
@@ -28,5 +28,5 @@ MonoBehaviour:
   BaseHeal: 12
   BaseEffect: 0
   Name: "\u8F93\u8840\u888B"
-  Description: "\u6062\u590D12\u70B9\u751F\u547D\u3002\u6467\u6BC1\u3002"
-  CardTex: {fileID: 21300000, guid: 413115b7526660847842e9e00f10d399, type: 3}
+  Description: "\u6062\u590D12\u70B9\u751F\u547D\u3002\n\u6467\u6BC1\u3002"
+  CardTex: {fileID: 21300000, guid: c2c571c5c4a00224898f57d67450c442, type: 3}

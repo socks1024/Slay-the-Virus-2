@@ -11,7 +11,8 @@ public class BloodBag : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        // print("PlaceCard");
+        ActionLib.HealAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, nextHeal);
+        ActionLib.RemoveCardFromBattle(this);
     }
 
     public override void ActOnRemoved()
@@ -21,7 +22,6 @@ public class BloodBag : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.HealAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, nextHeal);
-        ActionLib.RemoveCardFromBattle(this);
+        
     }
 }

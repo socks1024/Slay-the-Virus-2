@@ -26,5 +26,5 @@ MonoBehaviour:
   BaseHeal: 0
   BaseEffect: 0
   Name: "\u795E\u98CE"
-  Description: "\u5BF9\u81EA\u8EAB\u548C\u6240\u6709\u654C\u4EBA\u9020\u621030\u70B9\u4F24\u5BB3"
-  CardTex: {fileID: 21300000, guid: 413115b7526660847842e9e00f10d399, type: 3}
+  Description: "\u5BF9\u81EA\u8EAB\u548C\u6240\u6709\u654C\u4EBA\u9020\u621030\u70B9\u4F24\u5BB3\u3002"
+  CardTex: {fileID: 21300000, guid: ee0bb79176c4e88458080ca8fdf8115b, type: 3}

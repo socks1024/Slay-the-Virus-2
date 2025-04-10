@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdvancePolicy : CardBehaviour
+public class SystemEngineer : CardBehaviour
 {
     public override void ActOnDiscard()
     {
@@ -11,7 +11,7 @@ public class AdvancePolicy : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        // print("PlaceCard");
+        
     }
 
     public override void ActOnRemoved()
@@ -21,11 +21,9 @@ public class AdvancePolicy : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        foreach (Square s in cardPosition.ConditionedSquares)
+        for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
         {
-            s.IsActive = true;
+            ActionLib.ApplyBuffAction(Player, Player, "SystemEngineer", nextEffect);
         }
-
-        ActionLib.ExhaustCardAction(this);
     }
 }

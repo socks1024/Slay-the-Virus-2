@@ -15,6 +15,48 @@ public abstract class BoardBehaviour : MonoBehaviour
     Square[,] squares = new Square[5,5];
 
     /// <summary>
+    /// 所有格子的列表
+    /// </summary>
+    public List<Square> AllSquares
+    { 
+        get
+        {
+           List<Square> s = new();
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    s.Add(squares[i,j]);
+                }
+            }
+
+            return s;
+        }
+    }
+
+    /// <summary>
+    /// 所有被锁定的格子的列表
+    /// </summary>
+    public List<Square> AllDisabledSquares
+    {
+        get
+        {
+            List<Square> s = new();
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (!squares[i,j].IsActive) s.Add(squares[i,j]);
+                }
+            }
+
+            return s;
+        }
+    }
+
+    /// <summary>
     /// 每个格子的大小
     /// </summary>
     const int squareSize = 25;

@@ -35,6 +35,15 @@ public class EnemyGroup : MonoBehaviour
     }
 
     /// <summary>
+    /// 获取随机敌人
+    /// </summary>
+    /// <returns>随机到的敌人</returns>
+    public EnemyBehaviour GetRandomEnemy()
+    {
+        return enemies[Random.Range(0, enemies.Count)];
+    }
+
+    /// <summary>
     /// 将敌人添加到战斗中
     /// </summary>
     /// <param name="enemy">要添加的敌人</param>
@@ -67,7 +76,10 @@ public class EnemyGroup : MonoBehaviour
     {
         foreach(EnemyBehaviour enemy in enemies)
         {
-            enemy.ActOnEnemyMove();
+            if (!enemy.buffOwner.HasBuff("Stun"))
+            {
+                enemy.ActOnEnemyMove();
+            }
         }
         //在这之间加动画？
         TriggerEnemyActEnd();
