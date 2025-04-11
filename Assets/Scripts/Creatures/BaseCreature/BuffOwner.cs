@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class BuffOwner : MonoBehaviour
 {
-    public CreatureBehaviour creature;
+    public CreatureBehaviour Creature{ get{ return GetComponent<CreatureBehaviour>(); }}
 
     /// <summary>
     /// 持有的各种状态效果

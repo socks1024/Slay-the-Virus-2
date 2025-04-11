@@ -31,4 +31,4 @@ MonoBehaviour:
   BaseEffect: 0
   Name: "\u9ED8\u8BA4\u5361\u724C"
   Description: "\u9020\u6210999\u4F24\u5BB3"
-  CardTex: {fileID: 21300000, guid: 413115b7526660847842e9e00f10d399, type: 3}
+  CardTex: {fileID: 21300000, guid: 4dd1aaa7257d7ac4e864be3e1b4dd924, type: 3}

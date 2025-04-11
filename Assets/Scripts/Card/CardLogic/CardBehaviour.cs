@@ -160,16 +160,16 @@ public abstract class CardBehaviour : MonoBehaviour
         lockedOnBoard = false;
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        CardShape.ForEach(shape => {
-            Vector3 vec = transform.position;
-            vec.x += shape.x;
-            vec.y += shape.y;
-            Gizmos.DrawCube(vec, Vector3.one);
-        });
-    }
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
+    //     CardShape.ForEach(shape => {
+    //         Vector3 vec = transform.position;
+    //         vec.x += shape.x;
+    //         vec.y += shape.y;
+    //         Gizmos.DrawCube(vec, Vector3.one);
+    //     });
+    // }
 
 }
 

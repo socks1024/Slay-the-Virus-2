@@ -77,7 +77,7 @@ public class CardFlowController : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCard(CardBehaviour card)
     {
-        if (hand.GetCards().Contains(card))
+        if (!exhaustedPile.HasCard(card) && !drawPile.HasCard(card) && !discardPile.HasCard(card))
         {
             handAnimation.DiscardCardAnim(card);
         }

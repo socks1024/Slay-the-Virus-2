@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class TakeDamage : MonoBehaviour
 {
-    public CreatureBehaviour creature;
+    public CreatureBehaviour Creature{ get{ return GetComponent<CreatureBehaviour>(); } }
 
     /// <summary>
     /// 最大生命值
@@ -113,9 +113,9 @@ public class TakeDamage : MonoBehaviour
     /// </summary>
     public void RefreshBlock()
     {
-        if (creature.buffOwner.HasBuff("Fortress"))
+        if (Creature.buffOwner.HasBuff("Fortress"))
         {
-            Block -= Block / (int)Mathf.Pow(2, creature.buffOwner.GetBuff("Fortress").Amount);
+            Block -= Block / (int)Mathf.Pow(2, Creature.buffOwner.GetBuff("Fortress").Amount);
         }
         else
         {
