@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public static class DungeonNodeLib
@@ -43,7 +42,7 @@ public static class DungeonNodeLib
     /// <summary>
     /// 初始化时获取所有地图节点
     /// </summary>
-    [InitializeOnLoadMethod]
+    [RuntimeInitializeOnLoadMethod]
     public static void InitSetNodes()
     {
         LoadDungeonNodeInfo();

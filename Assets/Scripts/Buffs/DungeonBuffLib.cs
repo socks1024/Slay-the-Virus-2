@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public static class DungeonBuffLib
@@ -23,7 +22,7 @@ public static class DungeonBuffLib
         return buff;
     }
 
-    [InitializeOnLoadMethod]
+    [RuntimeInitializeOnLoadMethod]
     public static void LoadBuffs()
     {
         LoadBuff();

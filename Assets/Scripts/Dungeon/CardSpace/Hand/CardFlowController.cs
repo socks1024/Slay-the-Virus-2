@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -35,7 +36,10 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     [SerializeField] int autoDrawAmount = 5;
 
-    public int AutoDrawAmount{ get{ return autoDrawAmount + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("Supplies") + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("SystemEngineer"); }}
+    public int AutoDrawAmount{ get{ return autoDrawAmount 
+        + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("Supplies") 
+        + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("SystemEngineer") 
+        - DungeonManager.Instance.Player.buffOwner.GetBuffAmount("RoadExplosion"); }}
 
     /// <summary>
     /// 手牌的动画处理器
@@ -105,6 +109,16 @@ public class CardFlowController : MonoBehaviour
     }
 
     /// <summary>
+    /// 将抽牌堆中的随机牌恢复到手牌中
+    /// </summary>
+    public void RestoreRandomCardFromExhaustPile()
+    {
+        CardBehaviour card = exhaustedPile.GetCards()[UnityEngine.Random.Range(0,exhaustedPile.GetCards().Count)];
+        exhaustedPile.RemoveCard(card);
+        AddCardToHand(card);
+    }
+
+    /// <summary>
     /// 抽取一张牌
     /// </summary>
     public void DrawCard()
@@ -168,5 +182,7 @@ public class CardFlowController : MonoBehaviour
             card.transform.SetParent(DungeonManager.Instance.storage);
         }
     }
+
+    
 
 }

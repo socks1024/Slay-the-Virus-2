@@ -235,6 +235,9 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    [Header("ColorModifier")]
+    [SerializeField] Color CardVirusModifier;
+
     /// <summary>
     /// 显示卡牌的基础UI信息
     /// </summary>
@@ -304,6 +307,15 @@ public class CardUI : MonoBehaviour
             case CardRarityType.TRASH:
                 rarityFrame.sprite = TrashFrame;
                 break;
+        }
+
+        if (data.ActType == CardActType.VIRUS)
+        {
+            cardBG.color = CardVirusModifier;
+        }
+        else
+        {
+            cardBG.color = Color.white;
         }
     }
 

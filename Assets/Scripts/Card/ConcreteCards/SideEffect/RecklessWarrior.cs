@@ -22,6 +22,6 @@ public class RecklessWarrior : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
-        if (cardPosition.Conditioned) ActionLib.AddCardToHand("Trap", nextEffect);
+        if (cardPosition.Conditioned) ActionLib.PlayerGainVirusCard("Trap", nextEffect);
     }
 }

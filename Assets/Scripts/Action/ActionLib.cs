@@ -146,13 +146,46 @@ public static class ActionLib
     /// </summary>
     /// <param name="p_card_ID">卡牌ID</param>
     /// <param name="amount">卡牌数量</param>
+    public static void AddCardToHandAndDeck(string p_card_ID, int amount)
+    {
+        AddCardToHand(p_card_ID, amount);
+
+        CardBehaviour p_card = CardLib.GetCard(p_card_ID);
+
+        for (int i = 0; i < amount; i++)
+        {
+            PlayerAddCardToDeck(p_card);
+        }
+    }
+
+    /// <summary>
+    /// 将一张垃圾牌加入玩家手牌和卡组
+    /// </summary>
+    /// <param name="p_card_ID">卡牌ID</param>
+    /// <param name="amount">卡牌数量</param>
+    public static void PlayerGainVirusCard(string p_card_ID, int amount)
+    {
+        if (DungeonManager.Instance.Player.buffOwner.HasBuff("GasMask"))
+        {
+            DungeonManager.Instance.Player.buffOwner.GetBuff("GasMask").Amount -= 1;
+        }
+        else
+        {
+            AddCardToHand(p_card_ID, amount);
+        }
+    }
+
+    /// <summary>
+    /// 将一张卡牌加入手牌
+    /// </summary>
+    /// <param name="p_card_ID">卡牌ID</param>
+    /// <param name="amount">卡牌数量</param>
     public static void AddCardToHand(string p_card_ID, int amount)
     {
         CardBehaviour p_card = CardLib.GetCard(p_card_ID);
 
         for (int i = 0; i < amount; i++)
         {
-            PlayerAddCardToDeck(p_card);
             CardBehaviour card = MonoBehaviour.Instantiate(p_card);
             DungeonManager.Instance.battleManager.cardFlow.AddCardToHand(card);
         }
@@ -181,6 +214,20 @@ public static class ActionLib
             List<Square> s = DungeonManager.Instance.battleManager.board.AllDisabledSquares;
             int randIndex = Random.Range(0,s.Count);
             s[randIndex].IsActive = true;
+        }
+    }
+
+    /// <summary>
+    /// 禁用棋盘上随机格子
+    /// </summary>
+    /// <param name="amount">禁用的数量</param>
+    public static void DisableRandomSquareAction(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            List<Square> s = DungeonManager.Instance.battleManager.board.AllEnabledSquares;
+            int randIndex = Random.Range(0,s.Count);
+            s[randIndex].IsActive = false;
         }
     }
 
@@ -216,6 +263,18 @@ public static class ActionLib
     public static void ClearHighestDebuffAction(CreatureBehaviour target)
     {
         target.buffOwner.GetHighestDebuff().Amount = 0;
+    }
+
+    /// <summary>
+    /// 从弃牌堆中恢复随机卡牌
+    /// </summary>
+    /// <param name="amount">卡牌数量</param>
+    public static void GetRandomCardFromExhaustPile(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            DungeonManager.Instance.battleManager.cardFlow.RestoreRandomCardFromExhaustPile();
+        }
     }
 
     #endregion

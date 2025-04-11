@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class BuffOwner : MonoBehaviour
 {
+    public CreatureBehaviour creature;
+
     /// <summary>
     /// 持有的各种状态效果
     /// </summary>
@@ -55,6 +57,23 @@ public class BuffOwner : MonoBehaviour
             }
         }
         return false;
+    }
+
+    /// <summary>
+    /// 获取对象的特定buff
+    /// </summary>
+    /// <param name="ID">buff的ID</param>
+    /// <returns>特定buff</returns>
+    public BuffBehaviour GetBuff(string ID)
+    {
+        foreach (BuffBehaviour oldBuff in buffs)
+        {
+            if (oldBuff.ID == ID)
+            {
+                return oldBuff;
+            }
+        }
+        return null;
     }
 
     /// <summary>

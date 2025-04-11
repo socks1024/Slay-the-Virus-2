@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public static class CardLib
@@ -23,7 +22,7 @@ public static class CardLib
     /// <summary>
     /// 初始化卡牌
     /// </summary>
-    [InitializeOnLoadMethod]
+    [RuntimeInitializeOnLoadMethod]
     public static void InitSetCards()
     {
         LoadCard();
@@ -38,7 +37,6 @@ public static class CardLib
         CardBehaviour[] cards = Resources.LoadAll<CardBehaviour>("Prefabs/Card/ConcreteCards");
         foreach (CardBehaviour card in cards)
         {
-            Debug.Log(card.Id);
             cardPrefabs.Add(card.Id, card);
         }
     }

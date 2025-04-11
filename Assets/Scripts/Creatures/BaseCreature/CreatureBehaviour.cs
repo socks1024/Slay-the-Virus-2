@@ -39,7 +39,9 @@ public abstract class CreatureBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         takeDamage = GetComponent<TakeDamage>();
+        takeDamage.creature = this;
         buffOwner = GetComponent<BuffOwner>();
+        buffOwner.creature = this;
 
         takeDamage.ActOnDead += OnDead;
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class TakeDamage : MonoBehaviour
 {
+    public CreatureBehaviour creature;
+
     /// <summary>
     /// 最大生命值
     /// </summary>
@@ -109,16 +111,23 @@ public class TakeDamage : MonoBehaviour
     /// <summary>
     /// 清空格挡
     /// </summary>
-    public void ClearBlock()
+    public void RefreshBlock()
     {
-        Block = 0;
+        if (creature.buffOwner.HasBuff("Fortress"))
+        {
+            Block -= Block / (int)Mathf.Pow(2, creature.buffOwner.GetBuff("Fortress").Amount);
+        }
+        else
+        {
+            Block = 0;
+        }
     }
 
     void Awake()
     {
         MaxHealth = GetComponent<CreatureBehaviour>().MaxHealth;
         Health = MaxHealth;
-        ClearBlock();
-        EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearBlock);
+        RefreshBlock();
+        EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, RefreshBlock);
     }
 }
