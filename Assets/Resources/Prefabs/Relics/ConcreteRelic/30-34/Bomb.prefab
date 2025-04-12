@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Name
-      value: FakeCell
+      value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 3692080262182862927, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Pivot.x
@@ -95,5 +95,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8692138654817675380}
   m_SourcePrefab: {fileID: 100100000, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+--- !u!1 &8802690304292424860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+  m_PrefabInstance: {fileID: 7492400415020797838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8692138654817675380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802690304292424860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4253646e02463b4ea025287200b628b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Bomb
+  Name: "\u70B8\u5F39"
+  Description: "\u51FA\u724C\u65F6\uFF1A\u82E5\u6218\u573A\u88AB\u586B\u6EE1\uFF0C\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u62106\u70B9\u4F24\u5BB3\u3002"
+  sprite: {fileID: 21300000, guid: 3cb8f655d458d73449e8f65888c1a817, type: 3}

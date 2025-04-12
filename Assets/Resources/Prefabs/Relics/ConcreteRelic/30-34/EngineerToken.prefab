@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Name
-      value: FakeCell
+      value: EngineerToken
       objectReference: {fileID: 0}
     - target: {fileID: 3692080262182862927, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Pivot.x
@@ -95,5 +95,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8435481681859647099}
   m_SourcePrefab: {fileID: 100100000, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+--- !u!1 &8802690304292424860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+  m_PrefabInstance: {fileID: 7492400415020797838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8435481681859647099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802690304292424860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973cedca7dd29864f9e504c04e210256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: EngineerToken
+  Name: "\u5DE5\u5175\u4EE4\u724C"
+  Description: "\u51FA\u724C\u65F6\uFF1A\u82E5\u6218\u573A\u88AB\u586B\u6EE1\uFF0C\u83B7\u5F978\u70B9\u683C\u6321\u3002"
+  sprite: {fileID: 21300000, guid: 668d9de0078f3634389db3a1c5406367, type: 3}

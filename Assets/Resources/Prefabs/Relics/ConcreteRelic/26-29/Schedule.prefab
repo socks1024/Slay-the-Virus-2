@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Name
-      value: FakeCell
+      value: Schedule
       objectReference: {fileID: 0}
     - target: {fileID: 3692080262182862927, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Pivot.x
@@ -95,5 +95,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3920307517494499865}
   m_SourcePrefab: {fileID: 100100000, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+--- !u!1 &8802690304292424860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+  m_PrefabInstance: {fileID: 7492400415020797838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3920307517494499865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802690304292424860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ffa3b416d1d224c924a949cd1bc352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Schedule
+  Name: "\u4F5C\u606F\u8868"
+  Description: "\u51FA\u724C\u65F6\uFF1A\u6BCF\u67091\u4E2A\u7A7A\u7740\u7684\u683C\u5B50\uFF0C\u6062\u590D1\u70B9\u751F\u547D\u3002"
+  sprite: {fileID: 21300000, guid: c4352b64aee92e147a6f594290c72b20, type: 3}

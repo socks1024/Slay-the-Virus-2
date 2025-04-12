@@ -34,7 +34,7 @@ public abstract class RelicBehaviour : MonoBehaviour
 
     protected PlayerBehaviour Player{ get{ return DungeonManager.Instance.Player; }}
 
-    bool BoardAllFilled
+    protected bool BoardAllFilled
     {
         get 
         { 

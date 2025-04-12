@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Name
-      value: FakeCell
+      value: FrontSight
       objectReference: {fileID: 0}
     - target: {fileID: 3692080262182862927, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
       propertyPath: m_Pivot.x
@@ -95,5 +95,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1855796127826353977}
   m_SourcePrefab: {fileID: 100100000, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+--- !u!1 &8802690304292424860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2149107945767289618, guid: 1c6b217c77eb43644a1e913231c5daa8, type: 3}
+  m_PrefabInstance: {fileID: 7492400415020797838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855796127826353977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802690304292424860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764a04161dad1de4bb1ba1d677273f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: FrontSight
+  Name: "\u51C6\u661F"
+  Description: "\u6218\u6597\u5F00\u59CB\u65F6\uFF1A\u7ED9\u4E88\u6240\u6709\u654C\u4EBA1\u5C42\u5F31\u70B9\u3002"
+  sprite: {fileID: 21300000, guid: ca5030d93cecf1548a8562bdfd6a331a, type: 3}

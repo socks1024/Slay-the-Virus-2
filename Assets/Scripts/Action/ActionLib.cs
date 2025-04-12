@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class ActionLib
@@ -44,6 +45,14 @@ public static class ActionLib
         });
 
         if (source.buffOwner.HasBuff("Counter")) CounterAction(source, target, source.buffOwner.GetBuffAmount("Counter"));
+
+        if (source is PlayerBehaviour)
+        {
+            if ((source as PlayerBehaviour).HasRelic("BloodyKnife"))
+            {
+                ApplyBuffAction(target, source, "Wound", 1);
+            }
+        }
     }
 
     /// <summary>
@@ -77,7 +86,31 @@ public static class ActionLib
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
             target.buffOwner.GainBuff(DungeonBuffLib.GetBuff(buffName, amount));
         });
-        
+    }
+
+    /// <summary>
+    /// 给予所有敌人特定Buff
+    /// </summary>
+    /// <param name="source">给予buff的来源</param>
+    /// <param name="buffName">buff的名字</param>
+    /// <param name="amount">buff的层数</param>
+    public static void ApplyBuffToAllEnemyAction(CreatureBehaviour source, string buffName, int amount)
+    {
+        foreach (EnemyBehaviour enemy in DungeonManager.Instance.battleManager.enemyGroup.enemies)
+        {
+            ApplyBuffAction(enemy, source, buffName, amount);
+        }
+    }
+
+    /// <summary>
+    /// 给予随机敌人特定Buff
+    /// </summary>
+    /// <param name="source">给予buff的来源</param>
+    /// <param name="buffName">buff的名字</param>
+    /// <param name="amount">buff的层数</param>
+    public static void ApplyBuffToRandomEnemyAction(CreatureBehaviour source, string buffName, int amount)
+    {
+        ApplyBuffAction(DungeonManager.Instance.battleManager.enemyGroup.GetRandomEnemy(), source, buffName, amount);
     }
 
     /// <summary>
@@ -93,6 +126,14 @@ public static class ActionLib
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
             target.takeDamage.Block += amount;
         });
+
+        if (source is PlayerBehaviour)
+        {
+            if ((source as PlayerBehaviour).HasRelic("ElectricArmor"))
+            {
+                ApplyBuffAction(target, source, "Counter", 1);
+            }
+        }
     }
 
     /// <summary>
@@ -256,20 +297,6 @@ public static class ActionLib
     public static void RandomDamageAction(CreatureBehaviour source, int damage)
     {
         DamageAction(DungeonManager.Instance.battleManager.enemyGroup.GetRandomEnemy(), source, damage);
-    }
-
-    /// <summary>
-    /// 给予所有敌人特定Buff
-    /// </summary>
-    /// <param name="source">给予buff的来源</param>
-    /// <param name="buffName">buff的名字</param>
-    /// <param name="amount">buff的层数</param>
-    public static void ApplyBuffToAllEnemyAction(CreatureBehaviour source, string buffName, int amount)
-    {
-        foreach (EnemyBehaviour enemy in DungeonManager.Instance.battleManager.enemyGroup.enemies)
-        {
-            ApplyBuffAction(enemy, source, buffName, amount);
-        }
     }
 
     /// <summary>

@@ -74,6 +74,24 @@ public abstract class BoardBehaviour : MonoBehaviour
         }
     }
 
+    public List<Square> AllEmptySquares
+    {
+        get
+        {
+            List<Square> s = new();
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (squares[i,j].IsActive && !squares[i,j].HasCard) s.Add(squares[i,j]);
+                }
+            }
+
+            return s;
+        }
+    }
+
     /// <summary>
     /// 每个格子的大小
     /// </summary>
