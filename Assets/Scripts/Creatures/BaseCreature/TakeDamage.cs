@@ -22,8 +22,16 @@ public class TakeDamage : MonoBehaviour
         {
             if (value <= 0)
             {
-                value = 0;
-                ActOnDead?.Invoke();
+                if (Creature.buffOwner.HasBuff("Phoenix"))
+                {
+                    value = 1;
+                    Creature.buffOwner.GetBuff("Phoenix").Amount -= 1;
+                }
+                else
+                {
+                    value = 0;
+                    ActOnDead?.Invoke();
+                }
             }
 
             if (value > MaxHealth)
@@ -126,8 +134,20 @@ public class TakeDamage : MonoBehaviour
     void Awake()
     {
         MaxHealth = GetComponent<CreatureBehaviour>().MaxHealth;
-        Health = MaxHealth;
+        if ((bool)(GetComponent<PlayerBehaviour>()?.HasRelic("StrongMedicine")))
+        {
+            Health = MaxHealth / 2;
+        }
+        else
+        {
+            Health = MaxHealth;
+        }
         RefreshBlock();
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, RefreshBlock);
+    }
+
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, RefreshBlock);
     }
 }

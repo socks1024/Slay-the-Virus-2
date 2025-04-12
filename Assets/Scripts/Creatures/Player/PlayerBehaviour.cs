@@ -39,6 +39,19 @@ public class PlayerBehaviour : CreatureBehaviour
 
     public UnityAction<int> OnNutritionChange;
 
+    /// <summary>
+    /// 是否持有某种遗物
+    /// </summary>
+    /// <param name="id">遗物的id</param>
+    /// <returns>是否有该遗物</returns>
+    public bool HasRelic(string id)
+    {
+        foreach (RelicBehaviour relic in p_Relics)
+        {
+            if (relic.ID == id) return true;
+        }
+        return false;
+    }
 
     /// <summary>
     /// 设置玩家的持有物

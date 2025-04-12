@@ -31,6 +31,14 @@ public static class ActionLib
 
         if (source.buffOwner.HasBuff("Weakness")) damage *= 2;
 
+        if (source is PlayerBehaviour)
+        {
+            if ((source as PlayerBehaviour).HasRelic("StrongMedicine"))
+            {
+                damage += damage / 2;
+            }
+        }
+
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
             target.takeDamage.GetDamage(damage);
         });
@@ -46,6 +54,8 @@ public static class ActionLib
     /// <param name="heal">治疗数值</param>
     public static void HealAction(CreatureBehaviour target, CreatureBehaviour source, int heal)
     {
+        if ((source as PlayerBehaviour).HasRelic("IdolSign")) heal += 1;
+        
         // 治疗动画
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
             target.takeDamage.Health += heal;
@@ -124,7 +134,14 @@ public static class ActionLib
     public static void WoundAction(CreatureBehaviour owner, int amount)
     {
         AnimationManager.Instance.PlayAnimEffect(owner.transform.position, "beat", () => {
-            owner.takeDamage.GetDamage(amount);
+            if ((owner as PlayerBehaviour).HasRelic("ConceptShield"))
+            {
+                owner.takeDamage.GetDamage(amount);
+            }
+            else
+            {
+                owner.takeDamage.Health -= amount;
+            }
         });
     }
 
@@ -232,9 +249,8 @@ public static class ActionLib
     }
 
     /// <summary>
-    /// 造成伤害
+    /// 对随机目标造成伤害
     /// </summary>
-    /// <param name="target">要受到伤害的目标</param>
     /// <param name="source">攻击的来源</param>
     /// <param name="damage">伤害数值</param>
     public static void RandomDamageAction(CreatureBehaviour source, int damage)
@@ -287,6 +303,14 @@ public static class ActionLib
     /// <param name="variation">变化量</param>
     public static void PlayerChangeMoney(int variation)
     {
+        if (DungeonManager.Instance.Player.HasRelic("NutritionDetector"))
+        {
+            if (variation > 0)
+            {
+                variation = (int)(1.25f * variation);
+            }
+        }
+
         DungeonManager.Instance.Player.Nutrition += variation;
     }
 

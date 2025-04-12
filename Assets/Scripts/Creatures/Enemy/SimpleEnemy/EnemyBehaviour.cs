@@ -76,6 +76,7 @@ public abstract class EnemyBehaviour : CreatureBehaviour
         base.Awake();
         holdIntention = GetComponent<HoldIntention>();
         animateIntention = GetComponent<AnimateIntention>();
+        takeDamage.ActOnDead += () => EventCenter.Instance.TriggerEvent(EventType.SINGLE_ENEMY_KILLED);
         takeDamage.ActOnDead += () => DungeonManager.Instance.battleManager.enemyGroup.DestroyEnemyFromBattle(this);
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
     }

@@ -73,6 +73,14 @@ public class BattleManager : MonoBehaviour
     // ENEMY_ACT_END:所有敌人动画播放完毕
 
     /// <summary>
+    /// 触发卡牌按钮操作
+    /// </summary>
+    public void TriggerCardActRelics()
+    {
+        relicsRoot.GetComponentsInChildren<RelicBehaviour>().ToList().ForEach(r => r.ActOnCardAct());
+    }
+
+    /// <summary>
     /// 弃牌动画是否已经结束
     /// </summary>
     public bool DiscardAnimFinished
