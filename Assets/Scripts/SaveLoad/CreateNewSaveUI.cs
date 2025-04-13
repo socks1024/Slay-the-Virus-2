@@ -29,6 +29,9 @@ public class CreateNewSaveUI : MonoBehaviour
         savedata.birthTime = birthtext.text;
         savedata.gender = gender.value;
 
+        savedata.BaseLife = 25;//Ä¬ÈÏÖµ
+        savedata.Nutrient = 0;
+
         for(int i = 0; i < 6; i++)
         {
             savedata.illness[i] = illnesses[i].isOn;
