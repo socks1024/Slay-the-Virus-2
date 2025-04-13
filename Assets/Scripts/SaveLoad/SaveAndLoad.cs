@@ -11,6 +11,8 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
 
+    private PlayerSave savefile;
+
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +29,16 @@ public class SaveSystem : MonoBehaviour
 
         Debug.Log(path);
         File.WriteAllText(path, json);
+    }
+
+    public PlayerSave getSave()
+    {
+        return savefile;
+    }
+
+    public void SetSave(PlayerSave playerSave)
+    {
+        savefile = playerSave;
     }
 
     public PlayerSave LoadPlayerFromSlot(int slotIndex)
@@ -87,6 +99,11 @@ public class PlayerSave
     public string birthTime;
     public int gender;
     public bool[] illness = new bool[6];
+
+    public int BaseLife;
+    public int Nutrient;
+
+   
 }
 
 [System.Serializable]

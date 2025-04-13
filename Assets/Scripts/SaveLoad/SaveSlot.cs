@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveSlot : MonoBehaviour
@@ -8,6 +9,7 @@ public class SaveSlot : MonoBehaviour
     public int index;
     public GameObject File;
     public GameObject Create;
+    public GameObject DeletePanel;
 
     private TMPro.TMP_Text Name;
     private TMPro.TMP_Text time;
@@ -47,5 +49,17 @@ public class SaveSlot : MonoBehaviour
         GetComponentInParent<StartPanel>().Create(index);
     }
 
+    public void LoadSave()
+    {
+        SaveSystem.Instance.SetSave(SaveSystem.Instance.LoadPlayerFromSlot(index));
+
+        SceneManager.LoadScene("Base");
+    }
+
+    public void OnDeleteSave()
+    {
+        DeletePanel.SetActive(true);
+        DeletePanel.GetComponent<DeleteSave>().index = index;
+;    }
     
 }
