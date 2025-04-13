@@ -1008,9 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Player
-  MaxHealth: 10
-  takeDamage: {fileID: 0}
-  buffOwner: {fileID: 0}
+  MaxHealth: 20
   p_Deck: []
   p_Board: {fileID: 0}
   p_Relics: []
@@ -2024,9 +2022,9 @@ RectTransform:
   m_Father: {fileID: 105779070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &410792091
 MonoBehaviour:
@@ -3826,7 +3824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &749311642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4532,6 +4530,7 @@ MonoBehaviour:
   - {fileID: 504769718915365533, guid: eb3ffb9eaa438de4abaee8542014af42, type: 3}
   - {fileID: 504769718915365533, guid: eb3ffb9eaa438de4abaee8542014af42, type: 3}
   board: {fileID: 8270045261509145139, guid: 2ef436fe5218f9440bf2898cda148275, type: 3}
+  relics: []
 --- !u!114 &978686532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7719,7 +7718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1579175741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7739,8 +7738,8 @@ RectTransform:
   - {fileID: 1607429336}
   - {fileID: 547637795}
   - {fileID: 799257638}
-  - {fileID: 749311642}
   - {fileID: 642234057}
+  - {fileID: 749311642}
   m_Father: {fileID: 1697188987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8151,9 +8150,9 @@ RectTransform:
   m_Father: {fileID: 105779070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1611194255
 MonoBehaviour:
@@ -8411,9 +8410,9 @@ RectTransform:
   m_Father: {fileID: 105779070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1620321263
 MonoBehaviour:
@@ -10023,7 +10022,7 @@ RectTransform:
   m_Father: {fileID: 1373548724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10925,7 +10924,7 @@ RectTransform:
   m_Father: {fileID: 1156274412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11314,6 +11313,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1995523153266720695, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1646918508317099877, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
     - target: {fileID: 2067984060571799611, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: takeDamage
       value: 
@@ -11348,11 +11351,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7984717625284795555, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_Spacing.x

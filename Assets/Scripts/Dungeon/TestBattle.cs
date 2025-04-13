@@ -7,6 +7,8 @@ public class TestBattle : MonoBehaviour
 
     [SerializeField]BoardBehaviour board;
 
+    [SerializeField]List<RelicBehaviour> relics;
+
     void Start()
     {
         

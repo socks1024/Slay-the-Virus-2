@@ -1,40 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(IntentionShow))]
 public abstract class IntentionBehaviour : MonoBehaviour
 {
     /// <summary>
-    /// 意图数据
-    /// </summary>
-    public IntentionData intentionData;
-
-    /// <summary>
     /// 意图的ID
     /// </summary>
-    public string ID{ get{return intentionData.ID;}}
+    public string ID;
 
     /// <summary>
     /// 意图的类型
     /// </summary>
-    public IntentionType intentionType{ get{return intentionData.intentionType;}}
+    public IntentionType IntentionType;
 
     /// <summary>
     /// 意图目标的类型
     /// </summary>
-    public TargetType targetType{ get{return intentionData.targetType;}}
+    public TargetType TargetType;
 
     /// <summary>
     /// 意图的强度
     /// </summary>
     [HideInInspector]public int Amount;
-
-    /// <summary>
-    /// 意图的描述
-    /// </summary>
-    public string Description{ get{return intentionData.Description;}}
 
     /// <summary>
     /// 意图的目标
@@ -51,10 +38,28 @@ public abstract class IntentionBehaviour : MonoBehaviour
     /// </summary>
     public abstract void ActOnEnemyTurn();
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         
     }
 }
 
+public enum IntentionType
+{
+    ATTACK,
+    DEFENSE,
+    GAIN_BUFF,
+    GIVE_DEBUFF,
+    HEAL,
+    STUN,
+    UNKNOWN,
+}
 
+public enum TargetType
+{
+    PLAYER,
+    SELF,
+    SINGLE_ENEMY,
+    ALL_ENEMY,
+    NO_TARGET,
+}

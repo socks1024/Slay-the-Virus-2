@@ -6,7 +6,7 @@ public static class Messenger
 {
     public static EnterBattleInfoTest enterBattleInfoTest;
 
-    
+    public static LeaveBattleInfoTest leaveBattleInfoTest;
 }
 
 public struct EnterBattleInfoTest
@@ -15,14 +15,44 @@ public struct EnterBattleInfoTest
     /// 卡组
     /// </summary>
     public List<CardBehaviour> p_Cards;
+
     /// <summary>
     /// 使用的棋盘
     /// </summary>
     public BoardBehaviour p_Board;
+
     /// <summary>
     /// 出现的敌人
     /// </summary>
     public List<EnemyBehaviour> p_Enemies;
+
+    /// <summary>
+    /// 道具/遗物
+    /// </summary>
+    public List<RelicBehaviour> p_Relics;
+}
+
+public struct LeaveBattleInfoTest
+{
+    /// <summary>
+    /// 卡组
+    /// </summary>
+    public List<CardBehaviour> p_Cards;
+
+    /// <summary>
+    /// 使用的棋盘
+    /// </summary>
+    public BoardBehaviour p_Board;
+
+    /// <summary>
+    /// 带回的营养
+    /// </summary>
+    public int nutrition;
+
+    /// <summary>
+    /// 道具/遗物
+    /// </summary>
+    public List<RelicBehaviour> p_Relics;
 }
 
 public struct EnterDungeonInfo
@@ -31,8 +61,14 @@ public struct EnterDungeonInfo
     /// 卡组
     /// </summary>
     public List<CardBehaviour> p_Cards;
+
     /// <summary>
     /// 使用的棋盘
     /// </summary>
     public BoardBehaviour p_Board;
+
+    /// <summary>
+    /// 道具/遗物
+    /// </summary>
+    public List<RelicBehaviour> p_Relics;
 }

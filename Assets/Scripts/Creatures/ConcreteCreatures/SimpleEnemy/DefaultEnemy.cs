@@ -20,16 +20,9 @@ public class DefaultEnemy : EnemyBehaviour
         DungeonManager.Instance.battleManager.enemyGroup.DestroyEnemyFromBattle(this);
     }
 
-    public override void SetIntention(int turnCount)
+    public override void EnemyChooseIntention(int turnCount)
     {
-        if (turnCount % 2 == 1)
-        {
-            holdIntention.SetIntention("Default1");
-        }
-        else
-        {
-            holdIntention.SetIntention("Default2");
-        }
+        holdIntention.SetIntention("StunIntention");
     }
 
     public override void ActOnTurnStart()

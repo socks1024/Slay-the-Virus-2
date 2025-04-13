@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(HoldIntention))]
-[RequireComponent(typeof(AnimateIntention))]
+// [RequireComponent(typeof(AnimateIntention))]
 public abstract class EnemyBehaviour : CreatureBehaviour
 {
     # region intents
@@ -13,11 +13,6 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// 敌人图片
     /// </summary>
     public Sprite enemySprite;
-
-    /// <summary>
-    /// 可以触发的所有意图
-    /// </summary>
-    public List<IntentionBehaviour> IntentionPrefabsAvailable;
 
     /// <summary>
     /// 将会被触发的意图
@@ -34,11 +29,6 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// </summary>
     protected HoldIntention holdIntention;
 
-    /// <summary>
-    /// 意图显示处理组件
-    /// </summary>
-    protected AnimateIntention animateIntention;
-
     #endregion
 
     /// <summary>
@@ -47,8 +37,8 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     public virtual void ActOnTurnStart()
     {
         //设置意图
-        SetIntention(turnCount);
-        animateIntention.SetIntentionPosition();
+        EnemyChooseIntention(turnCount);
+        holdIntention.SetIntentionPosition();
     }
 
     /// <summary>
@@ -58,7 +48,7 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     {
         //执行意图
         holdIntention.TriggerIntention();
-        animateIntention.PlayIntentionAnimation();
+        // holdIntention.PlayIntentionAnimation();
     }
 
     /// <summary>
@@ -67,7 +57,6 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     public virtual void ActOnEnemyTurnEnd()
     {
         //消去意图
-        animateIntention.ClearIntention();
         holdIntention.ClearIntention();
     }
 
@@ -75,7 +64,6 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     {
         base.Awake();
         holdIntention = GetComponent<HoldIntention>();
-        animateIntention = GetComponent<AnimateIntention>();
         takeDamage.ActOnDead += () => EventCenter.Instance.TriggerEvent(EventType.SINGLE_ENEMY_KILLED);
         takeDamage.ActOnDead += () => DungeonManager.Instance.battleManager.enemyGroup.DestroyEnemyFromBattle(this);
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
@@ -91,12 +79,9 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// 根据当前回合数设置意图
     /// </summary>
     /// <param name="turnCount">回合数</param>
-    public virtual void SetIntention(int turnCount)
+    public virtual void EnemyChooseIntention(int turnCount)
     {
-        if (buffOwner.HasBuff("Stun"))
-        {
-            // 被眩晕
-        }
+        
     }
 
     /// <summary>

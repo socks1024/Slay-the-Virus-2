@@ -26,22 +26,4 @@ public class IntentionData : ScriptableObject
     public string Description;
 }
 
-public enum IntentionType
-{
-    ATTACK,
-    DEFENSE,
-    GAIN_BUFF,
-    GIVE_DEBUFF,
-    HEAL,
-    STUN,
-    UNKNOWN,
-}
 
-public enum TargetType
-{
-    PLAYER,
-    SELF,
-    SINGLE_ENEMY,
-    ALL_ENEMY,
-    NO_TARGET,
-}

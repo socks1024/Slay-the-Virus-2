@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
@@ -186,7 +187,8 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnBattleWin()
     {
-        ShowRewards();
+        TestLeaveBattleScene();
+        // ShowRewards();
     }
 
     /// <summary>
@@ -197,6 +199,11 @@ public class BattleManager : MonoBehaviour
         rewardPanel.gameObject.SetActive(true);
         rewardPanel.ShowRewards((battleNode.nodeInfo as BattleNodeInfo).lootInfo);
         //显示战利品
+    }
+
+    void TestLeaveBattleScene()
+    {
+        SceneManager.LoadScene(1);
     }
 
     /// <summary>

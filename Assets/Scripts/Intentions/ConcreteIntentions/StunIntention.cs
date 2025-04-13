@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultIntention : IntentionBehaviour
+public class StunIntention : IntentionBehaviour
 {
     public override void ActOnEnemyTurn()
     {
-        
+        print("stunned");
     }
 }

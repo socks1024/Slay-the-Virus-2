@@ -202,6 +202,18 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     #endregion
 
+    #region leave dungeon
+
+    public void LeaveDungeon()
+    {
+        Messenger.leaveBattleInfoTest.p_Relics = Player.p_Relics;
+        Messenger.leaveBattleInfoTest.p_Board = Player.p_Board;
+        Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
+        Messenger.leaveBattleInfoTest.nutrition = Player.Nutrition;
+    }
+
+    #endregion
+
     protected override void Awake()
     {
         base.Awake();
@@ -213,7 +225,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     public void StartAdventure(EnterDungeonInfo enterDungeonInfo)
     {
-        Player.SetBackpack(enterDungeonInfo.p_Cards, enterDungeonInfo.p_Board, null, 0);
+        Player.SetBackpack(enterDungeonInfo.p_Cards, enterDungeonInfo.p_Board, enterDungeonInfo.p_Relics, 0);
 
         mapGenerator.GenerateMap();
 

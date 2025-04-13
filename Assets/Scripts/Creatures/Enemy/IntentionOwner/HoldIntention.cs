@@ -5,12 +5,36 @@ using UnityEngine;
 public class HoldIntention : MonoBehaviour
 {
     /// <summary>
+    /// 敌人组件
+    /// </summary>
+    EnemyBehaviour enemy;
+
+    /// <summary>
     /// 将会被触发的意图
     /// </summary>
     IntentionBehaviour intention
     { 
-        get{ return GetComponent<EnemyBehaviour>().intention;}
-        set{ GetComponent<EnemyBehaviour>().intention = value; }
+        get{ return enemy.intention;}
+        set{ enemy.intention = value;}
+    }
+
+    public Transform intentionOffset;
+
+    /// <summary>
+    /// 将当前的意图设置到给定的位置并显示
+    /// </summary>
+    public void SetIntentionPosition()
+    {
+        intention.transform.SetParent(intentionOffset.transform, false);
+    }
+
+    /// <summary>
+    /// 清除目前显示的所有意图物体
+    /// </summary>
+    public void ClearIntention()
+    {
+        intention = null;
+        Destroy(intention.gameObject);
     }
 
     /// <summary>
@@ -32,25 +56,24 @@ public class HoldIntention : MonoBehaviour
     /// <param name="amount">该意图的强度</param>
     public void SetIntention(string ID, int amount = 0)
     {
-        foreach (IntentionBehaviour intentionPrefab in GetComponent<EnemyBehaviour>().IntentionPrefabsAvailable)
-        {
-            if(ID.Equals(intentionPrefab.ID))
-            {
-                intention = Instantiate(intentionPrefab);
-                intention.source = GetComponent<EnemyBehaviour>();
-                intention.target = null;
-                intention.Amount = amount;
-            }
-        }
+        intention = Instantiate(IntentionLib.prefabs[ID]);
+        intention.source = enemy;
+        intention.target = null;
+        intention.Amount = amount;
 
-        switch (intention.targetType)
+        switch (intention.TargetType)
         {
             case TargetType.SELF:
-                intention.target = GetComponent<EnemyBehaviour>();
+                intention.target = enemy;
                 break;
             case TargetType.PLAYER:
                 intention.target = DungeonManager.Instance.Player;
                 break;
+        }
+
+        if (enemy.buffOwner.HasBuff("Stun"))
+        {
+            intention = Instantiate(IntentionLib.prefabs["StunIntention"]);
         }
     }
 
@@ -62,11 +85,8 @@ public class HoldIntention : MonoBehaviour
         intention.ActOnEnemyTurn();
     }
 
-    /// <summary>
-    /// 清除意图
-    /// </summary>
-    public void ClearIntention()
+    void Awake() 
     {
-        intention = null;
+        enemy = GetComponent<EnemyBehaviour>();
     }
 }

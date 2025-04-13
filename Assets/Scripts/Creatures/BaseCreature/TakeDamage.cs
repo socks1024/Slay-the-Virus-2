@@ -133,8 +133,8 @@ public class TakeDamage : MonoBehaviour
 
     void Awake()
     {
-        MaxHealth = GetComponent<CreatureBehaviour>().MaxHealth;
-        if ((bool)(GetComponent<PlayerBehaviour>()?.HasRelic("StrongMedicine")))
+        MaxHealth = Creature.MaxHealth;
+        if (Creature is PlayerBehaviour && (Creature as PlayerBehaviour).HasRelic("StrongMedicine"))
         {
             Health = MaxHealth / 2;
         }

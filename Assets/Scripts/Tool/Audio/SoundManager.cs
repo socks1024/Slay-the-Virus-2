@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace TastyTools
 {
-	
 	[RequireComponent(typeof(AudioSource))]
 	public class SoundManager : MonoSingleton<SoundManager>
 	{
@@ -13,9 +12,9 @@ namespace TastyTools
 		public bool logSounds;
 
 		[SerializeField]
-		private SoundManager.SoundClip[] soundClips;
+		private SoundClip[] soundClips;
 
-		private Dictionary<string, SoundManager.SoundClip> sounds;
+		private Dictionary<string, SoundClip> sounds;
 
 		private Queue<AudioSource> sourcePool;
 
