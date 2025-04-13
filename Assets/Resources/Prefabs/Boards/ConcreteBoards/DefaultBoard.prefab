@@ -731,4 +731,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: DefaultBoard
   background: {fileID: 21300000, guid: 4c148aacf55c19e4fa9faaec3c207802, type: 3}
-  disabledSprite: {fileID: 21300000, guid: d768c2cff470b7d428fc5253796357c1, type: 3}
+  disabledSprite: {fileID: 21300000, guid: 683d14b9f039bf842a20ddfc71cad0e2, type: 3}

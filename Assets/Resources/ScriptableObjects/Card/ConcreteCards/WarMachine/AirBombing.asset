@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50b574931a0b04eb327dae82e35fd2, type: 3}
+  m_Name: AirBombing
+  m_EditorClassIdentifier: 
+  Id: AirBombing
+  AbilityType: 0
+  ActType: 0
+  ConditionType: 0
+  TargetType: 2
+  RarityType: 1
+  CardShape:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: 2}
+  - {x: 0, y: -1}
+  - {x: 0, y: -2}
+  ConditionsShape: []
+  BaseDamage: 9
+  BaseDefense: 0
+  BaseHeal: 0
+  BaseEffect: 0
+  Name: "\u7A7A\u88AD"
+  Description: "\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u62109\u70B9\u4F24\u5BB3\u3002\n\u6D88\u8017\u3002"
+  CardTex: {fileID: 21300000, guid: 0ef0355b815eb5045961074f080fcb27, type: 3}

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50b574931a0b04eb327dae82e35fd2, type: 3}
+  m_Name: ElectricGrenade
+  m_EditorClassIdentifier: 
+  Id: ElectricGrenade
+  AbilityType: 3
+  ActType: 0
+  ConditionType: 1
+  TargetType: 2
+  RarityType: 2
+  CardShape:
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  - {x: -1, y: 0}
+  - {x: 0, y: -1}
+  - {x: 1, y: 1}
+  - {x: 1, y: -1}
+  - {x: -1, y: -1}
+  ConditionsShape:
+  - {x: 0, y: 0}
+  - {x: -1, y: 1}
+  BaseDamage: 0
+  BaseDefense: 0
+  BaseHeal: 0
+  BaseEffect: 1
+  Name: "\u7535\u51FB\u624B\u96F7"
+  Description: "\u89E6\u53D1\u6548\u679C\uFF1A\u6BCF\u6B21\u7ED9\u4E88\u654C\u4EBA1\u5C42\u6655\u7729\u3002\n\u6D88\u8017\u3002"
+  CardTex: {fileID: 21300000, guid: c498089059d22ed4a9f1cacdf3a94b9a, type: 3}

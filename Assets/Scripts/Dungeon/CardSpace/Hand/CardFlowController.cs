@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -33,7 +34,12 @@ public class CardFlowController : MonoBehaviour
     /// <summary>
     /// 每回合开始时自动抽牌的数量
     /// </summary>
-    public int autoDrawAmount = 5;
+    [SerializeField] int autoDrawAmount = 5;
+
+    public int AutoDrawAmount{ get{ return autoDrawAmount 
+        + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("Supplies") 
+        + DungeonManager.Instance.Player.buffOwner.GetBuffAmount("SystemEngineer") 
+        - DungeonManager.Instance.Player.buffOwner.GetBuffAmount("RoadExplosion"); }}
 
     /// <summary>
     /// 手牌的动画处理器
@@ -43,7 +49,7 @@ public class CardFlowController : MonoBehaviour
     void Awake()
     {
         handAnimation = GetComponent<HandAnimation>();
-        EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(autoDrawAmount); });
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(AutoDrawAmount); });
         EventCenter.Instance.AddEventListener(EventType.ACT_START, () => { DiscardAllCard(); });
     }
 
@@ -71,7 +77,10 @@ public class CardFlowController : MonoBehaviour
     /// <param name="card">要放入弃牌堆的卡</param>
     public void DiscardCard(CardBehaviour card)
     {
-        handAnimation.DiscardCardAnim(card);
+        if (!exhaustedPile.HasCard(card) && !drawPile.HasCard(card) && !discardPile.HasCard(card))
+        {
+            handAnimation.DiscardCardAnim(card);
+        }
     }
 
     /// <summary>
@@ -83,6 +92,30 @@ public class CardFlowController : MonoBehaviour
         {
             DiscardCard(hand.GetCards()[i]);
         }
+    }
+
+    /// <summary>
+    /// 将一张卡牌消耗
+    /// </summary>
+    /// <param name="card">要消耗的卡牌</param>
+    public void ExhaustCard(CardBehaviour card)
+    {
+        if (hand.GetCards().Contains(card))
+        {
+            hand.RemoveCard(card);
+        }
+
+        exhaustedPile.AddCard(card);
+    }
+
+    /// <summary>
+    /// 将抽牌堆中的随机牌恢复到手牌中
+    /// </summary>
+    public void RestoreRandomCardFromExhaustPile()
+    {
+        CardBehaviour card = exhaustedPile.GetCards()[UnityEngine.Random.Range(0,exhaustedPile.GetCards().Count)];
+        exhaustedPile.RemoveCard(card);
+        AddCardToHand(card);
     }
 
     /// <summary>
@@ -149,5 +182,7 @@ public class CardFlowController : MonoBehaviour
             card.transform.SetParent(DungeonManager.Instance.storage);
         }
     }
+
+    
 
 }

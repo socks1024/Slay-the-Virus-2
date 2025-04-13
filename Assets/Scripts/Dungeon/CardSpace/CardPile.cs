@@ -21,11 +21,11 @@ public class CardPile
     public int Count{ get{ return cards.Count; }}
 
     /// <summary>
-    /// 检查牌堆中是否有某张牌
+    /// 检查牌堆中是否有某种牌
     /// </summary>
     /// <param name="id">该卡牌的ID</param>
     /// <returns>是否有该牌</returns>
-    public bool HasCard(string id)
+    public bool HasCardID(string id)
     {
         foreach (CardBehaviour card in cards)
         {
@@ -35,6 +35,16 @@ public class CardPile
             }
         }
         return false;
+    }
+
+    /// <summary>
+    /// 检查牌堆里是否有某张特定的牌
+    /// </summary>
+    /// <param name="card">卡牌</param>
+    /// <returns>是否有该牌</returns>
+    public bool HasCard(CardBehaviour card)
+    {
+        return cards.Contains(card);
     }
 
     /// <summary>

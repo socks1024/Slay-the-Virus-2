@@ -48,6 +48,11 @@ public class TetrisAssembler : MonoBehaviour
     [SerializeField] Sprite ExpandTex;
     [SerializeField] Sprite TrashTex;
 
+    [Header("星星配图")]
+    [SerializeField] Sprite TriggerSquareTex;
+    [SerializeField] Sprite AffectSquareTex;
+    [SerializeField] Sprite ExpandSquareTex;
+
     void Start()
     {
         card = GetComponent<CardBehaviour>();

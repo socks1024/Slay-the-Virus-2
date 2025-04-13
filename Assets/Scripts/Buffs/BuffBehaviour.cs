@@ -29,7 +29,19 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// <summary>
     /// 状态效果的持有量
     /// </summary>
-    public int Amount{ get; set; }
+    public int Amount
+    { 
+        get { return amount; }
+        set 
+        {
+            amount = value;
+            if (amount == 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+    int amount;
 
     /// <summary>
     /// 状态效果的持有者
@@ -43,18 +55,31 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// <summary>
     /// Buff的回合结束时效果
     /// </summary>
-    public abstract void ActOnTurnEnd();
+    public virtual void ActOnTurnEnd()
+    {
+
+    }
+
+    /// <summary>
+    /// Buff的回合开始时效果
+    /// </summary>
+    public virtual void ActOnTurnStart()
+    {
+
+    }
 
     #endregion
 
     protected virtual void Start()
     {
-        EventCenter.Instance.AddEventListener(EventType.ACT_START, ActOnTurnEnd);
+        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, ActOnTurnEnd);
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 
     protected virtual void OnDestroy()
     {
-        EventCenter.Instance.RemoveEventListener(EventType.ACT_START, ActOnTurnEnd);
+        EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, ActOnTurnEnd);
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 }
 

@@ -120,9 +120,19 @@ public class CardUI : MonoBehaviour
     public Image cardBG;
 
     /// <summary>
-    /// 卡牌的稀有度框
+    /// 卡牌的外边框
+    /// </summary>
+    public Image cardBGF;
+
+    /// <summary>
+    /// 卡牌的稀有度条
     /// </summary>
     public Image rarityFrame;
+
+    /// <summary>
+    /// 卡牌的描述框
+    /// </summary>
+    public Image descriptionFrame;
 
     /// <summary>
     /// 卡面配图
@@ -131,15 +141,30 @@ public class CardUI : MonoBehaviour
 
     #region card art
 
-    [Header("Card Background")]
-    public Sprite AttackBG;
-    public Sprite DefenseBG;
-    public Sprite HealBG;
-    public Sprite SkillBG;
-    public Sprite ExpandBG;
-    public Sprite TrashBG;
+    // [Header("Card Background")]
+    // public Sprite AttackBG;
+    // public Sprite DefenseBG;
+    // public Sprite HealBG;
+    // public Sprite SkillBG;
+    // public Sprite ExpandBG;
+    // public Sprite TrashBG;
 
-    [Header("Card Rarity Frame")]
+    [Header("Card Background")]
+    public Sprite BattleFieldBG;
+    public Sprite CommandBG;
+    public Sprite VirusBG;
+
+    [Header("Card Frame")]
+    public Sprite BattleFieldBGF;
+    public Sprite CommandBGF;
+    public Sprite VirusBGF;
+
+    [Header("Description Frame")]
+    public Sprite BattleFieldDescription;
+    public Sprite CommandDescription;
+    public Sprite VirusDescription;
+
+    [Header("Card Rarity Bar")]
     public Sprite CommonFrame;
     public Sprite UncommonFrame;
     public Sprite RareFrame;
@@ -210,6 +235,9 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    [Header("ColorModifier")]
+    [SerializeField] Color CardVirusModifier;
+
     /// <summary>
     /// 显示卡牌的基础UI信息
     /// </summary>
@@ -221,25 +249,44 @@ public class CardUI : MonoBehaviour
 
         cardImage.sprite = data.CardTex;
 
-        switch (data.AbilityType)
+        // switch (data.AbilityType)
+        // {
+        //     case CardAbilityType.ATTACK:
+        //         cardBG.sprite = AttackBG;
+        //         break;
+        //     case CardAbilityType.DEFEND:
+        //         cardBG.sprite = DefenseBG;
+        //         break;
+        //     case CardAbilityType.HEAL:
+        //         cardBG.sprite = HealBG;
+        //         break;
+        //     case CardAbilityType.SKILL:
+        //         cardBG.sprite = SkillBG;
+        //         break;
+        //     case CardAbilityType.EXPAND:
+        //         cardBG.sprite = ExpandBG;
+        //         break;
+        //     case CardAbilityType.TRASH:
+        //         cardBG.sprite = TrashBG;
+        //         break;
+        // }
+
+        switch (data.ActType)
         {
-            case CardAbilityType.ATTACK:
-                cardBG.sprite = AttackBG;
+            case CardActType.BATTLE_FIELD:
+                cardBG.sprite = BattleFieldBG;
+                cardBGF.sprite = BattleFieldBGF;
+                descriptionFrame.sprite = BattleFieldDescription;
                 break;
-            case CardAbilityType.DEFEND:
-                cardBG.sprite = DefenseBG;
+            case CardActType.COMMAND:
+                cardBG.sprite = CommandBG;
+                cardBGF.sprite = CommandBGF;
+                descriptionFrame.sprite = CommandDescription;
                 break;
-            case CardAbilityType.HEAL:
-                cardBG.sprite = HealBG;
-                break;
-            case CardAbilityType.SKILL:
-                cardBG.sprite = SkillBG;
-                break;
-            case CardAbilityType.EXPAND:
-                cardBG.sprite = ExpandBG;
-                break;
-            case CardAbilityType.TRASH:
-                cardBG.sprite = TrashBG;
+            case CardActType.VIRUS:
+                cardBG.sprite = VirusBG;
+                cardBGF.sprite = VirusBGF;
+                descriptionFrame.sprite = VirusDescription;
                 break;
         }
 
@@ -260,6 +307,15 @@ public class CardUI : MonoBehaviour
             case CardRarityType.TRASH:
                 rarityFrame.sprite = TrashFrame;
                 break;
+        }
+
+        if (data.ActType == CardActType.VIRUS)
+        {
+            cardBG.color = CardVirusModifier;
+        }
+        else
+        {
+            cardBG.color = Color.white;
         }
     }
 

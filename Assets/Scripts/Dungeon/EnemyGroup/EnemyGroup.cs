@@ -8,7 +8,7 @@ public class EnemyGroup : MonoBehaviour
     /// <summary>
     /// 本场战斗的全部敌人，按照行动顺序排列
     /// </summary>
-    List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
+    [HideInInspector]public List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
 
     void Start()
     {
@@ -32,6 +32,15 @@ public class EnemyGroup : MonoBehaviour
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// 获取随机敌人
+    /// </summary>
+    /// <returns>随机到的敌人</returns>
+    public EnemyBehaviour GetRandomEnemy()
+    {
+        return enemies[Random.Range(0, enemies.Count)];
     }
 
     /// <summary>
@@ -67,7 +76,10 @@ public class EnemyGroup : MonoBehaviour
     {
         foreach(EnemyBehaviour enemy in enemies)
         {
-            enemy.ActOnEnemyMove();
+            if (!enemy.buffOwner.HasBuff("Stun"))
+            {
+                enemy.ActOnEnemyMove();
+            }
         }
         //在这之间加动画？
         TriggerEnemyActEnd();

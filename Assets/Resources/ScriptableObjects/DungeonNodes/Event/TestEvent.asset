@@ -18,23 +18,47 @@ MonoBehaviour:
   eventDescription: "\u8FD9\u662F\u4E00\u4E2A\u6D4B\u8BD5\u7528\u4E8B\u4EF6\uFF0C\u53EF\u4EE5\u8BA9\u4F60\u6247\u81EA\u5DF1\u5DF4\u638C\u3002"
   choices:
   - choiceText: "\u4F60\u6247\u4E86\u81EA\u5DF1\u4E00\u5DF4\u638C\uFF08\u5931\u53BB2\u751F\u547D\uFF09"
-    choiceTypes: 05000000
+    choiceTypes:
+      m_keys: 06000000
+      m_values:
+      - 0
     moneyVariation: 0
     healthVariation: -2
     p_Relic: {fileID: 0}
+    p_Card: {fileID: 0}
     p_Board: {fileID: 0}
     nextNodeInfo: {fileID: 0}
+    repeatable: 1
   - choiceText: "\u4F60\u6247\u4E86\u81EA\u5DF1\u4E24\u5DF4\u638C\uFF08\u5931\u53BB4\u751F\u547D\uFF09"
-    choiceTypes: 05000000
+    choiceTypes:
+      m_keys: 
+      m_values: []
     moneyVariation: 0
     healthVariation: -4
     p_Relic: {fileID: 0}
+    p_Card: {fileID: 0}
     p_Board: {fileID: 0}
     nextNodeInfo: {fileID: 0}
+    repeatable: 1
   - choiceText: "\u4F60\u6247\u4E86\u81EA\u5DF1\u4E09\u5DF4\u638C\uFF0C\u4F5C\u8005\u5B9E\u5728\u770B\u4E0D\u4E0B\u53BB\u4E86\uFF0C\u9001\u4F60\u4E00\u5757\u94B1\uFF08\u5931\u53BB6\u751F\u547D\uFF0C\u83B7\u5F971\u91D1\u94B1\uFF09"
-    choiceTypes: 0500000000000000
+    choiceTypes:
+      m_keys: 
+      m_values: []
     moneyVariation: 1
     healthVariation: -6
     p_Relic: {fileID: 0}
+    p_Card: {fileID: 0}
     p_Board: {fileID: 0}
     nextNodeInfo: {fileID: 0}
+    repeatable: 1
+  - choiceText: "\u79BB\u5F00"
+    choiceTypes:
+      m_keys: 
+      m_values: []
+    moneyVariation: 0
+    healthVariation: 0
+    p_Relic: {fileID: 0}
+    p_Card: {fileID: 0}
+    p_Board: {fileID: 0}
+    nextNodeInfo: {fileID: 0}
+    repeatable: 0

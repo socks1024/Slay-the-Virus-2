@@ -56,7 +56,7 @@ public class EventManager : MonoBehaviour
         
         for (int i = 0; i < Info.choices.Count; i++)
         {
-            SetButton(i,Info.choices[i].choiceText,Info.choices[i].OnChoose);
+            SetButton(i,Info.choices[i].choiceText,Info.choices[i].OnChoose,Info.choices[i].Available,Info.choices[i].repeatable);
         }
     }
 
@@ -77,13 +77,16 @@ public class EventManager : MonoBehaviour
     /// <param name="index">按钮的序号</param>
     /// <param name="text">按钮的文本</param>
     /// <param name="action">按下按钮时触发的事件</param>
-    void SetButton(int index, string text, UnityAction action)
+    void SetButton(int index, string text, UnityAction action, bool Available, bool repeatable)
     {
         print("setting button "+ index);
         buttons[index].gameObject.SetActive(true);
         buttons[index].GetComponentInChildren<TextMeshProUGUI>().text = text;
         buttons[index].onClick.AddListener(action);
-        buttons[index].onClick.AddListener(EndEvent);
+
+        if (!repeatable) buttons[index].onClick.AddListener(EndEvent);
+
+        buttons[index].interactable = Available;
     }
 
     /// <summary>

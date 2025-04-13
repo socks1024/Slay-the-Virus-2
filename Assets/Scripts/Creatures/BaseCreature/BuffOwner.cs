@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class BuffOwner : MonoBehaviour
 {
+    public CreatureBehaviour Creature{ get{ return GetComponent<CreatureBehaviour>(); }}
+
     /// <summary>
     /// 持有的各种状态效果
     /// </summary>
@@ -41,6 +43,40 @@ public class BuffOwner : MonoBehaviour
     }
 
     /// <summary>
+    /// 获取对象是否持有特定Buff
+    /// </summary>
+    /// <param name="ID">buffID</param>
+    /// <returns>是否持有</returns>
+    public bool HasBuff(string ID)
+    {
+        foreach (BuffBehaviour oldBuff in buffs)
+        {
+            if (oldBuff.ID == ID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 获取对象的特定buff
+    /// </summary>
+    /// <param name="ID">buff的ID</param>
+    /// <returns>特定buff</returns>
+    public BuffBehaviour GetBuff(string ID)
+    {
+        foreach (BuffBehaviour oldBuff in buffs)
+        {
+            if (oldBuff.ID == ID)
+            {
+                return oldBuff;
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
     /// 获取特定Buff的持有量
     /// </summary>
     /// <param name="ID">特定Buff的ID</param>
@@ -55,6 +91,28 @@ public class BuffOwner : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    /// <summary>
+    /// 获取最高的负面buff
+    /// </summary>
+    /// <returns></returns>
+    public BuffBehaviour GetHighestDebuff()
+    {
+        int amount = 0;
+
+        BuffBehaviour retBuff = null;
+
+        foreach (BuffBehaviour buff in buffs)
+        {
+            if (buff.Amount > amount && buff.Type == BuffType.NEGATIVE)
+            {
+                amount = buff.Amount;
+                retBuff = buff;
+            }
+        }
+
+        return retBuff;
     }
 
     /// <summary>

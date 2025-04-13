@@ -18,7 +18,7 @@ public class CardPosition : MonoBehaviour
     /// <summary>
     /// 特殊条件格子
     /// </summary>
-    List<Square> ConditionedSquares
+    [HideInInspector]public List<Square> ConditionedSquares
     {
         get
         {
@@ -51,6 +51,8 @@ public class CardPosition : MonoBehaviour
 
         return count;
     }
+
+    public bool Conditioned{ get{ return GetSatisfiedSquaresCount() > 0;}}
 
     /// <summary>
     /// 获取满足特殊条件的卡牌

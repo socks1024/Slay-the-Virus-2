@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class PlayerBehaviour : CreatureBehaviour
@@ -31,9 +32,26 @@ public class PlayerBehaviour : CreatureBehaviour
         { 
             if (value < 0) value = 0;
             nutrition = value; 
+
+            OnNutritionChange.Invoke(nutrition);
         }
     }
 
+    public UnityAction<int> OnNutritionChange;
+
+    /// <summary>
+    /// 是否持有某种遗物
+    /// </summary>
+    /// <param name="id">遗物的id</param>
+    /// <returns>是否有该遗物</returns>
+    public bool HasRelic(string id)
+    {
+        foreach (RelicBehaviour relic in p_Relics)
+        {
+            if (relic.ID == id) return true;
+        }
+        return false;
+    }
 
     /// <summary>
     /// 设置玩家的持有物
@@ -62,9 +80,21 @@ public class PlayerBehaviour : CreatureBehaviour
         
     }
 
+    public void OnBattleWin()
+    {
+        buffOwner.ClearBuff();
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, OnBattleWin);
+    }
+
     public override void OnDead()
     {
         print("PlayerDead");
         EventCenter.Instance.TriggerEvent(EventType.PLAYER_DEAD);
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, OnBattleWin);
     }
 }

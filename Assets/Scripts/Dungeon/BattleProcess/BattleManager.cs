@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,8 @@ public class BattleManager : MonoBehaviour
 
     [Header("战斗时元素/UI")]
     public Transform boardRoot;
+
+    public Transform relicsRoot;
 
     public CardFlowController cardFlow;
 
@@ -31,7 +34,6 @@ public class BattleManager : MonoBehaviour
     {
         this.battleNode = battleInfo;
 
-        //还没有添加道具初始化
         //还没有添加战利品初始化
 
         board = Instantiate(player.p_Board);
@@ -39,6 +41,9 @@ public class BattleManager : MonoBehaviour
 
         List<CardBehaviour> deck = InstantiateHelper.MultipleInstatiate(player.p_Deck);
         cardFlow.FillDrawPile(deck);
+
+        List<RelicBehaviour> relics = InstantiateHelper.MultipleInstatiate(player.p_Relics);
+        relics.ForEach(relicBehaviour => relicBehaviour.transform.SetParent(relicsRoot));
 
         List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate((battleInfo.nodeInfo as BattleNodeInfo).p_Enemies);
         enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
@@ -66,6 +71,14 @@ public class BattleManager : MonoBehaviour
     // ACT_START:按下按钮触发
     // CARD_ACT_END:弃牌动画播放完毕 && 所有卡牌动画播放完毕
     // ENEMY_ACT_END:所有敌人动画播放完毕
+
+    /// <summary>
+    /// 触发卡牌按钮操作
+    /// </summary>
+    public void TriggerCardActRelics()
+    {
+        relicsRoot.GetComponentsInChildren<RelicBehaviour>().ToList().ForEach(r => r.ActOnCardAct());
+    }
 
     /// <summary>
     /// 弃牌动画是否已经结束
@@ -224,6 +237,8 @@ public class BattleManager : MonoBehaviour
         cardFlow.discardPile.ClearCards();
 
         enemyGroup.ResetEnemyGroup();
+
+        relicsRoot.GetComponentsInChildren<RelicBehaviour>().ToList().ForEach(r => Destroy(r.gameObject));
 
         currentWave = 0;
     }
