@@ -16,11 +16,13 @@ public class CardInventoryUI : MonoBehaviour
     public BoardBehaviour boardBehaviour;
     public GameObject Detailed;
     public CardItemInventory inventoryitem;
+
+    public Transform content;
     private int sum = 0;
     private int num = 0;
     private List<GameObject> blanks=new List<GameObject>();
     private List<int> chosencards = new List<int>();
-    
+    private int[] CardExistInInventory = new int[100];
     
     private void Awake()
     {
@@ -34,26 +36,50 @@ public class CardInventoryUI : MonoBehaviour
         inventoryitem = card.GetComponent<CardItemInventory>();
         
 
-        if (inventoryitem.showstate==0)//放大
+        if (inventoryitem.showstate==0||inventoryitem.showstate==1)//放大
         {
-            SetToPlayer();
+            if (inventoryitem.num == 1)
+            {
+                SetToPlayer();
+                CardExistInInventory[inventoryitem.index] = 1;
+            }
+            else
+            {
+               
+                SetToPlayerWithoutRemove();
+
+                inventoryitem.num--;
+            }
+            inventoryitem.ResetNumText();
             //Preview();
-        }
-      else if (inventoryitem.showstate == 1)//选中
-        {
-            SetToPlayer();
         }
         else if (inventoryitem.showstate == 2)//放回
         {
             inventoryitem.showstate = 0;
             //ClearBlank();
-            Debug.Log(inventoryitem.originalparent.childCount - 8);
-            Detailed.transform.SetParent (null);
-            Detailed.transform.SetParent(inventoryitem.originalparent);
-            Detailed.transform.SetSiblingIndex(inventoryitem.index-Search(inventoryitem.index));
-            Detailed.transform.localScale = inventoryitem.originalscale;
-            PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
-            chosencards.Remove(inventoryitem.index);
+            if (CardExistInInventory[inventoryitem.index]==1)
+            {
+                Detailed.transform.SetParent(null);
+                Detailed.transform.SetParent(content);
+                Detailed.transform.GetChild(2).gameObject.SetActive(true);
+                Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
+                Detailed.transform.localScale = new Vector3(0.8f,0.8f,1f);
+                inventoryitem.num = 1;
+                inventoryitem.ResetNumText();
+                CardExistInInventory[inventoryitem.index] = 0;
+                PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
+                chosencards.Remove(inventoryitem.index);
+            }
+            else
+            {
+                Debug.Log("inventoryitem.originalparent");
+                content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().num++;
+                content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().ResetNumText();
+                PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
+                GameObject.Destroy(Detailed);
+            }
+
+           
             //sum -= 1;
             //num = 4 - (sum % 4);
             //if (num == 4)
@@ -127,6 +153,7 @@ public class CardInventoryUI : MonoBehaviour
         //ClearBlank();
         sum += 1;
         num = 4 - (sum % 4);
+        Detailed.transform.GetChild(2).gameObject.SetActive(false);
         Detailed.transform.SetParent(PlayerHoldPanel.transform);
         Detailed.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
         Detailed.transform.SetSiblingIndex(0);
@@ -134,6 +161,20 @@ public class CardInventoryUI : MonoBehaviour
         chosencards.Add(inventoryitem.index);
         //if(sum>0)
         //FillBlank();
+    }
+
+    public void SetToPlayerWithoutRemove()
+    {
+        GameObject newplayercard = Instantiate(Detailed);
+        newplayercard.GetComponent<CardItemInventory>().showstate = 2;
+        newplayercard.transform.GetChild(2).gameObject.SetActive(false);
+        newplayercard.transform.SetParent(PlayerHoldPanel.transform);
+        newplayercard.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
+        newplayercard.transform.SetSiblingIndex(0);
+        newplayercard.GetComponent<CardItemInventory>().index = inventoryitem.index;
+        PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
+        //chosencards.Add(inventoryitem.index);
+
     }
 
     public void Preview()

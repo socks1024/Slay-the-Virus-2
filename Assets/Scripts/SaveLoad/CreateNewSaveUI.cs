@@ -37,6 +37,9 @@ public class CreateNewSaveUI : MonoBehaviour
             savedata.illness[i] = illnesses[i].isOn;
         }
 
+        savedata.PlayerCardInventory["BazookaSoldier"] = 5;
+        savedata.PlayerCardInventory["ElectricGrenade"] = 5;
+
         SaveSystem.Instance.SavePlayerToSlot(savedata, index);
     }
 

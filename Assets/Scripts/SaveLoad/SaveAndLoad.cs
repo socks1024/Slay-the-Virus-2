@@ -103,6 +103,11 @@ public class PlayerSave
     public int BaseLife;
     public int Nutrient;
 
+    public SerializableDictionary<string, int> PlayerCardInventory = new SerializableDictionary<string, int>
+    {
+        {"BazookaSoldier",0 },
+        {"ElectricGrenade",0 }
+    };
    
 }
 
