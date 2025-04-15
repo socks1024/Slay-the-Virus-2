@@ -56,6 +56,21 @@ public static class ActionLib
     }
 
     /// <summary>
+    /// 造成多次伤害
+    /// </summary>
+    /// <param name="target">要受到伤害的目标</param>
+    /// <param name="source">攻击的来源</param>
+    /// <param name="damage">伤害数值</param>
+    /// <param name="times">伤害数值</param>
+    public static void MultiAttackAction(CreatureBehaviour target, CreatureBehaviour source, int damage, int times)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            DamageAction(target, source, damage);
+        }
+    }
+
+    /// <summary>
     /// 受到治疗
     /// </summary>
     /// <param name="target">要受到治疗的目标</param>

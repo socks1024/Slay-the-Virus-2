@@ -27,7 +27,7 @@ public class IntentionShow : MonoBehaviour
 
     #endregion
 
-    void Awake()
+    void Start()
     {
         IntentionBehaviour intention = GetComponent<IntentionBehaviour>();
 

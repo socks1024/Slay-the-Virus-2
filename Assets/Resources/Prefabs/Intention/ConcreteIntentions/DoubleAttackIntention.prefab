@@ -90,22 +90,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893148389862895839, guid: f7da218a3790b73438ce1544265ae882, type: 3}
       propertyPath: m_Name
-      value: StunIntention
+      value: DoubleAttackIntention
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8893148389862895839, guid: f7da218a3790b73438ce1544265ae882, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1495642006676570239}
+      insertIndex: -1
+      addedObject: {fileID: -3900176140879423395}
   m_SourcePrefab: {fileID: 100100000, guid: f7da218a3790b73438ce1544265ae882, type: 3}
 --- !u!1 &1979956541033881517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8893148389862895839, guid: f7da218a3790b73438ce1544265ae882, type: 3}
   m_PrefabInstance: {fileID: 6922306046557187954}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1495642006676570239
+--- !u!114 &-3900176140879423395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,12 +114,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1979956541033881517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6770effaeb30a314b9c2dc5507e6a5c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ac97d65f9a2bc04092ccd2186df4fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: StunIntention
-  IntentionType: 9
-  TargetType: 1
+  ID: DoubleAttackIntention
+  IntentionType: 1
+  TargetType: 0
   Amount: 0
   Amount2: 0
   target: {fileID: 0}
