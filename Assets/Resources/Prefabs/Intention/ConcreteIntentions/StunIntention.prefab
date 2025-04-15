@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5760683719743831395
+--- !u!1001 &6922306046557187954
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,10 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4885967312842543567, guid: f7da218a3790b73438ce1544265ae882, type: 3}
-      propertyPath: m_text
-      value: "\u6D4B\u8BD52"
-      objectReference: {fileID: 0}
     - target: {fileID: 1513060674929363615, guid: f7da218a3790b73438ce1544265ae882, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -38,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513060674929363615, guid: f7da218a3790b73438ce1544265ae882, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1513060674929363615, guid: f7da218a3790b73438ce1544265ae882, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1513060674929363615, guid: f7da218a3790b73438ce1544265ae882, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,31 +90,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893148389862895839, guid: f7da218a3790b73438ce1544265ae882, type: 3}
       propertyPath: m_Name
-      value: DefaultIntention2
+      value: StunIntention
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8893148389862895839, guid: f7da218a3790b73438ce1544265ae882, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -2863881502213159561}
+      insertIndex: 1
+      addedObject: {fileID: 1495642006676570239}
   m_SourcePrefab: {fileID: 100100000, guid: f7da218a3790b73438ce1544265ae882, type: 3}
---- !u!1 &3789990217934015932 stripped
+--- !u!1 &1979956541033881517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8893148389862895839, guid: f7da218a3790b73438ce1544265ae882, type: 3}
-  m_PrefabInstance: {fileID: 5760683719743831395}
+  m_PrefabInstance: {fileID: 6922306046557187954}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-2863881502213159561
+--- !u!114 &1495642006676570239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3789990217934015932}
+  m_GameObject: {fileID: 1979956541033881517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03fd4eeee2727964fa9eae63f641b07f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6770effaeb30a314b9c2dc5507e6a5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intentionData: {fileID: 11400000, guid: f9c237b3090121c498f88de3b7b97751, type: 2}
+  ID: StunIntention
+  IntentionType: 5
+  TargetType: 1
+  Amount: 0
+  target: {fileID: 0}
+  source: {fileID: 0}

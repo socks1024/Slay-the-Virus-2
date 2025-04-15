@@ -2,68 +2,77 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IntentionShow : MonoBehaviour
 {
-    /// <summary>
-    /// 显示意图强度的文字
-    /// </summary>
-    TextMeshProUGUI tmp;
+    [SerializeField] Image image;
 
-    /// <summary>
-    /// 显示意图图片
-    /// </summary>
-    SpriteRenderer sr;
-
-    /// <summary>
-    /// 意图数据
-    /// </summary>
-    IntentionBehaviour intention;
+    [SerializeField] TextMeshProUGUI textmesh;
 
     #region texture
 
-    // public Sprite AttackIntentionSprite;
-    // public Sprite DefenseIntentionSprite;
-    // public Sprite GainBuffIntentionSprite;
-    // public Sprite ApplyBuffIntentionSprite;
-    // public Sprite HealIntentionSprite;
-    // public Sprite StunIntentionSprite;
-    // public Sprite UnknownIntentionSprite;
+    [Header("意图图片")]
+    public Sprite AttackIntentionSprite;
+    public Sprite DoubleAttackSprite;
+    public Sprite TrippleAttackSprite;
+    public Sprite DefenseIntentionSprite;
+    public Sprite GainBuffIntentionSprite;
+    public Sprite ApplyBuffIntentionSprite;
+    public Sprite AttackAndGiveDebuffSprite;
+    public Sprite GainBuffAndGiveDebuffSprite;
+    public Sprite HealIntentionSprite;
+    public Sprite StunIntentionSprite;
+    public Sprite UnknownIntentionSprite;
 
     #endregion
 
-    void Start()
+    void Awake()
     {
-        tmp = GetComponent<TextMeshProUGUI>();
-        //sr = GetComponent<SpriteRenderer>();
-        intention = GetComponent<IntentionBehaviour>();
+        IntentionBehaviour intention = GetComponent<IntentionBehaviour>();
 
-        tmp.text = intention.Description;
+        textmesh.text = intention.Amount.ToString();
 
-        // switch (intention.intentionType)
-        // {
-        //     case IntentionType.ATTACK:
-        //         sr.sprite = AttackIntentionSprite;
-        //         break;
-        //     case IntentionType.DEFENSE:
-        //         sr.sprite = DefenseIntentionSprite;
-        //         break;
-        //     case IntentionType.GAIN_BUFF:
-        //         sr.sprite = GainBuffIntentionSprite;
-        //         break;
-        //     case IntentionType.GIVE_DEBUFF:
-        //         sr.sprite = ApplyBuffIntentionSprite;
-        //         break;
-        //     case IntentionType.HEAL:
-        //         sr.sprite = HealIntentionSprite;
-        //         break;
-        //     case IntentionType.STUN:
-        //         sr.sprite = StunIntentionSprite;
-        //         break;
-        //     case IntentionType.UNKNOWN:
-        //         sr.sprite = UnknownIntentionSprite;
-        //         break;
-        // }
+        switch (intention.IntentionType)
+        {
+            case IntentionType.ATTACK:
+                image.sprite = AttackIntentionSprite;
+                break;
+            case IntentionType.DOUBLE_ATTACK:
+                image.sprite = DoubleAttackSprite;
+                textmesh.text += "×2";
+                break;
+            case IntentionType.TRIPLE_ATTACK:
+                image.sprite = TrippleAttackSprite;
+                textmesh.text += "×3";
+                break;
+            case IntentionType.DEFENSE:
+                image.sprite = DefenseIntentionSprite;
+                break;
+            case IntentionType.GAIN_BUFF:
+                image.sprite = GainBuffIntentionSprite;
+                break;
+            case IntentionType.GIVE_DEBUFF:
+                image.sprite = ApplyBuffIntentionSprite;
+                break;
+            case IntentionType.ATTACK_AND_GIVE_DEBUFF:
+                image.sprite = AttackAndGiveDebuffSprite;
+                textmesh.text += intention.Amount2.ToString();
+                break;
+            case IntentionType.GAIN_BUFF_AND_GIVE_DEBUFF:
+                image.sprite = GainBuffAndGiveDebuffSprite;
+                textmesh.text += intention.Amount2.ToString();
+                break;
+            case IntentionType.HEAL:
+                image.sprite = HealIntentionSprite;
+                break;
+            case IntentionType.STUN:
+                image.sprite = StunIntentionSprite;
+                break;
+            case IntentionType.UNKNOWN:
+                image.sprite = UnknownIntentionSprite;
+                break;
+        }
     }
 
 

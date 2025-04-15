@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Counter
       objectReference: {fileID: 0}
+    - target: {fileID: 8274955985299932206, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 51508d365b4299447bf009e758e13669, type: 3}
     - target: {fileID: 8357791035467745902, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

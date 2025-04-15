@@ -6,6 +6,6 @@ public class DefaultIntention : IntentionBehaviour
 {
     public override void ActOnEnemyTurn()
     {
-        print(source + "" + Description + "" + target);
+        
     }
 }

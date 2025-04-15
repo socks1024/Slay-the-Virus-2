@@ -107,10 +107,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: DefaultEnemy
   MaxHealth: 10
-  takeDamage: {fileID: 0}
-  buffOwner: {fileID: 0}
   enemySprite: {fileID: 21300000, guid: be157a438c9ac5841986a56b12b2c780, type: 3}
-  IntentionPrefabsAvailable:
-  - {fileID: 5618804424645045575, guid: bd093b924154c6743ae5811004064132, type: 3}
-  - {fileID: -2863881502213159561, guid: a553412ea42be3849b1ac4972f9d67a5, type: 3}
   intention: {fileID: 0}

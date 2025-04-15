@@ -26,7 +26,6 @@ public class AnimateIntention : MonoBehaviour
     {
         intention.transform.SetParent(intentionOffset.transform, false);
         intention.transform.localPosition = Vector3.zero;
-        intention.gameObject.SetActive(true);
     }
 
     /// <summary>
