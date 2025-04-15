@@ -12,15 +12,23 @@ public class CardItemInventory : MonoBehaviour
     public Vector3 originalposition;
     public Transform originalparent;
     public int showstate = 0;
+    public int num=0;
+    public TMPro.TMP_Text numtext;
    
    
-    void Start()
+    void Awake()
     {
         index = transform.GetSiblingIndex();
         originalposition = transform.position;
         originalscale = transform.localScale;
         originalparent = transform.parent;
-        
+        numtext.text = num.ToString();
+
     }
-   
+
+    public void ResetNumText()
+    {
+        numtext.text = num.ToString();
+    }
+
 }

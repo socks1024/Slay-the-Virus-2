@@ -12,7 +12,7 @@ public class ButtonOfCard : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Button>();
-        cardInventoryUI = GetComponentInParent<CardInventoryUI>();
+        cardInventoryUI = GameObject.Find("CardInventory").GetComponent<CardInventoryUI>();
         cardItem = this.transform.parent.gameObject;
         button.onClick.AddListener(OnClick);
     }

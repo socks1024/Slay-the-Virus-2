@@ -13,8 +13,17 @@ public class ItemManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(Instance);
     }
 
+    public void InitStorageCard()
+    {
+        foreach(var cards in SaveSystem.Instance.getSave().PlayerCardInventory)
+        {
+            string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + cards.Key;
+            AddItem(Resources.Load<CardItem>(FindCardItem), cards.Value);
+        }
+    }
     public bool AddItem(Item item,int amount)//Ìí¼Ó
     {
         /* bool hasItem = inventory.TryGetValue(item, out int currentAmount);

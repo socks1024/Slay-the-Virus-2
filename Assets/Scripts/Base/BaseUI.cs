@@ -2,6 +2,7 @@ using SaveAndLoad;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseUI : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BaseUI : MonoBehaviour
     private void Awake()
     {
         UpdateInfo();
+        ItemManager.Instance.InitStorageCard();
     }
 
     private void UpdateInfo()
@@ -54,5 +56,10 @@ public class BaseUI : MonoBehaviour
         Life.text = SaveSystem.Instance.getSave().BaseLife.ToString();
         Nut.text = SaveSystem.Instance.getSave().Nutrient.ToString();
 
+    }
+
+    public void TransToInventory()
+    {
+        SceneManager.LoadScene("Inventory");
     }
 }

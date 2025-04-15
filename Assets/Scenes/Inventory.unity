@@ -1920,6 +1920,7 @@ MonoBehaviour:
   boardBehaviour: {fileID: 0}
   Detailed: {fileID: 0}
   inventoryitem: {fileID: 0}
+  content: {fileID: 0}
 --- !u!114 &853376694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,6 +2224,7 @@ MonoBehaviour:
   boardBehaviour: {fileID: 0}
   Detailed: {fileID: 0}
   inventoryitem: {fileID: 0}
+  content: {fileID: 0}
 --- !u!114 &1033051186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3245,7 +3247,6 @@ GameObject:
   - component: {fileID: 1331492597}
   - component: {fileID: 1331492602}
   - component: {fileID: 1331492601}
-  - component: {fileID: 1331492600}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3260,7 +3261,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331492596}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1331492598
 Camera:
   m_ObjectHideFlags: 0
@@ -3327,18 +3328,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1331492600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331492596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec51b1cc50ed4914080fbf039dcb30b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1331492601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,7 +3751,7 @@ GameObject:
   - component: {fileID: 1589334007}
   - component: {fileID: 1589334008}
   m_Layer: 5
-  m_Name: Content
+  m_Name: CardContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4051,6 +4040,7 @@ MonoBehaviour:
   boardBehaviour: {fileID: 8270045261509145139, guid: 2ef436fe5218f9440bf2898cda148275, type: 3}
   Detailed: {fileID: 0}
   inventoryitem: {fileID: 0}
+  content: {fileID: 1589334006}
 --- !u!114 &1873914798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4103,7 +4093,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentpanel: {fileID: 1589334005}
   ShopItemPrefab: {fileID: 4938145601152246272, guid: 6911a7912f7f2eb4eb9c27040e54ee14, type: 3}
-  testcard: {fileID: 11400000, guid: 4c4327c49619f704f8fe15fc9dd58a66, type: 2}
   inventoryUI: {fileID: 0}
 --- !u!1 &1962720346
 GameObject:
