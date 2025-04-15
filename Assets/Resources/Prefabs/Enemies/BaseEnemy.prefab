@@ -94,7 +94,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: be157a438c9ac5841986a56b12b2c780, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8b157efa0e4fcc4a89f35e001d55217, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intentionOffset: {fileID: 8665908604292398895}
+  intentionPrefab: {fileID: 1889188934207753374, guid: f7da218a3790b73438ce1544265ae882, type: 3}
 --- !u!114 &6686561371691483152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 1995523153266720695, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 1646918508317099877, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
+      objectReference: {fileID: -474469339842350398, guid: dbd8dbfea7377a7408effe790fe894e8, type: 2}
     - target: {fileID: 2067984060571799611, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: takeDamage
       value: 

@@ -22,7 +22,7 @@ public class DefaultEnemy : EnemyBehaviour
 
     public override void EnemyChooseIntention(int turnCount)
     {
-        holdIntention.SetIntention("StunIntention");
+        holdIntention.SetIntention(IntentionType.STUN, "1", ()=>{});
     }
 
     public override void ActOnTurnStart()

@@ -8,10 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3743952669205370513, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: be157a438c9ac5841986a56b12b2c780, type: 3}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SizeDelta.x
       value: 400
@@ -72,28 +68,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 93
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8124231872743290648, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5673493791340955577}
+      addedObject: {fileID: -2188250187909952186}
   m_SourcePrefab: {fileID: 100100000, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
 --- !u!1 &1564478793388295705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8124231872743290648, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
   m_PrefabInstance: {fileID: 7280408497031721217}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5673493791340955577
+--- !u!114 &-2188250187909952186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,5 +95,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: DefaultEnemy
   MaxHealth: 10
-  enemySprite: {fileID: 21300000, guid: be157a438c9ac5841986a56b12b2c780, type: 3}
+  enemySprite: {fileID: 21300000, guid: a8b157efa0e4fcc4a89f35e001d55217, type: 3}
   intention: {fileID: 0}

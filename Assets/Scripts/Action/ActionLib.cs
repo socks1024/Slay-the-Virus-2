@@ -354,6 +354,15 @@ public static class ActionLib
         }
     }
 
+    /// <summary>
+    /// 召唤敌人
+    /// </summary>
+    /// <param name="enemyID">敌人的ID</param>
+    public static void SummonEnemyAction(string enemyID)
+    {
+        DungeonManager.Instance.battleManager.enemyGroup.AddEnemyToBattle(EnemyLib.GetEnemy(enemyID), 0);
+    }
+
     #endregion
 
     #region Dungeon Related Actions

@@ -17,6 +17,24 @@ public class EnemyGroup : MonoBehaviour
     }
 
     /// <summary>
+    /// 获取遭遇战中的敌人
+    /// </summary>
+    /// <param name="Id">敌人ID</param>
+    /// <returns>获取到的敌人</returns>
+    public EnemyBehaviour GetEnemyByID(string Id)
+    {
+        foreach (EnemyBehaviour enemy in enemies)
+        {
+            if (enemy.ID == Id)
+            {
+                return enemy;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
     /// 获取鼠标下的敌人
     /// </summary>
     /// <returns>鼠标下的敌人，若没有的话返回null</returns>

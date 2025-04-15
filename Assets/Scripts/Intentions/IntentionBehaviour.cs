@@ -1,51 +1,31 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(IntentionShow))]
-public abstract class IntentionBehaviour : MonoBehaviour
+public class IntentionBehaviour : MonoBehaviour
 {
-    /// <summary>
-    /// 意图的ID
-    /// </summary>
-    public string ID;
-
     /// <summary>
     /// 意图的类型
     /// </summary>
-    public IntentionType IntentionType;
-
-    /// <summary>
-    /// 意图目标的类型
-    /// </summary>
-    public TargetType TargetType;
-
-    /// <summary>
-    /// 意图的强度
-    /// </summary>
-    [HideInInspector]public int Amount;
-
-    /// <summary>
-    /// 意图的强度
-    /// </summary>
-    [HideInInspector]public int Amount2;
-
-    /// <summary>
-    /// 意图的目标
-    /// </summary>
-    [HideInInspector]public CreatureBehaviour target;
-    
-    /// <summary>
-    /// 意图的来源
-    /// </summary>
-    [HideInInspector]public CreatureBehaviour source;
+    [HideInInspector] public IntentionType IntentionType;
 
     /// <summary>
     /// 意图的行为
     /// </summary>
-    public abstract void ActOnEnemyTurn();
+    public UnityAction ActOnEnemyTurn;
 
-    protected virtual void Awake()
+    /// <summary>
+    /// 意图的文字描述
+    /// </summary>
+    [HideInInspector] public string ShowText;
+
+    public void SetIntention(IntentionType type, string text, UnityAction actOnEnemyTurn)
     {
-        
+        this.IntentionType = type;
+        this.ShowText = text;
+        this.ActOnEnemyTurn = actOnEnemyTurn;
+
+        GetComponent<IntentionShow>().ShowIntention();
     }
 }
 
@@ -73,5 +53,7 @@ public enum TargetType
     SELF,
     SINGLE_ENEMY,
     ALL_ENEMY,
+    RANDOM_ENEMY,
     NO_TARGET,
+    MULTIPLE,
 }

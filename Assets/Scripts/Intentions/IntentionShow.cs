@@ -27,11 +27,11 @@ public class IntentionShow : MonoBehaviour
 
     #endregion
 
-    void Start()
+    public void ShowIntention()
     {
         IntentionBehaviour intention = GetComponent<IntentionBehaviour>();
 
-        textmesh.text = intention.Amount.ToString();
+        textmesh.text = intention.ShowText;
 
         switch (intention.IntentionType)
         {
@@ -40,11 +40,9 @@ public class IntentionShow : MonoBehaviour
                 break;
             case IntentionType.DOUBLE_ATTACK:
                 image.sprite = DoubleAttackSprite;
-                textmesh.text += "×2";
                 break;
             case IntentionType.TRIPLE_ATTACK:
                 image.sprite = TrippleAttackSprite;
-                textmesh.text += "×3";
                 break;
             case IntentionType.DEFENSE:
                 image.sprite = DefenseIntentionSprite;
@@ -57,11 +55,9 @@ public class IntentionShow : MonoBehaviour
                 break;
             case IntentionType.ATTACK_AND_GIVE_DEBUFF:
                 image.sprite = AttackAndGiveDebuffSprite;
-                textmesh.text += intention.Amount2.ToString();
                 break;
             case IntentionType.GAIN_BUFF_AND_GIVE_DEBUFF:
                 image.sprite = GainBuffAndGiveDebuffSprite;
-                textmesh.text += intention.Amount2.ToString();
                 break;
             case IntentionType.HEAL:
                 image.sprite = HealIntentionSprite;
