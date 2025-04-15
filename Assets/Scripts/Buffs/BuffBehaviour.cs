@@ -16,10 +16,10 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// </summary>
     public string Name;
 
-    /// <summary>
-    /// 状态效果的图片
-    /// </summary>
-    public Sprite BuffSprite;
+    // /// <summary>
+    // /// 状态效果的图片
+    // /// </summary>
+    // public Sprite BuffSprite;
 
     /// <summary>
     /// 状态效果的类型
@@ -69,6 +69,11 @@ public abstract class BuffBehaviour : MonoBehaviour
     }
 
     #endregion
+
+    protected virtual void Awake()
+    {
+        
+    }
 
     protected virtual void Start()
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TastyTools
+namespace Tools
 {
 	[RequireComponent(typeof(AudioSource))]
 	public class SoundManager : MonoSingleton<SoundManager>

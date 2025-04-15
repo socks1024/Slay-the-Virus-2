@@ -89,6 +89,25 @@ public static class ActionLib
     }
 
     /// <summary>
+    /// 下回合给予特定Buff
+    /// </summary>
+    /// <param name="target">要获得buff目标</param>
+    /// <param name="source">给予buff的来源</param>
+    /// <param name="buffName">buff的名字</param>
+    /// <param name="amount">buff的层数</param>
+    public static void ApplyBuffNextTurnAction(CreatureBehaviour target, CreatureBehaviour source, string buffName, int amount)
+    {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+            ApplyBuffNextTurnBuff buff = DungeonBuffLib.GetBuff("ApplyBuffNextTurn", amount) as ApplyBuffNextTurnBuff;
+            
+            buff.source = source;
+            buff.name = buffName;
+
+            target.buffOwner.GainBuff(buff);
+        });
+    }
+
+    /// <summary>
     /// 给予所有敌人特定Buff
     /// </summary>
     /// <param name="source">给予buff的来源</param>

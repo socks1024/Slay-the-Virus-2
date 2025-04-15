@@ -71,10 +71,10 @@ public class HoldIntention : MonoBehaviour
                 break;
         }
 
-        if (enemy.buffOwner.HasBuff("Stun"))
-        {
-            intention = Instantiate(IntentionLib.prefabs["StunIntention"]);
-        }
+        // if (enemy.buffOwner.HasBuff("Stun"))
+        // {
+        //     intention = Instantiate(IntentionLib.prefabs["StunIntention"]);
+        // }
     }
 
     /// <summary>

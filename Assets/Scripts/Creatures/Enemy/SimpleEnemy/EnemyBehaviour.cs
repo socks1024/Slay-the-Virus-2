@@ -46,9 +46,12 @@ public abstract class EnemyBehaviour : CreatureBehaviour
     /// </summary>
     public virtual void ActOnEnemyMove()
     {
-        //执行意图
-        holdIntention.TriggerIntention();
-        // holdIntention.PlayIntentionAnimation();
+        if (!buffOwner.HasBuff("Stun"))
+        {
+            //执行意图
+            holdIntention.TriggerIntention();
+            // holdIntention.PlayIntentionAnimation();
+        }
     }
 
     /// <summary>

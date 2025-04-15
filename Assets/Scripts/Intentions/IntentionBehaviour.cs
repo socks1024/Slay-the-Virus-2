@@ -24,6 +24,11 @@ public abstract class IntentionBehaviour : MonoBehaviour
     [HideInInspector]public int Amount;
 
     /// <summary>
+    /// 意图的强度
+    /// </summary>
+    [HideInInspector]public int Amount2;
+
+    /// <summary>
     /// 意图的目标
     /// </summary>
     [HideInInspector]public CreatureBehaviour target;
@@ -47,11 +52,18 @@ public abstract class IntentionBehaviour : MonoBehaviour
 public enum IntentionType
 {
     ATTACK,
+    DOUBLE_ATTACK,
+    TRIPLE_ATTACK,
     DEFENSE,
     GAIN_BUFF,
     GIVE_DEBUFF,
+    ATTACK_AND_GIVE_DEBUFF,
+    GAIN_BUFF_AND_GIVE_DEBUFF,
     HEAL,
     STUN,
+    SUMMON,
+    GIVE_TRASH,
+    DEACTIVATE_SQUARE,
     UNKNOWN,
 }
 

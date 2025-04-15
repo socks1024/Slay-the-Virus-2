@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 {
@@ -210,6 +211,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         Messenger.leaveBattleInfoTest.p_Board = Player.p_Board;
         Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
         Messenger.leaveBattleInfoTest.nutrition = Player.Nutrition;
+
+        SceneManager.LoadScene(1);
     }
 
     #endregion
@@ -256,6 +259,11 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     }
 
     #endregion
+
+    public void TestLeaveBattleScene()
+    {
+        LeaveDungeon();
+    }
 }
 
 

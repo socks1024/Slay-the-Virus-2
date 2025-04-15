@@ -187,7 +187,7 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnBattleWin()
     {
-        TestLeaveBattleScene();
+        DungeonManager.Instance.TestLeaveBattleScene();
         // ShowRewards();
     }
 
@@ -201,10 +201,7 @@ public class BattleManager : MonoBehaviour
         //显示战利品
     }
 
-    void TestLeaveBattleScene()
-    {
-        SceneManager.LoadScene(1);
-    }
+    
 
     /// <summary>
     /// 获得战利品后触发的回调

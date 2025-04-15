@@ -14,9 +14,13 @@ public class IntentionShow : MonoBehaviour
 
     [Header("意图图片")]
     public Sprite AttackIntentionSprite;
+    public Sprite DoubleAttackSprite;
+    public Sprite TrippleAttackSprite;
     public Sprite DefenseIntentionSprite;
     public Sprite GainBuffIntentionSprite;
     public Sprite ApplyBuffIntentionSprite;
+    public Sprite AttackAndGiveDebuffSprite;
+    public Sprite GainBuffAndGiveDebuffSprite;
     public Sprite HealIntentionSprite;
     public Sprite StunIntentionSprite;
     public Sprite UnknownIntentionSprite;
@@ -25,8 +29,6 @@ public class IntentionShow : MonoBehaviour
 
     void Awake()
     {
-        print("intention start");
-        
         IntentionBehaviour intention = GetComponent<IntentionBehaviour>();
 
         textmesh.text = intention.Amount.ToString();
@@ -36,6 +38,14 @@ public class IntentionShow : MonoBehaviour
             case IntentionType.ATTACK:
                 image.sprite = AttackIntentionSprite;
                 break;
+            case IntentionType.DOUBLE_ATTACK:
+                image.sprite = DoubleAttackSprite;
+                textmesh.text += "×2";
+                break;
+            case IntentionType.TRIPLE_ATTACK:
+                image.sprite = TrippleAttackSprite;
+                textmesh.text += "×3";
+                break;
             case IntentionType.DEFENSE:
                 image.sprite = DefenseIntentionSprite;
                 break;
@@ -44,6 +54,14 @@ public class IntentionShow : MonoBehaviour
                 break;
             case IntentionType.GIVE_DEBUFF:
                 image.sprite = ApplyBuffIntentionSprite;
+                break;
+            case IntentionType.ATTACK_AND_GIVE_DEBUFF:
+                image.sprite = AttackAndGiveDebuffSprite;
+                textmesh.text += intention.Amount2.ToString();
+                break;
+            case IntentionType.GAIN_BUFF_AND_GIVE_DEBUFF:
+                image.sprite = GainBuffAndGiveDebuffSprite;
+                textmesh.text += intention.Amount2.ToString();
                 break;
             case IntentionType.HEAL:
                 image.sprite = HealIntentionSprite;
