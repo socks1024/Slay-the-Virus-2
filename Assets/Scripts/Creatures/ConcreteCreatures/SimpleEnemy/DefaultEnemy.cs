@@ -7,6 +7,13 @@ public class DefaultEnemy : EnemyBehaviour
     public override void ActOnEnterBattle()
     {
         print(name + " Enter Battle");
+
+        defaultIntention = new IntentionInfo(
+            IntentionType.STUN,
+            "",
+            null,
+            null
+        );
     }
 
     public override void OnBattleStart()
@@ -16,29 +23,16 @@ public class DefaultEnemy : EnemyBehaviour
 
     public override void OnDead()
     {
+        base.OnDead();
         print(name + " Dead");
-        DungeonManager.Instance.battleManager.enemyGroup.DestroyEnemyFromBattle(this);
     }
 
     public override void EnemyChooseIntention(int turnCount)
     {
-        holdIntention.SetIntention(IntentionType.STUN, "1", ()=>{});
+        holdIntention.SetIntention(defaultIntention);
     }
 
-    public override void ActOnTurnStart()
-    {
-        base.ActOnTurnStart();
-    }
-
-    public override void ActOnEnemyMove()
-    {
-        base.ActOnEnemyMove();
-    }
-
-    public override void ActOnEnemyTurnEnd()
-    {
-        base.ActOnEnemyTurnEnd();
-    }
+    IntentionInfo defaultIntention;
 
 }
 

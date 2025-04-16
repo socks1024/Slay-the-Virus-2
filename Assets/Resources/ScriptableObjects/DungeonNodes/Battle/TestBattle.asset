@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestBattle
   m_EditorClassIdentifier: 
   nodeID: TestBattle
-  p_Enemies:
-  - {fileID: -2188250187909952186, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
+  p_Enemies_GameObject:
+  - {fileID: 1564478793388295705, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
   lootInfo: {fileID: 11400000, guid: a0fe01ebaa8c4ec4982e29ed05ad97bb, type: 2}

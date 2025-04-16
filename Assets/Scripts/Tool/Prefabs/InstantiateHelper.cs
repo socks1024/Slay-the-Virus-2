@@ -20,4 +20,20 @@ public static class InstantiateHelper
         }
         return list;
     }
+
+    /// <summary>
+    /// 实例化预制体列表
+    /// </summary>
+    /// <typeparam name="T">引用预制体使用的类型</typeparam>
+    /// <param name="prefabs">预制体列表</param>
+    /// <returns>游戏物体列表</returns>
+    public static List<GameObject> MultipleInstatiate(List<GameObject> prefabs)
+    {
+        List<GameObject> list = new List<GameObject>();
+        foreach (GameObject prefab in prefabs)
+        {
+            list.Add(MonoBehaviour.Instantiate(prefab, Vector3.zero, Quaternion.identity));
+        }
+        return list;
+    }
 }

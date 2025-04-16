@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 1513060674929363615}
   - component: {fileID: 1087485914058412124}
   - component: {fileID: -4683197317565102445}
-  - component: {fileID: 5430011740545666149}
   - component: {fileID: 1889188934207753374}
   m_Layer: 0
   m_Name: BaseIntention
@@ -359,7 +358,10 @@ MonoBehaviour:
   AttackAndGiveDebuffSprite: {fileID: 21300000, guid: e963674550e06e2408c6429d9873ee6a, type: 3}
   GainBuffAndGiveDebuffSprite: {fileID: 21300000, guid: 0618ce731caf92b4c8f7733338a672b6, type: 3}
   HealIntentionSprite: {fileID: 21300000, guid: f85f5f5627fa5bf469e829bc3e6ac185, type: 3}
-  StunIntentionSprite: {fileID: 21300000, guid: 2db907c47a86b2b4a9436decc91fb5b6, type: 3}
+  StunIntentionSprite: {fileID: 21300000, guid: 8db81e51d4eb48440a0ee4e7b8fe31c6, type: 3}
+  SummonIntentionSprite: {fileID: 21300000, guid: 2db907c47a86b2b4a9436decc91fb5b6, type: 3}
+  GiveTrashIntentionSprite: {fileID: 21300000, guid: a7b3d4cfe7f10dc49a0c2eae00d94bdc, type: 3}
+  DeactivateSquareIntentionSprite: {fileID: 21300000, guid: 1c96992c452fe904cac1661be06ae02a, type: 3}
   UnknownIntentionSprite: {fileID: 21300000, guid: ee3331815734e6c469ef14aae7ce5206, type: 3}
 --- !u!222 &-4683197317565102445
 CanvasRenderer:
@@ -369,32 +371,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8893148389862895839}
   m_CullTransparentMesh: 1
---- !u!114 &5430011740545666149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8893148389862895839}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!114 &1889188934207753374
 MonoBehaviour:
   m_ObjectHideFlags: 0

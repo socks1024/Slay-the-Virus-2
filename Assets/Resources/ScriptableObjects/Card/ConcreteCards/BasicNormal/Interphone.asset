@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Interphone
   AbilityType: 3
   ActType: 1
-  ConditionType: 0
+  ConditionType: 1
   TargetType: 0
   RarityType: 0
   CardShape:

@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Tools
 {
-	[RequireComponent(typeof(AudioSource))]
-	public class SoundManager : MonoSingleton<SoundManager>
+	[RequireComponent(typeof(AudioManager))]
+	public class AudioSourcePrototypeHolder : MonoBehaviour
 	{
+		public string soundManagerID;
+
 		public bool mute;
 
 		public bool logSounds;
@@ -18,18 +21,25 @@ namespace Tools
 
 		private Queue<AudioSource> sourcePool;
 
+		[HideInInspector]
+		public AudioMixer audioMixer;
+
 		[Header("Source Pooling")]
+		
 		[SerializeField]
 		private int poolSize;
 
-		protected override void Awake()
+		[SerializeField]
+		private AudioSource sampleSource;
+
+		protected void Awake()
 		{
 			this.sourcePool = new Queue<AudioSource>();
-			AudioSource component = base.GetComponent<AudioSource>();
+			AudioSource component = sampleSource;
 			this.sourcePool.Enqueue(component);
 			while (this.sourcePool.Count < this.poolSize)
 			{
-				AudioSource audioSource = base.gameObject.AddComponent<AudioSource>();
+				AudioSource audioSource = sampleSource;
 				audioSource.loop = component.loop;
 				audioSource.volume = component.volume;
 				audioSource.spatialBlend = component.spatialBlend;
@@ -40,8 +50,8 @@ namespace Tools
 				this.sourcePool.Enqueue(audioSource);
 			}
 
-			this.sounds = new Dictionary<string, SoundManager.SoundClip>();
-			foreach (SoundManager.SoundClip soundClip in this.soundClips)
+			this.sounds = new Dictionary<string, AudioSourcePrototypeHolder.SoundClip>();
+			foreach (AudioSourcePrototypeHolder.SoundClip soundClip in this.soundClips)
 			{
 				if (soundClip.volume < 0f)
 				{
@@ -78,7 +88,7 @@ namespace Tools
 
 			AudioSource freeSource = this.GetFreeSource();
 
-			SoundManager.SoundClip soundClip = this.sounds[name];
+			AudioSourcePrototypeHolder.SoundClip soundClip = this.sounds[name];
 			if (Time.time - soundClip.timeLastPlayed < soundClip.cooldown)
 			{
 				return;
@@ -110,7 +120,7 @@ namespace Tools
 			}
 			Debug.LogFormat("Play Sound {0}", new object[]
 			{
-				base.name
+				// base.name
 			});
 			AudioSource freeSource = this.GetFreeSource();
 			if (freeSource.isPlaying)
@@ -142,7 +152,7 @@ namespace Tools
 			});
 			AudioSource freeSource = this.GetFreeSource();
 
-			SoundManager.SoundClip soundClip = this.sounds[name];
+			AudioSourcePrototypeHolder.SoundClip soundClip = this.sounds[name];
 			freeSource.pitch = pitch;
 			freeSource.loop = false;
 			freeSource.clip = null;
@@ -204,6 +214,9 @@ namespace Tools
                 audioSource.Stop();
             }
             audioSource.clip = null;
+
+			audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+			
 			return audioSource;
 		}
 

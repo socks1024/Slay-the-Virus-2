@@ -49,12 +49,14 @@ public abstract class CardBehaviour : MonoBehaviour
     /// <summary>
     /// 卡牌的方块要组成的形状，通过一组向量表示每个方块相对原点的位置
     /// </summary>
-    [HideInInspector]public List<Vector2> CardShape;
+    //[HideInInspector]
+    public List<Vector2> CardShape;
 
     /// <summary>
     /// 能触发卡牌特效的格子，通过一组向量表示其相对原点的位置
     /// </summary>
-    [HideInInspector]public List<Vector2> ConditionsShape;
+    //[HideInInspector]
+    public List<Vector2> ConditionsShape;
 
     /// <summary>
     /// 下一次打出卡牌的攻击力
@@ -101,10 +103,13 @@ public abstract class CardBehaviour : MonoBehaviour
     public bool lockedOnBoard;
 
     [HideInInspector]
+    public CardPile currPile;
+
+    [HideInInspector]
     /// <summary>
     /// 是否被消耗
     /// </summary>
-    public bool Exhausted{ get{ return DungeonManager.Instance.battleManager.cardFlow.exhaustedPile.GetCards().Contains(this); }}
+    public bool exhausted;
 
     /// <summary>
     /// 卡牌的回合结束时效果

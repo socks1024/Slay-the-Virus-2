@@ -23,6 +23,9 @@ public class IntentionShow : MonoBehaviour
     public Sprite GainBuffAndGiveDebuffSprite;
     public Sprite HealIntentionSprite;
     public Sprite StunIntentionSprite;
+    public Sprite SummonIntentionSprite;
+    public Sprite GiveTrashIntentionSprite;
+    public Sprite DeactivateSquareIntentionSprite;
     public Sprite UnknownIntentionSprite;
 
     #endregion
@@ -64,6 +67,15 @@ public class IntentionShow : MonoBehaviour
                 break;
             case IntentionType.STUN:
                 image.sprite = StunIntentionSprite;
+                break;
+            case IntentionType.SUMMON:
+                image.sprite = SummonIntentionSprite;
+                break;
+            case IntentionType.GIVE_TRASH:
+                image.sprite = GiveTrashIntentionSprite;
+                break;
+            case IntentionType.DEACTIVATE_SQUARE:
+                image.sprite = DeactivateSquareIntentionSprite;
                 break;
             case IntentionType.UNKNOWN:
                 image.sprite = UnknownIntentionSprite;

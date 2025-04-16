@@ -36,20 +36,21 @@ public class HoldIntention : MonoBehaviour
     /// </summary>
     public void ClearIntention()
     {
-        Destroy(intention.gameObject);
-        // intention = null;
+        if (intention is not null)
+        {
+            Destroy(intention.gameObject);
+            intention = null;
+        }
     }
 
     /// <summary>
     /// 设置意图
     /// </summary>
-    /// <param name="type">意图类型</param>
-    /// <param name="showText">意图文字</param>
-    /// <param name="action">意图行为</param>
-    public void SetIntention(IntentionType type, string showText, UnityAction action)
+    /// <param name="info">意图信息</param>
+    public void SetIntention(IntentionInfo info)
     {
         intention = Instantiate(intentionPrefab);
-        intention.SetIntention(type, showText, action);
+        intention.SetIntention(info);
     }
 
     /// <summary>
@@ -57,7 +58,10 @@ public class HoldIntention : MonoBehaviour
     /// </summary>
     public void TriggerIntention()
     {
-        intention.ActOnEnemyTurn.Invoke();
+        if (intention.ActOnEnemyTurn is not null)
+        {
+            intention.ActOnEnemyTurn.Invoke();
+        }
     }
 
     void Awake() 

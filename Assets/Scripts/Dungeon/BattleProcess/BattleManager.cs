@@ -46,8 +46,8 @@ public class BattleManager : MonoBehaviour
         List<RelicBehaviour> relics = InstantiateHelper.MultipleInstatiate(player.p_Relics);
         relics.ForEach(relicBehaviour => relicBehaviour.transform.SetParent(relicsRoot));
 
-        List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate((battleInfo.nodeInfo as BattleNodeInfo).p_Enemies);
-        enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+        List<GameObject> enemies = InstantiateHelper.MultipleInstatiate((battleInfo.nodeInfo as BattleNodeInfo).p_Enemies_GameObject);
+        enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e.GetComponent<EnemyBehaviour>());});
 
         if (battleInfo.nodeInfo is EvacuateBattleNodeInfo)
         {
@@ -143,7 +143,7 @@ public class BattleManager : MonoBehaviour
         {
             List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(moreEnemies[currentWave]);
             if (currentWave < moreEnemies.Count - 1) currentWave++;
-            enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e,0);});
+            enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e);});
         }
         else
         {
