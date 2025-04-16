@@ -25,6 +25,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     [SerializeField] BoardBehaviour boardPrefab;
 
+    [SerializeField] CanvasGroup actButtonRoot;
+
     /// <summary>
     /// 各种UI元素在画面外的临时储存点
     /// </summary>
@@ -50,6 +52,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
             battleManager.InitializeEncounter(battleInfo);
             EventCenter.Instance.TriggerEvent(EventType.BATTLE_START);
         });
+        actButtonRoot.DOFade(1, BGMoveTime);
     }
 
     /// <summary>
@@ -139,6 +142,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     public void RightBGReturnBack(UnityAction onComplete)
     {
         RightBG.DOMove(Vector3.zero, BGMoveTime).OnComplete(onComplete.Invoke);
+        actButtonRoot.DOFade(0, BGMoveTime);
     }
 
     #endregion
