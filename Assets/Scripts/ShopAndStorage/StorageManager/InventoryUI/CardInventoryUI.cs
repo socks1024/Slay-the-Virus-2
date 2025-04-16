@@ -67,7 +67,7 @@ public class CardInventoryUI : MonoBehaviour
                 inventoryitem.num = 1;
                 inventoryitem.ResetNumText();
                 CardExistInInventory[inventoryitem.index] = 0;
-                PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
+                //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
                 chosencards.Remove(inventoryitem.index);
             }
             else
@@ -75,7 +75,7 @@ public class CardInventoryUI : MonoBehaviour
                 Debug.Log("inventoryitem.originalparent");
                 content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().num++;
                 content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().ResetNumText();
-                PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
+                //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
                 GameObject.Destroy(Detailed);
             }
 
@@ -92,7 +92,7 @@ public class CardInventoryUI : MonoBehaviour
     public void CancelDetail()//È¡ÏûÔ¤ÀÀ
     {
         detailPanel.gameObject.SetActive(false);
-        Detailed.transform.SetParent( inventoryitem.originalparent);
+        Detailed.transform.SetParent( content);
         Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
         Detailed.transform.localScale = inventoryitem.originalscale;
         Detailed.transform.localPosition = inventoryitem.originalposition;
@@ -157,7 +157,7 @@ public class CardInventoryUI : MonoBehaviour
         Detailed.transform.SetParent(PlayerHoldPanel.transform);
         Detailed.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
         Detailed.transform.SetSiblingIndex(0);
-        PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
+        //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
         chosencards.Add(inventoryitem.index);
         //if(sum>0)
         //FillBlank();
@@ -172,7 +172,7 @@ public class CardInventoryUI : MonoBehaviour
         newplayercard.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
         newplayercard.transform.SetSiblingIndex(0);
         newplayercard.GetComponent<CardItemInventory>().index = inventoryitem.index;
-        PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
+        //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
         //chosencards.Add(inventoryitem.index);
 
     }

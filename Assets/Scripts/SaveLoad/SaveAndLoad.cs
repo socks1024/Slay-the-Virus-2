@@ -106,7 +106,88 @@ public class PlayerSave
     public SerializableDictionary<string, int> PlayerCardInventory = new SerializableDictionary<string, int>
     {
         {"BazookaSoldier",0 },
-        {"ElectricGrenade",0 }
+        {"ElectricGrenade",0 },
+        {"FlareGun",0 },
+        {"PiercingBullet",0 },
+        {"StunGrenade",0 },
+        {"TearGas",0 },
+
+        {"Grenade",0 },
+        {"Interphone",0 },
+        {"Map",0 },
+        {"Medic",0 },
+        {"Militia",0 },
+        {"NoviceEngineer",0 },
+        {"NoviceInfantry",0 },
+
+        {"BodyArmor",0 },
+        {"Knifeman",0 },
+        {"Shocker",0 },
+        {"SpikeArmor",0 },
+        {"Supplies",0 },
+
+        {"AttackFlag",0},
+        {"DefenseFlag",0},
+        {"EngineerGroup",0},
+        {"InfantryGroup",0},
+        {"SeniorEngineer",0},
+        {"SeniorInfantry",0},
+
+        {"Bandage",0},
+        {"HeadNurse",0},
+        {"RemoteSatellite",0},
+        {"Substitute",0},
+        {"SupplyDrop",0},
+        {"Surveyor",0},
+
+        {"Antibody",0},
+        {"Antihistamine",0},
+        {"BloodBag",0},
+        {"Epinephrine",0},
+        {"Herbs",0},
+        {"Steroid",0},
+
+        {"ArmouredCar",0},
+        {"BarbedWire",0},
+        {"Drone",0},
+        {"Fortress",0},
+        {"SimpleShelter",0},
+        {"SpikeRoadblock",0},
+
+        {"AccurateAirdrop",0},
+        {"ArmorSoldier",0},
+        {"DeathSquad",0},
+        {"Kamikaze",0},
+        {"Painkiller",0},
+        {"RecklessWarrior",0},
+
+        {"FightMaster",0},
+        {"Guerrillas",0},
+        {"MachineGunner",0},
+        {"ShieldGuy",0},
+        {"SystemEngineer",0},
+        {"TacticalCommander",0},
+
+        {"CloningFighters",0},
+        {"CounterDummy",0},
+        {"DismissalSeal",0},
+        {"EmergencyCommunication",0},
+        {"GasMask",0},
+        {"TrainingDummy",0},
+
+        {"Assassin",0},
+        {"Barrier",0},
+        {"RoadExplosion",0},
+        {"Spy",0},
+        {"Thief",0},
+        {"Trap",0},
+
+        {"AirBombing",0},
+        {"Cannon",0},
+        {"Jet",0},
+        {"RedButton",0},
+        {"Tank",0},
+        {"Warship",0}
     };
    
 }
@@ -127,3 +208,4 @@ public class SaveInfo
         time = savedata.Time;
     }
 }
+

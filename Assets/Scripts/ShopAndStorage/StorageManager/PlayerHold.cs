@@ -6,6 +6,7 @@ public class PlayerHold : MonoSingletonDestroyOnLoad<PlayerHold>
 {
     private Dictionary<Item, int> CarriedItems = new Dictionary<Item, int>();  //玩家持有物品的列表
     private Dictionary<CardBehaviour,int>CarriedCards= new Dictionary<CardBehaviour, int>();//玩家持有的卡牌
+    private Dictionary<CardItem, int> CarriedCardItems = new Dictionary<CardItem, int>();
     private Item chessboard;//玩家只能选一个棋盘（如果我没理解错的话...）
 
     public bool TakeFromStorage(Item item,int amount)//从仓库中拿去一定量的物品到玩家持有的物品
@@ -25,6 +26,16 @@ public class PlayerHold : MonoSingletonDestroyOnLoad<PlayerHold>
         return false;
     }
 
+    public Dictionary<CardItem,int> GetPlayerHoldCard()
+    {
+        return CarriedCardItems;
+    }
+
+    public void ResetPlayerHold(Dictionary<CardItem, int> newcards)
+    {
+        CarriedCardItems.Clear();
+        CarriedCardItems = newcards;
+    }
     public bool StoreToStorage(Item item,int amount)//把玩家手里的东西放回仓库
     {
         if (amount > CarriedItems[item])
@@ -50,22 +61,22 @@ public class PlayerHold : MonoSingletonDestroyOnLoad<PlayerHold>
         return CarriedItems[item];
     }
 
-    public bool AddCard(CardBehaviour card)
+    public bool AddCard(CardItem card)
     {
         Debug.Log("card added!");
-        if (CarriedCards.ContainsKey(card))
+        if (CarriedCardItems.ContainsKey(card))
         {
-            CarriedCards[card] += 1;
+            CarriedCardItems[card] += 1;
             return true;
         }
         else
         {
-            CarriedCards.Add(card, 1);
+            CarriedCardItems.Add(card, 1);
             return true;
         }
     }
 
-    public bool RemoveCard(CardBehaviour card)
+    /*public bool RemoveCard(CardBehaviour card)
     {
         if (CarriedCards.ContainsKey(card) && CarriedCards[card] > 0)
         {
@@ -74,7 +85,7 @@ public class PlayerHold : MonoSingletonDestroyOnLoad<PlayerHold>
             return true;
         }
         else return false;
-    }
+    }*/
 
     public List<CardBehaviour> GetCardBehaviours()
     {

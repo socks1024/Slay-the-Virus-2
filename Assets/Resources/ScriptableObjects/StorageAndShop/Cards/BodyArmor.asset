@@ -20,5 +20,5 @@ MonoBehaviour:
   StorageAmount: 0
   sellprice: 0
   weight: 0
-  cardBehaviour: {fileID: -8085286245536274397, guid: ffa681457c8fa1c438f77b7fdf882c78, type: 3}
+  cardBehaviour: {fileID: 8850314770278383440, guid: 615b77f5b546d5a428560d1968009ca4, type: 3}
   type: Ammo

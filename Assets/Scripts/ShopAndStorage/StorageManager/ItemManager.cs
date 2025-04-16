@@ -26,6 +26,9 @@ public class ItemManager : MonoBehaviour
     }
     public bool AddItem(Item item,int amount)//Ìí¼Ó
     {
+
+        if (amount == 0)
+            return false;
         /* bool hasItem = inventory.TryGetValue(item, out int currentAmount);
 
          int maxAdd = hasItem ? (item.MaxAmount - currentAmount) : item.MaxAmount;

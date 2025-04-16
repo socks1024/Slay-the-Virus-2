@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
+    public string scene;
     public void LoadScene(string scenename)
     {
         SceneManager.LoadScene(scenename);
+    }
+
+    public void triggerLoadscene()
+    {
+        SceneManager.LoadScene(scene);
     }
 
     public void QuitGame()

@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 
 public class QuickAdd : MonoBehaviour,IPointerClickHandler
 {
-    private CardInventoryUI inventoryUI;
+    public CardInventoryUI inventoryUI;
     public GameObject card;
-    private void Awake()
+    private void Start()
     {
-        inventoryUI = GetComponentInParent<CardInventoryUI>();
+        inventoryUI = GameObject.Find("CardInventory").GetComponent<CardInventoryUI>();
     }
 
     public void OnPointerClick(PointerEventData eventData)

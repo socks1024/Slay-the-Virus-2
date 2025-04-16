@@ -52,7 +52,7 @@ public class SaveSlot : MonoBehaviour
     public void LoadSave()
     {
         SaveSystem.Instance.SetSave(SaveSystem.Instance.LoadPlayerFromSlot(index));
-
+        ItemManager.Instance.InitStorageCard();
         SceneManager.LoadScene("Base");
     }
 

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a723d0b8db1997343bcefc0dd835b5d7, type: 3}
-  m_Name: SpikeArmor 1
+  m_Name: Guerrillas
   m_EditorClassIdentifier: 
-  Name: SpikeArmor
+  Name: Guerrillas
   Category: 2
   MaxAmount: 99
   price: 50
@@ -20,5 +20,5 @@ MonoBehaviour:
   StorageAmount: 0
   sellprice: 0
   weight: 0
-  cardBehaviour: {fileID: -2150530551905683557, guid: 99e78b351b8bf1349b61229aa3dbb273, type: 3}
+  cardBehaviour: {fileID: 2737189859515790162, guid: a42d8fbd46c77f449912db36fcbcf904, type: 3}
   type: Ammo

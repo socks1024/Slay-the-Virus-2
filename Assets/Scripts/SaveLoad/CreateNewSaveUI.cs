@@ -39,6 +39,8 @@ public class CreateNewSaveUI : MonoBehaviour
 
         savedata.PlayerCardInventory["BazookaSoldier"] = 5;
         savedata.PlayerCardInventory["ElectricGrenade"] = 5;
+        
+      
 
         SaveSystem.Instance.SavePlayerToSlot(savedata, index);
     }
