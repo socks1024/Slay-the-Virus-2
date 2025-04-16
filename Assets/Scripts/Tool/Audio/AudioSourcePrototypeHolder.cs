@@ -215,7 +215,7 @@ namespace Tools
             }
             audioSource.clip = null;
 
-			audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+			// audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
 			
 			return audioSource;
 		}
