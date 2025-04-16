@@ -224,6 +224,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     {
         base.Awake();
         RightBG.gameObject.SetActive(true);
+        RightBG.transform.position = new Vector3(0, 0, 0);
         RightBGBattleTransform.gameObject.SetActive(false);
 
         mapGenerator = GetComponent<MapGenerator>();
