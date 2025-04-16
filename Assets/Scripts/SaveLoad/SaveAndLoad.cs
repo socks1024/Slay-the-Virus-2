@@ -85,6 +85,7 @@ public class SaveSystem : MonoBehaviour
 
     public bool SlotFileExist(int index)
     {
+        Debug.Log(GetSlotPath(index));
         return File.Exists(GetSlotPath(index));
     }
 
