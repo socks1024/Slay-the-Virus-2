@@ -64,9 +64,9 @@ public class ShowDeckPanel : MonoBehaviour
 
     void ClearDeck()
     {
-        for (int i = showedCards.Count - 1; i >= 0; i--)
+        foreach (CardBehaviour card in CardsView.content.GetComponentsInChildren<CardBehaviour>())
         {
-            Destroy(showedCards[i]);
+            Destroy(card.gameObject);
         }
     }
 
@@ -82,9 +82,9 @@ public class ShowDeckPanel : MonoBehaviour
 
     void ClearRelics()
     {
-        for (int i = showedRelics.Count - 1; i >= 0; i--)
+        foreach (RelicBehaviour relic in RelicsView.content.GetComponentsInChildren<RelicBehaviour>())
         {
-            Destroy(showedRelics[i]);
+            Destroy(relic.gameObject);
         }
     }
 }
