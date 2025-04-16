@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LootInfo", menuName = "ScriptableObject/LootInfo", order = 0)]
