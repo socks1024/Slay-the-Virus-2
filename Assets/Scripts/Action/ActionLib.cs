@@ -78,7 +78,7 @@ public static class ActionLib
     /// <param name="heal">治疗数值</param>
     public static void HealAction(CreatureBehaviour target, CreatureBehaviour source, int heal)
     {
-        if ((source as PlayerBehaviour).HasRelic("IdolSign")) heal += 1;
+        if (source is PlayerBehaviour && (source as PlayerBehaviour).HasRelic("IdolSign")) heal += 1;
         
         // 治疗动画
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
