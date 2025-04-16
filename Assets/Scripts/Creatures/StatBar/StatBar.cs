@@ -36,10 +36,14 @@ public class StatBar : MonoBehaviour
     /// </summary>
     TextMeshProUGUI shieldText;
 
+    [SerializeField] ShowHealthText showHealthText;
+
     void Start()
     {
         //healthBar = GetComponentInChildren<Slider>();
         //buffsRoot = transform.Find("BuffList");
+
+        showHealthText.takeDamage = healthOwner;
 
         shieldText = shield.GetComponentInChildren<TextMeshProUGUI>();
 

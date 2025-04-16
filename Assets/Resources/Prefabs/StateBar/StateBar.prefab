@@ -954,6 +954,7 @@ MonoBehaviour:
   healthBar: {fileID: 2481541596230247813}
   buffsRoot: {fileID: 2610965257917989567}
   shield: {fileID: 7534644936277597616}
+  showHealthText: {fileID: 2067984060571799611}
 --- !u!1 &6356586766765664944
 GameObject:
   m_ObjectHideFlags: 0
