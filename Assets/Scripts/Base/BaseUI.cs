@@ -28,25 +28,25 @@ public class BaseUI : MonoBehaviour
         switch (week)
         {
             case "Monday":
-                Weekdaytext.text = "Mon";
+                Weekdaytext.text = "Mon.";
                 break;
             case "Tuesday":
-                Weekdaytext.text = "Tue";
+                Weekdaytext.text = "Tue.";
                 break;
             case "Wednesday":
-                Weekdaytext.text = "Wed";
+                Weekdaytext.text = "Wed.";
                 break;
             case "Thursday":
-                Weekdaytext.text = "Thur";
+                Weekdaytext.text = "Thur.";
                 break;
             case "Friday":
-                Weekdaytext.text = "Fri";
+                Weekdaytext.text = "Fri.";
                 break;
             case "Saturday":
-                Weekdaytext.text = "Sat";
+                Weekdaytext.text = "Sat.";
                 break;
             case "Sunday":
-                Weekdaytext.text = "Sun";
+                Weekdaytext.text = "Sun.";
                 break;
 
         }
