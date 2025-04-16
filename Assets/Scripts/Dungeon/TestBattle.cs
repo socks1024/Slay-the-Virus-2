@@ -5,9 +5,9 @@ public class TestBattle : MonoBehaviour
 {
     [SerializeField]List<CardBehaviour> deck;
 
-    [SerializeField]BoardBehaviour board;
-
     [SerializeField]List<RelicBehaviour> relics;
+
+    [SerializeField]DungeonMissionData mission;
 
     void Start()
     {
@@ -18,13 +18,14 @@ public class TestBattle : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            DungeonManager.Instance.EnterBattleForTest(Messenger.enterBattleInfoTest);
+            DungeonManager.Instance.StartAdventure(Messenger.enterDungeonInfo);
         }
         if(Input.GetKeyDown(KeyCode.Q))
         {
             EnterDungeonInfo info = new EnterDungeonInfo();
             info.p_Cards = deck;
-            info.p_Board = board;
+            info.p_Relics = relics;
+            info.missionData = mission;
 
             DungeonManager.Instance.StartAdventure(info);
         }
