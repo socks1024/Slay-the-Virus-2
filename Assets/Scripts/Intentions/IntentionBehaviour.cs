@@ -1,51 +1,41 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(IntentionShow))]
-public abstract class IntentionBehaviour : MonoBehaviour
+public class IntentionBehaviour : MonoBehaviour
 {
-    /// <summary>
-    /// 意图的ID
-    /// </summary>
-    public string ID;
-
     /// <summary>
     /// 意图的类型
     /// </summary>
-    public IntentionType IntentionType;
+    [HideInInspector] public IntentionType IntentionType;
+
+    public UnityAction ActOnEnemyTurn;
+
+    public UnityAction ActBeforeCardAct;
 
     /// <summary>
-    /// 意图目标的类型
+    /// 意图的文字描述
     /// </summary>
-    public TargetType TargetType;
+    [HideInInspector] public string ShowText;
 
-    /// <summary>
-    /// 意图的强度
-    /// </summary>
-    [HideInInspector]public int Amount;
-
-    /// <summary>
-    /// 意图的强度
-    /// </summary>
-    [HideInInspector]public int Amount2;
-
-    /// <summary>
-    /// 意图的目标
-    /// </summary>
-    [HideInInspector]public CreatureBehaviour target;
-    
-    /// <summary>
-    /// 意图的来源
-    /// </summary>
-    [HideInInspector]public CreatureBehaviour source;
-
-    /// <summary>
-    /// 意图的行为
-    /// </summary>
-    public abstract void ActOnEnemyTurn();
-
-    protected virtual void Awake()
+    public void SetIntention(IntentionType type, string text, UnityAction actOnEnemyTurn, UnityAction actBeforeCardAct)
     {
-        
+        this.IntentionType = type;
+        this.ShowText = text;
+        this.ActOnEnemyTurn = actOnEnemyTurn;
+        this.ActBeforeCardAct = actBeforeCardAct;
+
+        GetComponent<IntentionShow>().ShowIntention();
+    }
+
+    public void SetIntention(IntentionInfo info)
+    {
+        this.IntentionType = info.type;
+        this.ShowText = info.text;
+        this.ActOnEnemyTurn = info.actOnEnemyTurn;
+        this.ActBeforeCardAct = info.actBeforeCardAct;
+
+        GetComponent<IntentionShow>().ShowIntention();
     }
 }
 
@@ -73,5 +63,23 @@ public enum TargetType
     SELF,
     SINGLE_ENEMY,
     ALL_ENEMY,
+    RANDOM_ENEMY,
     NO_TARGET,
+    MULTIPLE,
+}
+
+public struct IntentionInfo
+{
+    public IntentionType type;
+    public string text;
+    public UnityAction actOnEnemyTurn;
+    public UnityAction actBeforeCardAct;
+
+    public IntentionInfo(IntentionType type, string text, UnityAction actOnEnemyTurn, UnityAction actBeforeCardAct)
+    {
+        this.type = type;
+        this.text = text;
+        this.actOnEnemyTurn = actOnEnemyTurn;
+        this.actBeforeCardAct = actBeforeCardAct;
+    }
 }

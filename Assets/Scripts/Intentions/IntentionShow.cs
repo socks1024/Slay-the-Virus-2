@@ -23,15 +23,18 @@ public class IntentionShow : MonoBehaviour
     public Sprite GainBuffAndGiveDebuffSprite;
     public Sprite HealIntentionSprite;
     public Sprite StunIntentionSprite;
+    public Sprite SummonIntentionSprite;
+    public Sprite GiveTrashIntentionSprite;
+    public Sprite DeactivateSquareIntentionSprite;
     public Sprite UnknownIntentionSprite;
 
     #endregion
 
-    void Start()
+    public void ShowIntention()
     {
         IntentionBehaviour intention = GetComponent<IntentionBehaviour>();
 
-        textmesh.text = intention.Amount.ToString();
+        textmesh.text = intention.ShowText;
 
         switch (intention.IntentionType)
         {
@@ -40,11 +43,9 @@ public class IntentionShow : MonoBehaviour
                 break;
             case IntentionType.DOUBLE_ATTACK:
                 image.sprite = DoubleAttackSprite;
-                textmesh.text += "×2";
                 break;
             case IntentionType.TRIPLE_ATTACK:
                 image.sprite = TrippleAttackSprite;
-                textmesh.text += "×3";
                 break;
             case IntentionType.DEFENSE:
                 image.sprite = DefenseIntentionSprite;
@@ -57,17 +58,24 @@ public class IntentionShow : MonoBehaviour
                 break;
             case IntentionType.ATTACK_AND_GIVE_DEBUFF:
                 image.sprite = AttackAndGiveDebuffSprite;
-                textmesh.text += intention.Amount2.ToString();
                 break;
             case IntentionType.GAIN_BUFF_AND_GIVE_DEBUFF:
                 image.sprite = GainBuffAndGiveDebuffSprite;
-                textmesh.text += intention.Amount2.ToString();
                 break;
             case IntentionType.HEAL:
                 image.sprite = HealIntentionSprite;
                 break;
             case IntentionType.STUN:
                 image.sprite = StunIntentionSprite;
+                break;
+            case IntentionType.SUMMON:
+                image.sprite = SummonIntentionSprite;
+                break;
+            case IntentionType.GIVE_TRASH:
+                image.sprite = GiveTrashIntentionSprite;
+                break;
+            case IntentionType.DEACTIVATE_SQUARE:
+                image.sprite = DeactivateSquareIntentionSprite;
                 break;
             case IntentionType.UNKNOWN:
                 image.sprite = UnknownIntentionSprite;

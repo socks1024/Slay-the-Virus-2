@@ -132,7 +132,22 @@ public class MapGenerator : MonoBehaviour
     /// <returns>BOSS节点</returns>
     public DungeonNode GetRandomNodeForBoss()
     {
-        return DungeonNodeLib.GetNode("TestBattle");
+        string nodeID = "";
+
+        int i = Random.Range(0, 1);
+
+        switch (i)
+        {
+            case 0:
+                nodeID = "BossFight1"; 
+                break;
+            default:
+                nodeID = "TestBattle";
+                break;
+        }
+
+
+        return DungeonNodeLib.GetNode(nodeID);
     }
 
     /// <summary>

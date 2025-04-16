@@ -100,12 +100,13 @@ public class CardFlowController : MonoBehaviour
     /// <param name="card">要消耗的卡牌</param>
     public void ExhaustCard(CardBehaviour card)
     {
-        if (hand.GetCards().Contains(card))
+        if (card.currPile is not null)
         {
-            hand.RemoveCard(card);
+            card.currPile.RemoveCard(card);
         }
 
-        exhaustedPile.AddCard(card);
+        handAnimation.ExhaustCardAnim(card);
+        card.exhausted = true;
     }
 
     /// <summary>
@@ -115,6 +116,7 @@ public class CardFlowController : MonoBehaviour
     {
         CardBehaviour card = exhaustedPile.GetCards()[UnityEngine.Random.Range(0,exhaustedPile.GetCards().Count)];
         exhaustedPile.RemoveCard(card);
+        card.exhausted = false;
         AddCardToHand(card);
     }
 

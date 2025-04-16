@@ -251,7 +251,7 @@ public static class ActionLib
     }
 
     /// <summary>
-    /// 将一张垃圾牌加入玩家手牌和卡组
+    /// 将一张垃圾牌加入玩家手牌
     /// </summary>
     /// <param name="p_card_ID">卡牌ID</param>
     /// <param name="amount">卡牌数量</param>
@@ -265,6 +265,16 @@ public static class ActionLib
         {
             AddCardToHand(p_card_ID, amount);
         }
+    }
+
+    /// <summary>
+    /// 将一张垃圾牌加入玩家抽牌堆
+    /// </summary>
+    /// <param name="p_card_ID">卡牌ID</param>
+    /// <param name="amount">卡牌数量</param>
+    public static void AddVirusCardToDrawPile(string p_card_ID, int amount)
+    {
+        DungeonManager.Instance.battleManager.cardFlow.drawPile.AddCard(MonoBehaviour.Instantiate(CardLib.GetCard(p_card_ID)));
     }
 
     /// <summary>
@@ -343,7 +353,7 @@ public static class ActionLib
     }
 
     /// <summary>
-    /// 从弃牌堆中恢复随机卡牌
+    /// 从消耗堆中恢复随机卡牌
     /// </summary>
     /// <param name="amount">卡牌数量</param>
     public static void GetRandomCardFromExhaustPile(int amount)
@@ -352,6 +362,15 @@ public static class ActionLib
         {
             DungeonManager.Instance.battleManager.cardFlow.RestoreRandomCardFromExhaustPile();
         }
+    }
+
+    /// <summary>
+    /// 召唤敌人
+    /// </summary>
+    /// <param name="enemyID">敌人的ID</param>
+    public static void SummonEnemyAction(string enemyID)
+    {
+        DungeonManager.Instance.battleManager.enemyGroup.AddEnemyToBattle(EnemyLib.GetEnemy(enemyID));
     }
 
     #endregion

@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoSingleton<AudioManager>
 {
-    public static AudioManager Instance;
     [SerializeField]
     private AudioMixer audioMixer;
 
     [SerializeField]
-    private AudioSource musicSource;
-    [SerializeField]
-    private AudioSource sfxSource;
+    private AudioSourcePrototypeHolder musicManager;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    [SerializeField]
+    private AudioSourcePrototypeHolder sfxManager;
+
     public void SetMasterVolume(float value)
     {
         SetVolume("MasterVolume", value);
@@ -36,14 +33,25 @@ public class AudioManager : MonoBehaviour
         audioMixer.SetFloat(parameter, volume);
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(string id)
     {
-        sfxSource.PlayOneShot(clip);
+        sfxManager.PlaySound(id);
+    }
+
+    public void PlayMusic(string id)
+    {
+        musicManager.PlaySound(id);
     }
 
     public void ToggleMusic()//¾²ÒôºÍ½â³ý
     {
-        musicSource.mute = !musicSource.mute;
+        musicManager.mute = !musicManager.mute;
+    }
+
+    protected override void Awake()
+    {
+        musicManager.audioMixer = audioMixer;
+        sfxManager.audioMixer = audioMixer;
     }
 
     

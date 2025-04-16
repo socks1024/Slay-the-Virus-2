@@ -6,7 +6,7 @@ public class Medic : CardBehaviour
 {
     public override void ActOnDiscard()
     {
-        // print("DiscardCard");
+        print("DiscardCard");
     }
 
     public override void ActOnPlaced()

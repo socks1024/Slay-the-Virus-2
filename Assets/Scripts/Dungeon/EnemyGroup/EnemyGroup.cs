@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(EnemyGroupUI))]
 public class EnemyGroup : MonoBehaviour
 {
     /// <summary>
@@ -10,10 +11,38 @@ public class EnemyGroup : MonoBehaviour
     /// </summary>
     [HideInInspector]public List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
 
-    void Start()
+    UnityAction<List<EnemyBehaviour>> OnEnemyAmountChange;
+
+    void Awake()
     {
+        OnEnemyAmountChange = GetComponent<EnemyGroupUI>().OnEnemyAmountChange;
+
         EventCenter.Instance.AddEventListener(EventType.CARD_ACT_END, EnemyAct);
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearEnemy);
+    }
+
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.CARD_ACT_END, EnemyAct);
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, ClearEnemy);
+    }
+
+    /// <summary>
+    /// 获取遭遇战中的敌人
+    /// </summary>
+    /// <param name="Id">敌人ID</param>
+    /// <returns>获取到的敌人</returns>
+    public EnemyBehaviour GetEnemyByID(string Id)
+    {
+        foreach (EnemyBehaviour enemy in enemies)
+        {
+            if (enemy.ID == Id)
+            {
+                return enemy;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -44,15 +73,43 @@ public class EnemyGroup : MonoBehaviour
     }
 
     /// <summary>
+    /// 获取敌人数量
+    /// </summary>
+    /// <returns>敌人数量</returns>
+    public int GetEnemyCount()
+    {
+        return enemies.Count;
+    }
+
+    /// <summary>
     /// 将敌人添加到战斗中
     /// </summary>
     /// <param name="enemy">要添加的敌人</param>
     /// <param name="moveIndex">敌人的行动顺序（从0开始）</param>
     public void AddEnemyToBattle(EnemyBehaviour enemy, int moveIndex)
     {
+        if (enemy is null) print("null enemy");
         enemy.transform.SetParent(transform, false);
         enemies.Insert(moveIndex, enemy);
         enemy.ActOnEnterBattle();
+
+        OnEnemyAmountChange.Invoke(enemies);
+    }
+
+    /// <summary>
+    /// 将敌人添加到战斗中
+    /// </summary>
+    /// <param name="enemy">要添加的敌人</param>
+    public void AddEnemyToBattle(EnemyBehaviour enemy)
+    {
+        if (enemy is null) print("null enemy");
+        enemy.transform.SetParent(transform, false);
+        enemies.Add(enemy);
+        enemy.ActOnEnterBattle();
+
+        if (OnEnemyAmountChange is null) print("null signal");
+
+        OnEnemyAmountChange.Invoke(enemies);
     }
 
     /// <summary>
@@ -63,6 +120,9 @@ public class EnemyGroup : MonoBehaviour
     {
         enemies.Remove(enemy);
         Destroy(enemy.gameObject);
+
+        OnEnemyAmountChange.Invoke(enemies);
+
         if (enemies.Count == 0)
         {
             DungeonManager.Instance.battleManager.OnAllEnemyDestroyed();
@@ -83,6 +143,21 @@ public class EnemyGroup : MonoBehaviour
         }
         //在这之间加动画？
         TriggerEnemyActEnd();
+    }
+
+    /// <summary>
+    /// 敌人优先的行动
+    /// </summary>
+    public void EnemyActBeforCardAct()
+    {
+        foreach(EnemyBehaviour enemy in enemies)
+        {
+            if (!enemy.buffOwner.HasBuff("Stun"))
+            {
+                enemy.ActBeforeCardAct();
+            }
+        }
+        //在这之间加动画？
     }
 
     /// <summary>

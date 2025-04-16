@@ -80,7 +80,19 @@ public class TetrisAssembler : MonoBehaviour
                 BlockTex = TrashTex;
                 break;
         }
-        
+
+        switch (card.ConditionType)
+        {
+            case CardConditionType.TRIGGER:
+                ConditionTex = TriggerSquareTex;
+                break;
+            case CardConditionType.AFFECT:
+                ConditionTex = AffectSquareTex;
+                break;
+            case CardConditionType.EXPAND:
+                ConditionTex = ExpandSquareTex;
+                break;
+        }
 
         AssembleBlocks();
         

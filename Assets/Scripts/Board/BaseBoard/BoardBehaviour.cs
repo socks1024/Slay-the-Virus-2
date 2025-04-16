@@ -163,7 +163,7 @@ public abstract class BoardBehaviour : MonoBehaviour
         }
         else
         {
-            return squares[(int)coord.x, (int)coord.y];
+            return squares[Mathf.RoundToInt(coord.x), Mathf.RoundToInt(coord.y)];
         }
     }
 
@@ -230,13 +230,13 @@ public abstract class BoardBehaviour : MonoBehaviour
 
             if (!s.IsActive)
             {
-                print(" : inactive");
+                print(s.squareCoord + " : inactive");
                 return false;
             }
 
             if (s.HasCard)
             {
-                print(" : has card " + s.CardData.Id);
+                print(s.squareCoord + " : has card " + s.CardData.Id);
                 return false;
             }
         }
@@ -250,6 +250,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     public void PlaceCard(CardBehaviour cardData)
     {
         cardData.transform.position = hoveredSquare.transform.position;
+        cardData.cardPosition.cardCoord = hoveredSquare.squareCoord;
         foreach (Vector2 v in cardData.CardShape)
         {
             Square s = GetSquare(hoveredSquare,v);
@@ -260,6 +261,8 @@ public abstract class BoardBehaviour : MonoBehaviour
             //触发游戏盘的ActOnAllFilledTurnEnd回调
             ActOnAllFilledTurnEnd();
         }
+
+        AudioManager.Instance.PlaySFX("Equip");
     }
 
     /// <summary>
@@ -268,6 +271,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <param name="cardData">要移除的卡牌</param>
     public void RemoveCard(CardBehaviour cardData)
     {
+        cardData.cardPosition.cardCoord = -Vector3.one;
         foreach (Square square in squares)
         {
             if (square.CardData == cardData)
@@ -409,7 +413,7 @@ public abstract class BoardBehaviour : MonoBehaviour
         card.ActOnCardAct();
         RemoveCard(card);
         card.ActOnRemoved();
-        DungeonManager.Instance.battleManager.cardFlow.DiscardCard(card);
+        if (!card.exhausted) DungeonManager.Instance.battleManager.cardFlow.DiscardCard(card);
 
         if (IsEmptyBoard())
         {

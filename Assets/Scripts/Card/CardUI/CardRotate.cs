@@ -52,12 +52,12 @@ public class CardRotate : MonoBehaviour
         {
             for (int i = 0; i < CardShape.Count; i++)
             {
-                CardShape[i] = MathHelper.Rotate2DVector(CardShape[i], degree);
+                CardShape[i] = MathHelper.Rotate2DVectorInt(CardShape[i], degree);
             }
 
             for (int i = 0; i < ConditionsShape.Count; i++)
             {
-                ConditionsShape[i] = MathHelper.Rotate2DVector(ConditionsShape[i], degree);
+                ConditionsShape[i] = MathHelper.Rotate2DVectorInt(ConditionsShape[i], degree);
             }
 
             blocks.transform.Rotate(new Vector3(0,0,degree));

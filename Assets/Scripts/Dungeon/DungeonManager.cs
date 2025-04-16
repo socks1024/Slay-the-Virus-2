@@ -118,11 +118,12 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     [Header("UI")]
     public Transform LeftBG;
     public Transform RightBG;
+    public Transform RightBGBattleTransform;
     
     /// <summary>
     /// 右侧背景的战斗时位置
     /// </summary>
-    Vector3 rightBGBattlePos = new Vector3(8,0,0);
+    Vector3 rightBGBattlePos{ get{ return RightBGBattleTransform.position; }}
 
     /// <summary>
     /// 背景移动花费的时间
@@ -220,6 +221,9 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     protected override void Awake()
     {
         base.Awake();
+        RightBG.gameObject.SetActive(true);
+        RightBGBattleTransform.gameObject.SetActive(false);
+
         mapGenerator = GetComponent<MapGenerator>();
         battleManager.gameObject.SetActive(false);
         eventManager.gameObject.SetActive(false);

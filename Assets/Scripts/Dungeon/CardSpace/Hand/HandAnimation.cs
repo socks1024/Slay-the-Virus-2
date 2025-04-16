@@ -43,6 +43,12 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     Transform discardPosition;
 
+    [SerializeField]
+    /// <summary>
+    /// 消耗的位置
+    /// </summary>
+    Transform exhaustPosition;
+
     void Start()
     {
         SetCardPilePanels();
@@ -86,6 +92,7 @@ public class HandAnimation : MonoBehaviour
     public void AddCardAnim(CardBehaviour card)
     {
         card.GetComponent<CardUI>().UIState = UIStates.HAND;
+        card.transform.SetParent(transform, false);
         ArrangeCardsInHand();
     }
 
@@ -145,7 +152,12 @@ public class HandAnimation : MonoBehaviour
     /// <param name="card">要消耗的卡牌</param>
     public void ExhaustCardAnim(CardBehaviour card)
     {
-        print("ExhaustCardAnim:" + card.name);
+        // card.ActOnExhaust();
+        card.transform.DOMove(exhaustPosition.position, arrangeTime).OnComplete(() => {
+            card.transform.SetParent(DungeonManager.Instance.storage);
+            Hand.RemoveCard(card);
+            GetComponent<CardFlowController>().exhaustedPile.AddCard(card);
+        });
     }
 
     # endregion

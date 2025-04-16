@@ -8,7 +8,7 @@ public class CardPosition : MonoBehaviour
     /// <summary>
     /// 卡牌所在格子的绝对坐标
     /// </summary>
-    Vector2 cardCoord;
+    public Vector2 cardCoord = -Vector3.one;
 
     /// <summary>
     /// 当前的棋盘
@@ -24,9 +24,17 @@ public class CardPosition : MonoBehaviour
         {
             List<Square> result = new List<Square>();
 
+            if (cardCoord == -Vector2.one)
+            {
+                return null;
+            }
+
             foreach (Vector2 coord in GetComponent<CardBehaviour>().ConditionsShape)
             {
-                result.Add(board.GetSquare(cardCoord + coord));
+                if (board.GetSquare(cardCoord + coord) is not null)
+                {
+                    result.Add(board.GetSquare(cardCoord + coord));
+                }
             }
 
             return result;
@@ -87,5 +95,23 @@ public class CardPosition : MonoBehaviour
     public void RemoveCardAdjustmentFromConditionedSquares(UnityAction<CardBehaviour> adjustment)
     {
         ConditionedSquares.ForEach(square => { square.CardAdjustment -= adjustment; });
+    }
+
+    void OnDrawGizmos()
+    {
+        if (cardCoord != -Vector2.one)
+        {
+            Gizmos.color = Color.red;
+            //Gizmos.DrawCube(board.GetSquare(cardCoord).transform.position, Vector3.one);
+        }
+        if (ConditionedSquares != null && ConditionedSquares.Count > 0)
+        {
+            
+            Gizmos.color = Color.blue;
+            foreach (Square square in ConditionedSquares)
+            {
+                //Gizmos.DrawCube(square.transform.position, Vector3.one);
+            }
+        }
     }
 }

@@ -82,6 +82,7 @@ public class CardPile
         if (cards.Contains(card))
         {
             cards.Remove(card);
+            card.currPile = null;
         }
     }
 
@@ -95,6 +96,7 @@ public class CardPile
         {
             CardBehaviour card = cards[0];
             cards.RemoveAt(0);
+            card.currPile = null;
             return card;
         }
         return null;
@@ -107,6 +109,7 @@ public class CardPile
     public void AddCard(CardBehaviour card)
     {
         cards.Add(card);
+        card.currPile = this;
     }
 
     /// <summary>
@@ -115,7 +118,7 @@ public class CardPile
     /// <param name="newCards">指定卡牌队列</param>
     public void AddCards(List<CardBehaviour> newCards)
     {
-        cards.AddRange(newCards);
+        newCards.ForEach(card => AddCard(card));
     }
 
     /// <summary>

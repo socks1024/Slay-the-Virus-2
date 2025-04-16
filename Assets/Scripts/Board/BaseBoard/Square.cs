@@ -42,7 +42,24 @@ public class Square : MonoBehaviour
     /// <summary>
     /// 被填充的卡牌
     /// </summary>
-    public CardBehaviour CardData = null;
+    public CardBehaviour CardData
+    {
+        get { return cardData; }
+        set 
+        {
+            // if (cardData != null)
+            // {
+            //     cardData.cardPosition.cardCoord = -Vector3.one;
+            // }
+            cardData = value;
+            // if (cardData != null)
+            // {
+            //     cardData.cardPosition.cardCoord = squareCoord;
+            // } 
+        }
+    }
+
+    CardBehaviour cardData;
 
     /// <summary>
     /// 对当前格子上的卡牌所作的调整

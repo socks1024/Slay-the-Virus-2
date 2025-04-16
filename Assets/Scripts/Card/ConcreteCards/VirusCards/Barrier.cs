@@ -6,7 +6,7 @@ public class Barrier : CardBehaviour
 {
     public override void ActOnDiscard()
     {
-        ActionLib.AddCardToHand(this.Id, nextEffect);
+        ActionLib.AddVirusCardToDrawPile(this.Id, nextEffect);
     }
 
     public override void ActOnPlaced()

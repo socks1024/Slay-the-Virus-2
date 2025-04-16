@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e50b574931a0b04eb327dae82e35fd2, type: 3}
   m_Name: Map
   m_EditorClassIdentifier: 
-  Id: AdvancePolicy
+  Id: Map
   AbilityType: 4
   ActType: 0
   ConditionType: 3
@@ -29,6 +29,6 @@ MonoBehaviour:
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 1
-  Name: "\u63A8\u8FDB\u8BA1\u5212"
+  Name: "\u5730\u56FE"
   Description: "\u6269\u5C55\u7A7A\u95F4\u3002\n\u6D88\u8017\u3002"
   CardTex: {fileID: 21300000, guid: 53b1362927cf7694e9e9a1e326f02876, type: 3}
