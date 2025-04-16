@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 namespace Tools
 {
-	[RequireComponent(typeof(AudioManager))]
+	[RequireComponent(typeof(AudioManager))]// AudioManager是适应不同需求制作的音频控制器
 	public class AudioSourcePrototypeHolder : MonoBehaviour
 	{
 		public string soundManagerID;

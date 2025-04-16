@@ -25,13 +25,13 @@ public class MapGenerator : MonoBehaviour
     /// <summary>
     /// 将mapLayers填充为正式地图
     /// </summary>
-    public void GenerateMap()
+    public void GenerateMap(EnterDungeonInfo info)
     {
         mapLayers.Clear();
 
         if (MapMode == DungeonMapMode.BOSSFIGHT)
         {
-            startNode = GetRandomNodeForBoss();
+            startNode = GetBossNodeByLevel(info);
         }
         else if (MapMode == DungeonMapMode.DUNGEON)
         {
@@ -146,6 +146,27 @@ public class MapGenerator : MonoBehaviour
                 break;
         }
 
+
+        return DungeonNodeLib.GetNode(nodeID);
+    }
+
+    /// <summary>
+    /// 根据传入的关卡获取BOSS节点
+    /// </summary>
+    /// <returns>BOSS节点</returns>
+    public DungeonNode GetBossNodeByLevel(EnterDungeonInfo info)
+    {
+        string nodeID = "";
+
+        switch (info.missionData.ID)
+        {
+            case "BossFight1":
+                nodeID = "BossFight1";
+                break;
+            default:
+                nodeID = "BossFight1";
+                break;
+        }
 
         return DungeonNodeLib.GetNode(nodeID);
     }

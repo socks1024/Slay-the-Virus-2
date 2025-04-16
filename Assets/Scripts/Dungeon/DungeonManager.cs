@@ -23,6 +23,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     /// </summary>
     public PlayerBehaviour Player{ get { return battleManager.player; } }
 
+    [SerializeField] BoardBehaviour boardPrefab;
+
     /// <summary>
     /// 各种UI元素在画面外的临时储存点
     /// </summary>
@@ -228,13 +230,15 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         battleManager.gameObject.SetActive(false);
         eventManager.gameObject.SetActive(false);
         restManager.gameObject.SetActive(false);
+
+        // StartAdventure(Messenger.enterDungeonInfo);
     }
 
     public void StartAdventure(EnterDungeonInfo enterDungeonInfo)
     {
-        Player.SetBackpack(enterDungeonInfo.p_Cards, enterDungeonInfo.p_Board, enterDungeonInfo.p_Relics, 0);
+        Player.SetBackpack(enterDungeonInfo.p_Cards, boardPrefab, enterDungeonInfo.p_Relics, 0);
 
-        mapGenerator.GenerateMap();
+        mapGenerator.GenerateMap(enterDungeonInfo);
 
         EnterNode(mapGenerator.startNode);
     }

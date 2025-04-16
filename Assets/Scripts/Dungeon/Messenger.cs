@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Messenger
 {
+    public static EnterDungeonInfo enterDungeonInfo;
+
     public static EnterBattleInfoTest enterBattleInfoTest;
 
     public static LeaveBattleInfoTest leaveBattleInfoTest;
@@ -63,12 +65,12 @@ public struct EnterDungeonInfo
     public List<CardBehaviour> p_Cards;
 
     /// <summary>
-    /// 使用的棋盘
-    /// </summary>
-    public BoardBehaviour p_Board;
-
-    /// <summary>
     /// 道具/遗物
     /// </summary>
     public List<RelicBehaviour> p_Relics;
+
+    /// <summary>
+    /// 任务数据
+    /// </summary>
+    public DungeonMissionData missionData;
 }
