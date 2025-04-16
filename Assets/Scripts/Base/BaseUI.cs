@@ -14,7 +14,7 @@ public class BaseUI : MonoBehaviour
 
     private void Awake()
     {
-        UpdateInfo();
+        //UpdateInfo();
         //ItemManager.Instance.InitStorageCard();
     }
 
