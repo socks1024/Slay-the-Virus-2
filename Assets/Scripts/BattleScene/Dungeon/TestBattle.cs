@@ -20,7 +20,7 @@ public class TestBattle : MonoBehaviour
         {
             DungeonManager.Instance.StartAdventure(Messenger.enterDungeonInfo);
         }
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetMouseButtonDown(0))
         {
             EnterDungeonInfo info = new EnterDungeonInfo();
             info.p_Cards = deck;
