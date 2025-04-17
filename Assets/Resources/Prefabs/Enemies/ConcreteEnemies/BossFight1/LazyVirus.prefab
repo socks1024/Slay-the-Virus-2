@@ -120,3 +120,4 @@ MonoBehaviour:
   type: 2
   YawnCardAmount: 1
   AngerDamageAmount: 4
+  YawnRatio: 0.25
