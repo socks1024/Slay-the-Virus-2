@@ -4817,13 +4817,10 @@ MonoBehaviour:
   - {fileID: 504769718915365533, guid: eb3ffb9eaa438de4abaee8542014af42, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
-  - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
-  - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
-  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
-  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
-  - {fileID: -8106769876060810979, guid: 4e72b23aba4b09540ae370a263211e01, type: 3}
-  - {fileID: -8106769876060810979, guid: 4e72b23aba4b09540ae370a263211e01, type: 3}
   - {fileID: 5032682769057224415, guid: 017573787281e664db315cbd7cc8c3e9, type: 3}
+  - {fileID: 5032682769057224415, guid: 017573787281e664db315cbd7cc8c3e9, type: 3}
+  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
+  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
   relics: []
   mission: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
 --- !u!114 &978686532
@@ -6379,7 +6376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8238993, g: 0.8238993, b: 0.8238993, a: 1}
+  m_Color: {r: 1, g: 0.93396217, b: 0.93396217, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8206,7 +8203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1579175741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11859,23 +11856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5679148889920421717, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8505890208888457991, guid: eadf3f1d6437d174781c5616303d2763, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.58
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
