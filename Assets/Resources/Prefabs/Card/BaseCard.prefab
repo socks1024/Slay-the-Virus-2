@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85a955177a95d64a84db8b988462e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardCoord: {x: -1, y: -1}
 --- !u!1 &500603605845144578
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,10 +560,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u9020\u62102\u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C\uFF1A\u6BCF\u6B21\u5C061\u5F20\n\u8BE5\u724C\u7684\u590D\u5236\u52A0\u5165\u62BD\u724C\u5806\n\u6D88\u8017\u3002"
+  m_text: "\u9020\u62102\u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C\uFF1A\u6BCF\u6B21\u5C061\u5F20\u8BE5\u724C\u7684\u590D\u5236\u52A0\u5165\u62BD\u724C\u5806\u3002\n\u6D88\u8017\u3002"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
-  m_sharedMaterial: {fileID: -899699710880701677, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5a8f2c401eba4a84b87e55f3da2fec81, type: 2}
+  m_sharedMaterial: {fileID: -899699710880701677, guid: 5a8f2c401eba4a84b87e55f3da2fec81, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -586,8 +587,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -622,7 +623,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 32.437622, y: 11.229351, z: 53.749588, w: -38.615784}
+  m_margin: {x: 22.023438, y: 14.8516655, z: 43.335464, w: -38.615784}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -9,6 +9,8 @@ public class TestBattle : MonoBehaviour
 
     [SerializeField]DungeonMissionData mission;
 
+    bool startedBattle = false;
+
     void Start()
     {
         
@@ -16,11 +18,12 @@ public class TestBattle : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && !startedBattle)
         {
             DungeonManager.Instance.StartAdventure(Messenger.enterDungeonInfo);
+            startedBattle = true;
         }
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetMouseButtonDown(0) && !startedBattle)
         {
             EnterDungeonInfo info = new EnterDungeonInfo();
             info.p_Cards = deck;
@@ -28,6 +31,7 @@ public class TestBattle : MonoBehaviour
             info.missionData = mission;
 
             DungeonManager.Instance.StartAdventure(info);
+            startedBattle = true;
         }
     }
 }
