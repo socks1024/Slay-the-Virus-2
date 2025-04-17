@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85a955177a95d64a84db8b988462e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardCoord: {x: -1, y: -1}
 --- !u!1 &500603605845144578
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,8 +562,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u9020\u62102\u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C\uFF1A\u6BCF\u6B21\u5C061\u5F20\n\u8BE5\u724C\u7684\u590D\u5236\u52A0\u5165\u62BD\u724C\u5806\n\u6D88\u8017\u3002"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
-  m_sharedMaterial: {fileID: -899699710880701677, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5a8f2c401eba4a84b87e55f3da2fec81, type: 2}
+  m_sharedMaterial: {fileID: -899699710880701677, guid: 5a8f2c401eba4a84b87e55f3da2fec81, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
