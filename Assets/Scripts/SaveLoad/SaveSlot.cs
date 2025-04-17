@@ -31,7 +31,27 @@ public class SaveSlot : MonoBehaviour
             Name.text = player.Name;
 
             time = File.transform.GetChild(1).gameObject.GetComponent<TMPro.TMP_Text>();
-            time.text = player.Time;
+
+            string playertime = player.Time;
+            char[] newplayertime = new char[12];
+            int k = 0;
+            for (int i=0;i<playertime.Length;i++)
+            {
+                if (k == 5 && playertime.Length == 9)
+                {
+                    newplayertime[k++] = '0';
+                    i--;
+                    continue;
+                }
+                if (playertime[i]!='/')
+                newplayertime[k++] = playertime[i];
+                else
+                {
+                    newplayertime[k++] = '.';
+                }
+            }
+            playertime = new string(newplayertime);
+            time.text = playertime;
 
             Num = File.transform.GetChild(2).gameObject.GetComponent<TMPro.TMP_Text>();
             Num.text = $"No.{index+1}";
