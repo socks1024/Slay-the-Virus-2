@@ -138,35 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
       propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -8961824872004277057, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: "\u3002\uFF0C/\uFF1B\u2018\u3010\u3011\u3001\u300A\u300B\uFF1F\uFF1A\u201C{}|-=\u2014\u2014+\uFF01@#\uFFE5%\u2026\u2026&*\uFF08\uFF09~"
       objectReference: {fileID: 0}
     - target: {fileID: 8026140455520964960, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
       propertyPath: m_Color.a
@@ -263,3 +235,4 @@ MonoBehaviour:
   targetEnemy: {fileID: 0}
   cardPosition: {fileID: 0}
   lockedOnBoard: 0
+  exhausted: 0
