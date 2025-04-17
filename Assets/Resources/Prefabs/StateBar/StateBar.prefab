@@ -112,8 +112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.69540024}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 4.5, y: 0.69540024}
+  m_SizeDelta: {x: 156.4, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2481541596230247813
 MonoBehaviour:
@@ -954,6 +954,7 @@ MonoBehaviour:
   healthBar: {fileID: 2481541596230247813}
   buffsRoot: {fileID: 2610965257917989567}
   shield: {fileID: 7534644936277597616}
+  shieldBG: {fileID: 9000896323858858323}
   showHealthText: {fileID: 2067984060571799611}
 --- !u!1 &6356586766765664944
 GameObject:

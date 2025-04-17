@@ -32,6 +32,11 @@ public class StatBar : MonoBehaviour
     public Image shield;
 
     /// <summary>
+    /// 显示格挡值的背景
+    /// </summary>
+    public Image shieldBG;
+
+    /// <summary>
     /// 显示格挡值的文字
     /// </summary>
     TextMeshProUGUI shieldText;
@@ -55,6 +60,7 @@ public class StatBar : MonoBehaviour
 
         shieldText.text = "";
         shield.gameObject.SetActive(false);
+        shieldBG.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -73,6 +79,7 @@ public class StatBar : MonoBehaviour
         {
             shieldText.text = "";
             shield.gameObject.SetActive(false);
+            shieldBG.gameObject.SetActive(false);
         }
     }
 
