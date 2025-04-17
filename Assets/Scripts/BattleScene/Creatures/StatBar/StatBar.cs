@@ -43,7 +43,7 @@ public class StatBar : MonoBehaviour
 
     [SerializeField] ShowHealthText showHealthText;
 
-    void Start()
+    void Awake()
     {
         //healthBar = GetComponentInChildren<Slider>();
         //buffsRoot = transform.Find("BuffList");
