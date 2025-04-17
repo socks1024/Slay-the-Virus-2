@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartPanel : MonoBehaviour
 {
@@ -18,11 +19,14 @@ public class StartPanel : MonoBehaviour
         {
             SaveSlots[i].GetComponent<SaveSlot>().Start();
         }
+       // CreateNewFilePanel.SetActive(false);
     }
 
     public void Create(int index)
     {
-        CreateNewFilePanel.GetComponent<CreateNewSaveUI>().thisindex = index;
         CreateNewFilePanel.SetActive(true);
+        CreateNewFilePanel.GetComponent<CreateNewSaveUI>().thisindex = index;
+        CreateNewFilePanel.GetComponent<Image>().enabled = true;
+        CreateNewFilePanel.GetComponent<CreateNewSaveUI>().Start();
     }
 }

@@ -12,12 +12,11 @@ public class CreateNewSaveUI : MonoBehaviour
     public int thisindex;
     public GameObject panel1;
     public GameObject confirmpanel;
-
     public TMPro.TMP_Text NameText;
     public TMPro.TMP_Text GenderText;
     public TMPro.TMP_Text BirthText;
 
-    private void Start()
+    public void Start()
     {
         confirmpanel.SetActive(false);
         panel1.SetActive(true);
@@ -50,6 +49,7 @@ public class CreateNewSaveUI : MonoBehaviour
         CreateNewSave(thisindex);
         panel1.SetActive(false);
         confirmpanel.SetActive(false);
+        gameObject.SetActive(false);
         GetComponentInParent<StartPanel>().updateslots();
     }
 
