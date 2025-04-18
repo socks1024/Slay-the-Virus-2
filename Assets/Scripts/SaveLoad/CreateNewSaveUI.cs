@@ -68,13 +68,13 @@ public class CreateNewSaveUI : MonoBehaviour
         switch (gender.value)
         {
             case 0:
-                GenderText.text = "To be confirmed";
+                GenderText.text = "Î´Öª";
                 break;
             case 1:
-                GenderText.text = "Male";
+                GenderText.text = "ÄÐ";
                 break;
             case 2:
-                GenderText.text = "Female";
+                GenderText.text = "Å®";
                 break;
         }
 
