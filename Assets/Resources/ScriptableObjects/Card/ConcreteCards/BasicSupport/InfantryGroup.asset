@@ -21,12 +21,12 @@ MonoBehaviour:
   CardShape:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
-  - {x: 1, y: -1}
-  - {x: 0, y: -1}
-  ConditionsShape:
+  - {x: -1, y: 0}
   - {x: 0, y: 1}
-  BaseDamage: 0
-  BaseDefense: 3
+  ConditionsShape:
+  - {x: 0, y: 2}
+  BaseDamage: 3
+  BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 0
   Name: "\u6B65\u5175\u56E2"

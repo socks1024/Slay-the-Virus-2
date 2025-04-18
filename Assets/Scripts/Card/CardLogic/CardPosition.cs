@@ -41,26 +41,38 @@ public class CardPosition : MonoBehaviour
         }
     }
 
+    # region condition
+
     /// <summary>
     /// 检查有多少特殊条件格子被占据
     /// </summary>
     /// <returns>被占据的特殊条件格子的数量</returns>
     public int GetSatisfiedSquaresCount()
     {
-        int count = 0;
-
-        foreach (Square square in ConditionedSquares)
+        if (!CardActing)
         {
-            if (square.HasCard)
-            {
-                count++;
-            }
-        }
+            int count = 0;
 
-        return count;
+            foreach (Square square in ConditionedSquares)
+            {
+                if (square.HasCard)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+        else
+        {
+            return thisTurnSatisfiedSquaresCount;
+        }
     }
 
-    public bool Conditioned{ get{ return GetSatisfiedSquaresCount() > 0;}}
+    /// <summary>
+    /// 是否有满足特殊条件
+    /// </summary>
+    public bool Conditioned{ get{ return CardActing ? thisTurnConditioned : GetSatisfiedSquaresCount() > 0;}}
 
     /// <summary>
     /// 获取满足特殊条件的卡牌
@@ -68,18 +80,58 @@ public class CardPosition : MonoBehaviour
     /// <returns>满足特殊条件的卡牌</returns>
     public List<CardBehaviour> GetCardsSatisfiedCondition()
     {
-        List<CardBehaviour> cardDatas= new List<CardBehaviour>();
-
-        foreach (Square square in ConditionedSquares)
+        if (!CardActing)
         {
-            if (square.HasCard)
-            {
-                cardDatas.Add(square.CardData);
-            }
-        }
+            List<CardBehaviour> cardDatas= new List<CardBehaviour>();
 
-        return cardDatas;
+            foreach (Square square in ConditionedSquares)
+            {
+                if (square.HasCard)
+                {
+                    cardDatas.Add(square.CardData);
+                }
+            }
+
+            return cardDatas;
+        }
+        else
+        {
+            return thisTurnCardsSatisfiedCondition;
+        }
     }
+
+    #region card act value buffer
+
+    int thisTurnSatisfiedSquaresCount;
+
+    bool thisTurnConditioned;
+
+    List<CardBehaviour> thisTurnCardsSatisfiedCondition;
+
+    bool CardActing = false;
+
+    public void SetConditionInfoWhenCardAct()
+    {
+        thisTurnSatisfiedSquaresCount = GetSatisfiedSquaresCount();
+        print(GetComponent<CardBehaviour>().Id + " " + thisTurnSatisfiedSquaresCount);
+
+        thisTurnConditioned = Conditioned;
+        print(GetComponent<CardBehaviour>().Id + " " + thisTurnConditioned);
+
+        thisTurnCardsSatisfiedCondition = GetCardsSatisfiedCondition();
+        print(GetComponent<CardBehaviour>().Id + " " + thisTurnCardsSatisfiedCondition);
+
+        CardActing = true;
+    }
+
+    public void ClearConditionInfo()
+    {
+        CardActing = false;
+    }
+
+    #endregion
+
+    # endregion
 
     /// <summary>
     /// 将卡牌调整设置到条件格子上
@@ -97,21 +149,13 @@ public class CardPosition : MonoBehaviour
         ConditionedSquares.ForEach(square => { square.CardAdjustment -= adjustment; });
     }
 
-    void OnDrawGizmos()
+    void Start()
     {
-        if (cardCoord != -Vector2.one)
-        {
-            Gizmos.color = Color.red;
-            //Gizmos.DrawCube(board.GetSquare(cardCoord).transform.position, Vector3.one);
-        }
-        if (ConditionedSquares != null && ConditionedSquares.Count > 0)
-        {
-            
-            Gizmos.color = Color.blue;
-            foreach (Square square in ConditionedSquares)
-            {
-                //Gizmos.DrawCube(square.transform.position, Vector3.one);
-            }
-        }
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, ClearConditionInfo);
+    }
+
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ClearConditionInfo);
     }
 }

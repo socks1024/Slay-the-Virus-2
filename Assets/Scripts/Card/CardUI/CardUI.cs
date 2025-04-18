@@ -47,6 +47,7 @@ public class CardUI : MonoBehaviour
                 case UIStates.CUSTOM:
                     break;
                 case UIStates.HAND:
+                    transform.localScale = Vector3.one * 100;
                     break;
                 case UIStates.PLACED:
                     break;
@@ -69,7 +70,7 @@ public class CardUI : MonoBehaviour
                 case UIStates.CUSTOM:
                     break;
                 case UIStates.HAND:
-                    transform.localScale = new Vector3(100, 100, 100);
+                    transform.localScale = Vector3.one * 100;
                     GetComponent<CardRotate>().Homing();
                     SetAllUIPropPrivate(CardMode.CARD,true,false,true);
                     break;

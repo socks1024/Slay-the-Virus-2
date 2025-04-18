@@ -21,10 +21,10 @@ public class EngineerGroup : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.GainBlockAction(targetEnemy, DungeonManager.Instance.Player, nextDefense);
+        ActionLib.GainBlockAction(Player, Player, nextDefense);
         if (cardPosition.Conditioned)
         {
-            ActionLib.GainBlockAction(targetEnemy, DungeonManager.Instance.Player, nextDefense);
+            ActionLib.GainBlockAction(Player, Player, nextDefense);
         }
     }
 }

@@ -365,12 +365,16 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public void OnActStart()
     {
-        ApplyAllCardAdjustments();
+        GetPlacedCards().ForEach(card => {
+            card.GetComponent<CardPosition>().SetConditionInfoWhenCardAct();
+        });
 
         if (IsEmptyBoard())
         {
             TriggerCardActEnd();
         }
+        
+        ApplyAllCardAdjustments();
 
         PlayNoTargetCards();
     }

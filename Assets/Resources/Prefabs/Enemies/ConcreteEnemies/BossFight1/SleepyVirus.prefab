@@ -114,10 +114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: SleepyVirus
-  MaxHealth: 50
+  MaxHealth: 40
   enemySprite: {fileID: 21300000, guid: 5ad40f4382631ab4cb6548440b3ff575, type: 3}
   intention: {fileID: 0}
   type: 0
-  SleepBuffAmount: 1
+  SnoreDamageAmount: 4
   RestHealAmount: 6
   AngerDamageAmount: 8

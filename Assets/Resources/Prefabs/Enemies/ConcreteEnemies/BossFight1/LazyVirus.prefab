@@ -114,9 +114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: LazyVirus
-  MaxHealth: 20
+  MaxHealth: 15
   enemySprite: {fileID: 21300000, guid: a8b157efa0e4fcc4a89f35e001d55217, type: 3}
   intention: {fileID: 0}
   type: 2
   YawnCardAmount: 1
   AngerDamageAmount: 4
+  YawnRatio: 0.25
