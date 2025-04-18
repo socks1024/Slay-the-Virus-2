@@ -61,7 +61,7 @@ public class SleepyVirus : EnemyBehaviour
     }
 
     [Header("意图相关数据")]
-    [SerializeField] int SleepBuffAmount = 6;
+    [SerializeField] int SleepBuffAmount = 2;
     [SerializeField] int RestHealAmount = 6;
     [SerializeField] int AngerDamageAmount = 8;
 

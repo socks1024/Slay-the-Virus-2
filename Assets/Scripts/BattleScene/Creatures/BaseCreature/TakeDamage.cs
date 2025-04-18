@@ -10,7 +10,7 @@ public class TakeDamage : MonoBehaviour
     /// <summary>
     /// 最大生命值
     /// </summary>
-    public int MaxHealth{ get; protected set; }
+    public int MaxHealth{ get{ return Creature.MaxHealth; } }
 
     /// <summary>
     /// 实际生命值
@@ -133,7 +133,6 @@ public class TakeDamage : MonoBehaviour
 
     void Awake()
     {
-        MaxHealth = Creature.MaxHealth;
         if (Creature is PlayerBehaviour && (Creature as PlayerBehaviour).HasRelic("StrongMedicine"))
         {
             Health = MaxHealth / 2;

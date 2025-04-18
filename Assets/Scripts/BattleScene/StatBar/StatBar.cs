@@ -53,7 +53,7 @@ public class StatBar : MonoBehaviour
         shieldText = shield.GetComponentInChildren<TextMeshProUGUI>();
 
         healthBar.maxValue = healthOwner.MaxHealth;
-        healthBar.value = healthBar.maxValue;
+        healthBar.value = healthOwner.MaxHealth;
         
         healthOwner.OnHealthChange += UpdateHealth;
         buffOwner.OnChangeBuff += UpdateBuffs;

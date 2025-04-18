@@ -106,28 +106,31 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        switch(cardUI.UIState)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            case UIStates.CUSTOM:
-                break;
-            case UIStates.HAND:
-                break;
-            case UIStates.PLACED:
-                break;
-            case UIStates.SETTING_TARGET:
-                DragMove(eventData);
-                break;
-            case UIStates.DRAG:
-                DragMove(eventData);
-                break;
-            case UIStates.ANIMATE:
-                break;
-            case UIStates.SHOW_CARD:
-                break;
-            case UIStates.SHOW_DECK:
-                break;
-            case UIStates.BUTTON:
-                break;
+            switch(cardUI.UIState)
+            {
+                case UIStates.CUSTOM:
+                    break;
+                case UIStates.HAND:
+                    break;
+                case UIStates.PLACED:
+                    break;
+                case UIStates.SETTING_TARGET:
+                    DragMove(eventData);
+                    break;
+                case UIStates.DRAG:
+                    DragMove(eventData);
+                    break;
+                case UIStates.ANIMATE:
+                    break;
+                case UIStates.SHOW_CARD:
+                    break;
+                case UIStates.SHOW_DECK:
+                    break;
+                case UIStates.BUTTON:
+                    break;
+            }
         }
     }
 
@@ -143,49 +146,53 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        switch(cardUI.UIState)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            case UIStates.CUSTOM:
-                break;
-            case UIStates.HAND:
-                break;
-            case UIStates.PLACED:
-                break;
-            case UIStates.SETTING_TARGET:
-                if (targetType == CardTargetType.SINGLE_ENEMY)
-                {
-                    if (enemyGroup.GetHoveredEnemy() != null)
+            switch(cardUI.UIState)
+            {
+                case UIStates.CUSTOM:
+                    break;
+                case UIStates.HAND:
+                    break;
+                case UIStates.PLACED:
+                    break;
+                case UIStates.SETTING_TARGET:
+                    if (targetType == CardTargetType.SINGLE_ENEMY)
                     {
-                        card.targetEnemy = enemyGroup.GetHoveredEnemy();
-                        DungeonManager.Instance.battleManager.board.PlayCard(card);
+                        if (enemyGroup.GetHoveredEnemy() != null)
+                        {
+                            card.targetEnemy = enemyGroup.GetHoveredEnemy();
+                            DungeonManager.Instance.battleManager.board.PlayCard(card);
+                        }
+                        else
+                        {
+                            card.transform.position = originPosition;
+                        }
+                    }
+                    break;
+                case UIStates.DRAG:
+                    if (boardData.CanPlaceCard(cardRoot.GetComponent<CardBehaviour>()))
+                    {
+                        boardData.PlaceCard(cardRoot.GetComponent<CardBehaviour>());
+                        card.ActOnPlaced();
+                        cardUI.UIState = UIStates.PLACED;
                     }
                     else
                     {
-                        card.transform.position = originPosition;
+                        DungeonManager.Instance.battleManager.cardFlow.AddCardToHand(card);
                     }
-                }
-                break;
-            case UIStates.DRAG:
-                if (boardData.CanPlaceCard(cardRoot.GetComponent<CardBehaviour>()))
-                {
-                    boardData.PlaceCard(cardRoot.GetComponent<CardBehaviour>());
-                    card.ActOnPlaced();
-                    cardUI.UIState = UIStates.PLACED;
-                }
-                else
-                {
-                    DungeonManager.Instance.battleManager.cardFlow.AddCardToHand(card);
-                }
-                break;
-            case UIStates.ANIMATE:
-                break;
-            case UIStates.SHOW_CARD:
-                break;
-            case UIStates.SHOW_DECK:
-                break;
-            case UIStates.BUTTON:
-                break;
+                    break;
+                case UIStates.ANIMATE:
+                    break;
+                case UIStates.SHOW_CARD:
+                    break;
+                case UIStates.SHOW_DECK:
+                    break;
+                case UIStates.BUTTON:
+                    break;
+            }
         }
+        
     }
 
     #endregion
