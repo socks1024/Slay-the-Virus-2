@@ -4,6 +4,16 @@ using UnityEngine;
 
 public abstract class BuffBehaviour : MonoBehaviour
 {
+    static List<BuffBehaviour> allBuffList = new List<BuffBehaviour>();
+
+    public static void TriggerAllActOnTurnEnd()
+    {
+        for (int i = allBuffList.Count - 1; i >= 0; i--)
+        {
+            allBuffList[i].ActOnTurnEnd();
+        }
+    }
+
     #region Buff Data
 
     /// <summary>
@@ -35,9 +45,13 @@ public abstract class BuffBehaviour : MonoBehaviour
         set 
         {
             amount = value;
-            if (amount == 0)
+            if (amount <= 0)
             {
                 Destroy(this.gameObject);
+            }
+            else
+            {
+                GetComponent<BuffUI>().SetAmount(amount.ToString());
             }
         }
     }
@@ -72,18 +86,18 @@ public abstract class BuffBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
-    }
-
-    protected virtual void Start()
-    {
-        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, ActOnTurnEnd);
+        allBuffList.Add(this);
+        print("add buff to list, current : " + allBuffList.Count);
+        // EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, ActOnTurnEnd);
         EventCenter.Instance.AddEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 
     protected virtual void OnDestroy()
     {
-        EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, ActOnTurnEnd);
+        allBuffList.Remove(this);
+        Owner.buffOwner.RemoveBuff(this);
+
+        // EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, ActOnTurnEnd);
         EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ActOnTurnStart);
     }
 }

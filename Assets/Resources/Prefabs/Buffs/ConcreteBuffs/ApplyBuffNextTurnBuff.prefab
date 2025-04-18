@@ -13,14 +13,6 @@ PrefabInstance:
       value: ApplyBuffNextTurnBuff
       objectReference: {fileID: 0}
     - target: {fileID: 3456030881183367646, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 3456030881183367646, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -8961824872004277057, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 3456030881183367646, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}

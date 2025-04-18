@@ -39,7 +39,7 @@ namespace Tools
 			this.sourcePool.Enqueue(component);
 			while (this.sourcePool.Count < this.poolSize)
 			{
-				AudioSource audioSource = sampleSource;
+				AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 				audioSource.loop = component.loop;
 				audioSource.volume = component.volume;
 				audioSource.spatialBlend = component.spatialBlend;
@@ -50,8 +50,8 @@ namespace Tools
 				this.sourcePool.Enqueue(audioSource);
 			}
 
-			this.sounds = new Dictionary<string, AudioSourcePrototypeHolder.SoundClip>();
-			foreach (AudioSourcePrototypeHolder.SoundClip soundClip in this.soundClips)
+			this.sounds = new Dictionary<string, SoundClip>();
+			foreach (SoundClip soundClip in this.soundClips)
 			{
 				if (soundClip.volume < 0f)
 				{
@@ -88,7 +88,7 @@ namespace Tools
 
 			AudioSource freeSource = this.GetFreeSource();
 
-			AudioSourcePrototypeHolder.SoundClip soundClip = this.sounds[name];
+			SoundClip soundClip = this.sounds[name];
 			if (Time.time - soundClip.timeLastPlayed < soundClip.cooldown)
 			{
 				return;

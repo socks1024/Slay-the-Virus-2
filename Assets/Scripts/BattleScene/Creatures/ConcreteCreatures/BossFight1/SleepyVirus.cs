@@ -7,9 +7,9 @@ public class SleepyVirus : EnemyBehaviour
     public override void ActOnEnterBattle()
     {
         SnoreIntent = new IntentionInfo(
-            IntentionType.GIVE_DEBUFF,
-            SleepBuffAmount.ToString(),
-            () => { ActionLib.ApplyBuffAction(Player, this, "Paralyze", SleepBuffAmount); }
+            IntentionType.ATTACK,
+            SnoreDamageAmount.ToString(),
+            () => { ActionLib.DamageAction(Player, this, SnoreDamageAmount); }
         );
 
         RestIntent = new IntentionInfo(
@@ -61,7 +61,7 @@ public class SleepyVirus : EnemyBehaviour
     }
 
     [Header("意图相关数据")]
-    [SerializeField] int SleepBuffAmount = 2;
+    [SerializeField] int SnoreDamageAmount = 4;
     [SerializeField] int RestHealAmount = 6;
     [SerializeField] int AngerDamageAmount = 8;
 

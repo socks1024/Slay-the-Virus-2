@@ -12,6 +12,7 @@ public class AnimEffectController : MonoBehaviour
     {
         GetComponent<SequenceFrame>().PlayAnimation();
         Shake();
+        PlaySound();
     }
 
     public void OnAnimationEnd()
@@ -24,6 +25,7 @@ public class AnimEffectController : MonoBehaviour
     {
         GetComponent<ParticleSystem>().Play();
         Shake();
+        PlaySound();
         onComplete.Invoke();
     }
 
@@ -33,12 +35,24 @@ public class AnimEffectController : MonoBehaviour
     [SerializeField] bool UseShake;
     [SerializeField] float ShakeForce;
 
-    public void Shake()
+    void Shake()
     {
         if (UseShake)
         {
             ShakeScreenMovement.ShakeScreen();
         }
+    }
+
+    #endregion
+
+    #region Audio Effect
+
+    [Header("音效")]
+    [SerializeField] string SoundID;
+
+    void PlaySound()
+    {
+        AudioManager.Instance.PlaySFX(SoundID);
     }
 
     #endregion
