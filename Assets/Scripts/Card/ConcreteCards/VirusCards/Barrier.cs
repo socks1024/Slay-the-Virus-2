@@ -7,6 +7,7 @@ public class Barrier : CardBehaviour
     public override void ActOnDiscard()
     {
         ActionLib.AddVirusCardToDrawPile(this.Id, nextEffect);
+        print("Discard Barrier");
     }
 
     public override void ActOnPlaced()

@@ -75,6 +75,14 @@ MonoBehaviour:
     cooldown: 0
     lastVariationPlayed: 0
     timeLastPlayed: 0
+  - name: Level1_Loop
+    sound: {fileID: 8300000, guid: e4921ea5987635d44831a4275ff5eef2, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
   audioMixer: {fileID: 0}
   poolSize: 10
   sampleSource: {fileID: 6356488990105377484}
@@ -88,7 +96,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 559685170212473488, guid: b2808f305923bb343886cecb0e555f46, type: 2}
-  m_audioClip: {fileID: 8300000, guid: cd2636b2d0a8b884c9ee8d78bcaa4b33, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4921ea5987635d44831a4275ff5eef2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

@@ -109,7 +109,13 @@ public abstract class CardBehaviour : MonoBehaviour
     /// <summary>
     /// 是否被消耗
     /// </summary>
-    public bool exhausted;
+    public bool exhausted = false;
+
+    [HideInInspector]
+    /// <summary>
+    /// 是否被摧毁
+    /// </summary>
+    public bool removedFromBattleAndDeck = false;
 
     /// <summary>
     /// 卡牌的回合结束时效果

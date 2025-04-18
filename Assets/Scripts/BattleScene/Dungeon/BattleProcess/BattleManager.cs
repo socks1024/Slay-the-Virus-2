@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Timers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -115,23 +116,32 @@ public class BattleManager : MonoBehaviour
     }
     bool playAnimFinished;
 
+    [SerializeField] float CardEnemyActInterval = 0.5f;
+
     /// <summary>
     /// 当 弃牌动画播放完毕 & 所有卡牌动画播放完毕 时，触发卡牌行动结束
     /// </summary>
     void TriggerCardActEnd()
     {
-        EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
-        discardAnimFinished = false;
-        playAnimFinished = false;
+        TimersManager.SetTimer("CardEnemyActInterval", CardEnemyActInterval, () =>{
+            EventCenter.Instance.TriggerEvent(EventType.CARD_ACT_END);
+            discardAnimFinished = false;
+            playAnimFinished = false;
+        });
+        
     }
+
+    [SerializeField] float NextTurnInterval = 0.5f;
 
     /// <summary>
     /// 在所有行动结束时触发
     /// </summary>
     void OnAllActEnd()
     {
-        turnCount += 1;
-        EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+        TimersManager.SetTimer("NextTurnInterval", NextTurnInterval, ()=>{
+            turnCount += 1;
+            EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+        });
     }
 
     /// <summary>

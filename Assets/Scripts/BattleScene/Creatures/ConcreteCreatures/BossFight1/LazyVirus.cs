@@ -9,22 +9,19 @@ public class LazyVirus : EnemyBehaviour
         LazyIntent = new IntentionInfo(
             IntentionType.UNKNOWN,
             "",
-            null,
             null
         );
 
         YawnIntent = new IntentionInfo(
             IntentionType.GIVE_TRASH,
             YawnCardAmount.ToString(),
-            () => { ActionLib.AddVirusCardToDrawPile("Barrier", YawnCardAmount); },
-            null
+            () => { ActionLib.AddVirusCardToDrawPile("Barrier", YawnCardAmount); }
         );
 
         AngerIntent = new IntentionInfo(
             IntentionType.ATTACK,
             AngerDamageAmount.ToString(),
-            () => { ActionLib.DamageAction(Player, this, AngerDamageAmount); },
-            null
+            () => { ActionLib.DamageAction(Player, this, AngerDamageAmount); }
         );
     }
 

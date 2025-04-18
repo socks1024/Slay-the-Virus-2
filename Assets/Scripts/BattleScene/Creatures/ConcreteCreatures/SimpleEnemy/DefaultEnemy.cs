@@ -11,7 +11,6 @@ public class DefaultEnemy : EnemyBehaviour
         defaultIntention = new IntentionInfo(
             IntentionType.STUN,
             "",
-            null,
             null
         );
     }

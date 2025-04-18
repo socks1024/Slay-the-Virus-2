@@ -95,6 +95,33 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    #region Boss Fight Mode
+
+    /// <summary>
+    /// 根据传入的关卡获取BOSS节点
+    /// </summary>
+    /// <returns>BOSS节点</returns>
+    public DungeonNode GetBossNodeByLevel(EnterDungeonInfo info)
+    {
+        string nodeID = "";
+
+        switch (info.missionData.ID)
+        {
+            case "BossFight1":
+                nodeID = "BossFight1";
+                break;
+            default:
+                nodeID = "BossFight1";
+                break;
+        }
+
+        return DungeonNodeLib.GetNode(nodeID);
+    }
+
+    # endregion
+
+    #region Dungeon Mode
+
     /// <summary>
     /// 抽取中间节点
     /// </summary>
@@ -150,26 +177,7 @@ public class MapGenerator : MonoBehaviour
         return DungeonNodeLib.GetNode(nodeID);
     }
 
-    /// <summary>
-    /// 根据传入的关卡获取BOSS节点
-    /// </summary>
-    /// <returns>BOSS节点</returns>
-    public DungeonNode GetBossNodeByLevel(EnterDungeonInfo info)
-    {
-        string nodeID = "";
-
-        switch (info.missionData.ID)
-        {
-            case "BossFight1":
-                nodeID = "BossFight1";
-                break;
-            default:
-                nodeID = "BossFight1";
-                break;
-        }
-
-        return DungeonNodeLib.GetNode(nodeID);
-    }
+    
 
     /// <summary>
     /// 抽取遭遇战节点
@@ -210,6 +218,8 @@ public class MapGenerator : MonoBehaviour
     {
         return DungeonNodeLib.GetRestNode("TestRest");
     }
+
+    # endregion
 }
 
 public enum DungeonMapMode

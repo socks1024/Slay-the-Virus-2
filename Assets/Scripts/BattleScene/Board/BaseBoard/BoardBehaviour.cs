@@ -408,6 +408,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     public void PlayCard(CardBehaviour card)
     {
         card.ActOnCardAct();
+        if (card == null || card.removedFromBattleAndDeck) return;
         RemoveCard(card);
         card.ActOnRemoved();
         if (!card.exhausted) DungeonManager.Instance.battleManager.cardFlow.DiscardCard(card);

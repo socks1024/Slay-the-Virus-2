@@ -27,6 +27,13 @@ public class ActButton : MonoBehaviour
     public void SetDisableButton()
     {
         button.interactable = false;
-        TimersManager.SetTimer("ActButtonWait", WaitTime, () => button.interactable = true );
+        // TimersManager.SetTimer("ActButtonWait", WaitTime, () => button.interactable = true );
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, SetEnableButton);
+    }
+
+    public void SetEnableButton()
+    {
+        button.interactable = true;
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, SetEnableButton);
     }
 }

@@ -6,25 +6,22 @@ public class SleepyVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        SleepIntent = new IntentionInfo(
-            IntentionType.DEFENSE,
-            SleepBlockAmount.ToString(),
-            null,
-            () => { ActionLib.GainBlockAction(this, this, SleepBlockAmount); }
+        SnoreIntent = new IntentionInfo(
+            IntentionType.GIVE_DEBUFF,
+            SleepBuffAmount.ToString(),
+            () => { ActionLib.ApplyBuffAction(Player, this, "Paralyze", SleepBuffAmount); }
         );
 
         RestIntent = new IntentionInfo(
             IntentionType.HEAL,
             RestHealAmount.ToString(),
-            () => { ActionLib.HealAction(this, this, RestHealAmount); },
-            null
+            () => { ActionLib.HealAction(this, this, RestHealAmount); }
         );
 
         AngerIntent = new IntentionInfo(
             IntentionType.ATTACK,
             AngerDamageAmount.ToString(),
-            () => { ActionLib.DamageAction(Player, this, AngerDamageAmount); },
-            null
+            () => { ActionLib.DamageAction(Player, this, AngerDamageAmount); }
         );
     }
 
@@ -37,7 +34,7 @@ public class SleepyVirus : EnemyBehaviour
     {
         if (takeDamage.Health >= MaxHealth)
         {
-            SetIntention(SleepIntent);
+            SetIntention(SnoreIntent);
         }
         else if (takeDamage.Health >= MaxHealth / 2)
         {
@@ -47,7 +44,7 @@ public class SleepyVirus : EnemyBehaviour
             }
             else
             {
-                SetIntention(SleepIntent);
+                SetIntention(SnoreIntent);
             }
         }
         else
@@ -64,11 +61,11 @@ public class SleepyVirus : EnemyBehaviour
     }
 
     [Header("意图相关数据")]
-    [SerializeField] int SleepBlockAmount = 6;
+    [SerializeField] int SleepBuffAmount = 6;
     [SerializeField] int RestHealAmount = 6;
     [SerializeField] int AngerDamageAmount = 8;
 
-    IntentionInfo SleepIntent;
+    IntentionInfo SnoreIntent;
 
     IntentionInfo RestIntent;
 

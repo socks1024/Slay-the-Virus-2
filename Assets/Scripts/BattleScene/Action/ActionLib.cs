@@ -40,7 +40,7 @@ public static class ActionLib
             }
         }
 
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.DAMAGED, () => {
             target.takeDamage.GetDamage(damage);
         });
 
@@ -81,7 +81,7 @@ public static class ActionLib
         if (source is PlayerBehaviour && (source as PlayerBehaviour).HasRelic("IdolSign")) heal += 1;
         
         // 治疗动画
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.HEALED, () => {
             target.takeDamage.Health += heal;
         });
     }
@@ -97,8 +97,14 @@ public static class ActionLib
     {
         // 给予负面BUFF动画
         // 获得正面BUFF动画
+        AnimEffectType type = AnimEffectType.POSITIVE_BUFF;
 
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+        if (DungeonBuffLib.GetBuff(buffName, amount).Type == BuffType.NEGATIVE)
+        {
+            type = AnimEffectType.NEGATIVE_BUFF;
+        }
+
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, type, () => {
             target.buffOwner.GainBuff(DungeonBuffLib.GetBuff(buffName, amount));
         });
     }
@@ -112,7 +118,14 @@ public static class ActionLib
     /// <param name="amount">buff的层数</param>
     public static void ApplyBuffNextTurnAction(CreatureBehaviour target, CreatureBehaviour source, string buffName, int amount)
     {
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+        AnimEffectType type = AnimEffectType.POSITIVE_BUFF;
+
+        if (DungeonBuffLib.GetBuff(buffName, amount).Type == BuffType.NEGATIVE)
+        {
+            type = AnimEffectType.NEGATIVE_BUFF;
+        }
+
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, type, () => {
             ApplyBuffNextTurnBuff buff = DungeonBuffLib.GetBuff("ApplyBuffNextTurn", amount) as ApplyBuffNextTurnBuff;
             
             buff.source = source;
@@ -157,7 +170,7 @@ public static class ActionLib
     {
         amount += source.buffOwner.GetBuffAmount("Tenacity");
 
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.NONE, () => {
             target.takeDamage.Block += amount;
         });
 
@@ -195,9 +208,9 @@ public static class ActionLib
     /// <param name="amount">伤害量</param>
     public static void DamageAllAction(CreatureBehaviour source, int amount)
     {
-        foreach (EnemyBehaviour enemy in DungeonManager.Instance.battleManager.enemyGroup.enemies)
+        for (int i = 0; i < DungeonManager.Instance.battleManager.enemyGroup.enemies.Count; i++)
         {
-            DamageAction(enemy, source, amount);
+            DamageAction(DungeonManager.Instance.battleManager.enemyGroup.enemies[i], source, amount);
         }
     }
 
@@ -208,7 +221,7 @@ public static class ActionLib
     /// <param name="amount">量</param>
     public static void WoundAction(CreatureBehaviour owner, int amount)
     {
-        AnimationManager.Instance.PlayAnimEffect(owner.transform.position, "beat", () => {
+        AnimationManager.Instance.PlayAnimEffect(owner.transform.position, AnimEffectType.WOUND, () => {
             if ((owner as PlayerBehaviour).HasRelic("ConceptShield"))
             {
                 owner.takeDamage.GetDamage(amount);
@@ -228,7 +241,7 @@ public static class ActionLib
     /// <param name="amount">反击量</param>
     public static void CounterAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
     {
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, "beat", () => {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.COUNTER, () => {
             target.takeDamage.GetDamage(amount);
         });
     }
@@ -302,6 +315,8 @@ public static class ActionLib
         PlayerRemoveCardFromDeck(card.Id);
 
         DungeonManager.Instance.battleManager.board.RemoveCard(card);
+        
+        card.removedFromBattleAndDeck = true;
         MonoBehaviour.Destroy(card.gameObject);
     }
 

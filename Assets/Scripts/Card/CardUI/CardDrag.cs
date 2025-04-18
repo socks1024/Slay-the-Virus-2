@@ -134,7 +134,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     void DragMove(PointerEventData eventData)
     {
         Vector3 worldPos = mainCam.ScreenToWorldPoint(eventData.position);
-        cardRoot.position = new Vector3(worldPos.x, worldPos.y, 0);
+        cardRoot.position = new Vector3(worldPos.x, worldPos.y, 10);
     }
 
     #endregion

@@ -323,8 +323,8 @@ RectTransform:
   m_GameObject: {fileID: 8893148389862895839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 421525569765013975}
   - {fileID: 5670932375600059913}
@@ -352,7 +352,7 @@ MonoBehaviour:
   AttackIntentionSprite: {fileID: 21300000, guid: fa0b1bbe51894934ba59a758ea8b3840, type: 3}
   DoubleAttackSprite: {fileID: 21300000, guid: 1a236748fbf3fc84eb3c397e39998863, type: 3}
   TrippleAttackSprite: {fileID: 21300000, guid: 5bd491f359a16cb4cab13a027cdb1806, type: 3}
-  DefenseIntentionSprite: {fileID: 21300000, guid: 65252743b6bcd65489412cf2e7a82acf, type: 3}
+  DefenseIntentionSprite: {fileID: 21300000, guid: ee5ee905d962bbc428a91268b474677c, type: 3}
   GainBuffIntentionSprite: {fileID: 21300000, guid: d56a17bc255494a479d870e79084955f, type: 3}
   ApplyBuffIntentionSprite: {fileID: 21300000, guid: 42c8f76b9feb1734395fff8adc409700, type: 3}
   AttackAndGiveDebuffSprite: {fileID: 21300000, guid: e963674550e06e2408c6429d9873ee6a, type: 3}

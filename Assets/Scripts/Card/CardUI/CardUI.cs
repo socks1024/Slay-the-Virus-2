@@ -244,8 +244,12 @@ public class CardUI : MonoBehaviour
     void SetCardUI()
     {
         CardData data = cardBehaviour.cardData;
+
         nameText.text = data.Name;
         descriptionText.text = data.Description;
+
+        nameText.raycastTarget = false;
+        descriptionText.raycastTarget = false;
 
         cardImage.sprite = data.CardTex;
 

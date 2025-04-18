@@ -33,7 +33,7 @@ public class IntentionBehaviour : MonoBehaviour
         this.IntentionType = info.type;
         this.ShowText = info.text;
         this.ActOnEnemyTurn = info.actOnEnemyTurn;
-        this.ActBeforeCardAct = info.actBeforeCardAct;
+        // this.ActBeforeCardAct = info.actBeforeCardAct;
 
         GetComponent<IntentionShow>().ShowIntention();
     }
@@ -73,13 +73,13 @@ public struct IntentionInfo
     public IntentionType type;
     public string text;
     public UnityAction actOnEnemyTurn;
-    public UnityAction actBeforeCardAct;
+    // public UnityAction actBeforeCardAct;
 
-    public IntentionInfo(IntentionType type, string text, UnityAction actOnEnemyTurn, UnityAction actBeforeCardAct)
+    public IntentionInfo(IntentionType type, string text, UnityAction actOnEnemyTurn)
     {
         this.type = type;
         this.text = text;
         this.actOnEnemyTurn = actOnEnemyTurn;
-        this.actBeforeCardAct = actBeforeCardAct;
+        // this.actBeforeCardAct = actBeforeCardAct;
     }
 }
