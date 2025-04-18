@@ -84,7 +84,7 @@ MonoBehaviour:
     lastVariationPlayed: 0
     timeLastPlayed: 0
   audioMixer: {fileID: 0}
-  poolSize: 10
+  poolSize: 1
   sampleSource: {fileID: 6356488990105377484}
 --- !u!82 &6356488990105377484
 AudioSource:
@@ -198,7 +198,7 @@ MonoBehaviour:
   mute: 0
   logSounds: 0
   soundClips:
-  - name: SelectCard
+  - name: SelectCardIndeck
     sound: {fileID: 8300000, guid: 1bf56ba4c0d566e49a50039edc67d900, type: 3}
     variations: []
     volume: 1
@@ -206,8 +206,16 @@ MonoBehaviour:
     cooldown: 0
     lastVariationPlayed: 0
     timeLastPlayed: 0
-  - name: Equip
+  - name: PlaceCard
     sound: {fileID: 8300000, guid: 3d12cc262c45bba43931c98977cc9c31, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: RemoveCard
+    sound: {fileID: 8300000, guid: 12545c93a39fa1848ba3b081357dc922, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
@@ -216,14 +224,6 @@ MonoBehaviour:
     timeLastPlayed: 0
   - name: ButtonClick1
     sound: {fileID: 8300000, guid: 93dbf1f68f1626748b1193a54bacd93d, type: 3}
-    variations: []
-    volume: 1
-    pitchVariance: 0
-    cooldown: 0
-    lastVariationPlayed: 0
-    timeLastPlayed: 0
-  - name: Cancel1
-    sound: {fileID: 8300000, guid: 12545c93a39fa1848ba3b081357dc922, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0

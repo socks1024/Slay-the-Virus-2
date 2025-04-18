@@ -259,7 +259,7 @@ public abstract class BoardBehaviour : MonoBehaviour
             ActOnAllFilledTurnEnd();
         }
 
-        AudioManager.Instance.PlaySFX("Equip");
+        AudioManager.Instance.PlaySFX("PlaceCard");
     }
 
     /// <summary>
@@ -277,6 +277,8 @@ public abstract class BoardBehaviour : MonoBehaviour
                 square.CardData = null;
             }
         }
+
+        AudioManager.Instance.PlaySFX("RemoveCard");
     }
 
     /// <summary>

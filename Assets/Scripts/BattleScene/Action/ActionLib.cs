@@ -99,7 +99,7 @@ public static class ActionLib
         // 获得正面BUFF动画
         AnimEffectType type = AnimEffectType.POSITIVE_BUFF;
 
-        if (DungeonBuffLib.GetBuff(buffName, amount).Type == BuffType.NEGATIVE)
+        if (DungeonBuffLib.buffPrefabs[buffName].Type == BuffType.NEGATIVE)
         {
             type = AnimEffectType.NEGATIVE_BUFF;
         }
@@ -120,7 +120,7 @@ public static class ActionLib
     {
         AnimEffectType type = AnimEffectType.POSITIVE_BUFF;
 
-        if (DungeonBuffLib.GetBuff(buffName, amount).Type == BuffType.NEGATIVE)
+        if (DungeonBuffLib.buffPrefabs[buffName].Type == BuffType.NEGATIVE)
         {
             type = AnimEffectType.NEGATIVE_BUFF;
         }
@@ -129,7 +129,7 @@ public static class ActionLib
             ApplyBuffNextTurnBuff buff = DungeonBuffLib.GetBuff("ApplyBuffNextTurn", amount) as ApplyBuffNextTurnBuff;
             
             buff.source = source;
-            buff.name = buffName;
+            buff.newBuffID = buffName;
 
             target.buffOwner.GainBuff(buff);
         });

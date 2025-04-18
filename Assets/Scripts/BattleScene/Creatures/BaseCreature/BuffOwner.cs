@@ -31,7 +31,10 @@ public class BuffOwner : MonoBehaviour
             if (oldBuff.ID == newBuff.ID)
             {
                 oldBuff.Amount += newBuff.Amount;
-                hasSameBuff = true;
+                if (oldBuff.Amount > 0)
+                {
+                    hasSameBuff = true;
+                }
             }
         }
 
@@ -40,6 +43,8 @@ public class BuffOwner : MonoBehaviour
             buffs.Add(newBuff);
             newBuff.Owner = GetComponent<CreatureBehaviour>();
         }
+
+        OnChangeBuff.Invoke(buffs);
     }
 
     /// <summary>
@@ -113,6 +118,11 @@ public class BuffOwner : MonoBehaviour
         }
 
         return retBuff;
+    }
+
+    public void RemoveBuff(BuffBehaviour buff)
+    {
+        if (buffs.Contains(buff)) buffs.Remove(buff);
     }
 
     /// <summary>

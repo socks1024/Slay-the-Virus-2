@@ -4845,3 +4845,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseShake: 1
   ShakeForce: 100
+  SoundID: Damage
