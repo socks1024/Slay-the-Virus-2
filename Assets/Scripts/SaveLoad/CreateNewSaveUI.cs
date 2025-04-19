@@ -15,6 +15,17 @@ public class CreateNewSaveUI : MonoBehaviour
     public TMPro.TMP_Text NameText;
     public TMPro.TMP_Text GenderText;
     public TMPro.TMP_Text BirthText;
+    public TMPro.TMP_Text DescriptionText;
+
+    private string[] illnessdes =
+    {
+        "头晕头痛恶心",
+        "呕吐食欲不振",
+        "尿频尿急尿失禁",
+        "鼻涕流涕咽痛抽搐",
+        "肌肉酸痛麻木",
+        "视力模糊听力下降"
+    };
 
     public void Start()
     {
@@ -65,6 +76,7 @@ public class CreateNewSaveUI : MonoBehaviour
     {
         NameText.text = nametext.text;
         BirthText.text = birthtext.text;
+
         switch (gender.value)
         {
             case 0:
@@ -78,5 +90,26 @@ public class CreateNewSaveUI : MonoBehaviour
                 break;
         }
 
+        bool AllFalse = true;
+        string destext = "患者描述有";
+        for(int i = 0; i < 6; i++)
+        {
+            if (illnesses[i].isOn == true)
+            {
+                destext += "、";
+                destext += illnessdes[i];
+                AllFalse = false;
+            }
+        }
+
+        if (AllFalse)
+        {
+            DescriptionText.text = "患者没描述任何病情，未查明来访原因，建议患者转至精神科就诊。";
+        }
+        else
+        {
+            destext += "。暂未诊断出具体原因，推荐患者回家观察疗养三日。";
+            DescriptionText.text = destext;
+        }
     }
 }

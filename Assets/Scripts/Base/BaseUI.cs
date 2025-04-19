@@ -2,6 +2,7 @@ using SaveAndLoad;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class BaseUI : MonoBehaviour
@@ -21,8 +22,21 @@ public class BaseUI : MonoBehaviour
     private void UpdateInfo()
     {
         
-
-        DateText.text = System.DateTime.Now.ToShortDateString();
+        string datetext= System.DateTime.Now.ToShortDateString();
+        char[] newdatetext=new char[11];
+        for(int i = 0; i < datetext.Length; i++)
+        {
+            if (datetext[i] == '/')
+            {
+                newdatetext[i] = '.';
+            }
+            else
+            {
+                newdatetext[i] = datetext[i];
+            }
+        }
+        datetext = new string(newdatetext);
+        DateText.text = datetext;
 
         string week = System.DateTime.Now.DayOfWeek.ToString();
         switch (week)
