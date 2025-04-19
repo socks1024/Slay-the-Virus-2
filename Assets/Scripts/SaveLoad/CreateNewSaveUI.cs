@@ -96,7 +96,10 @@ public class CreateNewSaveUI : MonoBehaviour
         {
             if (illnesses[i].isOn == true)
             {
-                destext += "¡¢";
+                if (AllFalse == false)
+                {
+                    destext += "¡¢";
+                }
                 destext += illnessdes[i];
                 AllFalse = false;
             }

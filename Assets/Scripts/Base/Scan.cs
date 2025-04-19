@@ -11,6 +11,7 @@ public class Scan : MonoBehaviour
         for(int i = 0; i < RedDots.Length; i++)
         {
             RedDots[i].gameObject.SetActive(false);
+            RedDots[i].transform.parent.GetChild(RedDots[i].transform.childCount + 1).gameObject.SetActive(false);
         }
     }
 
