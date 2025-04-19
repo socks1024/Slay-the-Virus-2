@@ -51,7 +51,7 @@ public class BaseUI : MonoBehaviour
                 Weekdaytext.text = "Wed.";
                 break;
             case "Thursday":
-                Weekdaytext.text = "Thur.";
+                Weekdaytext.text = "Thu.";
                 break;
             case "Friday":
                 Weekdaytext.text = "Fri.";
