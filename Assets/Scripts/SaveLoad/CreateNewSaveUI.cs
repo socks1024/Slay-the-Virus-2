@@ -20,10 +20,10 @@ public class CreateNewSaveUI : MonoBehaviour
     private string[] illnessdes =
     {
         "头晕头痛恶心",
-        "呕吐食欲不振",
         "尿频尿急尿失禁",
-        "鼻涕流涕咽痛抽搐",
         "肌肉酸痛麻木",
+        "呕吐食欲不振",
+        "鼻涕流涕咽痛抽搐",
         "视力模糊听力下降"
     };
 
