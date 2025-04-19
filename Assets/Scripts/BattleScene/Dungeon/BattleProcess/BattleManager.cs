@@ -91,6 +91,7 @@ public class BattleManager : MonoBehaviour
         set
         {
             discardAnimFinished = value;
+            if (discardAnimFinished == true) print("discard finished");
             if (discardAnimFinished && playAnimFinished)
             {
                 TriggerCardActEnd();
@@ -108,6 +109,7 @@ public class BattleManager : MonoBehaviour
         set
         {
             playAnimFinished = value;
+            if (playAnimFinished == true) print("play finished");
             if (discardAnimFinished && playAnimFinished)
             {
                 TriggerCardActEnd();
@@ -128,7 +130,6 @@ public class BattleManager : MonoBehaviour
             discardAnimFinished = false;
             playAnimFinished = false;
         });
-        
     }
 
     [SerializeField] float NextTurnInterval = 0.5f;

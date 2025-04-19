@@ -113,13 +113,10 @@ public class CardPosition : MonoBehaviour
     public void SetConditionInfoWhenCardAct()
     {
         thisTurnSatisfiedSquaresCount = GetSatisfiedSquaresCount();
-        print(GetComponent<CardBehaviour>().Id + " " + thisTurnSatisfiedSquaresCount);
 
         thisTurnConditioned = Conditioned;
-        print(GetComponent<CardBehaviour>().Id + " " + thisTurnConditioned);
 
         thisTurnCardsSatisfiedCondition = GetCardsSatisfiedCondition();
-        print(GetComponent<CardBehaviour>().Id + " " + thisTurnCardsSatisfiedCondition);
 
         CardActing = true;
     }
