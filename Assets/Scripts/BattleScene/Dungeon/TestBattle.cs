@@ -18,17 +18,12 @@ public class TestBattle : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !startedBattle)
-        {
-            DungeonManager.Instance.StartAdventure(Messenger.enterDungeonInfo);
-            startedBattle = true;
-        }
         if(Input.GetMouseButtonDown(0) && !startedBattle)
         {
-            EnterDungeonInfo info = new EnterDungeonInfo();
-            info.p_Cards = deck;
-            info.p_Relics = relics;
-            info.missionData = mission;
+            EnterDungeonInfo info = Messenger.enterDungeonInfo;
+            if (info.p_Cards == null || info.p_Cards.Count == 0) info.p_Cards = deck;
+            if (info.p_Relics == null) info.p_Relics = relics;
+            if (info.missionData == null) info.missionData = mission;
 
             DungeonManager.Instance.StartAdventure(info);
             startedBattle = true;

@@ -201,6 +201,7 @@ public class BattleManager : MonoBehaviour
     {
         DungeonManager.Instance.TestLeaveBattleScene();
         // ShowRewards();
+        // ResetBattleElements();
     }
 
     /// <summary>
@@ -235,8 +236,9 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnPlayerDead()
     {
+        DungeonManager.Instance.TestLeaveBattleScene();
         //死回家直接结算
-        ResetBattleElements();
+        // ResetBattleElements();
     }
 
     /// <summary>

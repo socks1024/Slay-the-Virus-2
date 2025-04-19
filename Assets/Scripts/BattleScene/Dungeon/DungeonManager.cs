@@ -219,7 +219,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
         Messenger.leaveBattleInfoTest.nutrition = Player.Nutrition;
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Base");
     }
 
     #endregion
