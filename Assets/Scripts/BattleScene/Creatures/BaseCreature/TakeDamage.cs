@@ -142,11 +142,11 @@ public class TakeDamage : MonoBehaviour
             Health = MaxHealth;
         }
         RefreshBlock();
-        EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, RefreshBlock);
+        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, RefreshBlock);
     }
 
     void OnDestroy()
     {
-        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, RefreshBlock);
+        EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, RefreshBlock);
     }
 }

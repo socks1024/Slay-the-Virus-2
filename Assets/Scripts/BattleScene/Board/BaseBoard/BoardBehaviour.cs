@@ -430,6 +430,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public void TriggerCardActEnd()
     {
+        ClearBoard();
         DungeonManager.Instance.battleManager.PlayAnimFinished = true;
     }
 
