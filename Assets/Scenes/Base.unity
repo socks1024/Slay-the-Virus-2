@@ -2034,6 +2034,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2040921149}
+  - {fileID: 1841806896}
   m_Father: {fileID: 1115400808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4144,7 +4145,7 @@ GameObject:
   - component: {fileID: 1841806897}
   - component: {fileID: 1841806899}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: RedDot1Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4159,16 +4160,16 @@ RectTransform:
   m_GameObject: {fileID: 1841806895}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 14.991358, y: 8.663148, z: 3.4566853}
+  m_LocalScale: {x: 10.396375, y: 12.189796, z: 4.8638535}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1044403100}
-  m_Father: {fileID: 2040921149}
+  m_Father: {fileID: 984293684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.125, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51.603844, y: -21.103394}
-  m_SizeDelta: {x: 20, y: 0}
+  m_AnchoredPosition: {x: -27.931908, y: 2.005722}
+  m_SizeDelta: {x: -51.119995, y: -229.79999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841806897
 MonoBehaviour:
@@ -4521,7 +4522,7 @@ GameObject:
   - component: {fileID: 2040921150}
   - component: {fileID: 2040921153}
   m_Layer: 5
-  m_Name: RedDot
+  m_Name: RedDot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4538,8 +4539,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.69349116, y: 1.407086, z: 1.407086}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 1841806896}
+  m_Children: []
   m_Father: {fileID: 984293684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
