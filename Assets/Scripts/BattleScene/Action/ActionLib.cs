@@ -31,7 +31,7 @@ public static class ActionLib
             target.takeDamage.GetDamage(damage);
         });
 
-        if (source.buffOwner.HasBuff("Counter")) CounterAction(source, target, source.buffOwner.GetBuffAmount("Counter"));
+        if (source.buffOwner.HasBuff("Counter")) CounterAction(target, source, source.buffOwner.GetBuffAmount("Counter"));
 
         if (source is PlayerBehaviour)
         {
@@ -40,6 +40,20 @@ public static class ActionLib
                 ApplyBuffAction(target, source, "Wound", 1);
             }
         }
+    }
+
+    
+    /// <summary>
+    /// 反击
+    /// </summary>
+    /// <param name="target">反击目标</param>
+    /// <param name="source">反击来源</param>
+    /// <param name="amount">反击量</param>
+    public static void CounterAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
+    {
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.COUNTER, () => {
+            target.takeDamage.GetDamage(amount);
+        });
     }
 
     /// <summary>
@@ -221,18 +235,6 @@ public static class ActionLib
         });
     }
 
-    /// <summary>
-    /// 反击
-    /// </summary>
-    /// <param name="target">反击目标</param>
-    /// <param name="source">反击来源</param>
-    /// <param name="amount">反击量</param>
-    public static void CounterAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
-    {
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.COUNTER, () => {
-            target.takeDamage.GetDamage(amount);
-        });
-    }
 
     /// <summary>
     /// 将一张卡牌加入手牌和卡组

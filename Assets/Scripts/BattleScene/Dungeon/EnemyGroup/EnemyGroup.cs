@@ -135,11 +135,11 @@ public class EnemyGroup : MonoBehaviour
     /// </summary>
     public void EnemyAct()
     {
-        foreach(EnemyBehaviour enemy in enemies)
+        for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            if (!enemy.buffOwner.HasBuff("Stun"))
+            if (!enemies[i].buffOwner.HasBuff("Stun"))
             {
-                enemy.ActOnEnemyMove();
+                enemies[i].ActOnEnemyMove();
             }
         }
         //在这之间加动画？

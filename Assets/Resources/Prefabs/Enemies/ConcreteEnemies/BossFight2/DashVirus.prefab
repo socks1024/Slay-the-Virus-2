@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814107337841157531, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28
+      value: -81
       objectReference: {fileID: 0}
     - target: {fileID: 814107337841157531, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -114
+      value: -111
       objectReference: {fileID: 0}
     - target: {fileID: 1312408835674812923, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SortingLayer
@@ -54,11 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -165,5 +165,4 @@ MonoBehaviour:
   DashDamageAmount: 6
   DashBuffAmount: 1
   ScrapeBuffAmount: 3
-  TentacleWeaknessAmount: 1
   TentacleStrengthAmount: 1

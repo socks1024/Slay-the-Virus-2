@@ -6,7 +6,7 @@ public class RoadExplosion : CardBehaviour
 {
     public override void ActOnDiscard()
     {
-        ActionLib.ApplyBuffAction(Player, Player, "RoadExplosion", nextEffect);
+        ActionLib.ApplyBuffNextTurnAction(Player, Player, "RoadExplosion", nextEffect);
     }
 
     public override void ActOnPlaced()

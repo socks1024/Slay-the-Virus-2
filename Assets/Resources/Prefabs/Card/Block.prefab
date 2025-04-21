@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverable: 0
   previewDelay: 1
+  cardUI: {fileID: 0}
+  CardHandViewScale: 2
 --- !u!114 &7370498080193796382
 MonoBehaviour:
   m_ObjectHideFlags: 0
