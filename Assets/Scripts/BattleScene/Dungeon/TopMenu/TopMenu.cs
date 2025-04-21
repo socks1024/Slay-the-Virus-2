@@ -15,7 +15,10 @@ public class TopMenu : MonoBehaviour
 
     void Start()
     {
-        NameText.text = SaveSystem.Instance.getSave().Name;
+        if (SaveSystem.Instance is not null && SaveSystem.Instance.getSave() is not null)
+        {
+            NameText.text = SaveSystem.Instance.getSave().Name;
+        }
 
         DateText.text = DateTime.Now.ToString("MM/dd/yyyy");
     }
