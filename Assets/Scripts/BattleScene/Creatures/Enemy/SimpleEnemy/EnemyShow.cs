@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyShow : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class EnemyShow : MonoBehaviour
     {
         enemyBehaviour = GetComponent<EnemyBehaviour>();
         rect = GetComponent<RectTransform>();
+
+        GetComponent<Image>().sprite = enemyBehaviour.enemySprite;
         
         switch (enemyBehaviour.type)
         {

@@ -139,10 +139,12 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnAllActEnd()
     {
-        BuffBehaviour.TriggerAllActOnTurnEnd();
-        TimersManager.SetTimer("NextTurnInterval", NextTurnInterval, ()=>{
-            turnCount += 1;
-            EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+        TimersManager.SetTimer("Wait", 0.5f, () =>{
+            BuffBehaviour.TriggerAllActOnTurnEnd();
+            TimersManager.SetTimer("NextTurnInterval", NextTurnInterval, ()=>{
+                turnCount += 1;
+                EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+            });
         });
     }
 

@@ -4201,10 +4201,14 @@ MonoBehaviour:
     m_values:
     - {fileID: 4795805241297724030, guid: 04cad89844c58cb439d1ea2a4f954ac3, type: 3}
   particles:
-    m_keys: 0100000004000000
+    m_keys: 010000000400000002000000030000000500000006000000
     m_values:
     - {fileID: 7952111213035177249, guid: 5541143f9f08db0408f33a1c48ebcd49, type: 3}
     - {fileID: 7952111213035177249, guid: 15bb6acbe6c63d045a9f9354699ce0cd, type: 3}
+    - {fileID: 7952111213035177249, guid: 918f1cc964b72ed48aeafb453451304b, type: 3}
+    - {fileID: 7952111213035177249, guid: 903c134a116fad540b13b921d58a5e5b, type: 3}
+    - {fileID: 7952111213035177249, guid: 61794e2779230e94480a6b185f7d1ac7, type: 3}
+    - {fileID: 7952111213035177249, guid: 5541143f9f08db0408f33a1c48ebcd49, type: 3}
 --- !u!4 &699476911
 Transform:
   m_ObjectHideFlags: 0
@@ -5513,7 +5517,7 @@ MonoBehaviour:
   - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
   - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
   relics: []
-  mission: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
+  mission: {fileID: 11400000, guid: 6b1a9a3603d9a52499154ce61be75005, type: 2}
 --- !u!114 &978686532
 MonoBehaviour:
   m_ObjectHideFlags: 0

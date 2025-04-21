@@ -6,9 +6,21 @@ public class SleepyVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
+        
+    }
+
+    public override void OnBattleStart()
+    {
+        
+    }
+
+    public override void EnemyChooseIntention(int turnCount)
+    {
+        #region generate intent
+
         SnoreIntent = new IntentionInfo(
             IntentionType.ATTACK,
-            SnoreDamageAmount.ToString(),
+            new DamageInfo(Player, this, SnoreDamageAmount).finalDamage.ToString(),
             () => { ActionLib.DamageAction(Player, this, SnoreDamageAmount); }
         );
 
@@ -20,18 +32,12 @@ public class SleepyVirus : EnemyBehaviour
 
         AngerIntent = new IntentionInfo(
             IntentionType.ATTACK,
-            AngerDamageAmount.ToString(),
+            new DamageInfo(Player, this, AngerDamageAmount).finalDamage.ToString(),
             () => { ActionLib.DamageAction(Player, this, AngerDamageAmount); }
         );
-    }
 
-    public override void OnBattleStart()
-    {
-        
-    }
+        #endregion
 
-    public override void EnemyChooseIntention(int turnCount)
-    {
         if (takeDamage.Health >= MaxHealth)
         {
             SetIntention(SnoreIntent);

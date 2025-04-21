@@ -81,6 +81,7 @@ public class CardUI : MonoBehaviour
                     SetAllUIPropPrivate(CardMode.BLOCKS,false,false,true);
                     break;
                 case UIStates.DRAG:
+                    transform.SetAsLastSibling();
                     SetAllUIPropPrivate(CardMode.BLOCKS,true,false,false);
                     break;
                 case UIStates.ANIMATE:

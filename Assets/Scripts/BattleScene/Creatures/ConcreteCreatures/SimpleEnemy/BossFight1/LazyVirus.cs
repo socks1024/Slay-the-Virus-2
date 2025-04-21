@@ -6,6 +6,18 @@ public class LazyVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
+        
+    }
+
+    public override void OnBattleStart()
+    {
+        
+    }
+
+    public override void EnemyChooseIntention(int turnCount)
+    {
+        #region generate intent
+
         LazyIntent = new IntentionInfo(
             IntentionType.UNKNOWN,
             "",
@@ -20,18 +32,12 @@ public class LazyVirus : EnemyBehaviour
 
         AngerIntent = new IntentionInfo(
             IntentionType.ATTACK,
-            AngerDamageAmount.ToString(),
+            new DamageInfo(Player, this, AngerDamageAmount).finalDamage.ToString(),
             () => { ActionLib.DamageAction(Player, this, AngerDamageAmount); }
         );
-    }
 
-    public override void OnBattleStart()
-    {
-        
-    }
+        #endregion
 
-    public override void EnemyChooseIntention(int turnCount)
-    {
         if (takeDamage.Health >= MaxHealth / 2)
         {
             if (Random.value < YawnRatio)

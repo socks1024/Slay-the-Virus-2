@@ -9,17 +9,21 @@ public class ApplyBuffNextTurnBuff : BuffBehaviour
 
     [HideInInspector]public CreatureBehaviour source;
 
-    protected void Start()
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    public void SetBuffNextTurn()
     {
         BuffBehaviour buffPrefab = DungeonBuffLib.buffPrefabs[newBuffID];
         GetComponent<Image>().sprite = buffPrefab.GetComponent<Image>().sprite;
-        Name = buffPrefab.Name + "（下回合）";
         Type = buffPrefab.Type;
     }
 
-    public override void ActOnTurnEnd()
+    public override void ActOnLateTurnEnd()
     {
-        base.ActOnTurnEnd();
+        base.ActOnLateTurnEnd();
         ActionLib.ApplyBuffAction(Owner, source, newBuffID, Amount);
         Amount = 0;
     }

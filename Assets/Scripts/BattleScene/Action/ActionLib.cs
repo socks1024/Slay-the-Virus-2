@@ -25,20 +25,7 @@ public static class ActionLib
     /// <param name="damage">伤害数值</param>
     public static void DamageAction(CreatureBehaviour target, CreatureBehaviour source, int damage)
     {
-        damage += source.buffOwner.GetBuffAmount("Strength");
-
-        damage -= source.buffOwner.GetBuffAmount("Paralyze");
-        if (damage < 0) damage = 0;
-
-        if (source.buffOwner.HasBuff("Weakness")) damage *= 2;
-
-        if (source is PlayerBehaviour)
-        {
-            if ((source as PlayerBehaviour).HasRelic("StrongMedicine"))
-            {
-                damage += damage / 2;
-            }
-        }
+        damage = new DamageInfo(target, source, damage).finalDamage;
 
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.DAMAGED, () => {
             target.takeDamage.GetDamage(damage);
@@ -130,6 +117,7 @@ public static class ActionLib
             
             buff.source = source;
             buff.newBuffID = buffName;
+            buff.SetBuffNextTurn();
 
             target.buffOwner.GainBuff(buff);
         });
@@ -444,4 +432,29 @@ public static class ActionLib
     }
 
     #endregion
+}
+
+public class DamageInfo
+{
+    public int finalDamage;
+
+    public DamageInfo(CreatureBehaviour target, CreatureBehaviour source, int baseDamage)
+    {
+        finalDamage = baseDamage;
+
+        finalDamage += source.buffOwner.GetBuffAmount("Strength");
+
+        finalDamage -= source.buffOwner.GetBuffAmount("Paralyze");
+        if (finalDamage < 0) finalDamage = 0;
+
+        if (source.buffOwner.HasBuff("Weakness")) finalDamage *= 2;
+
+        if (source is PlayerBehaviour)
+        {
+            if ((source as PlayerBehaviour).HasRelic("StrongMedicine"))
+            {
+                finalDamage += finalDamage / 2;
+            }
+        }
+    }
 }

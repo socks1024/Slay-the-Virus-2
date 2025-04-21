@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Timers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -166,6 +167,7 @@ public class EnemyGroup : MonoBehaviour
     public void TriggerEnemyActEnd()
     {
         enemies.ForEach(enemy => { enemy.ActOnEnemyTurnEnd(); });
+        
         EventCenter.Instance.TriggerEvent(EventType.ENEMY_ACT_END);
     }
 
