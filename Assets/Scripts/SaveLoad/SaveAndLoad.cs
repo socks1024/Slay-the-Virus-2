@@ -41,6 +41,14 @@ public class SaveSystem : MonoBehaviour
         savefile = playerSave;
     }
 
+    public void LevelClear(int index)
+    {
+        if (savefile!=null)
+        {
+            savefile.ClearLevels[index] = true;
+        }
+    }
+
     public PlayerSave LoadPlayerFromSlot(int slotIndex)
     {
         string path = GetSlotPath(slotIndex);
@@ -103,6 +111,8 @@ public class PlayerSave
 
     public int BaseLife;
     public int Nutrient;
+
+    public bool[] ClearLevels = new bool[6];
 
     public SerializableDictionary<string, int> PlayerCardInventory = new SerializableDictionary<string, int>
     {

@@ -7,19 +7,20 @@ using UnityEngine.UI;
 
 public class EnterBattlePanel : MonoBehaviour
 {
-    private DungeonMissionData MissionData;
+    public DungeonMissionData MissionData;
 
     public Image EnemyImage;
     public TMPro.TMP_Text Nametext;
     public TMPro.TMP_Text Descriptiontext;
     public TMPro.TMP_Text Tiptext;
     public GameObject[] DangerLevel;
+    
 
-    private void Start()
+    public void Start()
     {
-        MissionData = gameObject.transform.GetComponentInParent<EnterBattle>().missionData;
+        
 
-        //EnemyImage.sprite = MissionData.EnemyImage;
+        EnemyImage.sprite = MissionData.EnemyImage;
 
         Nametext.text = MissionData.ID;
         Descriptiontext.text = MissionData.EnemyDescription;
