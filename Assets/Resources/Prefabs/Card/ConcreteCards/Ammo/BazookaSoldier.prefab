@@ -137,26 +137,6 @@ PrefabInstance:
       value: "\u8FD9\u91CC\u5E94\u8BE5\u5199\u5361\u724C\u63CF\u8FF0"
       objectReference: {fileID: 0}
     - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2717020976350969091, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 7723613646176426591, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
@@ -185,10 +165,6 @@ PrefabInstance:
       value: "\u540D\u79F0"
       objectReference: {fileID: 0}
     - target: {fileID: 8042003111653947051, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
-    - target: {fileID: 8042003111653947051, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -200,10 +176,6 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8042003111653947051, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2717020976350969091, guid: 62964cfe3e13d474182ca63884f94439, type: 2}
     - target: {fileID: 8042003111653947051, guid: c5e4e571b246331449ed7b5b3046ae1a, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
@@ -259,3 +231,5 @@ MonoBehaviour:
   targetEnemy: {fileID: 0}
   cardPosition: {fileID: 0}
   lockedOnBoard: 0
+  exhausted: 0
+  removedFromBattleAndDeck: 0

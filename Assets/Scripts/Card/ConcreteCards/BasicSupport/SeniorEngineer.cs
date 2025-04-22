@@ -23,7 +23,7 @@ public class SeniorEngineer : CardBehaviour
     {
         if (cardPosition.Conditioned)
         {
-            ActionLib.GainBlockAction(targetEnemy, DungeonManager.Instance.Player, nextDefense);
+            ActionLib.GainBlockAction(Player, Player, nextDefense);
         }
     }
 }
