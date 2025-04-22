@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcc0c57cefc6ca4e9ef0694eb346696, type: 3}
   m_Name: BossFight6
   m_EditorClassIdentifier: 
-  ID: BossFight5
-  DungeonName: "\u51FB\u8D25\u7687\u5BB6\u75C5\u6BD2"
-  EnemyImage: {fileID: 21300000, guid: 55372ce4f93ab8c45b832f7acd07950e, type: 3}
-  EnemyDescription: boss5
+  ID: BossFight6
+  DungeonName: "\u51FB\u8D25\u75C5\u6BD2\u4E4B\u738B"
+  EnemyImage: {fileID: 21300000, guid: 712030ec7ddb69043b28d19b25a7917c, type: 3}
+  EnemyDescription: boss6
   RiskLevel: 3
-  Tips: boss5
+  Tips: boss6
