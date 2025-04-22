@@ -7,9 +7,8 @@ public class DetailPanel : MonoBehaviour,IPointerDownHandler
 {
     CardInventoryUI cardInventoryUI;
 
-    private void Awake()
-    {
-        cardInventoryUI = GetComponentInParent<CardInventoryUI>();
+    private void Awake() { 
+        cardInventoryUI = GameObject.Find("CardInventory").GetComponent<CardInventoryUI>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
