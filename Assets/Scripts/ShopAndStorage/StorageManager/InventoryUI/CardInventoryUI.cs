@@ -12,12 +12,16 @@ public class CardInventoryUI : MonoBehaviour
     public RectTransform detailPanel;
     public GameObject ContentPanel;
     public GameObject PlayerHoldPanel;
-    public EnemyBehaviour enemyBehaviour;
-    public BoardBehaviour boardBehaviour;
+    //public EnemyBehaviour enemyBehaviour;
+    //public BoardBehaviour boardBehaviour;
     public GameObject Detailed;
     public CardItemInventory inventoryitem;
 
     public Transform content;
+
+    public Vector3 PlayerHoldPanelCardSize = new Vector3(0.2f, 0.25f, 0f);
+
+
     private int sum = 0;
     private int num = 0;
     private List<GameObject> blanks=new List<GameObject>();
@@ -95,7 +99,7 @@ public class CardInventoryUI : MonoBehaviour
         Detailed.transform.SetParent( content);
         Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
         Detailed.transform.localScale = inventoryitem.originalscale;
-        Detailed.transform.localPosition = inventoryitem.originalposition;
+        //Detailed.transform.localPosition = inventoryitem.originalposition;
         inventoryitem.showstate = 0;
     }
 
@@ -131,20 +135,20 @@ public class CardInventoryUI : MonoBehaviour
         return count;
     }
 
-    public void TranslateToBattleTest()//仅供测试用
-    {
-        List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-        for(int i = 0; i < 2; i++)
-        {
-            enemies.Add(enemyBehaviour);
-        }
-        Messenger.enterBattleInfoTest.p_Enemies = enemies;
-        Messenger.enterBattleInfoTest.p_Board = boardBehaviour;
-        Messenger.enterBattleInfoTest.p_Cards = PlayerHold.Instance.GetCardBehaviours();
-        SceneManager.LoadScene("BattleScene");
+    //public void TranslateToBattleTest()//仅供测试用
+    //{
+    //    List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
+    //    for(int i = 0; i < 2; i++)
+    //    {
+    //        enemies.Add(enemyBehaviour);
+    //    }
+    //    Messenger.enterBattleInfoTest.p_Enemies = enemies;
+    //    Messenger.enterBattleInfoTest.p_Board = boardBehaviour;
+    //    Messenger.enterBattleInfoTest.p_Cards = PlayerHold.Instance.GetCardBehaviours();
+    //    SceneManager.LoadScene("BattleScene");
         
-        //DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
-    }
+    //    //DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
+    //}
 
     public void SetToPlayer()
     {
@@ -155,7 +159,7 @@ public class CardInventoryUI : MonoBehaviour
         num = 4 - (sum % 4);
         Detailed.transform.GetChild(2).gameObject.SetActive(false);
         Detailed.transform.SetParent(PlayerHoldPanel.transform);
-        Detailed.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
+        Detailed.transform.localScale = PlayerHoldPanelCardSize;
         Detailed.transform.SetSiblingIndex(0);
         //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
         chosencards.Add(inventoryitem.index);
@@ -165,11 +169,12 @@ public class CardInventoryUI : MonoBehaviour
 
     public void SetToPlayerWithoutRemove()
     {
+        CancelDetail();
         GameObject newplayercard = Instantiate(Detailed);
         newplayercard.GetComponent<CardItemInventory>().showstate = 2;
         newplayercard.transform.GetChild(2).gameObject.SetActive(false);
         newplayercard.transform.SetParent(PlayerHoldPanel.transform);
-        newplayercard.transform.localScale = new Vector3(0.2f, 0.25f, 0f);
+        newplayercard.transform.localScale = PlayerHoldPanelCardSize;
         newplayercard.transform.SetSiblingIndex(0);
         newplayercard.GetComponent<CardItemInventory>().index = inventoryitem.index;
         //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);

@@ -14,6 +14,8 @@ public class EnterBattle : MonoBehaviour
 
     public void OnOpenEnterBattlePanel()
     {
+        EnterBattlePanel.GetComponentInChildren<EnterBattlePanel>().MissionData = missionData;
         EnterBattlePanel.SetActive(true);
+        EnterBattlePanel.GetComponentInChildren<EnterBattlePanel>().Start();
     }
 }
