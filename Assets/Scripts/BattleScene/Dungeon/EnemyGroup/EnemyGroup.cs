@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Timers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -134,11 +135,11 @@ public class EnemyGroup : MonoBehaviour
     /// </summary>
     public void EnemyAct()
     {
-        foreach(EnemyBehaviour enemy in enemies)
+        for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            if (!enemy.buffOwner.HasBuff("Stun"))
+            if (!enemies[i].buffOwner.HasBuff("Stun"))
             {
-                enemy.ActOnEnemyMove();
+                enemies[i].ActOnEnemyMove();
             }
         }
         //在这之间加动画？
@@ -166,6 +167,7 @@ public class EnemyGroup : MonoBehaviour
     public void TriggerEnemyActEnd()
     {
         enemies.ForEach(enemy => { enemy.ActOnEnemyTurnEnd(); });
+        
         EventCenter.Instance.TriggerEvent(EventType.ENEMY_ACT_END);
     }
 

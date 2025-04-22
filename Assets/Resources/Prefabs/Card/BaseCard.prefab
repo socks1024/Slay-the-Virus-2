@@ -317,6 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverable: 0
   previewDelay: 1
+  cardUI: {fileID: 0}
+  CardHandViewScale: 1.5
 --- !u!114 &5243978757651986605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,8 +657,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2332196676394251275}
   - {fileID: 4908209798262926765}
@@ -678,9 +680,6 @@ GameObject:
   - component: {fileID: 4908209798262926765}
   - component: {fileID: 6210663424521045708}
   - component: {fileID: 689683814197955484}
-  - component: {fileID: 3698574116431935952}
-  - component: {fileID: 4113297418570331488}
-  - component: {fileID: 3267787745130352742}
   m_Layer: 5
   m_Name: CardBGFrame
   m_TagString: Untagged
@@ -745,45 +744,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3698574116431935952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5013332809992767247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5389f64773632ef4faed0733c0f7ea70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4113297418570331488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5013332809992767247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0bd0324e11c4a4593d3c7596757404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverable: 0
-  previewDelay: 1
---- !u!114 &3267787745130352742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5013332809992767247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c572a1c90669fa468508a8db040ea21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pressable: 0
 --- !u!1 &7483364945758322362
 GameObject:
   m_ObjectHideFlags: 0

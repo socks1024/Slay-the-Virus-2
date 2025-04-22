@@ -88,6 +88,12 @@ public class PlayerBehaviour : CreatureBehaviour
     protected override void Awake()
     {
         base.Awake();
+
+        if (SaveSystem.Instance is not null && SaveSystem.Instance.getSave() is not null)
+        {
+            MaxHealth = SaveSystem.Instance.getSave().BaseLife;
+        }
+        
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, OnBattleWin);
     }
 

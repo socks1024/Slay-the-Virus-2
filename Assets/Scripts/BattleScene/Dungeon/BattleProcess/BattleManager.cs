@@ -91,6 +91,7 @@ public class BattleManager : MonoBehaviour
         set
         {
             discardAnimFinished = value;
+            if (discardAnimFinished == true) print("discard finished");
             if (discardAnimFinished && playAnimFinished)
             {
                 TriggerCardActEnd();
@@ -108,6 +109,7 @@ public class BattleManager : MonoBehaviour
         set
         {
             playAnimFinished = value;
+            if (playAnimFinished == true) print("play finished");
             if (discardAnimFinished && playAnimFinished)
             {
                 TriggerCardActEnd();
@@ -128,7 +130,6 @@ public class BattleManager : MonoBehaviour
             discardAnimFinished = false;
             playAnimFinished = false;
         });
-        
     }
 
     [SerializeField] float NextTurnInterval = 0.5f;
@@ -138,10 +139,12 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnAllActEnd()
     {
-        BuffBehaviour.TriggerAllActOnTurnEnd();
-        TimersManager.SetTimer("NextTurnInterval", NextTurnInterval, ()=>{
-            turnCount += 1;
-            EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+        TimersManager.SetTimer("Wait", 0.5f, () =>{
+            BuffBehaviour.TriggerAllActOnTurnEnd();
+            TimersManager.SetTimer("NextTurnInterval", NextTurnInterval, ()=>{
+                turnCount += 1;
+                EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+            });
         });
     }
 
@@ -200,6 +203,7 @@ public class BattleManager : MonoBehaviour
     {
         DungeonManager.Instance.TestLeaveBattleScene();
         // ShowRewards();
+        // ResetBattleElements();
     }
 
     /// <summary>
@@ -234,8 +238,9 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnPlayerDead()
     {
+        DungeonManager.Instance.TestLeaveBattleScene();
         //死回家直接结算
-        ResetBattleElements();
+        // ResetBattleElements();
     }
 
     /// <summary>

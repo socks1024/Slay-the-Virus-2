@@ -30,10 +30,10 @@ public class BuffOwner : MonoBehaviour
         {
             if (oldBuff.ID == newBuff.ID)
             {
-                oldBuff.Amount += newBuff.Amount;
-                if (oldBuff.Amount > 0)
+                if (oldBuff.Amount > 0 && !oldBuff.isDestroying)
                 {
                     hasSameBuff = true;
+                    oldBuff.Amount += newBuff.Amount;
                 }
             }
         }
@@ -41,7 +41,7 @@ public class BuffOwner : MonoBehaviour
         if (!hasSameBuff)
         {
             buffs.Add(newBuff);
-            newBuff.Owner = GetComponent<CreatureBehaviour>();
+            newBuff.Owner = Creature;
         }
 
         OnChangeBuff.Invoke(buffs);

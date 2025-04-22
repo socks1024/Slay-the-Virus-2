@@ -1,6 +1,8 @@
 # Slay-the-Virus-2
 
-《杀毒奇兵》（Slay the Virus）是一款**轻度Rogue牌组构筑**游戏。玩家将组建一支细胞小队阻击进犯的病毒，指挥士兵们免于牺牲，保卫人体健康。
+《杀毒奇兵》（Slay the Virus）是一款**牌组构筑回合制策略**游戏。
+
+玩家将指挥一支细胞小队阻击进犯的病毒，保卫人体健康。
 
 *从《Slay the Spire》、《Darkest Dungeon》、《Backpack Battles》等游戏中汲取灵感。
 
@@ -10,8 +12,8 @@
 - 收集卡牌：与病毒战斗——胜利，获得卡牌；失败，损失卡牌。
   
 ## 核心体验
-- 通过运气和策略构建独特且强大的牌组；
 - 探索敌人、收集卡牌；
-- 带着资源撤离或死于自己的贪婪。
+- 每回合用不一样的卡牌填充你的战场；
+- 通过运气和策略构建独特且强大的牌组。
 
 [游戏设计文档链接](https://xcnsh7ye2vew.feishu.cn/wiki/RAzZwr00HiVfY6kAdFmcXslzn2l?from=from_copylink)

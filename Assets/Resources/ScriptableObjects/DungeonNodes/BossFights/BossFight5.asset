@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1543c7b3d5338a349af8593565f764e1, type: 3}
+  m_Name: BossFight5
+  m_EditorClassIdentifier: 
+  nodeID: BossFight5
+  p_Enemies_GameObject:
+  - {fileID: 1564478793388295705, guid: b9eee5da7c6d2104197e7f364da0c739, type: 3}
+  - {fileID: 1564478793388295705, guid: a84eb918e4265ce4cb7180053cc656ed, type: 3}
+  - {fileID: 1564478793388295705, guid: 5ce810bc0b5c917499f333000f789a11, type: 3}
+  - {fileID: 1564478793388295705, guid: 7662556c45c8e0d47af6a427420b3f88, type: 3}
+  lootInfo: {fileID: 11400000, guid: a0fe01ebaa8c4ec4982e29ed05ad97bb, type: 2}

@@ -6,7 +6,7 @@ public class Spy : CardBehaviour
 {
     public override void ActOnDiscard()
     {
-        ActionLib.ApplyBuffAction(Player, Player, "Weakness", nextEffect);
+        ActionLib.ApplyBuffNextTurnAction(Player, Player, "Weakness", nextEffect);
     }
 
     public override void ActOnPlaced()

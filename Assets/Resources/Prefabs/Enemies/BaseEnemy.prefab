@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossSize: 500
-  NormalSize: 225
+  NormalSize: 280
 --- !u!114 &6444130689038702932
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public abstract class BuffBehaviour : MonoBehaviour
         {
             allBuffList[i].ActOnTurnEnd();
         }
+
+        for (int i = allBuffList.Count - 1; i >= 0; i--)
+        {
+            allBuffList[i].ActOnLateTurnEnd();
+        }
     }
 
     #region Buff Data
@@ -36,6 +41,8 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// </summary>
     public BuffType Type;
 
+    public bool isDestroying = false;
+
     /// <summary>
     /// 状态效果的持有量
     /// </summary>
@@ -47,6 +54,7 @@ public abstract class BuffBehaviour : MonoBehaviour
             amount = value;
             if (amount <= 0)
             {
+                isDestroying = true;
                 Destroy(this.gameObject);
             }
             else
@@ -70,6 +78,11 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// Buff的回合结束时效果
     /// </summary>
     public virtual void ActOnTurnEnd()
+    {
+
+    }
+
+    public virtual void ActOnLateTurnEnd()
     {
 
     }

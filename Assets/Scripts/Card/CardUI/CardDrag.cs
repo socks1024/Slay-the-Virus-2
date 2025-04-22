@@ -54,6 +54,8 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     /// </summary>
     Vector3 originPosition;
 
+    CardRotate rotateComponent;
+
     #endregion
 
     void Start()
@@ -63,40 +65,44 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         card = cardRoot.GetComponent<CardBehaviour>();
         cardUI = cardRoot.GetComponent<CardUI>();
         targetType = card.TargetType;
+        rotateComponent = cardRoot.GetComponent<CardRotate>();
     }
 
     #region OnBeginDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        switch(cardUI.UIState)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            case UIStates.CUSTOM:
-                break;
-            case UIStates.HAND:
-                DungeonManager.Instance.battleManager.cardFlow.ReleaseCardFromHand(card);
-                break;
-            case UIStates.PLACED:
-                if (!card.lockedOnBoard)
-                {
-                    card.ActOnRemoved();
-                    boardData.RemoveCard(card);
-                    cardUI.UIState = UIStates.DRAG;
-                }
-                break;
-            case UIStates.SETTING_TARGET:
-                originPosition = card.transform.position;
-                break;
-            case UIStates.DRAG:
-                break;
-            case UIStates.ANIMATE:
-                break;
-            case UIStates.SHOW_CARD:
-                break;
-            case UIStates.SHOW_DECK:
-                break;
-            case UIStates.BUTTON:
-                break;
+            switch(cardUI.UIState)
+            {
+                case UIStates.CUSTOM:
+                    break;
+                case UIStates.HAND:
+                    DungeonManager.Instance.battleManager.cardFlow.ReleaseCardFromHand(card);
+                    break;
+                case UIStates.PLACED:
+                    if (!card.lockedOnBoard)
+                    {
+                        card.ActOnRemoved();
+                        boardData.RemoveCard(card);
+                        cardUI.UIState = UIStates.DRAG;
+                    }
+                    break;
+                case UIStates.SETTING_TARGET:
+                    originPosition = card.transform.position;
+                    break;
+                case UIStates.DRAG:
+                    break;
+                case UIStates.ANIMATE:
+                    break;
+                case UIStates.SHOW_CARD:
+                    break;
+                case UIStates.SHOW_DECK:
+                    break;
+                case UIStates.BUTTON:
+                    break;
+            }
         }
     }
 
@@ -121,6 +127,10 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                     break;
                 case UIStates.DRAG:
                     DragMove(eventData);
+                    // if (Input.GetMouseButtonDown(1))
+                    // {
+                    //     rotateComponent.RotateCard(90);
+                    // }
                     break;
                 case UIStates.ANIMATE:
                     break;

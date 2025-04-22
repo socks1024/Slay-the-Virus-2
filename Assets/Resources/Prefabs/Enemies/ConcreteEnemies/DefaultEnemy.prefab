@@ -127,5 +127,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8124231872743290648, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6468082633734748243}
   m_SourcePrefab: {fileID: 100100000, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
+--- !u!1 &1564478793388295705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8124231872743290648, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
+  m_PrefabInstance: {fileID: 7280408497031721217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6468082633734748243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564478793388295705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8020a2418021bb646b873e8bb04ac184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: DefaultEnemy
+  MaxHealth: 20
+  enemySprite: {fileID: 0}
+  intention: {fileID: 0}
+  type: 2

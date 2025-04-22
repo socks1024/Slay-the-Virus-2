@@ -27,6 +27,10 @@ public class TakeDamage : MonoBehaviour
                     value = 1;
                     Creature.buffOwner.GetBuff("Phoenix").Amount -= 1;
                 }
+                else if (lockHealthAtOne)
+                {
+                    value = 1;
+                }
                 else
                 {
                     value = 0;
@@ -45,6 +49,8 @@ public class TakeDamage : MonoBehaviour
         }
     }
     int health;
+
+    public bool lockHealthAtOne = false;
 
     /// <summary>
     /// 现有的格挡
