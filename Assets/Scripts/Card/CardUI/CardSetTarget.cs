@@ -55,6 +55,13 @@ public class CardSetTarget : MonoBehaviour
         targetType = card.TargetType;
         cardUI = GetComponent<CardUI>();
         enemyGroup = DungeonManager.Instance.battleManager.enemyGroup;
+
+        cardUI.OnEnterHand += ClearArrow;
+    }
+
+    void OnDestroy()
+    {
+        cardUI.OnEnterHand -= ClearArrow;
     }
 
     void Update()

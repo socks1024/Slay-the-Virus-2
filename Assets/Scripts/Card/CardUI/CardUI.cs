@@ -81,6 +81,10 @@ public class CardUI : MonoBehaviour
                 case UIStates.HAND:
                     transform.localScale = Vector3.one * 100;
                     GetComponent<CardRotate>().Homing();
+                    if (OnEnterHand is not null)
+                    {
+                        OnEnterHand.Invoke();
+                    }
                     SetAllUIPropPrivate(CardMode.CARD,true,false,true);
                     break;
                 case UIStates.PLACED:
@@ -119,6 +123,11 @@ public class CardUI : MonoBehaviour
     /// 离开手牌时回调
     /// </summary>
     public UnityAction OnLeaveHand;
+
+    /// <summary>
+    /// 进入手牌时回调
+    /// </summary>
+    public UnityAction OnEnterHand;
 
     /// <summary>
     /// 卡牌名字的显示组件
