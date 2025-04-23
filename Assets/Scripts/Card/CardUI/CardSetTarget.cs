@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class CardSetTarget : MonoBehaviour
 {
     /// <summary>
     /// 受到拖拽的卡牌Transform
@@ -23,69 +22,111 @@ public class CardSetTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     CardUI cardUI;
 
     /// <summary>
+    /// 指示选择目标的箭头
+    /// </summary>
+    [SerializeField] DynamicCurve SelectTargetCurve;
+
+    /// <summary>
+    /// 选定目标后箭头的透明度
+    /// </summary>
+    [SerializeField] float ArrowAlphaAfterSelect = 0.4f;
+
+    /// <summary>
     /// 遭遇战的怪物群组
     /// </summary>
-    EnemyGroup enemyGroup{get{return DungeonManager.Instance.battleManager.enemyGroup;}}
-
-    /// <summary>
-    /// 是否需要选择目标
-    /// </summary>
-    bool targetSettable{ get{ return cardUI.UIState == UIStates.SETTING_TARGET && targetType == CardTargetType.SINGLE_ENEMY;}}
-
-    /// <summary>
-    /// 拖拽之前的位置
-    /// </summary>
-    Vector3 originPosition;
+    EnemyGroup enemyGroup;
 
     /// <summary>
     /// 屏幕空间相机引用
     /// </summary>
     Camera mainCam;
 
+    /// <summary>
+    /// 是否已经有了目标敌人
+    /// </summary>
+    bool HasTarget{ get{ return card.targetEnemy is not null; }}
+
+    DynamicCurve currCurve;
+
     void Start()
     {
         mainCam = Camera.main;
-        card = transform.parent.parent.GetComponent<CardBehaviour>();
+        card = GetComponent<CardBehaviour>();
         targetType = card.TargetType;
-        cardUI = card.GetComponent<CardUI>();
+        cardUI = GetComponent<CardUI>();
+        enemyGroup = DungeonManager.Instance.battleManager.enemyGroup;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    void Update()
     {
-        originPosition = card.transform.position;
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (targetSettable)
+        if (currCurve != null)
         {
-            Vector3 worldPos = mainCam.ScreenToWorldPoint(eventData.position);
-            card.transform.position = new Vector3(worldPos.x, worldPos.y, 0);
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (targetSettable)
-        {
-            if (enemyGroup.GetHoveredEnemy() != null)
+            UpdateArrow();
+            if (Input.GetMouseButtonDown(0))
             {
-                card.targetEnemy = enemyGroup.GetHoveredEnemy();
-                DungeonManager.Instance.battleManager.board.PlayCard(card);
-            }
-            else
-            {
-                card.transform.position = originPosition;
+                SetTarget();
+                SetArrowAlpha(ArrowAlphaAfterSelect);
             }
         }
     }
 
-    // public void OnDrawGizmos()
-    // {
-    //     if (targetSettable)
-    //     {
-    //         Gizmos.color = Color.yellow;
-    //         Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
-    //     }
-    // }
+    void SetTarget()
+    {
+        if (enemyGroup.GetHoveredEnemy() != null)
+        {
+            card.targetEnemy = enemyGroup.GetHoveredEnemy();
+        }
+    }
+
+    #region arrow curve
+
+    public void ShowArrow()
+    {
+        if (currCurve == null)
+        {
+            currCurve = Instantiate(SelectTargetCurve);
+            currCurve.transform.SetParent(transform, false);
+            currCurve.transform.localScale *= 0.01f;
+            currCurve.startPoint.position = transform.position;
+        }
+        else
+        {
+            ClearArrow();
+            ShowArrow();
+        }
+    }
+
+    void UpdateArrow()
+    {
+        Vector3 position = Vector3.zero;
+        if (!HasTarget)
+        {
+            position = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        }
+        else
+        {
+            position = card.targetEnemy.transform.position;
+        }
+        currCurve.endPoint.position = new Vector3(position.x, position.y, 10);
+    }
+
+    public void ClearArrow()
+    {
+        if (currCurve != null)
+        {
+            SetArrowAlpha(0);
+            Destroy(currCurve);
+            currCurve = null;
+        }
+    }
+
+    void SetArrowAlpha(float alpha)
+    {
+        if (currCurve is not null)
+        {
+            currCurve.GetComponent<CanvasGroup>().alpha = alpha;
+        }
+    }
+
+    #endregion
 }

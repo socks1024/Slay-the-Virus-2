@@ -23,7 +23,7 @@ public class MonoSingletonDestroyOnLoad<T> : MonoBehaviour where T : MonoSinglet
                         Debug.LogError("No " + typeof(T) + " in this scene, please create the game object first.");
                     }
 
-                    //DontDestroyOnLoad(instance.gameObject);
+                    // DontDestroyOnLoad(instance.gameObject);
                 }
             }
             

@@ -227,14 +227,16 @@ public class CardUI : MonoBehaviour
     /// </summary>
     void OnCardAct()
     {
-        if (UIState == UIStates.PLACED)
-        {
-            UIState = UIStates.SETTING_TARGET;
-        }
-        else
-        {
-            UIState = UIStates.ANIMATE;
-        }
+        // if (UIState == UIStates.PLACED)
+        // {
+        //     UIState = UIStates.SETTING_TARGET;
+        // }
+        // else
+        // {
+        //     UIState = UIStates.ANIMATE;
+        // }
+
+        UIState = UIStates.ANIMATE;
     }
 
     [Header("ColorModifier")]

@@ -367,6 +367,7 @@ public abstract class BoardBehaviour : MonoBehaviour
     {
         GetPlacedCards().ForEach(card => {
             card.GetComponent<CardPosition>().SetConditionInfoWhenCardAct();
+            card.GetComponent<CardSetTarget>().ClearArrow();
         });
 
         if (IsEmptyBoard())
@@ -376,7 +377,7 @@ public abstract class BoardBehaviour : MonoBehaviour
         
         ApplyAllCardAdjustments();
 
-        PlayNoTargetCards();
+        PlayAllCards();
     }
 
     /// <summary>
@@ -394,16 +395,13 @@ public abstract class BoardBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// 一次性打出所有不需要选择目标的卡牌
+    /// 一次性打出所有已经选择目标的卡牌
     /// </summary>
-    public void PlayNoTargetCards()
+    public void PlayAllCards()
     {
         foreach (CardBehaviour card in GetPlacedCards())
         {
-            if (card.TargetType != CardTargetType.SINGLE_ENEMY)
-            {
-                PlayCard(card);
-            }
+            PlayCard(card);
         }
     }
 

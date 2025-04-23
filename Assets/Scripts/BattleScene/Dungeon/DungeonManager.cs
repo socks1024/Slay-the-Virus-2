@@ -219,6 +219,29 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
         Messenger.leaveBattleInfoTest.nutrition = Player.Nutrition;
 
+        switch (mission.DungeonName)
+        {
+            case "BossFight1":
+                SaveSystem.Instance.LevelClear(1);
+                break;
+            case "BossFight2":
+                SaveSystem.Instance.LevelClear(2);
+                break;
+            case "BossFight3":
+                SaveSystem.Instance.LevelClear(3);
+                break;
+            case "BossFight4":
+                SaveSystem.Instance.LevelClear(4);
+                break;
+            case "BossFight5":
+                SaveSystem.Instance.LevelClear(5);
+                break;
+            case "BossFight6":
+                SaveSystem.Instance.LevelClear(6);
+                break;
+            
+        }
+
         SceneManager.LoadScene("Base");
     }
 
@@ -239,8 +262,12 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         // StartAdventure(Messenger.enterDungeonInfo);
     }
 
+    DungeonMissionData mission;
+
     public void StartAdventure(EnterDungeonInfo enterDungeonInfo)
     {
+        mission = enterDungeonInfo.missionData;
+
         Player.SetBackpack(enterDungeonInfo.p_Cards, boardPrefab, enterDungeonInfo.p_Relics, 0);
 
         mapGenerator.GenerateMap(enterDungeonInfo);

@@ -45,11 +45,6 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     EnemyGroup enemyGroup{get{return DungeonManager.Instance.battleManager.enemyGroup;}}
 
     /// <summary>
-    /// 是否需要选择目标
-    /// </summary>
-    bool targetSettable{ get{ return cardUI.UIState == UIStates.SETTING_TARGET && targetType == CardTargetType.SINGLE_ENEMY;}}
-
-    /// <summary>
     /// 拖拽之前的位置
     /// </summary>
     Vector3 originPosition;
@@ -184,6 +179,13 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                     if (boardData.CanPlaceCard(cardRoot.GetComponent<CardBehaviour>()))
                     {
                         boardData.PlaceCard(cardRoot.GetComponent<CardBehaviour>());
+
+                        // 开始选择目标
+                        if (card.TargetType == CardTargetType.SINGLE_ENEMY)
+                        {
+                            cardUI.GetComponent<CardSetTarget>().ShowArrow();
+                        }
+
                         card.ActOnPlaced();
                         cardUI.UIState = UIStates.PLACED;
                     }

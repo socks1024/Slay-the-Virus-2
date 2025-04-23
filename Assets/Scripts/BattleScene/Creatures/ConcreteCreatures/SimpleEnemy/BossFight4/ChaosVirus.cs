@@ -42,7 +42,13 @@ public class ChaosVirus : EnemyBehaviour
             IntentionType.GIVE_DEBUFF,
             GazeWoundAmount.ToString(),
             () => { ActionLib.ApplyBuffNextTurnAction(Player, this, "Wound", GazeWoundAmount);
-                ActionLib.ApplyBuffNextTurnAction(Player, this, "Paralyze", GazeWoundAmount);}
+                ActionLib.ApplyBuffNextTurnAction(Player, this, "Paralyze", GazeParalyzeAmount);}
+        );
+
+        SwellIntent = new IntentionInfo(
+            IntentionType.DEACTIVATE_SQUARE,
+            "",
+            () => { ActionLib.DisableRandomSquareAction(SwellSquareAmount);}
         );
 
         #endregion
