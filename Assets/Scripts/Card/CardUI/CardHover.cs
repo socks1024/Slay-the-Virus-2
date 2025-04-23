@@ -46,12 +46,12 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         cardRoot = transform.parent.parent;
         cardUI = cardRoot.GetComponent<CardUI>();
-        cardUI.OnLeaveHand += LeaveHandPreview;
+        cardUI.OnLeaveHand += ReturnHandPreview;
     }
 
     void OnDestroy()
     {
-        cardUI.OnLeaveHand -= LeaveHandPreview;
+        cardUI.OnLeaveHand -= ReturnHandPreview;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
