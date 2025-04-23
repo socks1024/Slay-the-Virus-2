@@ -141,6 +141,7 @@ public abstract class CardBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
+        print("Awake:" + Id);
         cardPosition = GetComponent<CardPosition>();
         
         CardShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.CardShape);
@@ -155,6 +156,7 @@ public abstract class CardBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
+        print("Destroy:" + Id);
         EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ResetData);
     }
 

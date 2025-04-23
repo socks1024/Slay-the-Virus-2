@@ -48,9 +48,25 @@ public class CardFlowController : MonoBehaviour
 
     void Awake()
     {
+        hand = new();
+        drawPile = new();
+        discardPile = new();
+        exhaustedPile = new();
         handAnimation = GetComponent<HandAnimation>();
-        EventCenter.Instance.AddEventListener(EventType.TURN_START, () => { DrawCards(AutoDrawAmount); });
-        EventCenter.Instance.AddEventListener(EventType.ACT_START, () => { DiscardAllCard(); });
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, TurnStartDrawCard);
+        EventCenter.Instance.AddEventListener(EventType.ACT_START, DiscardAllCard);
+    }
+
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, TurnStartDrawCard);
+        EventCenter.Instance.RemoveEventListener(EventType.ACT_START, DiscardAllCard);
+    }
+
+    void TurnStartDrawCard()
+    {
+        print(autoDrawAmount);
+        DrawCards(AutoDrawAmount);
     }
 
     /// <summary>

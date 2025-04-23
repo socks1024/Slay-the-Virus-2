@@ -50,6 +50,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     protected override void Awake()
     {
+        base.Awake();
         musicManager.audioMixer = audioMixer;
         sfxManager.audioMixer = audioMixer;
     }
