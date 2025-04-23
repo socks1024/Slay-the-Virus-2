@@ -4,14 +4,15 @@ using Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActButton : MonoBehaviour
+public class ActButton : MonoSingletonDestroyOnLoad<ActButton>
 {
     [SerializeField] float WaitTime;
 
-    Button button;
+    public Button button;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         button = GetComponent<Button>();
     }
 
@@ -27,7 +28,6 @@ public class ActButton : MonoBehaviour
     public void SetDisableButton()
     {
         button.interactable = false;
-        // TimersManager.SetTimer("ActButtonWait", WaitTime, () => button.interactable = true );
         EventCenter.Instance.AddEventListener(EventType.TURN_START, SetEnableButton);
     }
 

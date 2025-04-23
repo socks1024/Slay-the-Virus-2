@@ -65,7 +65,10 @@ public class CardSetTarget : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 SetTarget();
-                SetArrowAlpha(ArrowAlphaAfterSelect);
+                if (HasTarget)
+                {
+                    SetArrowAlpha(ArrowAlphaAfterSelect);
+                }
             }
         }
     }
@@ -84,6 +87,8 @@ public class CardSetTarget : MonoBehaviour
     {
         if (currCurve == null)
         {
+            ActButton.Instance.button.interactable = false;
+
             currCurve = Instantiate(SelectTargetCurve);
             currCurve.transform.SetParent(transform, false);
             currCurve.transform.localScale *= 0.01f;
@@ -117,6 +122,8 @@ public class CardSetTarget : MonoBehaviour
             SetArrowAlpha(0);
             Destroy(currCurve);
             currCurve = null;
+
+            ActButton.Instance.button.interactable = false;
         }
     }
 
