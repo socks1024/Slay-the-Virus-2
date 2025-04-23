@@ -62,12 +62,11 @@ public class CardSetTarget : MonoBehaviour
         if (currCurve != null)
         {
             UpdateArrow();
-            if (Input.GetMouseButtonDown(0))
+            if (!HasTarget)
             {
-                SetTarget();
-                if (HasTarget)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    SetArrowAlpha(ArrowAlphaAfterSelect);
+                    SetTarget();
                 }
             }
         }
@@ -78,6 +77,9 @@ public class CardSetTarget : MonoBehaviour
         if (enemyGroup.GetHoveredEnemy() != null)
         {
             card.targetEnemy = enemyGroup.GetHoveredEnemy();
+            SetArrowAlpha(ArrowAlphaAfterSelect);
+
+            ActButton.Instance.button.interactable = true;
         }
     }
 
@@ -91,8 +93,11 @@ public class CardSetTarget : MonoBehaviour
 
             currCurve = Instantiate(SelectTargetCurve);
             currCurve.transform.SetParent(transform, false);
+            SetArrowAlpha(1);
             currCurve.transform.localScale *= 0.01f;
             currCurve.startPoint.position = transform.position;
+
+            card.targetEnemy = null;
         }
         else
         {
@@ -122,8 +127,6 @@ public class CardSetTarget : MonoBehaviour
             SetArrowAlpha(0);
             Destroy(currCurve);
             currCurve = null;
-
-            ActButton.Instance.button.interactable = false;
         }
     }
 

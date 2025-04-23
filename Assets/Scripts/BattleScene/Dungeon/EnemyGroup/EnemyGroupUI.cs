@@ -13,6 +13,7 @@ public class EnemyGroupUI : MonoBehaviour
         if (enemies.Count > 0)
         {
             enemies[0].transform.SetParent(BossPos, false);
+            enemies[0].transform.localPosition = Vector3.zero;
         }
 
         if (enemies.Count > 1)
