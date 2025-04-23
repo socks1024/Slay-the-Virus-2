@@ -276,4 +276,12 @@ public class BattleManager : MonoBehaviour
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, OnBattleWin);
         EventCenter.Instance.AddEventListener(EventType.PLAYER_DEAD, OnPlayerDead);
     }
+
+    void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_START, OnBattleStart);
+        EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, OnAllActEnd);
+        EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, OnBattleWin);
+        EventCenter.Instance.RemoveEventListener(EventType.PLAYER_DEAD, OnPlayerDead);
+    }
 }
