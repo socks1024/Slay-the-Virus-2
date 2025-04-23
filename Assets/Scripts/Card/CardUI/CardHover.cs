@@ -106,7 +106,21 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (isHandPreviewing)
         {
             cardRoot.DOComplete();
-            
+
+            cardRoot.DOScale(cardUI.baseScale, CardHandViewTime);
+
+            cardRoot.DOMove(originalPos, CardHandViewTime);
+
+            isHandPreviewing = false;
+        }
+    }
+
+    public void ReturnHandPreview()
+    {
+        if (isHandPreviewing)
+        {
+            cardRoot.DOKill();
+
             cardRoot.DOScale(cardUI.baseScale, CardHandViewTime);
 
             cardRoot.DOMove(originalPos, CardHandViewTime);
