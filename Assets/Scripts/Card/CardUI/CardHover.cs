@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,30 +19,39 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     Transform cardRoot;
 
     /// <summary>
-    /// 用于预览的卡牌
-    /// </summary>
-    GameObject previewCard;
-
-    /// <summary>
-    /// 弹出预览的时间延迟
-    /// </summary>
-    public float previewDelay = 1.0f;
-
-    /// <summary>
     /// 卡牌UI控制
     /// </summary>
-    public CardUI cardUI;
+    CardUI cardUI;
 
     /// <summary>
     /// 手牌中的放大预览比例
     /// </summary>
     public float CardHandViewScale = 1.5f;
 
+    /// <summary>
+    /// 手牌中的放大预览上浮距离
+    /// </summary>
+    public float CardHandViewOffset = 4;
+
+    /// <summary>
+    /// 手牌中的放大预览动画时间
+    /// </summary>
+    public float CardHandViewTime = 0.1f;
+
+    bool isHandPreviewing = false;
+
+    Vector3 originalPos;
+
     void Start()
     {
         cardRoot = transform.parent.parent;
-        previewCard = transform.parent.parent.gameObject;
         cardUI = cardRoot.GetComponent<CardUI>();
+        cardUI.OnLeaveHand += LeaveHandPreview;
+    }
+
+    void OnDestroy()
+    {
+        cardUI.OnLeaveHand -= LeaveHandPreview;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -51,7 +61,7 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             case UIStates.CUSTOM:
                 break;
             case UIStates.HAND:
-                // cardRoot.localScale = Vector3.one * 100 * CardHandViewScale;
+                EnterHandPreview();
                 break;
             case UIStates.PLACED:
                 break;
@@ -70,6 +80,41 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
     }
 
+    public void EnterHandPreview()
+    {
+        if (!isHandPreviewing)
+        {
+            cardRoot.DOComplete();
+
+            cardRoot.DOScale(cardUI.baseScale * CardHandViewScale, CardHandViewTime);
+
+            originalPos = cardRoot.position;
+
+            Vector3 vec = cardRoot.position;
+            vec.y += CardHandViewOffset;
+
+            cardRoot.DOMove(vec, CardHandViewTime);
+
+            cardRoot.SetAsLastSibling();
+
+            isHandPreviewing = true;
+        }
+    }
+
+    public void LeaveHandPreview()
+    {
+        if (isHandPreviewing)
+        {
+            cardRoot.DOComplete();
+            
+            cardRoot.DOScale(cardUI.baseScale, CardHandViewTime);
+
+            cardRoot.DOMove(originalPos, CardHandViewTime);
+
+            isHandPreviewing = false;
+        }
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
         switch(cardUI.UIState)
@@ -77,7 +122,7 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             case UIStates.CUSTOM:
                 break;
             case UIStates.HAND:
-                // cardRoot.localScale = Vector3.one * 100;
+                LeaveHandPreview();
                 break;
             case UIStates.PLACED:
                 break;

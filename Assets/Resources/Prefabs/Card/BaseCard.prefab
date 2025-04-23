@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22cf962b929a324cbc5ee45c6a1bc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseScale: {x: 100, y: 100, z: 100}
   nameText: {fileID: 8042003111653947051}
   descriptionText: {fileID: 7723613646176426591}
   cardBG: {fileID: 497456780272803253}
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectTargetCurve: {fileID: 3405228853096795335, guid: 6e294b029b5fc4f43bbf7c0be5642d70, type: 3}
+  ArrowAlphaAfterSelect: 0.4
 --- !u!1 &500603605845144578
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,9 +332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverable: 0
-  previewDelay: 1
-  cardUI: {fileID: 0}
-  CardHandViewScale: 1.5
+  CardHandViewScale: 1.8
+  CardHandViewOffset: 1.5
+  CardHandViewTime: 0.05
 --- !u!114 &5243978757651986605
 MonoBehaviour:
   m_ObjectHideFlags: 0

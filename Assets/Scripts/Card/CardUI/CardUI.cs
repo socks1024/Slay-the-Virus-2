@@ -35,6 +35,11 @@ public class CardUI : MonoBehaviour
     CardBehaviour cardBehaviour;
 
     /// <summary>
+    /// 卡牌的基础尺寸
+    /// </summary>
+    public Vector3 baseScale = Vector3.one * 100;
+
+    /// <summary>
     /// 卡牌当前的UI交互模式
     /// </summary>
     public UIStates UIState
@@ -47,7 +52,11 @@ public class CardUI : MonoBehaviour
                 case UIStates.CUSTOM:
                     break;
                 case UIStates.HAND:
-                    transform.localScale = Vector3.one * 100;
+                    if (OnLeaveHand is not null)
+                    {
+                        OnLeaveHand.Invoke();
+                    }
+                    transform.localScale = baseScale;
                     break;
                 case UIStates.PLACED:
                     break;
@@ -105,6 +114,11 @@ public class CardUI : MonoBehaviour
     /// 按下时回调
     /// </summary>
     public UnityAction OnPress;
+
+    /// <summary>
+    /// 离开手牌时回调
+    /// </summary>
+    public UnityAction OnLeaveHand;
 
     /// <summary>
     /// 卡牌名字的显示组件
