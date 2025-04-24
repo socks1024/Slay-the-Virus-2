@@ -11,17 +11,17 @@ public class DialoguePanel : MonoBehaviour, IPointerClickHandler
 
     public TextMeshProUGUI tmp;
 
-    public UnityAction onComplete;
+    public UnityAction onClick;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (onComplete is not null) onComplete.Invoke();
+        if (onClick is not null) onClick.Invoke();
         Destroy(gameObject);
     }
 
-    public DialoguePanel SetOnComplete(UnityAction action)
+    public DialoguePanel SetOnClick(UnityAction action)
     {
-        onComplete = action;
+        onClick = action;
 
         return this;
     }

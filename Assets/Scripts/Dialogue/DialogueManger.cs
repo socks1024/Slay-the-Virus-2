@@ -18,7 +18,9 @@ public class DialogueManager : MonoSingleton<DialogueManager>
         if (Input.GetKeyDown(KeyCode.T))
         {
             
-            ShowDialoguePanel(TextPanelPosition.DOWN).SetDialogueText(loader.LoadDialogue(1));
+            DialogueManager.Instance.ShowDialoguePanel(TextPanelPosition.DOWN)
+                .SetDialogueText(loader.LoadDialogue(1))
+                .SetOnClick(()=>{ Debug.Log("ShowPanel"); });
             
         }
     }
