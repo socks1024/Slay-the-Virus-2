@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DialogueLoader : MonoBehaviour, IDialogueLoader
 {
-    public TutorialLines tutorialLines;
+    [SerializeField] TutorialLines tutorialLines;
+
+    [SerializeField] SerializableDictionary<string, Sprite> headPictures;
 
     public DialogueEvent LoadDialogueEvent(int ID)
     {
@@ -16,6 +18,8 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
             {
                 dialogueEvent.name = data.Name;
                 dialogueEvent.line = data.Line;
+
+                if (headPictures.ContainsKey(data.Name)) dialogueEvent.sprite = headPictures[data.Name];
 
                 return dialogueEvent;
             }

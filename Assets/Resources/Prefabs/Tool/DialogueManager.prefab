@@ -59,3 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialLines: {fileID: 11400000, guid: 0364af73c3af3524ca7b8f22081798fa, type: 2}
+  headPictures:
+    m_keys:
+    - "\u6559\u5B98"
+    - "\u61D2\u60F0\u75C5\u6BD2"
+    m_values:
+    - {fileID: 21300000, guid: 83bed0ecf9f42134f8334ad0bed5347a, type: 3}
+    - {fileID: 21300000, guid: 262504fed7ab95145aff73e9e8d0546b, type: 3}
