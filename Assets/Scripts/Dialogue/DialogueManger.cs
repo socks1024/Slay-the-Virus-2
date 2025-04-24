@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DialogueManager : MonoSingleton<DialogueManager>
 {
-    public DialoguePanel TutorialPanelPrefab;
+    [SerializeField] DialoguePanel PanelPrefab;
 
     public IDialogueLoader loader;
+
+    DialoguePanel dialoguePanel;
 
     void Start()
     {
@@ -17,31 +19,32 @@ public class DialogueManager : MonoSingleton<DialogueManager>
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            
-            DialogueManager.Instance.ShowDialoguePanel(TextPanelPosition.DOWN)
-                .SetDialogueText(loader.LoadDialogue(1))
-                .SetOnClick(()=>{ Debug.Log("ShowPanel"); });
-            
+            DialogueManager.Instance.ShowDialoguePanel()
+                .AddDialogueEvent(DialogueManager.Instance.loader, new int[]{1,2})
+                .ShowNextDialogueEvent();
         }
     }
 
-    public DialoguePanel ShowDialoguePanel(TextPanelPosition position)
+    public DialoguePanel ShowDialoguePanel()
     {
-        DialoguePanel panel = Instantiate(TutorialPanelPrefab, FindObjectOfType<Canvas>().transform);
-        panel.transform.localPosition = Vector3.zero;
-        panel.transform.localScale = Vector3.one;
+        if (!dialoguePanel)
+        {
+            DialoguePanel panel = Instantiate(PanelPrefab, FindObjectOfType<Canvas>().transform);
+            panel.transform.localPosition = Vector3.zero;
+            panel.transform.localScale = Vector3.one;
 
-        panel.SetTextPanelPosition(position);
+            panel.SetTextPanelPosition(TextPanelPosition.DOWN);
 
-        panel.transform.SetAsLastSibling();
+            panel.transform.SetAsLastSibling();
 
-        return panel;
+            dialoguePanel = panel;
+        }
+
+        return dialoguePanel;
     }
 }
 
 public interface IDialogueLoader
 {
-    public string LoadDialogue(int ID);
-
-    public string LoadDialogue(string name);
+    public DialogueEvent LoadDialogueEvent(int ID);
 }

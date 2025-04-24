@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: TutorialLines
   m_EditorClassIdentifier: 
   Sheet1:
+  - ID: 0
+    Name: error
+    Line: error
   - ID: 1
-    Name: TestLine
+    Name: "\u6559\u5B98"
     Line: "\u6C5F\u627F\u5F66\u662F\u4E00\u540D<color=#FF0000>\u9B41\u68A7\u7537\u5B50</color>\u3002\n\u6C5F\u627F\u5F66\u662F\u53CC\u5F00\u95E8\u5927\u51B0\u7BB1\u3002"
   - ID: 2
-    Name: 
-    Line: 
+    Name: "\u6C5F\u627F\u5F66"
+    Line: "\u6211\u662F\u4E16\u754C\u7B2C\u4E00\u7F8E\u5C11\u5973\uFF01"
   - ID: 3
     Name: 
     Line: 

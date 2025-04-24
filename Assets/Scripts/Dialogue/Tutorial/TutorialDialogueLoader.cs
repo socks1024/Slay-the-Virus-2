@@ -6,29 +6,25 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
 {
     public TutorialLines tutorialLines;
 
-    public string LoadDialogue(int ID)
+    public DialogueEvent LoadDialogueEvent(int ID)
     {
+        DialogueEvent dialogueEvent = new DialogueEvent();
+
         foreach (TutorialData data in tutorialLines.Sheet1)
         {
             if (data.ID == ID)
             {
-                return data.Line;
+                dialogueEvent.name = data.Name;
+                dialogueEvent.line = data.Line;
+
+                return dialogueEvent;
             }
         }
 
-        return "no such line";
+        Debug.LogAssertion("error id");
+
+        return dialogueEvent;
     }
 
-    public string LoadDialogue(string name)
-    {
-        foreach (TutorialData data in tutorialLines.Sheet1)
-        {
-            if (data.Name == name)
-            {
-                return data.Line;
-            }
-        }
-
-        return "no such line";
-    }
+    
 }

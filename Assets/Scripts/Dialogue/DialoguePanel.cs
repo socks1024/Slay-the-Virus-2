@@ -1,41 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour, IPointerClickHandler
 {
-    public RectTransform textPanel;
+    [SerializeField] RectTransform textPanel;
 
-    public TextMeshProUGUI tmp;
+    [SerializeField] Image image;
 
-    public UnityAction onClick;
+    [SerializeField] TextMeshProUGUI lineText;
+
+    [SerializeField] TextMeshProUGUI nameText;
+
+    Sprite defaultSprite;
+
+    Queue<DialogueEvent> dialogueEventsQueue = new();
+
+    void Awake()
+    {
+        defaultSprite = image.sprite;
+
+        GetComponentsInChildren<Image>().ToList().ForEach(g => g.raycastTarget = false);
+        GetComponentsInChildren<TextMeshProUGUI>().ToList().ForEach(g => g.raycastTarget = false);
+        GetComponent<Image>().raycastTarget = true;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (onClick is not null) onClick.Invoke();
-        Destroy(gameObject);
+        if (dialogueEventsQueue.Count == 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            ShowNextDialogueEvent();
+        }
     }
 
-    public DialoguePanel SetOnClick(UnityAction action)
-    {
-        onClick = action;
-
-        return this;
-    }
-
-    public DialoguePanel SetDialogueText(string tutorialText)
-    {
-        tmp.text = tutorialText;
-        tmp.ForceMeshUpdate();
-
-        return this;
-    }
+    #region Setters
 
     public DialoguePanel SetTextPanelPosition(TextPanelPosition position)
     {
+        if (position == TextPanelPosition.DEFAULT)
+        {
+            // don't move
+        }
         if (position == TextPanelPosition.UP)
         {
             textPanel.pivot = new Vector2(0.5f,1);
@@ -43,14 +57,14 @@ public class DialoguePanel : MonoBehaviour, IPointerClickHandler
             textPanel.anchorMin = new Vector2(0,1);
             textPanel.anchorMax = new Vector2(1,1);
         }
-        else if (position == TextPanelPosition.MIDDLE)
+        if (position == TextPanelPosition.MIDDLE)
         {
             textPanel.pivot = new Vector2(0.5f,0.5f);
 
             textPanel.anchorMin = new Vector2(0,0.5f);
             textPanel.anchorMax = new Vector2(1,0.5f);
         }
-        else if (position == TextPanelPosition.DOWN)
+        if (position == TextPanelPosition.DOWN)
         {
             textPanel.pivot = new Vector2(0.5f,0);
 
@@ -60,11 +74,55 @@ public class DialoguePanel : MonoBehaviour, IPointerClickHandler
 
         return this;
     }
+
+    public DialoguePanel AddDialogueEvent(IDialogueLoader loader, int ID)
+    {
+        DialogueEvent dialogueEvent = loader.LoadDialogueEvent(ID);
+
+        if (dialogueEvent.sprite is null) dialogueEvent.sprite = defaultSprite;
+
+        dialogueEventsQueue.Enqueue(dialogueEvent);
+
+        return this;
+    }
+
+    public DialoguePanel AddDialogueEvent(IDialogueLoader loader, int[] IDs)
+    {
+        for (int i = 0; i < IDs.Length; i++)
+        {
+            AddDialogueEvent(loader, IDs[i]);
+        }
+
+        return this;
+    }
+
+    #endregion
+    public void ShowNextDialogueEvent()
+    {
+        DialogueEvent dialogueEvent = dialogueEventsQueue.Dequeue();
+
+        nameText.text = dialogueEvent.name;
+        lineText.text = dialogueEvent.line;
+        image.sprite = dialogueEvent.sprite;
+        SetTextPanelPosition(dialogueEvent.textPanelPosition);
+    }
+}
+
+public struct DialogueEvent
+{
+    public string name;
+
+    public string line;
+
+    public Sprite sprite;
+
+    public TextPanelPosition textPanelPosition;
 }
 
 public enum TextPanelPosition
 {
+    DEFAULT,
+    DOWN,
     UP,
     MIDDLE,
-    DOWN,
 }
