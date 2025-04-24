@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c950c7b57b8a85144bb52a2cebf74917, type: 3}
+  m_Name: TutorialLines
+  m_EditorClassIdentifier: 
+  Sheet1:
+  - ID: 1
+    Name: TestLine
+    Line: "\u6C5F\u627F\u5F66\u662F\u4E00\u540D<color=#FF0000>\u9B41\u68A7\u7537\u5B50</color>\u3002\n\u6C5F\u627F\u5F66\u662F\u53CC\u5F00\u95E8\u5927\u51B0\u7BB1\u3002"
+  - ID: 2
+    Name: 
+    Line: 
+  - ID: 3
+    Name: 
+    Line: 
+  - ID: 4
+    Name: 
+    Line: 
+  - ID: 5
+    Name: 
+    Line: 
+  - ID: 6
+    Name: 
+    Line: 
+  - ID: 7
+    Name: 
+    Line: 
+  - ID: 8
+    Name: 
+    Line: 
+  - ID: 9
+    Name: 
+    Line: 
+  - ID: 10
+    Name: 
+    Line: 
+  - ID: 11
+    Name: 
+    Line: 
+  - ID: 12
+    Name: 
+    Line: 
+  - ID: 13
+    Name: 
+    Line: 
+  - ID: 14
+    Name: 
+    Line: 
+  - ID: 15
+    Name: 
+    Line: 
+  - ID: 16
+    Name: 
+    Line: 
+  - ID: 17
+    Name: 
+    Line: 
+  - ID: 18
+    Name: 
+    Line: 
+  - ID: 19
+    Name: 
+    Line: 
+  - ID: 20
+    Name: 
+    Line: 
+  - ID: 21
+    Name: 
+    Line: 
+  - ID: 22
+    Name: 
+    Line: 
+  - ID: 23
+    Name: 
+    Line: 
+  - ID: 24
+    Name: 
+    Line: 
+  - ID: 25
+    Name: 
+    Line: 
+  - ID: 26
+    Name: 
+    Line: 
