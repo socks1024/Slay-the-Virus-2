@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,7 +50,18 @@ public class CreateNewSaveUI : MonoBehaviour
 
         savedata.PlayerCardInventory["BazookaSoldier"] = 5;
         savedata.PlayerCardInventory["ElectricGrenade"] = 5;
-        
+
+
+        if (nametext.text == "JCY")
+        {
+           foreach (var key in savedata.PlayerCardInventory.Keys.ToList())
+            {
+                savedata.PlayerCardInventory[key] = 99;
+            }
+
+            savedata.BaseLife = 1000;
+            savedata.Nutrient = 1000;
+        }
       
 
         SaveSystem.Instance.SavePlayerToSlot(savedata, index);
