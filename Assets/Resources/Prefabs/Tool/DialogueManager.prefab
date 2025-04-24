@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3417647523201631528}
   - component: {fileID: 4083703762179269578}
+  - component: {fileID: 5575299762516214268}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -44,4 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a967968efc73f746a000545dc7dedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialPanelPrefab: {fileID: 3824631511970630263, guid: 3b4c02943038b054b9a137f7e56b4c24, type: 3}
+  PanelPrefab: {fileID: 3824631511970630263, guid: 3b4c02943038b054b9a137f7e56b4c24, type: 3}
+--- !u!114 &5575299762516214268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168393835432238533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a9b2418dce01d4897659fff8db9272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialLines: {fileID: 11400000, guid: 0364af73c3af3524ca7b8f22081798fa, type: 2}
