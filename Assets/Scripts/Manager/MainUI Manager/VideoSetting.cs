@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class VideoSetting : MonoBehaviour
 {
-    public Dropdown resolution;
-    public Dropdown displayMode;
+    public TMPro.TMP_Dropdown resolution;
+    public TMPro.TMP_Dropdown displayMode;
+
+    public Toggle screentoggle;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
@@ -18,8 +20,10 @@ public class VideoSetting : MonoBehaviour
 
     private void Start()
     {
-        InitialResolutions();
-        InitializeDisplayModes();
+        // InitialResolutions();
+        // InitializeDisplayModes();
+
+        screentoggle.isOn = !Screen.fullScreen;
     }
 
 
@@ -65,7 +69,7 @@ public class VideoSetting : MonoBehaviour
         displayMode.ClearOptions();
         List<string> modes = new List<string>()
         {
-            "FullScreen","Window","BoardlessWindow"  //我不知道这几个词是不是这么拼。。。
+            "全屏","窗口","无边框窗口"  
         };
 
         displayMode.AddOptions(modes);
@@ -74,19 +78,24 @@ public class VideoSetting : MonoBehaviour
 
     }
 
-    public void SetResolution(int resolution)
-    {
-        currentResolutionIndex = resolution;
-    }
+    //public void SetResolution(int resolution)
+    //{
+    //    currentResolutionIndex = resolution;
+    //}
 
-    public void SetDisplayMode(int modeindex)
-    {
-        currentFullscreenMode = (FullScreenMode)modeindex;
-    }
+    //public void SetDisplayMode(int modeindex)
+    //{
+    //    currentFullscreenMode = (FullScreenMode)modeindex;
+    //}
 
-    public void ApplySettings()
+    //public void ApplySettings()
+    //{
+    //   // Resolution selected = filteredResolutions[currentResolutionIndex];
+    //    //Screen.SetResolution(1920, 1080, currentFullscreenMode, selected.refreshRateRatio);
+    //}
+
+    public void ScreenModeToggle()
     {
-        Resolution selected = filteredResolutions[currentResolutionIndex];
-        Screen.SetResolution(selected.width, selected.height, currentFullscreenMode, selected.refreshRateRatio);
+        Screen.fullScreen = screentoggle.isOn;
     }
 }
