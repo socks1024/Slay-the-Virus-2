@@ -8,7 +8,7 @@ using TMPro;
 public class SettingPanel : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> panels = new List<GameObject>();
+    private List<GameObject> panels = new List<GameObject>();
     [SerializeField]
     private Slider masterslider;
     [SerializeField]

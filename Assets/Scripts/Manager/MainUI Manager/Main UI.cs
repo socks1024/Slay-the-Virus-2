@@ -36,7 +36,7 @@ public class MainUI : MonoBehaviour
     public void OnOpenSettings()
     {
         settingpanel.SetActive(true);
-        mainpanel.SetActive(false);
+        
     }
 
     public void OnReturnToMain()
