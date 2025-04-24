@@ -5554,7 +5554,7 @@ MonoBehaviour:
   - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
   - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
   relics: []
-  mission: {fileID: 11400000, guid: 05b99bac472463d45aa05eab891ac842, type: 2}
+  mission: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
 --- !u!114 &978686532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13386,6 +13386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 1
+  button: {fileID: 0}
 --- !u!1 &1999812676
 GameObject:
   m_ObjectHideFlags: 0

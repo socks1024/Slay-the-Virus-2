@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CardUI : MonoBehaviour
 {
@@ -250,15 +251,6 @@ public class CardUI : MonoBehaviour
     /// </summary>
     void OnCardAct()
     {
-        // if (UIState == UIStates.PLACED)
-        // {
-        //     UIState = UIStates.SETTING_TARGET;
-        // }
-        // else
-        // {
-        //     UIState = UIStates.ANIMATE;
-        // }
-
         UIState = UIStates.ANIMATE;
     }
 
@@ -279,28 +271,6 @@ public class CardUI : MonoBehaviour
         descriptionText.raycastTarget = false;
 
         cardImage.sprite = data.CardTex;
-
-        // switch (data.AbilityType)
-        // {
-        //     case CardAbilityType.ATTACK:
-        //         cardBG.sprite = AttackBG;
-        //         break;
-        //     case CardAbilityType.DEFEND:
-        //         cardBG.sprite = DefenseBG;
-        //         break;
-        //     case CardAbilityType.HEAL:
-        //         cardBG.sprite = HealBG;
-        //         break;
-        //     case CardAbilityType.SKILL:
-        //         cardBG.sprite = SkillBG;
-        //         break;
-        //     case CardAbilityType.EXPAND:
-        //         cardBG.sprite = ExpandBG;
-        //         break;
-        //     case CardAbilityType.TRASH:
-        //         cardBG.sprite = TrashBG;
-        //         break;
-        // }
 
         switch (data.ActType)
         {

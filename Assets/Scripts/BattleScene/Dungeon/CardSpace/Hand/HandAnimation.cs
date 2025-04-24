@@ -65,10 +65,10 @@ public class HandAnimation : MonoBehaviour
         {
             CardBehaviour card = cards[i];
 
-            Vector3 rot = Vector3.zero;
-            rot.z += rotationDiff * ((cards.Count - 1) / 2 - i);
+            // Vector3 rot = Vector3.zero;
+            // rot.z += rotationDiff * ((cards.Count - 1) / 2 - i);
 
-            card.GetComponent<CardSwitchMode>().cardMode.transform.DORotate(rot, arrangeTime);
+            // card.GetComponent<CardSwitchMode>().cardMode.transform.DORotate(rot, arrangeTime);
 
             Vector3 pos = transform.position;
             pos.x += cardOffset * (i - (cards.Count - 0.5f) / 2);

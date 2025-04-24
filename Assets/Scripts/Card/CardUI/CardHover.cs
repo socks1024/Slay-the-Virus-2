@@ -61,7 +61,7 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             case UIStates.CUSTOM:
                 break;
             case UIStates.HAND:
-                EnterHandPreview();
+                if (!eventData.dragging) EnterHandPreview();
                 break;
             case UIStates.PLACED:
                 break;
