@@ -31,7 +31,10 @@ public class InitItems : MonoBehaviour
                  shopitem.GetComponent<CardItemInventory>().ResetNumText();
                  GameObject newcard = GameObject.Instantiate(cardItem.cardBehaviour.gameObject, shopitem.transform) as GameObject;
                  newcard.transform.SetSiblingIndex(0);
-                 newcard.transform.localScale = new Vector3(0.65f, 0.65f, 0);
+                 newcard.gameObject.GetComponent<TetrisAssembler>().enabled = false;
+                 newcard.gameObject.GetComponent<CardRotate>().enabled = false;
+                 newcard.gameObject.GetComponent<CardPosition>().enabled = false;
+                 newcard.gameObject.GetComponent<CardSetTarget>().enabled = false;
                  Button button = shopitem.transform.GetChild(1).GetComponent<Button>();
                  button.AddComponent<ButtonOfCard>();
         }

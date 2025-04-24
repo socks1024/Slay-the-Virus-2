@@ -52,7 +52,7 @@ public class CreateNewSaveUI : MonoBehaviour
         savedata.PlayerCardInventory["ElectricGrenade"] = 5;
 
 
-        if (nametext.text == "JCY")
+        if (nametext.text == "JCY"|| nametext.text == "SJS")//0.0
         {
            foreach (var key in savedata.PlayerCardInventory.Keys.ToList())
             {
