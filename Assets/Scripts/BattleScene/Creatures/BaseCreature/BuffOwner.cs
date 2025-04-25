@@ -19,30 +19,28 @@ public class BuffOwner : MonoBehaviour
     public UnityAction<List<BuffBehaviour>> OnChangeBuff;
 
     /// <summary>
-    /// 获得一些Buff
+    /// 获得buff
     /// </summary>
-    /// <param name="newBuff">新的Buff</param>
-    public void GainBuff(BuffBehaviour newBuff)
+    /// <param name="buffName">buff的ID</param>
+    /// <param name="amount">buff的量</param>
+    public void GainBuff(string buffName, int amount)
     {
-        bool hasSameBuff = false;
 
-        foreach (BuffBehaviour oldBuff in buffs)
+        if (HasBuff(buffName))
         {
-            if (oldBuff.ID == newBuff.ID)
-            {
-                if (oldBuff.Amount > 0 && !oldBuff.isDestroying)
-                {
-                    hasSameBuff = true;
-                    oldBuff.Amount += newBuff.Amount;
-                }
-            }
+            GetBuff(buffName).Amount += amount;
+        }
+        else
+        {
+            buffs.Add(DungeonBuffLib.GetBuff(buffName, amount, Creature));
         }
 
-        if (!hasSameBuff)
-        {
-            buffs.Add(newBuff);
-            newBuff.Owner = Creature;
-        }
+        OnChangeBuff.Invoke(buffs);
+    }
+
+    public void GainBuffNextTurn(string buffName, int amount, CreatureBehaviour source)
+    {
+        buffs.Add(DungeonBuffLib.GetApplyBuffNextTurnBuff(buffName, amount, Creature, source));
 
         OnChangeBuff.Invoke(buffs);
     }

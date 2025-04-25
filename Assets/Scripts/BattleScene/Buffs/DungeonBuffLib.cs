@@ -15,10 +15,22 @@ public static class DungeonBuffLib
     /// <param name="name">buff名字</param>
     /// <param name="amount">buff数值</param>
     /// <returns></returns>
-    public static BuffBehaviour GetBuff(string name, int amount)
+    public static BuffBehaviour GetBuff(string name, int amount, CreatureBehaviour owner)
     {
         BuffBehaviour buff = MonoBehaviour.Instantiate(buffPrefabs[name]);
+        buff.Owner = owner;
         buff.Amount = amount;
+        return buff;
+    }
+
+    public static ApplyBuffNextTurnBuff GetApplyBuffNextTurnBuff(string buffNextTurnName, int amount, CreatureBehaviour owner, CreatureBehaviour source)
+    {
+        ApplyBuffNextTurnBuff buff = GetBuff("ApplyBuffNextTurn", amount, owner) as ApplyBuffNextTurnBuff;
+
+        buff.source = source;
+        buff.newBuffID = buffNextTurnName;
+        buff.SetBuffNextTurn();
+
         return buff;
     }
 

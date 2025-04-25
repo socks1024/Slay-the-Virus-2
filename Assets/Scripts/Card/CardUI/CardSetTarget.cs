@@ -86,7 +86,7 @@ public class CardSetTarget : MonoBehaviour
             card.targetEnemy = enemyGroup.GetHoveredEnemy();
             SetArrowAlpha(ArrowAlphaAfterSelect);
 
-            ActButton.Instance.button.interactable = true;
+            ActButton.Instance.SetEnableButton();
         }
     }
 
@@ -96,7 +96,7 @@ public class CardSetTarget : MonoBehaviour
     {
         if (currCurve == null)
         {
-            ActButton.Instance.button.interactable = false;
+            ActButton.Instance.SetDisableButton();
 
             currCurve = Instantiate(SelectTargetCurve);
             currCurve.transform.SetParent(transform, false);

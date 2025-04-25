@@ -50,13 +50,13 @@ public abstract class CardBehaviour : MonoBehaviour
     /// 卡牌的方块要组成的形状，通过一组向量表示每个方块相对原点的位置
     /// </summary>
     //[HideInInspector]
-    public List<Vector2> CardShape;
+    [HideInInspector]public List<Vector2> CardShape;
 
     /// <summary>
     /// 能触发卡牌特效的格子，通过一组向量表示其相对原点的位置
     /// </summary>
     //[HideInInspector]
-    public List<Vector2> ConditionsShape;
+    [HideInInspector]public List<Vector2> ConditionsShape;
 
     /// <summary>
     /// 下一次打出卡牌的攻击力
@@ -141,7 +141,6 @@ public abstract class CardBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        print("Awake:" + Id);
         cardPosition = GetComponent<CardPosition>();
         
         CardShape = DeepCopy.DeepCopyValueTypeList<Vector2>(cardData.CardShape);
@@ -156,7 +155,6 @@ public abstract class CardBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        print("Destroy:" + Id);
         EventCenter.Instance.RemoveEventListener(EventType.TURN_START, ResetData);
     }
 

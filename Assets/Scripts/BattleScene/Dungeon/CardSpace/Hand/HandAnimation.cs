@@ -73,7 +73,9 @@ public class HandAnimation : MonoBehaviour
             Vector3 pos = transform.position;
             pos.x += cardOffset * (i - (cards.Count - 0.5f) / 2);
 
-            card.transform.DOMove(pos, arrangeTime);
+            card.transform.DOMove(pos, arrangeTime).OnComplete(
+                () => {card.GetComponent<CardUI>().UIState = UIStates.HAND;}
+            );
         }
     }
 
@@ -91,7 +93,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void AddCardAnim(CardBehaviour card)
     {
-        card.GetComponent<CardUI>().UIState = UIStates.HAND;
+        card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
         card.transform.SetParent(transform, false);
         ArrangeCardsInHand();
     }
@@ -136,7 +138,7 @@ public class HandAnimation : MonoBehaviour
     /// </summary>
     public void DrawCardAnim(CardBehaviour card)
     {
-        card.GetComponent<CardUI>().UIState = UIStates.HAND;
+        card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
         card.transform.SetParent(transform, false);
         card.transform.position = drawPosition.position;
         ArrangeCardsInHand();

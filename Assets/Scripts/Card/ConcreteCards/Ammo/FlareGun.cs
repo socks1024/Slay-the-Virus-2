@@ -11,7 +11,11 @@ public class FlareGun : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        
+        if (cardPosition.Conditioned)
+        {
+            ActionLib.DrawCardAction(nextEffect);
+            lockedOnBoard = true;
+        }
     }
 
     public override void ActOnRemoved()
@@ -21,10 +25,6 @@ public class FlareGun : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        if (cardPosition.Conditioned)
-        {
-            ActionLib.DrawCardAction(nextEffect);
-            lockedOnBoard = true;
-        } 
+        
     }
 }

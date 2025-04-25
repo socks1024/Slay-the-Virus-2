@@ -106,7 +106,7 @@ public static class ActionLib
         }
 
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, type, () => {
-            target.buffOwner.GainBuff(DungeonBuffLib.GetBuff(buffName, amount));
+            target.buffOwner.GainBuff(buffName, amount);
         });
     }
 
@@ -127,13 +127,7 @@ public static class ActionLib
         }
 
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, type, () => {
-            ApplyBuffNextTurnBuff buff = DungeonBuffLib.GetBuff("ApplyBuffNextTurn", amount) as ApplyBuffNextTurnBuff;
-            
-            buff.source = source;
-            buff.newBuffID = buffName;
-            buff.SetBuffNextTurn();
-
-            target.buffOwner.GainBuff(buff);
+            target.buffOwner.GainBuffNextTurn(buffName, amount, source);
         });
     }
 
@@ -224,7 +218,7 @@ public static class ActionLib
     public static void WoundAction(CreatureBehaviour owner, int amount)
     {
         AnimationManager.Instance.PlayAnimEffect(owner.transform.position, AnimEffectType.WOUND, () => {
-            if ((owner as PlayerBehaviour).HasRelic("ConceptShield"))
+            if (owner is PlayerBehaviour && (owner as PlayerBehaviour).HasRelic("ConceptShield"))
             {
                 owner.takeDamage.GetDamage(amount);
             }

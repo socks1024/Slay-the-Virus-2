@@ -53,7 +53,7 @@ public class MonoSingletonDestroyOnLoad<T> : MonoBehaviour where T : MonoSinglet
         MonoSingletonDestroyOnLoad<T>.m_lock = new Object();
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         MonoSingletonDestroyOnLoad<T>.instance = default(T);
     }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7804280586479399553}
   - component: {fileID: 7792300556943400975}
   - component: {fileID: 4642128011655247406}
-  - component: {fileID: 3611340865484755070}
   - component: {fileID: 7370498080193796382}
   m_Layer: 5
   m_Name: Block
@@ -90,22 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5389f64773632ef4faed0733c0f7ea70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3611340865484755070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3040448249907602424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0bd0324e11c4a4593d3c7596757404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverable: 0
-  previewDelay: 1
-  cardUI: {fileID: 0}
-  CardHandViewScale: 2
 --- !u!114 &7370498080193796382
 MonoBehaviour:
   m_ObjectHideFlags: 0

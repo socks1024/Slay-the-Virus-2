@@ -8,12 +8,23 @@ public class ActButton : MonoSingletonDestroyOnLoad<ActButton>
 {
     [SerializeField] float WaitTime;
 
-    public Button button;
+    Button button;
 
     protected override void Awake()
     {
         base.Awake();
         button = GetComponent<Button>();
+
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, SetEnableButton);
+        EventCenter.Instance.AddEventListener(EventType.ACT_START, SetDisableButton);
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, SetEnableButton);
+        EventCenter.Instance.RemoveEventListener(EventType.ACT_START, SetDisableButton);
     }
 
     public void Act()
@@ -21,19 +32,15 @@ public class ActButton : MonoSingletonDestroyOnLoad<ActButton>
         DungeonManager.Instance.battleManager.TriggerCardActRelics();
         DungeonManager.Instance.battleManager.enemyGroup.EnemyActBeforCardAct();
         EventCenter.Instance.TriggerEvent(EventType.ACT_START);
-
-        SetDisableButton();
     }
 
     public void SetDisableButton()
     {
         button.interactable = false;
-        EventCenter.Instance.AddEventListener(EventType.TURN_START, SetEnableButton);
     }
 
     public void SetEnableButton()
     {
         button.interactable = true;
-        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, SetEnableButton);
     }
 }

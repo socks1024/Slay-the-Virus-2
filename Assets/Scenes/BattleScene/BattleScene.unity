@@ -5534,25 +5534,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 9123851736157987228, guid: 86f123494d72d6b48aaaddd43ef52fb0, type: 3}
-  - {fileID: 1082363282069129680, guid: a6f0bb1ce625e264abf20ab470c3856c, type: 3}
-  - {fileID: 2888669121174763323, guid: 2708dd1388049014180304aa93a29479, type: 3}
+  - {fileID: -6073692226663065311, guid: e70d6f02527c52f46bd68a48356c27b6, type: 3}
   - {fileID: 3943898026727882464, guid: b02c12eac04575a4999e535a3d2abc54, type: 3}
+  - {fileID: 1082363282069129680, guid: a6f0bb1ce625e264abf20ab470c3856c, type: 3}
+  - {fileID: 8761711955950634563, guid: 5b0895a626d3ee84aa66a44df614dab0, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
-  - {fileID: -8106769876060810979, guid: 4e72b23aba4b09540ae370a263211e01, type: 3}
-  - {fileID: -8106769876060810979, guid: 4e72b23aba4b09540ae370a263211e01, type: 3}
-  - {fileID: 5032682769057224415, guid: 017573787281e664db315cbd7cc8c3e9, type: 3}
-  - {fileID: 5032682769057224415, guid: 017573787281e664db315cbd7cc8c3e9, type: 3}
-  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
-  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
-  - {fileID: 6969978130319529840, guid: 01861b73941a7b04f9ef844566db784b, type: 3}
+  - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: 591868586984988802, guid: 5362de459e6a32e47bda4ce7836e0f6b, type: 3}
   - {fileID: 591868586984988802, guid: 5362de459e6a32e47bda4ce7836e0f6b, type: 3}
   - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
   - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
+  - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
+  - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
+  - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
+  - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
   relics: []
   mission: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
 --- !u!114 &978686532
@@ -13329,7 +13327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 1
-  button: {fileID: 0}
 --- !u!1 &1999812676
 GameObject:
   m_ObjectHideFlags: 0

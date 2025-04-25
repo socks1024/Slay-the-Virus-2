@@ -41,7 +41,7 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// </summary>
     public BuffType Type;
 
-    public bool isDestroying = false;
+    [HideInInspector]public bool isDestroying = false;
 
     /// <summary>
     /// 状态效果的持有量
@@ -68,7 +68,7 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// <summary>
     /// 状态效果的持有者
     /// </summary>
-    public CreatureBehaviour Owner{ get; set;}
+    public CreatureBehaviour Owner;
 
     #endregion
 
