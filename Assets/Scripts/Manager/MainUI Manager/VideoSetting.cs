@@ -18,12 +18,12 @@ public class VideoSetting : MonoBehaviour
     private int currentResolutionIndex;
     private FullScreenMode currentFullscreenMode;
 
-    private void Start()
+    private void Awake()
     {
         // InitialResolutions();
         // InitializeDisplayModes();
 
-        screentoggle.isOn = !Screen.fullScreen;
+        screentoggle.isOn = Screen.fullScreen;
     }
 
 

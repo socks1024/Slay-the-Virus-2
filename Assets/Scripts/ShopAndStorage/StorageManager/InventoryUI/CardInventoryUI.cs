@@ -103,26 +103,26 @@ public class CardInventoryUI : MonoBehaviour
         inventoryitem.showstate = 0;
     }
 
-    private void FillBlank()
-    {
-        for(int i = 0; i < num; i++)
-        {
-            GameObject go = new GameObject();
-            blanks.Add(go);
-            go.AddComponent<RectTransform>();
-            go.transform.SetParent(ContentPanel.transform);
-            go.transform.SetSiblingIndex(sum);
-        }
-    }
+    //private void FillBlank()
+    //{
+    //    for(int i = 0; i < num; i++)
+    //    {
+    //        GameObject go = new GameObject();
+    //        blanks.Add(go);
+    //        go.AddComponent<RectTransform>();
+    //        go.transform.SetParent(ContentPanel.transform);
+    //        go.transform.SetSiblingIndex(sum);
+    //    }
+    //}
 
-    private void ClearBlank()
-    {
-        foreach (GameObject blank in blanks)
-        {
-            Destroy(blank.gameObject);
-        }
-        blanks.Clear();
-    }
+    //private void ClearBlank()
+    //{
+    //    foreach (GameObject blank in blanks)
+    //    {
+    //        Destroy(blank.gameObject);
+    //    }
+    //    blanks.Clear();
+    //}
 
     private int Search(int code)
     {
@@ -187,7 +187,7 @@ public class CardInventoryUI : MonoBehaviour
         inventoryitem.showstate = 1;
         detailPanel.gameObject.SetActive(true);
         Detailed.transform.SetParent(detailPanel.transform);
-        Detailed.transform.localScale = inventoryitem.originalscale * 1.75f;
+        Detailed.transform.localScale = new Vector3(inventoryitem.originalscale.x * 1.6f, inventoryitem.originalscale.y * 1.75f, 0);
         Detailed.transform.localPosition = Vector3.zero;
     }
 }
