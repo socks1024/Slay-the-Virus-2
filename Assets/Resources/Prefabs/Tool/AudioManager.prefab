@@ -75,8 +75,48 @@ MonoBehaviour:
     cooldown: 0
     lastVariationPlayed: 0
     timeLastPlayed: 0
-  - name: Level1_Loop
+  - name: BossFight1
     sound: {fileID: 8300000, guid: e4921ea5987635d44831a4275ff5eef2, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BossFight2
+    sound: {fileID: 8300000, guid: 6b8bc15f764dec14291d97de7d774afd, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BossFight3
+    sound: {fileID: 8300000, guid: 7cf3aad25f0734246859f09913969881, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BossFight4
+    sound: {fileID: 8300000, guid: ce1626f2a503f7c40b39e5031e68562d, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BossFight5
+    sound: {fileID: 8300000, guid: 42b692c0121634e47bc23c76b667dcdc, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BossFight6
+    sound: {fileID: 8300000, guid: ce1626f2a503f7c40b39e5031e68562d, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0

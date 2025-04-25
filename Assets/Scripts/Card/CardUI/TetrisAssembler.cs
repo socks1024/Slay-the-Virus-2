@@ -96,7 +96,7 @@ public class TetrisAssembler : MonoBehaviour
 
         AssembleBlocks();
         
-        card.GetComponent<CardUI>().UIState = UIStates.HAND;
+        card.GetComponent<CardUI>().Mode = CardMode.CARD;
     }
 
     /// <summary>

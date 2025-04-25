@@ -14,7 +14,7 @@ public class CardUI : MonoBehaviour
     public CardMode Mode
     {
         get { return mode; }
-        private set 
+        set 
         {
             mode = value;
             switch (mode)

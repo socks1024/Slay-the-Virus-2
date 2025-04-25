@@ -212,13 +212,20 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     #region leave dungeon
 
-    public void LeaveDungeon()
+    void LeaveDungeon()
     {
         Messenger.leaveBattleInfoTest.p_Relics = Player.p_Relics;
         Messenger.leaveBattleInfoTest.p_Board = Player.p_Board;
         Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
         Messenger.leaveBattleInfoTest.nutrition = Player.Nutrition;
 
+        AudioManager.Instance.StopMusic();
+
+        SceneManager.LoadScene("Base");
+    }
+
+    public void WinLeaveDungeon()
+    {
         switch (mission.DungeonName)
         {
             case "BossFight1":
@@ -239,10 +246,19 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
             case "BossFight6":
                 SaveSystem.Instance.LevelClear(6);
                 break;
-            
         }
 
-        SceneManager.LoadScene("Base");
+        LeaveDungeon();
+    }
+
+    public void LoseLeaveDungeon()
+    {
+        LeaveDungeon();
+    }
+
+    public void SettingLeaveDungeon()
+    {
+        LeaveDungeon();
     }
 
     #endregion
@@ -267,6 +283,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
     public void StartAdventure(EnterDungeonInfo enterDungeonInfo)
     {
         mission = enterDungeonInfo.missionData;
+
+        AudioManager.Instance.PlayMusic(mission.ID);
 
         Player.SetBackpack(enterDungeonInfo.p_Cards, boardPrefab, enterDungeonInfo.p_Relics, 0);
 
@@ -302,7 +320,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     public void TestLeaveBattleScene()
     {
-        LeaveDungeon();
+        WinLeaveDungeon();
     }
 }
 

@@ -35,17 +35,22 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void PlaySFX(string id)
     {
-        sfxManager.PlaySound(id);
+        if (sfxManager != null) sfxManager.PlaySound(id);
     }
 
     public void PlayMusic(string id)
     {
-        musicManager.PlaySound(id);
+        if (musicManager != null) musicManager.PlaySound(id);
+    }
+
+    public void StopMusic()
+    {
+        if (musicManager != null) musicManager.StopSound();
     }
 
     public void ToggleMusic()//¾²ÒôºÍ½â³ý
     {
-        musicManager.mute = !musicManager.mute;
+        if (musicManager != null) musicManager.mute = !musicManager.mute;
     }
 
     protected override void Awake()

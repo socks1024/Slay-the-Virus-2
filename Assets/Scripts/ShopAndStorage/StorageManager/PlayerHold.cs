@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHold : MonoSingletonDestroyOnLoad<PlayerHold>
+public class PlayerHold : MonoSingleton<PlayerHold>
 {
     private Dictionary<Item, int> CarriedItems = new Dictionary<Item, int>();  //玩家持有物品的列表
-    private Dictionary<CardBehaviour,int>CarriedCards= new Dictionary<CardBehaviour, int>();//玩家持有的卡牌
+    private Dictionary<CardBehaviour,int> CarriedCards= new Dictionary<CardBehaviour, int>();//玩家持有的卡牌
     private Dictionary<CardItem, int> CarriedCardItems = new Dictionary<CardItem, int>();
     private Item chessboard;//玩家只能选一个棋盘（如果我没理解错的话...）
 

@@ -131,12 +131,12 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        LeaveHandPreview();
         switch(cardUI.UIState)
         {
             case UIStates.CUSTOM:
                 break;
             case UIStates.HAND:
-                LeaveHandPreview();
                 break;
             case UIStates.PLACED:
                 break;

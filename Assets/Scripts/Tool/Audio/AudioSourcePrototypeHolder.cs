@@ -194,6 +194,19 @@ namespace Tools
 			}
 		}
 
+		public void StopSound()
+		{
+			foreach (AudioSource audioSource in this.sourcePool)
+			{
+				if (audioSource.isPlaying)
+				{
+					audioSource.Stop();
+					audioSource.clip = null;
+					break;
+				}
+			}
+		}
+
 		private AudioSource GetFreeSource()
 		{
 			AudioSource audioSource = this.sourcePool.Dequeue();
