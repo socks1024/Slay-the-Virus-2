@@ -58,6 +58,11 @@ public class ShowDeckPanel : MonoBehaviour
             CardBehaviour card = Instantiate(cardPrefab);
             card.transform.SetParent(CardsView.content, false);
             card.GetComponent<CardUI>().UIState = UIStates.ANIMATE;
+
+            Vector3 v = card.transform.position;
+            v.z = 0;
+            card.transform.localPosition = v;
+            
             showedCards.Add(card);
         }
     }

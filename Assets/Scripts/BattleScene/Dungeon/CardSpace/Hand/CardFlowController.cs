@@ -197,7 +197,8 @@ public class CardFlowController : MonoBehaviour
 
         foreach (CardBehaviour card in cards)
         {
-            card.transform.SetParent(DungeonManager.Instance.storage);
+            card.transform.SetParent(DungeonManager.Instance.storage, false);
+            card.transform.localScale = card.GetComponent<CardUI>().baseScale;
         }
     }
 
