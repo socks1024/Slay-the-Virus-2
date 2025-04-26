@@ -3231,8 +3231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47, y: -400}
-  m_SizeDelta: {x: 2000, y: 100}
+  m_AnchoredPosition: {x: 0, y: -400}
+  m_SizeDelta: {x: 1800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547637797
 MonoBehaviour:
@@ -3246,8 +3246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735dec10d7418a34da2e7e228cc36ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardOffset: 5
-  rotationDiff: 0
+  baseCardOffset: 5
+  baseCardAmount: 5
+  cardOffsetDecrement: 0.5
   arrangeTime: 0.3
   drawPosition: {fileID: 690340520}
   discardPosition: {fileID: 107909879}
@@ -5534,25 +5535,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: -6073692226663065311, guid: e70d6f02527c52f46bd68a48356c27b6, type: 3}
-  - {fileID: 3943898026727882464, guid: b02c12eac04575a4999e535a3d2abc54, type: 3}
-  - {fileID: 1082363282069129680, guid: a6f0bb1ce625e264abf20ab470c3856c, type: 3}
-  - {fileID: 8761711955950634563, guid: 5b0895a626d3ee84aa66a44df614dab0, type: 3}
+  - {fileID: -261558484461074799, guid: 312da106e990de14c9b3fc2c788e682f, type: 3}
+  - {fileID: -261558484461074799, guid: 312da106e990de14c9b3fc2c788e682f, type: 3}
+  - {fileID: -261558484461074799, guid: 312da106e990de14c9b3fc2c788e682f, type: 3}
+  - {fileID: -261558484461074799, guid: 312da106e990de14c9b3fc2c788e682f, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
-  - {fileID: 591868586984988802, guid: 5362de459e6a32e47bda4ce7836e0f6b, type: 3}
-  - {fileID: 591868586984988802, guid: 5362de459e6a32e47bda4ce7836e0f6b, type: 3}
-  - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
-  - {fileID: -9077601928855140735, guid: 4390d8f955dc6654eb1ab738914bf5f7, type: 3}
-  - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
   - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
   - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
   - {fileID: 7977627323806512205, guid: aca1f0adfe08b0449a0d3110692db5e4, type: 3}
   relics: []
-  mission: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
+  mission: {fileID: 11400000, guid: 6b1a9a3603d9a52499154ce61be75005, type: 2}
 --- !u!114 &978686532
 MonoBehaviour:
   m_ObjectHideFlags: 0

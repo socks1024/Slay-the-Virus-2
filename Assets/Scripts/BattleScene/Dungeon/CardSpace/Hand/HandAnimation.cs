@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using DG.Tweening;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HandAnimation : MonoBehaviour
@@ -17,13 +18,38 @@ public class HandAnimation : MonoBehaviour
     /// <summary>
     /// 卡牌之间间隔的距离
     /// </summary>
-    float cardOffset = 20f;
+    float baseCardOffset = 2f;
 
     [SerializeField]
     /// <summary>
-    /// 卡牌之间旋转角度的差距
+    /// 按照基础距离计算的卡牌数量
     /// </summary>
-    float rotationDiff = 1f;
+    int baseCardAmount = 5;
+
+    [SerializeField]
+    /// <summary>
+    /// 每多一张卡牌，卡牌间隔减少的量
+    /// </summary>
+    float cardOffsetDecrement = 0.3f;
+
+    /// <summary>
+    /// 最终的卡牌间隔
+    /// </summary>
+    float CardOffset
+    {
+        get 
+        {
+            if (Hand.GetCards().Count <= baseCardAmount)
+            {
+                return baseCardOffset;
+            }
+            else
+            {
+                int extraCards = Hand.GetCards().Count - baseCardAmount;
+                return baseCardOffset - extraCards * cardOffsetDecrement;
+            }
+        }
+    }
 
     [SerializeField]
     /// <summary>
@@ -65,13 +91,8 @@ public class HandAnimation : MonoBehaviour
         {
             CardBehaviour card = cards[i];
 
-            // Vector3 rot = Vector3.zero;
-            // rot.z += rotationDiff * ((cards.Count - 1) / 2 - i);
-
-            // card.GetComponent<CardSwitchMode>().cardMode.transform.DORotate(rot, arrangeTime);
-
             Vector3 pos = transform.position;
-            pos.x += cardOffset * (i - (cards.Count - 0.5f) / 2);
+            pos.x = transform.position.x - ( CardOffset / 2 * ( cards.Count - 1 ) ) + i * CardOffset;
 
             card.transform.DOMove(pos, arrangeTime).OnComplete(
                 () => {card.GetComponent<CardUI>().UIState = UIStates.HAND;}
@@ -84,7 +105,7 @@ public class HandAnimation : MonoBehaviour
     //基础位置 position
     //起始位置 position.x - offset * count / 2
 
-    //(count - 1) / 2 * rotationDiff + rotationDiff * i
+    //pos.x += (5) * (0 - (5 - 0.5) / 2);s
 
     # region hand & screen
 

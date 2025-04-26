@@ -23,7 +23,7 @@ public class SystemEngineer : CardBehaviour
     {
         for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
         {
-            ActionLib.ApplyBuffAction(Player, Player, "SystemEngineer", nextEffect);
+            ActionLib.ApplyBuffNextTurnAction(Player, Player, "SystemEngineer", nextEffect);
         }
     }
 }

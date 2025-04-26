@@ -6,28 +6,27 @@ public class Epinephrine : CardBehaviour
 {
     public override void ActOnDiscard()
     {
-        // print("DiscardCard");
+        
     }
 
     public override void ActOnPlaced()
     {
-        foreach (Square s in cardPosition.ConditionedSquares)
-        {
-            s.CardAdjustment += Affection;
-        }
+        
     }
 
     public override void ActOnRemoved()
     {
-        foreach (Square s in cardPosition.ConditionedSquares)
-        {
-            s.CardAdjustment -= Affection;
-        }
+        
     }
 
     public override void ActOnCardAct()
     {
         ActionLib.RemoveCardFromBattle(this);
+    }
+
+    public override void ActBeforeCardAct()
+    {
+        cardPosition.GetCardsSatisfiedCondition().ForEach(c => Affection(c));
     }
 
     void Affection(CardBehaviour card)

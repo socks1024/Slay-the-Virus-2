@@ -68,7 +68,7 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// <summary>
     /// 状态效果的持有者
     /// </summary>
-    public CreatureBehaviour Owner;
+    [HideInInspector]public CreatureBehaviour Owner;
 
     #endregion
 

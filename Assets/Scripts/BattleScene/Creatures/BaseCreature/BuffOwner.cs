@@ -26,7 +26,7 @@ public class BuffOwner : MonoBehaviour
     public void GainBuff(string buffName, int amount)
     {
 
-        if (HasBuff(buffName))
+        if (HasBuff(buffName) && !GetBuff(buffName).isDestroying)
         {
             GetBuff(buffName).Amount += amount;
         }
@@ -40,6 +40,20 @@ public class BuffOwner : MonoBehaviour
 
     public void GainBuffNextTurn(string buffName, int amount, CreatureBehaviour source)
     {
+        foreach (BuffBehaviour buff in buffs)
+        {
+            if (buff.ID == "ApplyBuffNextTurn" && !buff.isDestroying)
+            {
+                ApplyBuffNextTurnBuff applyBuffNextTurnBuff = buff as ApplyBuffNextTurnBuff;
+
+                if (applyBuffNextTurnBuff.newBuffID == buffName && applyBuffNextTurnBuff.source == source)
+                {
+                    applyBuffNextTurnBuff.Amount += amount;
+                    return;
+                }
+            }
+        }
+
         buffs.Add(DungeonBuffLib.GetApplyBuffNextTurnBuff(buffName, amount, Creature, source));
 
         OnChangeBuff.Invoke(buffs);

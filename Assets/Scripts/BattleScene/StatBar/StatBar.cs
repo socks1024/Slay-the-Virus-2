@@ -88,7 +88,6 @@ public class StatBar : MonoBehaviour
     /// </summary>
     void UpdateBuffs(List<BuffBehaviour> buffs)
     {
-        print("update buff");
         foreach (BuffBehaviour buff in buffs)
         {
             buff.transform.SetParent(buffsRoot, false);

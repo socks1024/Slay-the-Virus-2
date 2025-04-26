@@ -31,7 +31,7 @@ public static class ActionLib
             target.takeDamage.GetDamage(damage);
         });
 
-        if (source.buffOwner.HasBuff("Counter")) CounterAction(target, source, source.buffOwner.GetBuffAmount("Counter"));
+        if (target.buffOwner.HasBuff("Counter")) CounterAction(source, target, target.buffOwner.GetBuffAmount("Counter"));
 
         if (source is PlayerBehaviour)
         {
@@ -313,8 +313,12 @@ public static class ActionLib
         for (int i = 0; i < amount; i++)
         {
             List<Square> s = DungeonManager.Instance.battleManager.board.AllDisabledSquares;
-            int randIndex = Random.Range(0,s.Count);
-            s[randIndex].IsActive = true;
+            
+            if (s.Count > 0)
+            {
+                int randIndex = Random.Range(0,s.Count);
+                s[randIndex].IsActive = true;
+            }
         }
     }
 
@@ -348,7 +352,7 @@ public static class ActionLib
     /// <param name="target"></param>
     public static void ClearHighestDebuffAction(CreatureBehaviour target)
     {
-        target.buffOwner.GetHighestDebuff().Amount = 0;
+        if (target.buffOwner.GetHighestDebuff() is not null) target.buffOwner.GetHighestDebuff().Amount = 0;
     }
 
     /// <summary>

@@ -118,7 +118,7 @@ public abstract class CardBehaviour : MonoBehaviour
     public bool removedFromBattleAndDeck = false;
 
     /// <summary>
-    /// 卡牌的回合结束时效果
+    /// 卡牌的出牌时效果
     /// </summary>
     public abstract void ActOnCardAct();
 
@@ -136,6 +136,11 @@ public abstract class CardBehaviour : MonoBehaviour
     /// 卡牌的被丢弃时效果
     /// </summary>
     public abstract void ActOnDiscard();
+
+    /// <summary>
+    /// 卡牌的出牌前效果
+    /// </summary>
+    public virtual void ActBeforeCardAct(){}
 
     #endregion
 

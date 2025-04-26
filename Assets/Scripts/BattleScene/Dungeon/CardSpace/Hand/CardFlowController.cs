@@ -46,6 +46,8 @@ public class CardFlowController : MonoBehaviour
     /// </summary>
     HandAnimation handAnimation;
 
+    BoardBehaviour Board{ get{ return DungeonManager.Instance.battleManager.board; }}
+
     void Awake()
     {
         hand = new();
@@ -120,6 +122,8 @@ public class CardFlowController : MonoBehaviour
         {
             card.currPile.RemoveCard(card);
         }
+
+        if (Board.GetPlacedCards().Contains(card)) Board.RemoveCard(card);
 
         handAnimation.ExhaustCardAnim(card);
         card.exhausted = true;

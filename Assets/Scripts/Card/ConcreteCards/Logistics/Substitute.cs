@@ -22,6 +22,6 @@ public class Substitute : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
-        if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(Player, Player, "SystemEngineer", nextEffect);
+        if (cardPosition.Conditioned) ActionLib.ApplyBuffNextTurnAction(Player, Player, "SystemEngineer", nextEffect);
     }
 }

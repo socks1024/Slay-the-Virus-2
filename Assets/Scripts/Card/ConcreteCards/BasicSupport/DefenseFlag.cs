@@ -11,23 +11,22 @@ public class DefenseFlag : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        foreach (Square s in cardPosition.ConditionedSquares)
-        {
-            s.CardAdjustment += Affection;
-        }
+        
     }
 
     public override void ActOnRemoved()
     {
-        foreach (Square s in cardPosition.ConditionedSquares)
-        {
-            s.CardAdjustment -= Affection;
-        }
+        
     }
 
     public override void ActOnCardAct()
     {
         
+    }
+
+    public override void ActBeforeCardAct()
+    {
+        cardPosition.GetCardsSatisfiedCondition().ForEach(c => Affection(c));
     }
 
     public void Affection(CardBehaviour card)

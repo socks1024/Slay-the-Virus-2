@@ -46,6 +46,14 @@
 
 卡牌运动曲线
 
+Cards.Count = 1
+    pos = transform.position
+Cards.Count = 2
+    pos = transform.position - baseCardOffset / 2 + i * baseCardOffset
+Cards.Count = 3
+    pos = transform.position - ( baseCardOffset / 2 * ( Cards.Count - 1 ) ) + i * baseCardOffset
+
+
 ---
 
 ## 音频

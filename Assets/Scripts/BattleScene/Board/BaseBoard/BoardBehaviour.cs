@@ -375,7 +375,7 @@ public abstract class BoardBehaviour : MonoBehaviour
             TriggerCardActEnd();
         }
         
-        ApplyAllCardAdjustments();
+        CardsActBeforePlay();
 
         PlayAllCards();
     }
@@ -383,14 +383,11 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// <summary>
     /// 将所有卡牌调整应用到卡牌上
     /// </summary>
-    void ApplyAllCardAdjustments()
+    void CardsActBeforePlay()
     {
-        for (int i = 0; i < squares.GetLength(0); i++)
+        foreach (CardBehaviour card in GetPlacedCards())
         {
-            for (int j = 0; j < squares.GetLength(1); j++)
-            {
-                squares[i,j].AdjustCardOnSquare();
-            }
+            card.ActBeforeCardAct();
         }
     }
 
