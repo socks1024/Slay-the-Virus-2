@@ -22,6 +22,6 @@ public class Guerrillas : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.ApplyBuffAction(Player, Player, "Counter", nextEffect);
-        if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(Player, Player, "Counter", Player.takeDamage.Block / 2);
+        if (cardPosition.Conditioned) ActionLib.DamageAction(targetEnemy, Player, nextDamage);
     }
 }

@@ -102,14 +102,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2970965845345022515, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6751982976390103782}
+      addedObject: {fileID: 3459227356207708769}
   m_SourcePrefab: {fileID: 100100000, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
 --- !u!1 &6158189179496814890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2970965845345022515, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
   m_PrefabInstance: {fileID: 8956733717243783961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6751982976390103782
+--- !u!114 &3459227356207708769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Fortress
   Name: "\u5821\u5792"
-  BuffSprite: {fileID: 0}
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}
+  turnEndBehaviour: 1

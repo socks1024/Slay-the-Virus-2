@@ -24,7 +24,7 @@ public class CloningFighters : CardBehaviour
         ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
         for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
         {
-            ActionLib.AddCardToHand(this.Id,nextEffect);
+            ActionLib.AddCardToDrawPile(this.Id,nextEffect);
         }
     }
 }

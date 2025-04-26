@@ -127,11 +127,7 @@ public class TakeDamage : MonoBehaviour
     /// </summary>
     public void RefreshBlock()
     {
-        if (Creature.buffOwner.HasBuff("Fortress"))
-        {
-            Block -= Block / (int)Mathf.Pow(2, Creature.buffOwner.GetBuff("Fortress").Amount);
-        }
-        else
+        if (!Creature.buffOwner.HasBuff("Fortress"))
         {
             Block = 0;
         }

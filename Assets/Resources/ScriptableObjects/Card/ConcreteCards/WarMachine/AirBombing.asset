@@ -16,7 +16,7 @@ MonoBehaviour:
   AbilityType: 0
   ActType: 0
   ConditionType: 0
-  TargetType: 2
+  TargetType: 3
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}

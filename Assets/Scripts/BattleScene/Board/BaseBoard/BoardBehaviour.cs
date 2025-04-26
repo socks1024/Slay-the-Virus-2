@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public abstract class BoardBehaviour : MonoBehaviour
@@ -368,6 +369,7 @@ public abstract class BoardBehaviour : MonoBehaviour
         GetPlacedCards().ForEach(card => {
             card.GetComponent<CardPosition>().SetConditionInfoWhenCardAct();
             card.GetComponent<CardSetTarget>().ClearArrow();
+            cardActsAfterCardAct += card.ActAfterCardAct;
         });
 
         if (IsEmptyBoard())
@@ -402,6 +404,8 @@ public abstract class BoardBehaviour : MonoBehaviour
         }
     }
 
+    UnityAction cardActsAfterCardAct;
+
     /// <summary>
     /// 打出一张卡牌
     /// </summary>
@@ -427,6 +431,9 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public void TriggerCardActEnd()
     {
+        cardActsAfterCardAct?.Invoke();
+        cardActsAfterCardAct = null;
+        
         ClearBoard();
         DungeonManager.Instance.battleManager.PlayAnimFinished = true;
     }

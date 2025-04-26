@@ -102,14 +102,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2970965845345022515, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6751982976390103782}
+      addedObject: {fileID: 5488935079985425716}
   m_SourcePrefab: {fileID: 100100000, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
 --- !u!1 &6158189179496814890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2970965845345022515, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
   m_PrefabInstance: {fileID: 8956733717243783961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6751982976390103782
+--- !u!114 &5488935079985425716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,10 +118,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6158189179496814890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecd7f88a7c83c5746a67768194ea7e6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b2779dfe5b8364499df6f665af8bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: CounterDummy
   Name: "\u53CD\u51FB\u5047\u4EBA"
-  BuffSprite: {fileID: 0}
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}

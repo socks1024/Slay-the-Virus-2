@@ -7,11 +7,7 @@ public class Counter : BuffBehaviour
 {
     public override void ActOnTurnEnd()
     {
-        if (Owner.buffOwner.HasBuff("CounterDummy"))
-        {
-            Amount -= (int)(Amount / Mathf.Pow(2,Owner.buffOwner.GetBuffAmount("CounterDummy")));
-        }
-        else
+        if (!Owner.buffOwner.HasBuff("CounterDummy"))
         {
             Amount = 0;
         }

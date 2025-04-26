@@ -21,7 +21,7 @@ public class Knifeman : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Wound", nextEffect);
-        if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Wound", nextEffect);
+        ActionLib.ApplyBuffNextTurnAction(targetEnemy, DungeonManager.Instance.Player, "Wound", nextEffect);
+        if (cardPosition.Conditioned) ActionLib.ApplyBuffNextTurnAction(targetEnemy, DungeonManager.Instance.Player, "Wound", nextEffect);
     }
 }

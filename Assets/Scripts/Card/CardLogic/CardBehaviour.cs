@@ -142,6 +142,11 @@ public abstract class CardBehaviour : MonoBehaviour
     /// </summary>
     public virtual void ActBeforeCardAct(){}
 
+    /// <summary>
+    /// 卡牌的出牌后效果
+    /// </summary>
+    public virtual void ActAfterCardAct(){}
+
     #endregion
 
     protected virtual void Awake()

@@ -21,9 +21,10 @@ public class BarbedWire : CardBehaviour
 
     public override void ActOnCardAct()
     {
+        print(cardPosition.GetSatisfiedSquaresCount());
         for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
         {
-            ActionLib.ApplyBuffAction(Player, Player, "Wound", nextEffect);
+            ActionLib.ApplyBuffNextTurnAction(targetEnemy, Player, "Wound", nextEffect);
         }
     }
 }

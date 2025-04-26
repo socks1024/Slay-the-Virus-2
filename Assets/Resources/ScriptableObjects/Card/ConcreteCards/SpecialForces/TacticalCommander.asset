@@ -23,10 +23,10 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: 0, y: 1}
   ConditionsShape: []
-  BaseDamage: 3
+  BaseDamage: 2
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 3
   Name: "\u6218\u672F\u6307\u6325"
-  Description: "\u9020\u62103\u70B9\u4F24\u5BB3\u3002\n\u68CB\u76D8\u4E0A\u6BCF\u67091\u5F20\u724C\uFF0C\u989D\u5916\u9020\u62103\u70B9\u4F24\u5BB3\u3002"
+  Description: "\u9020\u62102\u70B9\u4F24\u5BB3\u3002\n\u68CB\u76D8\u4E0A\u6BCF\u67091\u5F20\u5176\u5B83\u724C\uFF0C\u989D\u5916\u9020\u62103\u70B9\u4F24\u5BB3\u3002"
   CardTex: {fileID: 21300000, guid: 5d3f0c5ea77c06744b11f785667209f4, type: 3}

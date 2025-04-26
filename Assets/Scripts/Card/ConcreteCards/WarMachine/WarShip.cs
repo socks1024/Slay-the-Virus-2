@@ -21,13 +21,11 @@ public class WarShip : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, Smash);
         if (cardPosition.Conditioned) ActionLib.GainBlockAction(Player, Player, nextDefense);
     }
 
-    void Smash()
+    public override void ActAfterCardAct()
     {
         ActionLib.DamageAction(targetEnemy, Player, Player.takeDamage.Block + nextDamage);
-        EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, Smash);
     }
 }

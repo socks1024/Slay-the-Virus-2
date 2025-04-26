@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public static class ActionLib
 {
@@ -204,7 +205,7 @@ public static class ActionLib
     /// <param name="amount">伤害量</param>
     public static void DamageAllAction(CreatureBehaviour source, int amount)
     {
-        for (int i = 0; i < DungeonManager.Instance.battleManager.enemyGroup.enemies.Count; i++)
+        for (int i = DungeonManager.Instance.battleManager.enemyGroup.enemies.Count - 1; i >= 0; i--)
         {
             DamageAction(DungeonManager.Instance.battleManager.enemyGroup.enemies[i], source, amount);
         }
@@ -271,6 +272,18 @@ public static class ActionLib
     /// <param name="amount">卡牌数量</param>
     public static void AddVirusCardToDrawPile(string p_card_ID, int amount)
     {
+        if (DungeonManager.Instance.Player.buffOwner.HasBuff("GasMask"))
+        {
+            DungeonManager.Instance.Player.buffOwner.GetBuff("GasMask").Amount -= 1;
+        }
+        else
+        {
+            DungeonManager.Instance.battleManager.cardFlow.drawPile.AddCard(MonoBehaviour.Instantiate(CardLib.GetCard(p_card_ID)));
+        }
+    }
+
+    public static void AddCardToDrawPile(string p_card_ID, int amount)
+    {
         DungeonManager.Instance.battleManager.cardFlow.drawPile.AddCard(MonoBehaviour.Instantiate(CardLib.GetCard(p_card_ID)));
     }
 
@@ -301,6 +314,13 @@ public static class ActionLib
         DungeonManager.Instance.battleManager.board.RemoveCard(card);
         
         card.removedFromBattleAndDeck = true;
+
+        bool isHand = card.currPile == DungeonManager.Instance.battleManager.cardFlow.hand;
+
+        card.currPile?.RemoveCard(card);
+
+        if (isHand) DungeonManager.Instance.battleManager.cardFlow.GetComponent<HandAnimation>().ArrangeCardsInHand();
+
         MonoBehaviour.Destroy(card.gameObject);
     }
 
@@ -447,7 +467,7 @@ public class DamageInfo
         finalDamage -= source.buffOwner.GetBuffAmount("Paralyze");
         if (finalDamage < 0) finalDamage = 0;
 
-        if (source.buffOwner.HasBuff("Weakness")) finalDamage *= 2;
+        if (target.buffOwner.HasBuff("Weakness")) finalDamage *= 2;
 
         if (source is PlayerBehaviour)
         {

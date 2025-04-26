@@ -22,6 +22,7 @@ public class Painkiller : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.HealAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, nextHeal);
-        ActionLib.ApplyBuffAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, "Paralyze", nextEffect);
+        ActionLib.ApplyBuffNextTurnAction(Player, Player, "Paralyze", nextEffect);
+        ActionLib.ExhaustCardAction(this);
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2909181132133070016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -185,14 +185,14 @@ RectTransform:
   m_GameObject: {fileID: 4764969518140403762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 432004804236816128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 431, y: 135}
+  m_AnchoredPosition: {x: 431.00006, y: 135}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7038072928693173549
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d30fe3142ee9a65438d8de872f5b4284, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22aade6eaf466f542b8349b888f7ffd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -324,9 +324,10 @@ MonoBehaviour:
   startPoint: {fileID: 4880263764744280459}
   endPoint: {fileID: 8361496309523171548}
   lineRenderer: {fileID: 7512970776283848307}
-  curveResolution: 12
+  curveResolution: 30
   curveHeight: 3
-  sprite: {fileID: 21300000, guid: 73806b81704353a478a9b1ebda26ca96, type: 3}
+  curveScale: 1
+  sprite: {fileID: 21300000, guid: 0a0e92b33130e3540a89886f1228c624, type: 3}
 --- !u!225 &6080735043550420461
 CanvasGroup:
   m_ObjectHideFlags: 0

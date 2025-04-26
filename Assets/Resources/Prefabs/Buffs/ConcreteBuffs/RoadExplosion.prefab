@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: RoadExplosion
   Name: "\u7206\u7834\u9053\u8DEF"
-  BuffSprite: {fileID: 0}
   Type: 1
+  isDestroying: 0
+  Owner: {fileID: 0}
+  turnEndBehaviour: 2

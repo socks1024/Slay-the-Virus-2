@@ -12,19 +12,28 @@ public class DynamicCurve : MonoBehaviour
     List<Transform> spriteRenderers;// 曲线的精灵渲染器
     public int curveResolution = 20; // 曲线分段数
     public float curveHeight = 1f;   // 曲线高度控制
+    public float curveScale = 0.5f; // 曲线尺寸
     public Sprite sprite;// 曲线每一小段的图片
 
     void Start()
     {
-        spriteRenderers = new();
-
-        for (int i = 0; i < curveResolution - 2; i++)
+        if (curveMode == CurveMode.LINE_RENDERER)
         {
-            Image sr = new GameObject().AddComponent<Image>();
-            sr.transform.SetParent(transform, false);
-            sr.sprite = sprite;
-            sr.GetComponent<RectTransform>().pivot = new Vector2(0.5f,0);
-            spriteRenderers.Add(sr.transform);
+            lineRenderer.gameObject.SetActive(true);
+        }
+        else
+        {
+            spriteRenderers = new();
+
+            for (int i = 0; i < curveResolution - 2; i++)
+            {
+                Image sr = new GameObject().AddComponent<Image>();
+                sr.transform.SetParent(transform, false);
+                sr.transform.localScale *= curveScale;
+                sr.sprite = sprite;
+                sr.GetComponent<RectTransform>().pivot = new Vector2(0.5f,0);
+                spriteRenderers.Add(sr.transform);
+            }
         }
     }
 

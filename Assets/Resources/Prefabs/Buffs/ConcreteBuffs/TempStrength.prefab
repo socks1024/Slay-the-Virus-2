@@ -102,14 +102,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2970965845345022515, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2710104536248291695}
+      addedObject: {fileID: 2353201815076524517}
   m_SourcePrefab: {fileID: 100100000, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
 --- !u!1 &7934903486969227871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2970965845345022515, guid: e13302d7782b9a242b7c8fa3f84a5679, type: 3}
   m_PrefabInstance: {fileID: 5126377428198135916}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2710104536248291695
+--- !u!114 &2353201815076524517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,10 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7934903486969227871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c8c5b153c898341804e37d2863de6d, type: 3}
+  m_Script: {fileID: 11500000, guid: ecd7f88a7c83c5746a67768194ea7e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: TempStrength
   Name: "\u4E34\u65F6\u529B\u91CF"
-  BuffSprite: {fileID: 0}
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}
+  turnEndBehaviour: 2

@@ -22,6 +22,10 @@ public class Jet : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.ApplyBuffAction(targetEnemy, Player, "Wound", nextEffect);
-        if (cardPosition.Conditioned) targetEnemy.buffOwner.GetBuff("Wound").Amount *= 2;
+    }
+
+    public override void ActAfterCardAct()
+    {
+        if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(targetEnemy, Player, "Wound", targetEnemy.buffOwner.GetBuffAmount("Wound"));
     }
 }

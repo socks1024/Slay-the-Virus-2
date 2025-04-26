@@ -12,7 +12,13 @@
 
 <!-- 可以同时旋转卡牌和拖拽卡牌 -->
 
-卡牌的星星显示时机
+战利品（核弹：不会获得战利品）
+
+卡牌文本中的数值会随着真实情况变化
+
+检视卡牌关键字
+
+检视BUFF效果
 
 <!-- 卡牌的图层排序 -->
 
@@ -45,14 +51,6 @@
 卡牌的3D效果
 
 卡牌运动曲线
-
-Cards.Count = 1
-    pos = transform.position
-Cards.Count = 2
-    pos = transform.position - baseCardOffset / 2 + i * baseCardOffset
-Cards.Count = 3
-    pos = transform.position - ( baseCardOffset / 2 * ( Cards.Count - 1 ) ) + i * baseCardOffset
-
 
 ---
 

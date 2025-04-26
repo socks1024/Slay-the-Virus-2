@@ -21,7 +21,7 @@ public class Cannon : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        
+        ActionLib.ExhaustCardAction(this);
     }
 
     public override void ActBeforeCardAct()

@@ -21,6 +21,6 @@ public class TacticalCommander : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, Player, nextDamage + nextEffect * DungeonManager.Instance.battleManager.board.GetPlacedCards().Count);
+        ActionLib.DamageAction(targetEnemy, Player, nextDamage + nextEffect * DungeonManager.Instance.battleManager.board.GetPlacedCards().Count - 1);
     }
 }
