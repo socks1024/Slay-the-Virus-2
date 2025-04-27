@@ -76,4 +76,14 @@ public class BaseUI : MonoBehaviour
     {
         SceneManager.LoadScene("Inventory");
     }
+
+    public void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.Destroy(GameObject.Find("Managers"));
+            SceneManager.LoadScene("Start");
+        }
+    }
 }

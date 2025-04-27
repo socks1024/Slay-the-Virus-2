@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
-    public string scene;
-    public void LoadScene(string scenename)
-    {
-        SceneManager.LoadScene(scenename);
-    }
-
-    public void triggerLoadscene()
-    {
-        SceneManager.LoadScene(scene);
-    }
 
     public void QuitGame()
     {
@@ -22,5 +12,14 @@ public class GameSceneManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
     }
 }
