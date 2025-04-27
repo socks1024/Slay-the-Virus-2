@@ -19,4 +19,12 @@ public class SettingsPanel : MonoBehaviour
     {
         
     }
+
+    public TermsPanel Terms;
+
+    public void ShowTerms()
+    {
+        Terms.gameObject.SetActive(true);
+        Terms.CurrContentIndex = 0;
+    }
 }

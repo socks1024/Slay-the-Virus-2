@@ -38,7 +38,9 @@ public class CardUI : MonoBehaviour
     /// <summary>
     /// 卡牌的基础尺寸
     /// </summary>
-    public Vector3 baseScale = Vector3.one * 100;
+    public Vector3 baseScale{ get{ return Vector3.one * scaleSize; }}
+
+    public float scaleSize = 100;
 
     /// <summary>
     /// 卡牌当前的UI交互模式
