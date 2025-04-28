@@ -322,6 +322,28 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    [Header("摧毁卡牌")]
+    [SerializeField] float destroyDelay = 0.3f;
+
+    /// <summary>
+    /// 摧毁卡牌
+    /// </summary>
+    public void DestroyCard()
+    {
+        DungeonManager.Instance.battleManager.board.RemoveCard(cardBehaviour);
+        
+        cardBehaviour.removedFromBattleAndDeck = true;
+
+        bool isHand = cardBehaviour.currPile == DungeonManager.Instance.battleManager.cardFlow.hand;
+
+        cardBehaviour.currPile?.RemoveCard(cardBehaviour);
+
+        if (isHand) DungeonManager.Instance.battleManager.cardFlow.GetComponent<HandAnimation>().ArrangeCardsInHand();
+
+        GetComponent<CanvasGroup>().DOFade(0, destroyDelay).OnComplete(() =>{
+            Destroy(gameObject);
+        });
+    }
 }
 
 /// <summary>

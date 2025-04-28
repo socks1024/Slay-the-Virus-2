@@ -310,18 +310,8 @@ public static class ActionLib
     public static void RemoveCardFromBattle(CardBehaviour card)
     {
         PlayerRemoveCardFromDeck(card.Id);
-
-        DungeonManager.Instance.battleManager.board.RemoveCard(card);
         
-        card.removedFromBattleAndDeck = true;
-
-        bool isHand = card.currPile == DungeonManager.Instance.battleManager.cardFlow.hand;
-
-        card.currPile?.RemoveCard(card);
-
-        if (isHand) DungeonManager.Instance.battleManager.cardFlow.GetComponent<HandAnimation>().ArrangeCardsInHand();
-
-        MonoBehaviour.Destroy(card.gameObject);
+        card.GetComponent<CardUI>().DestroyCard();
     }
 
     /// <summary>
