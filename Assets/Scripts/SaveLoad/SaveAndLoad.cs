@@ -97,6 +97,21 @@ public class SaveSystem : MonoBehaviour
         return File.Exists(GetSlotPath(index));
     }
 
+    public void AddCardToPlayerSave(string name,int amount)
+    {
+        if (savefile != null)
+        {
+            if (savefile.PlayerCardInventory.ContainsKey(name))
+            {
+                savefile.PlayerCardInventory[name] += amount;
+            }
+            else
+            {
+                savefile.PlayerCardInventory.Add(name, amount);
+            }
+        }
+    }
+
 }
 
 

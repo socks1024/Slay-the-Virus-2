@@ -38,7 +38,7 @@ public class CardInventoryUI : MonoBehaviour
         
         Detailed = card;
         inventoryitem = card.GetComponent<CardItemInventory>();
-        
+        Detailed.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
 
         if (inventoryitem.showstate==0||inventoryitem.showstate==1)//·Å´ó
         {
@@ -99,6 +99,7 @@ public class CardInventoryUI : MonoBehaviour
         Detailed.transform.SetParent( content);
         Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
         Detailed.transform.localScale = inventoryitem.originalscale;
+        Detailed.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
         //Detailed.transform.localPosition = inventoryitem.originalposition;
         inventoryitem.showstate = 0;
     }
