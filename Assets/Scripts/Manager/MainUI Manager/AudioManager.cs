@@ -40,7 +40,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void PlayMusic(string id)
     {
-        if (musicManager != null) musicManager.PlaySound(id);
+        if (musicManager != null) musicManager.PlaySoundContinuous(id, true);
     }
 
     public void StopMusic()

@@ -214,6 +214,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     void LeaveDungeon()
     {
+        print("Leave Dungeon");
+
         Messenger.leaveBattleInfoTest.p_Relics = Player.p_Relics;
         Messenger.leaveBattleInfoTest.p_Board = Player.p_Board;
         Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
@@ -226,7 +228,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     public void WinLeaveDungeon()
     {
-        switch (mission.DungeonName)
+        print("Win Leave Dungeon");
+        switch (mission.ID)
         {
             case "BossFight1":
                 SaveSystem.Instance.LevelClear(1);
@@ -245,6 +248,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
                 break;
             case "BossFight6":
                 SaveSystem.Instance.LevelClear(6);
+                break;
+            default:
                 break;
         }
 
@@ -295,33 +300,33 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     #region test
 
-    /// <summary>
-    /// 开启一场测试战斗
-    /// </summary>
-    /// <param name="deck">玩家牌组</param>
-    /// <param name="board">玩家使用的棋盘</param>
-    public void EnterBattleForTest(List<CardBehaviour> p_deck, BoardBehaviour p_board)
-    {
-        Player.SetBackpack(p_deck,p_board,null,0);
+    // /// <summary>
+    // /// 开启一场测试战斗
+    // /// </summary>
+    // /// <param name="deck">玩家牌组</param>
+    // /// <param name="board">玩家使用的棋盘</param>
+    // public void EnterBattleForTest(List<CardBehaviour> p_deck, BoardBehaviour p_board)
+    // {
+    //     Player.SetBackpack(p_deck,p_board,null,0);
 
-        EnterNode(DungeonNodeLib.GetNode("TestBattle"));
-    }
+    //     EnterNode(DungeonNodeLib.GetNode("TestBattle"));
+    // }
 
-    /// <summary>
-    /// 开启一场测试战斗
-    /// </summary>
-    /// <param name="infoTest">战斗数据</param>
-    public void EnterBattleForTest(EnterBattleInfoTest infoTest)
-    {
-        EnterBattleForTest(infoTest.p_Cards, infoTest.p_Board);
-    }
+    // /// <summary>
+    // /// 开启一场测试战斗
+    // /// </summary>
+    // /// <param name="infoTest">战斗数据</param>
+    // public void EnterBattleForTest(EnterBattleInfoTest infoTest)
+    // {
+    //     EnterBattleForTest(infoTest.p_Cards, infoTest.p_Board);
+    // }
 
     #endregion
 
-    public void TestLeaveBattleScene()
-    {
-        WinLeaveDungeon();
-    }
+    // public void TestLeaveBattleScene()
+    // {
+    //     WinLeaveDungeon();
+    // }
 }
 
 

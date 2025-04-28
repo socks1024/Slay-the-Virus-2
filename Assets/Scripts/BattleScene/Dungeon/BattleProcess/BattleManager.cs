@@ -153,16 +153,20 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     public void OnAllEnemyDestroyed()
     {
-        if (IsEnduranceBattle && turnCount <= enduranceTurn)
-        {
-            List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(moreEnemies[currentWave]);
-            if (currentWave < moreEnemies.Count - 1) currentWave++;
-            enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e);});
-        }
-        else
-        {
-            EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
-        }
+        // if (IsEnduranceBattle && turnCount <= enduranceTurn)
+        // {
+        //     List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(moreEnemies[currentWave]);
+        //     if (currentWave < moreEnemies.Count - 1) currentWave++;
+        //     enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e);});
+        // }
+        // else
+        // {
+        //     EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
+        // }
+
+        print("Battle Win");
+
+        EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
     }
 
     #endregion
@@ -196,14 +200,15 @@ public class BattleManager : MonoBehaviour
     [Header("战利品UI")]
     [SerializeField] RewardsHolder rewardPanel;
 
+    [SerializeField] float winLeaveDelay = 1f;
+
     /// <summary>
     /// 战斗胜利时触发的回调
     /// </summary>
     void OnBattleWin()
     {
-        DungeonManager.Instance.TestLeaveBattleScene();
-        // ShowRewards();
         // ResetBattleElements();
+        TimersManager.SetTimer("WinLeaveDungeon", winLeaveDelay, DungeonManager.Instance.WinLeaveDungeon);
     }
 
     /// <summary>
@@ -238,7 +243,7 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnPlayerDead()
     {
-        DungeonManager.Instance.TestLeaveBattleScene();
+        DungeonManager.Instance.LoseLeaveDungeon();
         //死回家直接结算
         // ResetBattleElements();
     }

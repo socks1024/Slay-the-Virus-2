@@ -59,11 +59,6 @@ public class CardSetTarget : MonoBehaviour
         cardUI.OnEnterHand += ClearArrow;
     }
 
-    void OnDestroy()
-    {
-        cardUI.OnEnterHand -= ClearArrow;
-    }
-
     void Update()
     {
         if (currCurve != null)

@@ -22,7 +22,7 @@ public class EnterBattlePanel : MonoBehaviour
 
         EnemyImage.sprite = MissionData.EnemyImage;
 
-        Nametext.text = MissionData.ID;
+        Nametext.text = MissionData.DungeonName;
         Descriptiontext.text = MissionData.EnemyDescription;
         Tiptext.text = MissionData.Tips;
 
