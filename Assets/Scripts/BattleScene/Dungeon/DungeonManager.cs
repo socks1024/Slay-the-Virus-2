@@ -214,8 +214,6 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     void LeaveDungeon()
     {
-        print("Leave Dungeon");
-
         Messenger.leaveBattleInfoTest.p_Relics = Player.p_Relics;
         Messenger.leaveBattleInfoTest.p_Board = Player.p_Board;
         Messenger.leaveBattleInfoTest.p_Cards = Player.p_Deck;
@@ -252,6 +250,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
             default:
                 break;
         }
+
+        Player.OnWinLeaveDungeon();
 
         LeaveDungeon();
     }
@@ -291,7 +291,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
         AudioManager.Instance.PlayMusic(mission.ID);
 
-        Player.SetBackpack(enterDungeonInfo.p_Cards, boardPrefab, enterDungeonInfo.p_Relics, 0);
+        Player.SetBackpack(enterDungeonInfo.p_Cards, boardPrefab, enterDungeonInfo.p_Relics);
 
         mapGenerator.GenerateMap(enterDungeonInfo);
 
