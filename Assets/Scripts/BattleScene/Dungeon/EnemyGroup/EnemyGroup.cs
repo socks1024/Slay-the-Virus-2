@@ -113,6 +113,8 @@ public class EnemyGroup : MonoBehaviour
         OnEnemyAmountChange.Invoke(enemies);
     }
 
+    bool allEnemyDestroyed = false;
+
     /// <summary>
     /// 将敌人从战斗中销毁
     /// </summary>
@@ -124,9 +126,10 @@ public class EnemyGroup : MonoBehaviour
 
         OnEnemyAmountChange.Invoke(enemies);
 
-        if (enemies.Count == 0)
+        if (enemies.Count == 0 && allEnemyDestroyed == false)
         {
             DungeonManager.Instance.battleManager.OnAllEnemyDestroyed();
+            allEnemyDestroyed = true;
         }
     }
 

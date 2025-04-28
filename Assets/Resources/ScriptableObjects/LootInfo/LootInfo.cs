@@ -5,10 +5,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LootInfo", menuName = "ScriptableObject/LootInfo", order = 0)]
 public class LootInfo : ScriptableObject
 {
+
     /// <summary>
-    /// 战利品中所有可能出现的卡包
+    /// 获得金钱的最大数量
     /// </summary>
-    public List<CardPack> cardPackPool;
+    public int moneyVariationMax;
+
+    /// <summary>
+    /// 胜利获得金钱的最小数量
+    /// </summary>
+    public int moneyVariationMin;
+    
+    /// <summary>
+    /// 战利品中所有可能出现的卡牌的预制体
+    /// </summary>
+    public List<CardBehaviour> cardPool;
 
     /// <summary>
     /// 战利品中所有可能出现的道具
@@ -16,24 +27,52 @@ public class LootInfo : ScriptableObject
     public List<RelicBehaviour> relicPool;
 
     /// <summary>
-    /// 胜利获得金钱的数量
+    /// 随机获取金钱
     /// </summary>
-    public int money;
+    /// <returns>金钱的数量</returns>
+    public int RandomGetMoney()
+    {
+        return Random.Range(moneyVariationMin, moneyVariationMax + 1);
+    }
 
     /// <summary>
-    /// 从卡包池中抽取一定数量的卡包
+    /// 从卡池中抽取一定数量的卡
     /// </summary>
-    /// <param name="count">抽取卡包的数量</param>
+    /// <param name="count">抽取卡的数量</param>
     /// <returns>抽到的卡包</returns>
-    public List<CardPack> RandomGetCardPacks(int count)
+    public List<CardRewardInfo> RandomGetCards(int count)
     {
-        List<CardPack> packs = new List<CardPack>();
+        List<CardRewardInfo> cardRewardInfos = new();
+
         for (int i = 0; i < count; i++)
         {
-            int index = Random.Range(0, cardPackPool.Count);
-            packs.Add(cardPackPool[index]);
+            int index = Random.Range(0, cardPool.Count);
+
+            bool newCard = true;
+
+            for(int j = 0; j < cardRewardInfos.Count; j++)
+            {
+                if (cardRewardInfos[j].cardID == cardPool[index].Id)
+                {
+                    CardRewardInfo info = cardRewardInfos[j];
+                    info.amount += 1;
+                    cardRewardInfos[j] = info;
+
+                    newCard = false;
+                }
+            }
+
+            if (newCard)
+            {
+                CardRewardInfo rewardInfo = new();
+                rewardInfo.cardID = cardPool[index].Id;
+                rewardInfo.amount = 1;
+
+                cardRewardInfos.Add(rewardInfo);
+            }
         }
-        return packs;
+
+        return cardRewardInfos;
     }
 
     /// <summary>
@@ -41,14 +80,52 @@ public class LootInfo : ScriptableObject
     /// </summary>
     /// <param name="count">抽取道具的数量</param>
     /// <returns>抽到的道具</returns>
-    public List<RelicBehaviour> RandomGetItems(int count)
+    public List<RelicRewardInfo> RandomGetRelics(int count)
     {
-        List<RelicBehaviour> items = new List<RelicBehaviour>();
+        List<RelicRewardInfo> relicRewardInfos = new();
+
         for (int i = 0; i < count; i++)
         {
             int index = Random.Range(0, relicPool.Count);
-            items.Add(relicPool[index]);
+
+            bool newRelic = true;
+
+            for(int j = 0; j < relicRewardInfos.Count; j++)
+            {
+                if (relicRewardInfos[j].relicID == relicPool[index].ID)
+                {
+                    RelicRewardInfo info = relicRewardInfos[j];
+                    info.amount += 1;
+                    relicRewardInfos[j] = info;
+
+                    newRelic = false;
+                }
+            }
+
+            if (newRelic)
+            {
+                RelicRewardInfo rewardInfo = new();
+                rewardInfo.relicID = relicPool[index].ID;
+                rewardInfo.amount = 1;
+
+                relicRewardInfos.Add(rewardInfo);
+            }
         }
-        return items;
+        
+        return relicRewardInfos;
     }
+}
+
+public struct CardRewardInfo
+{
+    public string cardID;
+
+    public int amount;
+}
+
+public struct RelicRewardInfo
+{
+    public string relicID;
+
+    public int amount;
 }

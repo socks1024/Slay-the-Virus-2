@@ -75,6 +75,15 @@ public class PlayerBehaviour : CreatureBehaviour
         this.nutrition = nutrition;
     }
 
+    /// <summary>
+    /// 获取战斗奖励
+    /// </summary>
+    /// <param name="reward">奖励</param>
+    public void GetRewards(Reward reward)
+    {
+
+    }
+
     public override void OnBattleStart()
     {
         

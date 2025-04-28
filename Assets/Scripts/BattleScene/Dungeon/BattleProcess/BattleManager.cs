@@ -164,8 +164,6 @@ public class BattleManager : MonoBehaviour
         //     EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
         // }
 
-        print("Battle Win");
-
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
     }
 
@@ -208,7 +206,7 @@ public class BattleManager : MonoBehaviour
     void OnBattleWin()
     {
         // ResetBattleElements();
-        TimersManager.SetTimer("WinLeaveDungeon", winLeaveDelay, DungeonManager.Instance.WinLeaveDungeon);
+        ShowRewards();
     }
 
     /// <summary>
@@ -217,7 +215,7 @@ public class BattleManager : MonoBehaviour
     void ShowRewards()
     {
         rewardPanel.gameObject.SetActive(true);
-        rewardPanel.ShowRewards((battleNode.nodeInfo as BattleNodeInfo).lootInfo);
+        rewardPanel.GenerateRewards((battleNode.nodeInfo as BattleNodeInfo).lootInfo);
         //显示战利品
     }
 
@@ -233,9 +231,11 @@ public class BattleManager : MonoBehaviour
         ResetBattleElements();
         rewardPanel.gameObject.SetActive(false);
 
-        DungeonManager.Instance.RightBGReturnBack(() => {
-            DungeonManager.Instance.EnterNode(battleNode.connectedNodes[0]);
-        });
+        // DungeonManager.Instance.RightBGReturnBack(() => {
+        //     DungeonManager.Instance.EnterNode(battleNode.connectedNodes[0]);
+        // });
+
+        TimersManager.SetTimer("WinLeaveDungeon", winLeaveDelay, DungeonManager.Instance.WinLeaveDungeon);
     }
 
     /// <summary>

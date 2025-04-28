@@ -79,6 +79,7 @@ MonoBehaviour:
   UniqueFrame: {fileID: 21300000, guid: 6c9ee3e4f07ecb74fbd8ed0feef9cc09, type: 3}
   TrashFrame: {fileID: 21300000, guid: aaae42a3352188047844e9c3562397e6, type: 3}
   CardVirusModifier: {r: 0.8117647, g: 0.7019608, b: 1, a: 1}
+  destroyDelay: 0.3
 --- !u!114 &2359035785780278894
 MonoBehaviour:
   m_ObjectHideFlags: 0
