@@ -112,6 +112,33 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
+    public void AddNutrientToPlayerSave(int amount)
+    {
+        if (savefile != null)
+        {
+            savefile.Nutrient += amount;
+            if (savefile.Nutrient < 0)
+            {
+                savefile.Nutrient = 0;
+            }
+        }
+    }
+
+    public void SetLifeOfPlayerSave(int num)
+    {
+        if (savefile != null)
+        {
+            savefile.BaseLife = num;
+        }
+    }
+
+    public void AddLifeofPlayerSave(int num)
+    {
+        if (savefile != null)
+        {
+            savefile.BaseLife += num;
+        }
+    }
 }
 
 
