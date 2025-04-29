@@ -8,6 +8,8 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
 
     [SerializeField] SerializableDictionary<string, Sprite> headPictures;
 
+    [SerializeField] SerializableDictionary<string, Sprite> panelPictures;
+
     public DialogueEvent LoadDialogueEvent(int ID)
     {
         DialogueEvent dialogueEvent = new DialogueEvent();
@@ -19,7 +21,12 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
                 dialogueEvent.name = data.Name;
                 dialogueEvent.line = data.Line;
 
-                if (headPictures.ContainsKey(data.Name)) dialogueEvent.sprite = headPictures[data.Name];
+                if (headPictures.ContainsKey(data.Name)) dialogueEvent.head = headPictures[data.Name];
+                if (panelPictures.ContainsKey(data.Name))
+                {
+                    dialogueEvent.panel = panelPictures[data.Name];
+                    dialogueEvent.textPanelPosition = TextPanelPosition.HIDE;
+                } 
 
                 return dialogueEvent;
             }

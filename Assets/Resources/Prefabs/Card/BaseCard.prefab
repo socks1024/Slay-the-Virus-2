@@ -108,12 +108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tetrisRoot: {fileID: 6911738929177703954}
   BlockPrefab: {fileID: 3040448249907602424, guid: b36f79abbff205e40bf0a02a2206df1f, type: 3}
-  AttackTex: {fileID: 21300000, guid: e8b20cc522a2db9409ff65f1bc876525, type: 3}
-  DefendTex: {fileID: 21300000, guid: 275b17c6eb616304894cd02ceebbd813, type: 3}
-  HealTex: {fileID: 21300000, guid: 74c58d63816b6f34e80d1f66c1ff40d2, type: 3}
-  SkillTex: {fileID: 21300000, guid: 012e7411817c76c4c89c6f2a7e315c42, type: 3}
-  ExpandTex: {fileID: 21300000, guid: 66136b4c1a1d2b6418c48849252dd947, type: 3}
-  TrashTex: {fileID: 21300000, guid: 724aed548b14edf4398817bd30d976ce, type: 3}
+  AttackTex: {fileID: 21300000, guid: e266569ea933ff64991fecfcf8342740, type: 3}
+  DefendTex: {fileID: 21300000, guid: 148415aa70be4f54da83b6d579e4f79b, type: 3}
+  HealTex: {fileID: 21300000, guid: ce22bf8142be749479e60996015a7a96, type: 3}
+  SkillTex: {fileID: 21300000, guid: 0009fc28ade511b4fa8cd40ebbb8c55a, type: 3}
+  ExpandTex: {fileID: 21300000, guid: 3f5167e1a4021cf488468cdf402a96da, type: 3}
+  TrashTex: {fileID: 21300000, guid: 903f6f03a22fd5b4f8e8f420e4bdc1f1, type: 3}
   TriggerSquareTex: {fileID: 21300000, guid: 498006eea37b693489c72c545a7ff79d, type: 3}
   AffectSquareTex: {fileID: 21300000, guid: a903c5a599777fb45aec156211634722, type: 3}
   ExpandSquareTex: {fileID: 21300000, guid: 4691a580ade94f8438ea670b24df3aa2, type: 3}
