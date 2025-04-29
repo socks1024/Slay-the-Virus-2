@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TermsPanel : MonoBehaviour
+public class ManualPanel : MonoBehaviour
 {
     public void HidePanel()
     {

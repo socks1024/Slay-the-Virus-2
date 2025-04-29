@@ -21,12 +21,43 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
                 dialogueEvent.name = data.Name;
                 dialogueEvent.line = data.Line;
 
+                bool hasPanelPicture = false;
+
                 if (headPictures.ContainsKey(data.Name)) dialogueEvent.head = headPictures[data.Name];
-                if (panelPictures.ContainsKey(data.Name))
+                if (panelPictures.ContainsKey(data.PanelID))
                 {
-                    dialogueEvent.panel = panelPictures[data.Name];
-                    dialogueEvent.textPanelPosition = TextPanelPosition.HIDE;
-                } 
+                    dialogueEvent.panel = panelPictures[data.PanelID];
+                    hasPanelPicture = true;
+                }
+
+                switch (data.PanelPosition)
+                {
+                    case "默认":
+                        dialogueEvent.textPanelPosition = TextPanelPosition.DEFAULT;
+                        break;
+                    case "上":
+                        dialogueEvent.textPanelPosition = TextPanelPosition.UP;
+                        break;
+                    case "中":
+                        dialogueEvent.textPanelPosition = TextPanelPosition.MIDDLE;
+                        break;
+                    case "下":
+                        dialogueEvent.textPanelPosition = TextPanelPosition.DOWN;
+                        break;
+                    case "隐藏":
+                        dialogueEvent.textPanelPosition = TextPanelPosition.HIDE;
+                        break;
+                    default:
+                        if (hasPanelPicture)
+                        {
+                            dialogueEvent.textPanelPosition = TextPanelPosition.HIDE;
+                        }
+                        else
+                        {
+                            dialogueEvent.textPanelPosition = TextPanelPosition.DEFAULT;
+                        }
+                        break;
+                }
 
                 return dialogueEvent;
             }

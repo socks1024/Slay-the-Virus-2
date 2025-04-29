@@ -9,4 +9,6 @@ public class TutorialData
     public int ID;
     public string Name;
     public string Line;
+    public string PanelID;
+    public string PanelPosition;
 }

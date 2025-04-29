@@ -16,81 +16,135 @@ MonoBehaviour:
   - ID: 0
     Name: error
     Line: error
+    PanelID: 
+    PanelPosition: 
   - ID: 1
     Name: "\u6559\u5B98"
     Line: "\u6C5F\u627F\u5F66\u662F\u4E00\u540D<color=#FF0000>\u9B41\u68A7\u7537\u5B50</color>\u3002\n\u6C5F\u627F\u5F66\u662F\u53CC\u5F00\u95E8\u5927\u51B0\u7BB1\u3002"
+    PanelID: 
+    PanelPosition: "\u4E0B"
   - ID: 2
     Name: "\u61D2\u60F0\u75C5\u6BD2"
     Line: "\u6211\u662F\u4E16\u754C\u7B2C\u4E00\u7F8E\u5C11\u5973\uFF01"
+    PanelID: 
+    PanelPosition: "\u4E0B"
   - ID: 3
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 4
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 5
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 6
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 7
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 8
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 9
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 10
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 11
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 12
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 13
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 14
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 15
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 16
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 17
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 18
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 19
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 20
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 21
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 22
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 23
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 24
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 25
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
   - ID: 26
     Name: 
     Line: 
+    PanelID: 
+    PanelPosition: 
