@@ -15,4 +15,4 @@ MonoBehaviour:
   nodeID: BossFight2
   p_Enemies_GameObject:
   - {fileID: 1564478793388295705, guid: e2ac675021016b34ab93315ed88f3f06, type: 3}
-  lootInfo: {fileID: 11400000, guid: a0fe01ebaa8c4ec4982e29ed05ad97bb, type: 2}
+  lootInfo: {fileID: 11400000, guid: 90da19edd6fcac44e827628493c72aa8, type: 2}

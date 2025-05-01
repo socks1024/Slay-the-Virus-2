@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.IO;
 using System.IO;
 using UnityEngine.AI;
+using System.Security.Cryptography;
 
 
 
@@ -104,6 +105,10 @@ public class SaveSystem : MonoBehaviour
             if (savefile.PlayerCardInventory.ContainsKey(name))
             {
                 savefile.PlayerCardInventory[name] += amount;
+                if (savefile.PlayerCardInventory[name] < 0)
+                {
+                    savefile.PlayerCardInventory[name] = 0;
+                }
             }
             else
             {

@@ -7,30 +7,43 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DialoguePanel : MonoBehaviour, IPointerClickHandler
+public class DialoguePanel : MonoBehaviour
 {
     [SerializeField] RectTransform textPanel;
 
-    [SerializeField] Image image;
+    [SerializeField] Image headImage;
+
+    [SerializeField] Image panelImage;
 
     [SerializeField] TextMeshProUGUI lineText;
 
     [SerializeField] TextMeshProUGUI nameText;
 
-    Sprite defaultSprite;
+    Sprite defaultHead;
+
+    Sprite defaultPanel;
 
     Queue<DialogueEvent> dialogueEventsQueue = new();
 
     void Awake()
     {
-        defaultSprite = image.sprite;
+        defaultHead = headImage.sprite;
+        defaultPanel = panelImage.sprite;
 
         GetComponentsInChildren<Image>().ToList().ForEach(g => g.raycastTarget = false);
         GetComponentsInChildren<TextMeshProUGUI>().ToList().ForEach(g => g.raycastTarget = false);
         GetComponent<Image>().raycastTarget = true;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnPointerClick();
+        }
+    }
+
+    public void OnPointerClick()
     {
         if (dialogueEventsQueue.Count == 0)
         {
@@ -71,6 +84,10 @@ public class DialoguePanel : MonoBehaviour, IPointerClickHandler
             textPanel.anchorMin = new Vector2(0,0);
             textPanel.anchorMax = new Vector2(1,0);
         }
+        if (position == TextPanelPosition.HIDE)
+        {
+            textPanel.gameObject.SetActive(false);
+        }
 
         return this;
     }
@@ -79,7 +96,8 @@ public class DialoguePanel : MonoBehaviour, IPointerClickHandler
     {
         DialogueEvent dialogueEvent = loader.LoadDialogueEvent(ID);
 
-        if (dialogueEvent.sprite is null) dialogueEvent.sprite = defaultSprite;
+        if (dialogueEvent.head is null) dialogueEvent.head = defaultHead;
+        if (dialogueEvent.panel is null) dialogueEvent.panel = defaultPanel;
 
         dialogueEventsQueue.Enqueue(dialogueEvent);
 
@@ -103,7 +121,9 @@ public class DialoguePanel : MonoBehaviour, IPointerClickHandler
 
         nameText.text = dialogueEvent.name;
         lineText.text = dialogueEvent.line;
-        image.sprite = dialogueEvent.sprite;
+        headImage.sprite = dialogueEvent.head;
+        panelImage.sprite = dialogueEvent.panel;
+
         SetTextPanelPosition(dialogueEvent.textPanelPosition);
     }
 }
@@ -114,7 +134,9 @@ public struct DialogueEvent
 
     public string line;
 
-    public Sprite sprite;
+    public Sprite head;
+
+    public Sprite panel;
 
     public TextPanelPosition textPanelPosition;
 }
@@ -125,4 +147,5 @@ public enum TextPanelPosition
     DOWN,
     UP,
     MIDDLE,
+    HIDE,
 }

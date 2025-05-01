@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55ec4d17e70f864ebc1612ab7d0ace3, type: 3}
+  m_Name: BossFight5Loot
+  m_EditorClassIdentifier: 
+  moneyVariationMax: 110
+  moneyVariationMin: 130
+  cardPool:
+  - {fileID: 8146811018123055048, guid: df53e262d7836c241ab49194c375d167, type: 3}
+  - {fileID: 692861387668535550, guid: 030aca6db73c43f4aa6c180e675a33a4, type: 3}
+  - {fileID: -6604186689178607377, guid: 826a86b19f521a34db928ddad98a8f4f, type: 3}
+  - {fileID: -4424350929416858841, guid: c53e44c4ab8d86d41895a9559e177110, type: 3}
+  - {fileID: -7883471360312152738, guid: 8df5221c9ac37314a95c0c9a883dcc6c, type: 3}
+  - {fileID: -7555093116023628813, guid: c6822e14b05d0594da2c0d848b4ec2ec, type: 3}
+  relicPool: []

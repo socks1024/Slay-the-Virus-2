@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 1564478793388295705, guid: 7495639ec633f5a4bbfb3e8a91b4548e, type: 3}
   - {fileID: 1564478793388295705, guid: ad88c27c14b102e4fbb7aa949db1fbfa, type: 3}
   - {fileID: 1564478793388295705, guid: ad88c27c14b102e4fbb7aa949db1fbfa, type: 3}
-  lootInfo: {fileID: 11400000, guid: a0fe01ebaa8c4ec4982e29ed05ad97bb, type: 2}
+  lootInfo: {fileID: 11400000, guid: 37e7777032e7a134499b0de69cf7f78a, type: 2}

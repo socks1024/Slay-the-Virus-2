@@ -20,7 +20,7 @@ public class SettingsPanel : MonoBehaviour
         
     }
 
-    public TermsPanel Terms;
+    public ManualPanel Terms;
 
     public void ShowTerms()
     {
