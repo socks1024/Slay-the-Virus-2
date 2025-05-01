@@ -10,6 +10,25 @@ public class EnemyGroupUI : MonoBehaviour
 
     public void OnEnemyAmountChange(List<EnemyBehaviour> enemies)
     {
+        if (enemies.Count == 1)
+        {
+            BossPos.gameObject.SetActive(true);
+            UpRow.gameObject.SetActive(false);
+            DownRow.gameObject.SetActive(false);
+        }
+        else if (enemies.Count == 2 || enemies.Count == 3)
+        {
+            BossPos.gameObject.SetActive(true);
+            UpRow.gameObject.SetActive(true);
+            DownRow.gameObject.SetActive(false);
+        }
+        else if (enemies.Count == 4 || enemies.Count == 5)
+        {
+            BossPos.gameObject.SetActive(true);
+            UpRow.gameObject.SetActive(true);
+            DownRow.gameObject.SetActive(true);
+        }
+
         if (enemies.Count > 0)
         {
             enemies[0].transform.SetParent(BossPos, false);
