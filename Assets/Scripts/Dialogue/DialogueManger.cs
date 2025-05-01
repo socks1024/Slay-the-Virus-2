@@ -15,19 +15,9 @@ public class DialogueManager : MonoSingleton<DialogueManager>
         loader = GetComponent<IDialogueLoader>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            DialogueManager.Instance.ShowDialoguePanel()
-                .AddDialogueEvent(DialogueManager.Instance.loader, new int[]{1,2})
-                .ShowNextDialogueEvent();
-        }
-    }
-
     public DialoguePanel ShowDialoguePanel()
     {
-        if (!dialoguePanel)
+        if (dialoguePanel is null)
         {
             DialoguePanel panel = Instantiate(PanelPrefab, FindObjectOfType<Canvas>().transform);
             panel.transform.localPosition = Vector3.zero;

@@ -57,7 +57,7 @@ public class PlayerBehaviour : CreatureBehaviour
     {
         get 
         {
-            if(SaveSystem.Instance.getSave() is null) return 0;
+            if(SaveSystem.Instance is null || SaveSystem.Instance.getSave() is null) return 0;
             return SaveSystem.Instance.getSave().Nutrient;
         }
         set 

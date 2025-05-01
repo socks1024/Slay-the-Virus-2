@@ -69,6 +69,8 @@ public class DialoguePanel : MonoBehaviour
 
             textPanel.anchorMin = new Vector2(0,1);
             textPanel.anchorMax = new Vector2(1,1);
+
+            textPanel.gameObject.SetActive(true);
         }
         if (position == TextPanelPosition.MIDDLE)
         {
@@ -76,6 +78,8 @@ public class DialoguePanel : MonoBehaviour
 
             textPanel.anchorMin = new Vector2(0,0.5f);
             textPanel.anchorMax = new Vector2(1,0.5f);
+
+            textPanel.gameObject.SetActive(true);
         }
         if (position == TextPanelPosition.DOWN)
         {
@@ -83,6 +87,8 @@ public class DialoguePanel : MonoBehaviour
 
             textPanel.anchorMin = new Vector2(0,0);
             textPanel.anchorMax = new Vector2(1,0);
+
+            textPanel.gameObject.SetActive(true);
         }
         if (position == TextPanelPosition.HIDE)
         {

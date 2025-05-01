@@ -66,3 +66,8 @@ MonoBehaviour:
     m_values:
     - {fileID: 21300000, guid: 83bed0ecf9f42134f8334ad0bed5347a, type: 3}
     - {fileID: 21300000, guid: 262504fed7ab95145aff73e9e8d0546b, type: 3}
+  panelPictures:
+    m_keys:
+    - "\u6D77\u62A5"
+    m_values:
+    - {fileID: 21300000, guid: d167c6b181bdb1b4cba92551be230d8b, type: 3}

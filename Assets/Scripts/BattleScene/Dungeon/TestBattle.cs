@@ -11,6 +11,8 @@ public class TestBattle : MonoBehaviour
 
     bool startedBattle = false;
 
+    bool showedTutorial = false;
+
     void Start()
     {
         
@@ -20,6 +22,10 @@ public class TestBattle : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && !startedBattle)
         {
+            DialogueManager.Instance.ShowDialoguePanel()
+                .AddDialogueEvent(DialogueManager.Instance.loader, new int[]{6,7,8,9,10,11,12,13,14,15,16,17,18,19})
+                .ShowNextDialogueEvent();
+
             EnterDungeonInfo info = Messenger.enterDungeonInfo;
             if (info.p_Cards == null || info.p_Cards.Count == 0) info.p_Cards = deck;
             if (info.p_Relics == null) info.p_Relics = relics;

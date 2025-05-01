@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyGroupUI : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class EnemyGroupUI : MonoBehaviour
         {
             enemies[4].transform.SetParent(DownRow, false);
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 
     [Header("敌人通常动画")]
