@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1843179289358847703, guid: a2a60025d96494c4185a5dc8bb4465cb, type: 3}
+      propertyPath: SoundID
+      value: Buff
+      objectReference: {fileID: 0}
     - target: {fileID: 3695277863363623882, guid: a2a60025d96494c4185a5dc8bb4465cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

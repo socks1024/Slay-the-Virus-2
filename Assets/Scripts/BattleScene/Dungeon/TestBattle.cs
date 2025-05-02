@@ -33,6 +33,8 @@ public class TestBattle : MonoBehaviour
 
             DungeonManager.Instance.StartAdventure(info);
             startedBattle = true;
+
+            AudioManager.Instance.PlaySFX("BattleStart");
         }
     }
 }

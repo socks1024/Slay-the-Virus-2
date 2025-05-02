@@ -74,6 +74,11 @@ public class BattleManager : MonoBehaviour
     // CARD_ACT_END:弃牌动画播放完毕 && 所有卡牌动画播放完毕
     // ENEMY_ACT_END:所有敌人动画播放完毕
 
+    void OnTurnStart()
+    {
+        AudioManager.Instance.PlaySFX("PlayerTurn");
+    }
+
     /// <summary>
     /// 触发卡牌按钮操作
     /// </summary>
@@ -277,6 +282,7 @@ public class BattleManager : MonoBehaviour
     void Awake()
     {
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
+        EventCenter.Instance.AddEventListener(EventType.TURN_START, OnTurnStart);
         EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, OnAllActEnd);
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, OnBattleWin);
         EventCenter.Instance.AddEventListener(EventType.PLAYER_DEAD, OnPlayerDead);
@@ -285,6 +291,7 @@ public class BattleManager : MonoBehaviour
     void OnDestroy()
     {
         EventCenter.Instance.RemoveEventListener(EventType.BATTLE_START, OnBattleStart);
+        EventCenter.Instance.RemoveEventListener(EventType.TURN_START, OnTurnStart);
         EventCenter.Instance.RemoveEventListener(EventType.ENEMY_ACT_END, OnAllActEnd);
         EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, OnBattleWin);
         EventCenter.Instance.RemoveEventListener(EventType.PLAYER_DEAD, OnPlayerDead);

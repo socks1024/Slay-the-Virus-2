@@ -136,7 +136,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 559685170212473488, guid: b2808f305923bb343886cecb0e555f46, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e4921ea5987635d44831a4275ff5eef2, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -238,14 +238,6 @@ MonoBehaviour:
   mute: 0
   logSounds: 0
   soundClips:
-  - name: SelectCardIndeck
-    sound: {fileID: 8300000, guid: 1bf56ba4c0d566e49a50039edc67d900, type: 3}
-    variations: []
-    volume: 1
-    pitchVariance: 0
-    cooldown: 0
-    lastVariationPlayed: 0
-    timeLastPlayed: 0
   - name: PlaceCard
     sound: {fileID: 8300000, guid: 3d12cc262c45bba43931c98977cc9c31, type: 3}
     variations: []
@@ -262,8 +254,8 @@ MonoBehaviour:
     cooldown: 0
     lastVariationPlayed: 0
     timeLastPlayed: 0
-  - name: ButtonClick1
-    sound: {fileID: 8300000, guid: 93dbf1f68f1626748b1193a54bacd93d, type: 3}
+  - name: ButtonClick
+    sound: {fileID: 8300000, guid: d0389db705190d74899d8236a666464e, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
@@ -272,6 +264,134 @@ MonoBehaviour:
     timeLastPlayed: 0
   - name: Heal
     sound: {fileID: 8300000, guid: 194e500db76a24d48bf01d08bfb0da76, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BlockAttack
+    sound: {fileID: 8300000, guid: bd4f6c7e45f1d2949b4f784b33d2b9f0, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: HeavyAttack
+    sound: {fileID: 8300000, guid: 7fd66a9b6806fed49854f2a124dc78aa, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: DaggerAttack
+    sound: {fileID: 8300000, guid: 4eca9a463705d1744b58e7c5de011284, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: SwordAttack
+    sound: {fileID: 8300000, guid: 8ffc599f6deb64f4a92717a424c0de1f, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: AxeAttack
+    sound: {fileID: 8300000, guid: 8d827970ebe0e39429d39235cf5e0bd3, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: Bleed
+    sound: {fileID: 8300000, guid: c9392f9b1c1d3e245b5d3baf4c77b3bc, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: Buff
+    sound: {fileID: 8300000, guid: 4b3c889c9a5d96a4d9538da701aee0fd, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: Debuff
+    sound: {fileID: 8300000, guid: 48fd5321318e7ac46be88a46490569f1, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: SelectCard
+    sound: {fileID: 8300000, guid: dbf9de3aa6f9a6b4892d544e977489e1, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: RejectCard
+    sound: {fileID: 8300000, guid: e1a4965e1dd9c4140a6ebe60c85b0926, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: DefenseBreak
+    sound: {fileID: 8300000, guid: e5ae1fb82ce84c744adc55008b7c3311, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: GainDefense
+    sound: {fileID: 8300000, guid: 49dfdaa1e4ba43f499c2923dab5ba7f0, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: ExhaustCard
+    sound: {fileID: 8300000, guid: 2af9a5c6e4f7cac4f87739ebcf7ffbc5, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: GainGold
+    sound: {fileID: 8300000, guid: 5f1f1b4719151684da1d5c0bd37c262b, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: BattleStart
+    sound: {fileID: 8300000, guid: 099ee92634f6f984abd2950bb6eebd57, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: PlayerTurn
+    sound: {fileID: 8300000, guid: f3a8debb2ec40b947b5157c42fdee035, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0

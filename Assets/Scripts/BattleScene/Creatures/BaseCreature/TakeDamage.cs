@@ -60,9 +60,10 @@ public class TakeDamage : MonoBehaviour
         get { return block; }
         set
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 value = 0;
+                if (block > 0) AudioManager.Instance.PlaySFX("DefenseBreak");
             }
             else if (value > 99)
             {

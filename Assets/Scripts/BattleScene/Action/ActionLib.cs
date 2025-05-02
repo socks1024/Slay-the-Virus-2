@@ -166,6 +166,8 @@ public static class ActionLib
     public static void GainBlockAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
     {
         amount += source.buffOwner.GetBuffAmount("Tenacity");
+        
+        AudioManager.Instance.PlaySFX("GainDefense");
 
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.NONE, () => {
             target.takeDamage.Block += amount;
@@ -196,6 +198,7 @@ public static class ActionLib
     public static void ExhaustCardAction(CardBehaviour card)
     {
         DungeonManager.Instance.battleManager.cardFlow.ExhaustCard(card);
+        AudioManager.Instance.PlaySFX("ExhaustCard");
     }
 
     /// <summary>
