@@ -51,7 +51,7 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void OnDestroy()
     {
-        cardUI.OnLeaveHand -= ReturnHandPreview;
+        // cardUI.OnLeaveHand -= ReturnHandPreview;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
