@@ -136,6 +136,11 @@ public class TakeDamage : MonoBehaviour
 
     void Awake()
     {
+        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, RefreshBlock);
+    }
+
+    public void InitHealth()
+    {
         if (Creature is PlayerBehaviour && (Creature as PlayerBehaviour).HasRelic("StrongMedicine"))
         {
             Health = MaxHealth / 2;
@@ -145,7 +150,6 @@ public class TakeDamage : MonoBehaviour
             Health = MaxHealth;
         }
         RefreshBlock();
-        EventCenter.Instance.AddEventListener(EventType.ENEMY_ACT_END, RefreshBlock);
     }
 
     void OnDestroy()
