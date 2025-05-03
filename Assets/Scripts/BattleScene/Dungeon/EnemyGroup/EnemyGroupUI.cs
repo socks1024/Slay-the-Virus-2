@@ -55,6 +55,8 @@ public class EnemyGroupUI : MonoBehaviour
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+
+        print("ForceRebuildLayoutImmediate");
     }
 
     [Header("敌人通常动画")]
@@ -71,11 +73,11 @@ public class EnemyGroupUI : MonoBehaviour
         downrowBasePos = DownRow.position;
     }
 
-    void Update()
-    {
-        UpRow.position = new Vector3(uprowBasePos.x, uprowBasePos.y + Mathf.Sin(Time.time) * Amplitude, uprowBasePos.z);
-        BossPos.position = new Vector3(bossBasePos.x, bossBasePos.y - Mathf.Sin(Time.time) * Amplitude, bossBasePos.z);
-        DownRow.position = new Vector3(downrowBasePos.x, downrowBasePos.y + Mathf.Sin(Time.time) * Amplitude, downrowBasePos.z);
-    }
+    // void Update()
+    // {
+    //     UpRow.position = new Vector3(uprowBasePos.x, uprowBasePos.y + Mathf.Sin(Time.time) * Amplitude, uprowBasePos.z);
+    //     BossPos.position = new Vector3(bossBasePos.x, bossBasePos.y - Mathf.Sin(Time.time) * Amplitude, bossBasePos.z);
+    //     DownRow.position = new Vector3(downrowBasePos.x, downrowBasePos.y + Mathf.Sin(Time.time) * Amplitude, downrowBasePos.z);
+    // }
 
 }

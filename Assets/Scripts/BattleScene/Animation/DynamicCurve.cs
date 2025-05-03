@@ -30,6 +30,7 @@ public class DynamicCurve : MonoBehaviour
                 Image sr = new GameObject().AddComponent<Image>();
                 sr.transform.SetParent(transform, false);
                 sr.transform.localScale *= curveScale;
+                sr.raycastTarget = false;
                 sr.sprite = sprite;
                 sr.GetComponent<RectTransform>().pivot = new Vector2(0.5f,0);
                 spriteRenderers.Add(sr.transform);
