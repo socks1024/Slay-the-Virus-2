@@ -64,9 +64,9 @@ public class CardSetTarget : MonoBehaviour
         if (currCurve != null)
         {
             UpdateArrow();
-            transform.SetAsLastSibling();
             if (!HasTarget)
             {
+                transform.SetAsLastSibling();
                 if (Input.GetMouseButtonDown(0))
                 {
                     SetTarget();

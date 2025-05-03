@@ -45,6 +45,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void StopMusic()
     {
+        print("stop music");
         if (musicManager != null) musicManager.StopSound();
     }
 

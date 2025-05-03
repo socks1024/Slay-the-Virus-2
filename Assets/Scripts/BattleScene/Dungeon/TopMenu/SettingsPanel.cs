@@ -12,7 +12,7 @@ public class SettingsPanel : MonoBehaviour
 
     public void LeaveBattle()
     {
-        SceneManager.LoadScene("Base");
+        DungeonManager.Instance.SettingLeaveDungeon();
     }
 
     public void ShowSettings()
