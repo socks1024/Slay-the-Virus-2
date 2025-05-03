@@ -230,22 +230,22 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
         switch (mission.ID)
         {
             case "BossFight1":
-                SaveSystem.Instance.LevelClear(1);
+                SaveSystem.Instance.LevelClear(0);
                 break;
             case "BossFight2":
-                SaveSystem.Instance.LevelClear(2);
+                SaveSystem.Instance.LevelClear(1);
                 break;
             case "BossFight3":
-                SaveSystem.Instance.LevelClear(3);
+                SaveSystem.Instance.LevelClear(2);
                 break;
             case "BossFight4":
-                SaveSystem.Instance.LevelClear(4);
+                SaveSystem.Instance.LevelClear(3);
                 break;
             case "BossFight5":
-                SaveSystem.Instance.LevelClear(5);
+                SaveSystem.Instance.LevelClear(4);
                 break;
             case "BossFight6":
-                SaveSystem.Instance.LevelClear(6);
+                SaveSystem.Instance.LevelClear(5);
                 break;
             default:
                 break;
