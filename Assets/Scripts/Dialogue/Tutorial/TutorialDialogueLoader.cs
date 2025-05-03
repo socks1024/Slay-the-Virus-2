@@ -24,9 +24,9 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
 
                 bool hasPanelPicture = false;
 
-                if (headPictures.ContainsKey(data.Name)) dialogueEvent.head = headPictures[data.Name];
+                if (data.Name != null && headPictures.ContainsKey(data.Name)) dialogueEvent.head = headPictures[data.Name];
                 
-                if (panelPictures.ContainsKey(data.PanelID))
+                if (data.PanelID != null && panelPictures.ContainsKey(data.PanelID))
                 {
                     dialogueEvent.panel = panelPictures[data.PanelID];
                     hasPanelPicture = true;
