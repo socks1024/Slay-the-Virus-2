@@ -14,6 +14,8 @@ public class ButtonOfCard : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.AddComponent<ButtonConflict>();
+        button.AddComponent<CommonButton>();
+        
         cardInventoryUI = GameObject.Find("CardInventory").GetComponent<CardInventoryUI>();
         cardItem = this.transform.parent.gameObject;
         button.onClick.AddListener(OnClick);

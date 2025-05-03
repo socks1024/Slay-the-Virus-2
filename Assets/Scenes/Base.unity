@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 15435840}
   - component: {fileID: 15435839}
   - component: {fileID: 15435838}
+  - component: {fileID: 15435841}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -242,6 +243,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15435836}
   m_CullTransparentMesh: 1
+--- !u!114 &15435841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15435836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &15500234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1035,7 @@ GameObject:
   - component: {fileID: 393762744}
   - component: {fileID: 393762743}
   - component: {fileID: 393762742}
+  - component: {fileID: 393762745}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1142,6 +1156,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393762740}
   m_CullTransparentMesh: 1
+--- !u!114 &393762745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393762740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &411216253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,8 +1268,9 @@ GameObject:
   - component: {fileID: 537702375}
   - component: {fileID: 537702374}
   - component: {fileID: 537702373}
+  - component: {fileID: 537702376}
   m_Layer: 5
-  m_Name: Shop (1)
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1362,6 +1389,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537702371}
   m_CullTransparentMesh: 1
+--- !u!114 &537702376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537702371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &565934213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1602,7 @@ GameObject:
   - component: {fileID: 656906403}
   - component: {fileID: 656906402}
   - component: {fileID: 656906405}
+  - component: {fileID: 656906406}
   m_Layer: 5
   m_Name: Scan
   m_TagString: Untagged
@@ -1711,6 +1751,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2be21fa73ef54134685dc925446e1d02, type: 2}
   - {fileID: 11400000, guid: c534ac5131e8e40419e6e1108448a1d6, type: 2}
   - {fileID: 11400000, guid: ca0158232772c444cb8d8715d2f96085, type: 2}
+--- !u!114 &656906406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656906400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &675480523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,8 +2375,9 @@ GameObject:
   - component: {fileID: 1017036709}
   - component: {fileID: 1017036708}
   - component: {fileID: 1017036707}
+  - component: {fileID: 1017036710}
   m_Layer: 5
-  m_Name: Shop (2)
+  m_Name: HandBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2431,6 +2484,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017036705}
   m_CullTransparentMesh: 1
+--- !u!114 &1017036710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017036705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027600377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2509,7 @@ GameObject:
   - component: {fileID: 1027600381}
   - component: {fileID: 1027600380}
   - component: {fileID: 1027600379}
+  - component: {fileID: 1027600383}
   m_Layer: 5
   m_Name: RedDot2
   m_TagString: Untagged
@@ -2578,6 +2644,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027600377}
   m_CullTransparentMesh: 1
+--- !u!114 &1027600383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027600377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1044403099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,6 +2998,7 @@ GameObject:
   - component: {fileID: 1145311774}
   - component: {fileID: 1145311773}
   - component: {fileID: 1145311772}
+  - component: {fileID: 1145311776}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3010,6 +3089,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1145311776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145311771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f67e3f2a0884a440a998f04ee7c757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicName: MainThemeLoop
 --- !u!1 &1235256208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5077,6 +5169,7 @@ GameObject:
   - component: {fileID: 2040921151}
   - component: {fileID: 2040921150}
   - component: {fileID: 2040921153}
+  - component: {fileID: 2040921154}
   m_Layer: 5
   m_Name: RedDot1
   m_TagString: Untagged
@@ -5211,6 +5304,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionData: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
   EnterBattlePanel: {fileID: 1841806895}
+--- !u!114 &2040921154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040921148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068930064
 GameObject:
   m_ObjectHideFlags: 0

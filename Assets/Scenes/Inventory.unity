@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 57420310}
   - component: {fileID: 57420309}
   - component: {fileID: 57420308}
+  - component: {fileID: 57420311}
   m_Layer: 5
   m_Name: CardButton
   m_TagString: Untagged
@@ -255,6 +256,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57420306}
   m_CullTransparentMesh: 1
+--- !u!114 &57420311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57420306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &64016653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1044,7 @@ GameObject:
   - component: {fileID: 742306075}
   - component: {fileID: 742306074}
   - component: {fileID: 742306073}
+  - component: {fileID: 742306076}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -1151,6 +1165,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742306071}
   m_CullTransparentMesh: 1
+--- !u!114 &742306076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &808241704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,7 +2448,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331492596}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1331492598
 Camera:
   m_ObjectHideFlags: 0
@@ -2546,6 +2572,7 @@ GameObject:
   - component: {fileID: 1469870518}
   - component: {fileID: 1469870517}
   - component: {fileID: 1469870521}
+  - component: {fileID: 1469870522}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2655,6 +2682,19 @@ MonoBehaviour:
   panels:
   - {fileID: 1873914795}
   - {fileID: 1033051184}
+--- !u!114 &1469870522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469870516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f67e3f2a0884a440a998f04ee7c757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicName: MainThemeLoop
 --- !u!1 &1534704631
 GameObject:
   m_ObjectHideFlags: 0
