@@ -26,5 +26,5 @@ MonoBehaviour:
   BaseHeal: 0
   BaseEffect: 0
   Name: "\u6C11\u5175"
-  Description: 
+  Description: "\u2026\u2026"
   CardTex: {fileID: 21300000, guid: c2293b9b05fb59e43bfa8d0508ea79c6, type: 3}

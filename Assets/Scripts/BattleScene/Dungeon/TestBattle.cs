@@ -11,8 +11,6 @@ public class TestBattle : MonoBehaviour
 
     bool startedBattle = false;
 
-    bool showedTutorial = false;
-
     void Start()
     {
         
