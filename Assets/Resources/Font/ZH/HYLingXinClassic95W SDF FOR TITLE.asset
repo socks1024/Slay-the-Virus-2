@@ -1171,6 +1171,21 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 5442
+    m_Metrics:
+      m_Width: 82.703125
+      m_Height: 83.421875
+      m_HorizontalBearingX: 4.59375
+      m_HorizontalBearingY: 73.703125
+      m_HorizontalAdvance: 90
+    m_GlyphRect:
+      m_X: 498
+      m_Y: 720
+      m_Width: 84
+      m_Height: 84
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 47
@@ -1459,6 +1474,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 27788
     m_GlyphIndex: 4396
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 30343
+    m_GlyphIndex: 5442
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -6766263247118211324}
@@ -1754,6 +1773,10 @@ MonoBehaviour:
     m_Y: 617
     m_Width: 103
     m_Height: 105
+  - m_X: 488
+    m_Y: 710
+    m_Width: 103
+    m_Height: 103
   m_FreeGlyphRects:
   - m_X: 99
     m_Y: 33
@@ -1943,10 +1966,6 @@ MonoBehaviour:
     m_Y: 613
     m_Width: 18
     m_Height: 89
-  - m_X: 488
-    m_Y: 702
-    m_Width: 20
-    m_Height: 321
   - m_X: 207
     m_Y: 615
     m_Width: 76
@@ -1955,10 +1974,6 @@ MonoBehaviour:
     m_Y: 716
     m_Width: 75
     m_Height: 307
-  - m_X: 311
-    m_Y: 807
-    m_Width: 712
-    m_Height: 216
   - m_X: 206
     m_Y: 820
     m_Width: 817
@@ -2011,22 +2026,34 @@ MonoBehaviour:
     m_Y: 605
     m_Width: 10
     m_Height: 12
-  - m_X: 488
-    m_Y: 722
-    m_Width: 535
-    m_Height: 301
   - m_X: 714
     m_Y: 717
     m_Width: 309
     m_Height: 306
-  - m_X: 488
-    m_Y: 710
-    m_Width: 123
-    m_Height: 313
   - m_X: 714
     m_Y: 617
     m_Width: 11
     m_Height: 406
+  - m_X: 488
+    m_Y: 702
+    m_Width: 20
+    m_Height: 8
+  - m_X: 311
+    m_Y: 813
+    m_Width: 712
+    m_Height: 210
+  - m_X: 311
+    m_Y: 807
+    m_Width: 177
+    m_Height: 216
+  - m_X: 591
+    m_Y: 722
+    m_Width: 432
+    m_Height: 301
+  - m_X: 591
+    m_Y: 710
+    m_Width: 20
+    m_Height: 313
   m_fontInfo:
     Name: 
     PointSize: 0

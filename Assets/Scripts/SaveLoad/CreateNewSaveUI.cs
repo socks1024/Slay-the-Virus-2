@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class CreateNewSaveUI : MonoBehaviour
 {
+    public int PlayerHealthValue=25;
+
+
+
     public Toggle[] illnesses;
     public TMPro.TMP_InputField nametext;
     public TMPro.TMP_InputField birthtext;
@@ -40,7 +44,7 @@ public class CreateNewSaveUI : MonoBehaviour
         savedata.birthTime = birthtext.text;
         savedata.gender = gender.value;
 
-        savedata.BaseLife = 25;//д╛хож╣
+        savedata.BaseLife = PlayerHealthValue;
         savedata.Nutrient = 0;
 
         savedata.saveindex = index;

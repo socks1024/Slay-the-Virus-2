@@ -1560,6 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d7b1da7eef8ba4aa74173e8ba63cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerHealthValue: 30
   illnesses:
   - {fileID: 573322899}
   - {fileID: 2120801519}

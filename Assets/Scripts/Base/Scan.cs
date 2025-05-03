@@ -26,49 +26,60 @@ public class Scan : MonoBehaviour
 
 
         bool AllClear = true;
+        int LevelClearCount = 0;
         for (int i = 0; i < levelclear.Length; i++)
         {
             if (levelclear[i] == false)
             {
                 AllClear = false;
             }
-        }
-
-        if (AllClear == false)
-        {
-            for (int i = 0; i < RedDots.Length; i++)
+            else
             {
-                for (int k = 0; k < levelclear.Length; k++)
-                {
-                    if (levelclear[k] == false && levelchosen[k] == false)
-                    {
-                        int randpos = Random.Range(0, pos.Length);
-
-                        while (pos[randpos] == true)//重了就重row一下
-                        {
-                            randpos = Random.Range(0, pos.Length);
-                        }
-
-                        RedDots[i].transform.position = RedDotPos[randpos].position;
-                        RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[k];
-                        RedDots[i].gameObject.SetActive(true);
-
-                        levelchosen[k] = true;
-                        pos[randpos] = true;
-                        break;
-                    }
-                }
+                LevelClearCount++;
             }
         }
-        else
-        {
+
+        if (LevelClearCount < 1)
+            LevelClearCount = 1;
+
+        if (LevelClearCount == 6)
+            LevelClearCount = 5;
+
+        //if (AllClear == false)
+        //{
+        //    for (int i = 0; i < RedDots.Length; i++)
+        //    {
+        //        for (int k = 0; k < levelclear.Length; k++)
+        //        {
+        //            if (levelclear[k] == false && levelchosen[k] == false)
+        //            {
+        //                int randpos = Random.Range(0, pos.Length);
+
+        //                while (pos[randpos] == true)//重了就重row一下
+        //                {
+        //                    randpos = Random.Range(0, pos.Length);
+        //                }
+
+        //                RedDots[i].transform.position = RedDotPos[randpos].position;
+        //                RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[k];
+        //                RedDots[i].gameObject.SetActive(true);
+
+        //                levelchosen[k] = true;
+        //                pos[randpos] = true;
+        //                break;
+        //            }
+        //        }
+        //    }
+        //}
+        //else
+        //{
            
             for (int i = 0; i < RedDots.Length; i++)
             {
-                int randomlevel = Random.Range(0, missionDatas.Length);
+                int randomlevel = Random.Range(0, LevelClearCount+1);
                 while (levelchosen[randomlevel] == true)
                 {
-                    randomlevel = Random.Range(0, missionDatas.Length);
+                    randomlevel = Random.Range(0, LevelClearCount+1);
                 }
 
                 int randpos = Random.Range(0, pos.Length);
@@ -86,7 +97,7 @@ public class Scan : MonoBehaviour
                 RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel];
                 RedDots[i].gameObject.SetActive(true);
             }
-        }
+        
     }
 
 }
