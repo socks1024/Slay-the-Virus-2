@@ -20,6 +20,7 @@ public class SettingPanel : MonoBehaviour
     {
         OnThis(panels[0]);
         SetupEventListeners();
+        
     }
 
     public void OnThis(GameObject panel)
