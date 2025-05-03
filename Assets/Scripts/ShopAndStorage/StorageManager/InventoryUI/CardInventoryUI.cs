@@ -52,23 +52,27 @@ public class CardInventoryUI : MonoBehaviour
                
                 SetToPlayerWithoutRemove();
 
-                inventoryitem.num--;
+                //inventoryitem.num--;
             }
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1);
             inventoryitem.ResetNumText();
+
+            Debug.Log("Add!");
             //Preview();
         }
         else if (inventoryitem.showstate == 2)//·Å»Ø
         {
             inventoryitem.showstate = 0;
             //ClearBlank();
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, -1);
             if (CardExistInInventory[inventoryitem.index]==1)
             {
                 Detailed.transform.SetParent(null);
                 Detailed.transform.SetParent(content);
                 Detailed.transform.GetChild(2).gameObject.SetActive(true);
                 Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
-                Detailed.transform.localScale = new Vector3(0.8f,0.8f,1f);
-                inventoryitem.num = 1;
+                Detailed.transform.localScale = inventoryitem.originalscale;
+                //inventoryitem.num = 1;
                 inventoryitem.ResetNumText();
                 CardExistInInventory[inventoryitem.index] = 0;
                 //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
@@ -77,13 +81,14 @@ public class CardInventoryUI : MonoBehaviour
             else
             {
                 Debug.Log("inventoryitem.originalparent");
-                content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().num++;
+                //content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().num++;
                 content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().ResetNumText();
                 //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
                 GameObject.Destroy(Detailed);
             }
 
-           
+            
+
             //sum -= 1;
             //num = 4 - (sum % 4);
             //if (num == 4)

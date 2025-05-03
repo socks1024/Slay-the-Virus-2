@@ -43,6 +43,8 @@ public class CreateNewSaveUI : MonoBehaviour
         savedata.BaseLife = 25;//Ä¬ÈÏÖµ
         savedata.Nutrient = 0;
 
+        savedata.saveindex = index;
+
         for(int i = 0; i < 6; i++)
         {
             savedata.illness[i] = illnesses[i].isOn;

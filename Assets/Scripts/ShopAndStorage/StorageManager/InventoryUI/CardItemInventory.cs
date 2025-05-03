@@ -28,6 +28,7 @@ public class CardItemInventory : MonoBehaviour
 
     public void ResetNumText()
     {
+        num = SaveSystem.Instance.getSave().PlayerCardInventory[carditem.Name];
         numtext.text = num.ToString();
     }
 

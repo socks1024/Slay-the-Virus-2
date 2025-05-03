@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class EnterBattlePanel : MonoBehaviour
 {
@@ -39,14 +40,16 @@ public class EnterBattlePanel : MonoBehaviour
 
     public void EnterTestBattle()
     {
-        Dictionary<CardItem, int> playercardsindictionary = PlayerHold.Instance.GetPlayerHoldCard();
+        //Dictionary<CardItem, int> playercardsindictionary = PlayerHold.Instance.GetPlayerHoldCard();
 
         List<CardBehaviour> playecardBehaviours=new List<CardBehaviour>();
-        foreach(var card in playercardsindictionary)
+        foreach(var card in SaveSystem.Instance.getSave().PlayerHoldCards)
         {
             for(int i = 0; i < card.Value; i++)
             {
-                playecardBehaviours.Add(card.Key.cardBehaviour);
+                string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + card.Key;
+                CardItem cardItem = Resources.Load<CardItem>(FindCardItem);
+                playecardBehaviours.Add(cardItem.cardBehaviour);
             }
         }
 

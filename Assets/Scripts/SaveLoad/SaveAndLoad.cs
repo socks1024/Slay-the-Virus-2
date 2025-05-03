@@ -5,6 +5,7 @@ using Unity.IO;
 using System.IO;
 using UnityEngine.AI;
 using System.Security.Cryptography;
+using JetBrains.Annotations;
 
 
 
@@ -35,7 +36,7 @@ public class SaveSystem : MonoBehaviour
     public PlayerSave getSave()
     {
         return savefile;
-    }
+    }//获取现在的存档
 
     public void SetSave(PlayerSave playerSave)
     {
@@ -98,7 +99,7 @@ public class SaveSystem : MonoBehaviour
         return File.Exists(GetSlotPath(index));
     }
 
-    public void AddCardToPlayerSave(string name,int amount)
+    public void AddCardToPlayerSave(string name, int amount)
     {
         if (savefile != null)
         {
@@ -115,9 +116,11 @@ public class SaveSystem : MonoBehaviour
                 savefile.PlayerCardInventory.Add(name, amount);
             }
         }
+
+        SavePlayerToSlot(savefile, savefile.saveindex);
     }
 
-    public void AddNutrientToPlayerSave(int amount)
+    public void AddNutrientToPlayerSave(int amount)//增加货币（输入负数减少，最少0）
     {
         if (savefile != null)
         {
@@ -127,39 +130,103 @@ public class SaveSystem : MonoBehaviour
                 savefile.Nutrient = 0;
             }
         }
+        SavePlayerToSlot(savefile, savefile.saveindex);
     }
 
-    public void SetLifeOfPlayerSave(int num)
+    public void SetLifeOfPlayerSave(int num)//重置基地生命为给定int
     {
         if (savefile != null)
         {
             savefile.BaseLife = num;
         }
+        SavePlayerToSlot(savefile, savefile.saveindex);
     }
 
-    public void AddLifeofPlayerSave(int num)
+    public void AddLifeofPlayerSave(int num)//增加基地生命（输入负数减少，最少0）
     {
         if (savefile != null)
         {
             savefile.BaseLife += num;
         }
+        SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void ResetPlayerHoldCards(Dictionary<string, int> newcards) //重置玩家持有卡组，接受string int 的词典
+    {
+        if (savefile != null)
+        {
+            savefile.PlayerHoldCards.Clear();
+            foreach(var card in newcards)
+            {
+                savefile.PlayerHoldCards.Add(card);
+            }
+        }
+
+        SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void ResetPlayerHoldCards() //重置玩家持有卡组（直接清空）
+    {
+        if (savefile != null)
+        {
+            savefile.PlayerHoldCards.Clear();
+        }
+
+        SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void AddPlayerHoldCards(string name,int amount)//向玩家持有卡组添加卡牌（输入负数减少，减少为0或负数时移除）
+    {
+        if (savefile != null)
+        {
+            if (savefile.PlayerHoldCards.ContainsKey(name))
+            {
+                savefile.PlayerHoldCards[name] += amount;
+                if (savefile.PlayerHoldCards[name] <= 0)
+                {
+                    savefile.PlayerHoldCards.Remove(name);
+                }
+            }
+        }
+        SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void AddPlayerHoldCardsFromInventory(string name,int amount)
+    {
+        if (savefile != null)
+        {
+            savefile.PlayerCardInventory[name] -= amount;
+
+            if (savefile.PlayerHoldCards.ContainsKey(name))
+            {
+                savefile.PlayerHoldCards[name] += amount;
+                //Debug.Log(name);
+            }
+            else
+            {
+                savefile.PlayerHoldCards.Add(name, amount);
+                Debug.Log(name);
+            }
+        }
+
+        SavePlayerToSlot(savefile, savefile.saveindex);
     }
 }
 
 
 [System.Serializable]
-public class PlayerSave
+public class PlayerSave//存档储存的所有信息，通过调取SaveSystem下的GetSave获取
 {
-    public string Name;
-    public string Time;
-    public string birthTime;
-    public int gender;
-    public bool[] illness = new bool[6];
+    public string Name;  //玩家名
+    public string Time;  //保存时间
+    public string birthTime;  //填写的生日
+    public int gender;  //性别 0=未知 1=男 2=女
+    public bool[] illness = new bool[6];  //是否勾选对应疾病 
 
-    public int BaseLife;
-    public int Nutrient;
+    public int BaseLife;  //生命
+    public int Nutrient;  //营养
 
-    public bool[] ClearLevels = new bool[6];
+    public bool[] ClearLevels = new bool[6]; //已通过的关卡
 
     public SerializableDictionary<string, int> PlayerCardInventory = new SerializableDictionary<string, int>
     {
@@ -245,8 +312,12 @@ public class PlayerSave
         {"Jet",0},
         {"RedButton",0},
         {"Tank",0},
-        {"Warship",0}
-    };
+        {"WarShip",0}
+    };  //玩家仓库的卡牌
+
+    public SerializableDictionary<string, int> PlayerHoldCards = new SerializableDictionary<string, int>();  //玩家卡组里的卡牌
+
+    public int saveindex;  //存档编号
    
 }
 
