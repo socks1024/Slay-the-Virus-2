@@ -60,6 +60,7 @@ public class LootInfo : ScriptableObject
                 {
                     CardRewardInfo info = cardRewardInfos[j];
                     info.amount += 1;
+                    if (CardLib.GetCardRarityType(info.cardID) == CardRarityType.UNCOMMON) info.amount += Random.Range(0, 3);
                     cardRewardInfos[j] = info;
 
                     newCard = false;
@@ -68,11 +69,12 @@ public class LootInfo : ScriptableObject
 
             if (newCard)
             {
-                CardRewardInfo rewardInfo = new();
-                rewardInfo.cardID = cardPool[index].Id;
-                rewardInfo.amount = 1;
+                CardRewardInfo info = new();
+                info.cardID = cardPool[index].Id;
+                info.amount = 1;
+                if (CardLib.GetCardRarityType(info.cardID) == CardRarityType.UNCOMMON) info.amount += Random.Range(0, 3);
 
-                cardRewardInfos.Add(rewardInfo);
+                cardRewardInfos.Add(info);
             }
         }
 

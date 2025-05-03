@@ -21,6 +21,6 @@ MonoBehaviour:
   - {fileID: -5310642505613678040, guid: 3c84cc868ec95ac49928ba1d5be44817, type: 3}
   - {fileID: 1358433941979891012, guid: 356a63cbce76a864fbd25d675165a9d4, type: 3}
   - {fileID: 6951641245671669132, guid: 183a852d530f8154d92733680c98f2ae, type: 3}
-  GainCardAmount: 9
+  GainCardAmount: 12
   relicPool: []
   GainRelicAmount: 0

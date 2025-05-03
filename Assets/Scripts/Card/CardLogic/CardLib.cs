@@ -19,6 +19,11 @@ public static class CardLib
         return cardPrefabs[id];
     }
 
+    public static CardRarityType GetCardRarityType(string id)
+    {
+        return cardPrefabs[id].RarityType;
+    }
+
     /// <summary>
     /// 初始化卡牌
     /// </summary>
