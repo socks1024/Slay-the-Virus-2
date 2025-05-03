@@ -99,7 +99,7 @@ public class SaveSystem : MonoBehaviour
         return File.Exists(GetSlotPath(index));
     }
 
-    public void AddCardToPlayerSave(string name, int amount)
+    public void AddCardToPlayerSave(string name, int amount)//向仓库添加某张牌
     {
         if (savefile != null)
         {
@@ -189,6 +189,14 @@ public class SaveSystem : MonoBehaviour
             }
         }
         SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void TutorialClear(int index)//教程结束
+    {
+        if (savefile != null)
+        {
+            savefile.TutorialClear[index] = true;
+        }
     }
 
     public void AddPlayerHoldCardsFromInventory(string name,int amount)
@@ -318,7 +326,8 @@ public class PlayerSave//存档储存的所有信息，通过调取SaveSystem下的GetSave获取
     public SerializableDictionary<string, int> PlayerHoldCards = new SerializableDictionary<string, int>();  //玩家卡组里的卡牌
 
     public int saveindex;  //存档编号
-   
+
+    public bool[] TutorialClear = new bool[3];
 }
 
 [System.Serializable]

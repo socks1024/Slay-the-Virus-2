@@ -42,6 +42,7 @@ public class InitItems : MonoBehaviour
                 newcard.gameObject.GetComponent<CardRotate>().enabled = false;
                 newcard.gameObject.GetComponent<CardPosition>().enabled = false;
                 newcard.gameObject.GetComponent<CardSetTarget>().enabled = false;
+                //newcard.gameObject.GetComponent<CardUI>().enabled = false;
                 Button button = shopitem.transform.GetChild(1).GetComponent<Button>();
                 button.AddComponent<ButtonOfCard>();
             }
@@ -58,18 +59,31 @@ public class InitItems : MonoBehaviour
         //    }
         //}
 
+        //foreach (var item in SaveSystem.Instance.getSave().PlayerHoldCards)
+        //{
+        //    SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
+        //}
 
-        foreach(var item in SaveSystem.Instance.getSave().PlayerHoldCards)
+        SerializableDictionary<string, int> pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().PlayerHoldCards);
+        
+
+        foreach (var item in pholdcards)
         {
             string findcard = contentpanel.name + "/" + item.Key;
             GameObject CardAdd = GameObject.Find(findcard);
             SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
+
             for (int i = 0; i < item.Value; i++)
             {
                 cardInventoryUI.ShowItem(CardAdd);
             }
+
+            //SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
+
             CardAdd.GetComponent<CardItemInventory>().ResetNumText();
         }
+
+        
     }
 
     public void Return()
