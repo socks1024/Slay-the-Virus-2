@@ -18,8 +18,8 @@ public class DetailPanel : MonoBehaviour,IPointerDownHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             cardInventoryUI.CancelDetail();
-            transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
-            Debug.Log("cancel");
+            //transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
+            //Debug.Log("cancel");
         }
     }
 

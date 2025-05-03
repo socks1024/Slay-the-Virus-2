@@ -32,11 +32,7 @@ public class CardInventoryUI : MonoBehaviour
     {
         detailPanel.gameObject.SetActive(false);
 
-        if (SaveSystem.Instance.getSave().TutorialClear[1] == false)
-        {
-            DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "camp").ShowNextDialogueEvent();
-            SaveSystem.Instance.SetTutorialClear(1);
-        }
+        
     }
 
     public void ShowItem(GameObject card)

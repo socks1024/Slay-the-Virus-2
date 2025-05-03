@@ -29,7 +29,7 @@ public class SaveSystem : MonoBehaviour
         string json = JsonUtility.ToJson(player,true);
         string path = GetSlotPath(index);
 
-        Debug.Log(path);
+        //Debug.Log(path);
         File.WriteAllText(path, json);
     }
 
