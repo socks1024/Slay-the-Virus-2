@@ -191,12 +191,13 @@ public class SaveSystem : MonoBehaviour
         SavePlayerToSlot(savefile, savefile.saveindex);
     }
 
-    public void TutorialClear(int index)//教程结束
+    public void SetTutorialClear(int index)//教程结束
     {
         if (savefile != null)
         {
             savefile.TutorialClear[index] = true;
         }
+
         SavePlayerToSlot(savefile, savefile.saveindex);
     }
 

@@ -18,13 +18,14 @@ public class InitItems : MonoBehaviour
     public GameObject PlayerHoldPanel;
     public CardInventoryUI cardInventoryUI;
 
+   
     private void Start()
     {
         //ItemManager.Instance.AddItem(testcard, 10);//²âÊÔ
-       // storagecards = ItemManager.Instance.GetItemByCategory(ItemCategory.Card);//³õÊ¼»¯¿â´æ
-
+        // storagecards = ItemManager.Instance.GetItemByCategory(ItemCategory.Card);//³õÊ¼»¯¿â´æ
         
-        foreach(var item in SaveSystem.Instance.getSave().PlayerCardInventory)
+
+        foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
         {
             if (item.Value > 0 || SaveSystem.Instance.getSave().PlayerHoldCards.ContainsKey(item.Key))
             {
@@ -83,7 +84,13 @@ public class InitItems : MonoBehaviour
             CardAdd.GetComponent<CardItemInventory>().ResetNumText();
         }
 
-        
+
+
+        if (SaveSystem.Instance.getSave().TutorialClear[1] == false)
+        {
+            DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "camp").ShowNextDialogueEvent();
+            SaveSystem.Instance.SetTutorialClear(1);
+        }
     }
 
     public void Return()

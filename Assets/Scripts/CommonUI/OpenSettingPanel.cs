@@ -6,20 +6,23 @@ using UnityEngine.UI;
 
 public class OpenSettingPanel : MonoBehaviour
 {
-     GameObject Setting;
+    public GameObject Setting;
 
     Button button;
     Button returnbutton;
-    public void Awake()
+    public void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
-        Setting = GameObject.Find("SettingPanel");
+
+        //Setting = GameObject.Find("SettingPanel");
         Setting.SetActive(false);
 
         returnbutton=Setting.transform.GetChild(2).gameObject.GetComponent<Button>();
         returnbutton.onClick.AddListener(OnReturn);
     }
+
+    
 
     public void OnClick()
     {

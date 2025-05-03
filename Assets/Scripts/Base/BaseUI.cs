@@ -16,7 +16,14 @@ public class BaseUI : MonoBehaviour
     private void Awake()
     {
         UpdateInfo();
-        //ItemManager.Instance.InitStorageCard();
+
+        if (SaveSystem.Instance.getSave().TutorialClear[0] == false)
+        {
+            DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "base").ShowNextDialogueEvent();
+            SaveSystem.Instance.SetTutorialClear(0);
+            Debug.Log("Tutorial");
+        }
+        ItemManager.Instance.InitStorageCard();
     }
 
     private void UpdateInfo()
