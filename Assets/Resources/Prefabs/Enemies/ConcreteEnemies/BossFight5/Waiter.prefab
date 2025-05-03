@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814107337841157531, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -151
+      value: -71
       objectReference: {fileID: 0}
     - target: {fileID: 1312408835674812923, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SortingLayer
@@ -34,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 786ec86311b1f3c4e9696b7f54c666b9, type: 3}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 280
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 280
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4406933632172373332, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,11 +102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 79
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 8977450312155807665, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_SortingLayer
@@ -142,4 +142,4 @@ MonoBehaviour:
   enemySprite: {fileID: 21300000, guid: 786ec86311b1f3c4e9696b7f54c666b9, type: 3}
   intention: {fileID: 0}
   type: 2
-  ServeHealAmount: 8
+  ServeHealAmount: 6

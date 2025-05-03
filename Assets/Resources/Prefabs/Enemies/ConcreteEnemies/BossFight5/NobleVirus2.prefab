@@ -94,11 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34
+      value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 8665908604292398895, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 104
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -132,6 +132,6 @@ MonoBehaviour:
   type: 2
   AttackTurn: 1
   PierceDamageAmount: 3
-  SlashDamageAmount: 9
+  SlashDamageAmount: 7
   SlashWoundAmount: 3
-  DrinkHealAmount: 6
+  DrinkHealAmount: 4
