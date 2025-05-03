@@ -15,20 +15,25 @@ public class VirusKing : EnemyBehaviour
     {
         #region generate intent
 
-        string virusID = "Trap";
+        string virusID = "";
 
-        float r = Random.value;
-        if (r < 1/4)
+        float r = Random.Range(0,4);
+        
+        if (r == 0)
         {
             virusID = "RoadExplosion";
         }
-        else if (r < 2/4)
+        else if (r == 1)
         {
             virusID = "Barrier";
         }
-        else if (r < 3/4)
+        else if (r == 2)
         {
             virusID = "Spy";
+        }
+        else if (r == 3)
+        {
+            virusID = "Trap";
         }
 
         ScornIntent = new IntentionInfo(
@@ -64,7 +69,7 @@ public class VirusKing : EnemyBehaviour
 
         DoubleAttackIntent = new IntentionInfo(
             IntentionType.DOUBLE_ATTACK,
-            new DamageInfo(Player, this, DoubleAttackDamageAmount).finalDamage.ToString() + "×2",
+            new DamageInfo(Player, this, DoubleAttackDamageAmount).finalDamage.ToString(),
             () => {ActionLib.MultiAttackAction(Player, this, DoubleAttackDamageAmount, 2);}
         );
 

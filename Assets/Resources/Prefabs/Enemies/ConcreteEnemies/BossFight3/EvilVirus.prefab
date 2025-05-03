@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: EvilVirus
-  MaxHealth: 15
+  MaxHealth: 10
   enemySprite: {fileID: 21300000, guid: 9d2c4820f274bbf4bb00b54e60647949, type: 3}
   intention: {fileID: 0}
   type: 2

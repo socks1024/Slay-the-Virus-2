@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: HardVirus
-  MaxHealth: 15
+  MaxHealth: 12
   enemySprite: {fileID: 21300000, guid: 39226b928825a57409c0d09cef70d3bf, type: 3}
   intention: {fileID: 0}
   type: 2
-  AttackDamageAmount: 3
-  GuardHealAmount: 3
+  AttackDamageAmount: 2
+  GuardHealAmount: 2
