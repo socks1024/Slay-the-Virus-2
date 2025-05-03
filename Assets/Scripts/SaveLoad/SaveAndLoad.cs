@@ -197,6 +197,7 @@ public class SaveSystem : MonoBehaviour
         {
             savefile.TutorialClear[index] = true;
         }
+        SavePlayerToSlot(savefile, savefile.saveindex);
     }
 
     public void AddPlayerHoldCardsFromInventory(string name,int amount)
