@@ -123,6 +123,22 @@ MonoBehaviour:
     cooldown: 0
     lastVariationPlayed: 0
     timeLastPlayed: 0
+  - name: MainThemeOpen
+    sound: {fileID: 8300000, guid: a86013445d5490541a2c7ae66b62a410, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: MainThemeLoop
+    sound: {fileID: 8300000, guid: cd2636b2d0a8b884c9ee8d78bcaa4b33, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
   audioMixer: {fileID: 0}
   poolSize: 1
   sampleSource: {fileID: 6356488990105377484}
