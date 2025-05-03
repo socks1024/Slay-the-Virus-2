@@ -151,7 +151,7 @@ public class PlayerBehaviour : CreatureBehaviour
             }
             else
             {
-                newPlayerHoldCards.Add(card.Id, 0);
+                newPlayerHoldCards.Add(card.Id, 1);
             }
         }
 
