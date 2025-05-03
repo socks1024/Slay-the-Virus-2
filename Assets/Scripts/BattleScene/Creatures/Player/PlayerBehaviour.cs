@@ -36,6 +36,8 @@ public class PlayerBehaviour : CreatureBehaviour
         EventCenter.Instance.RemoveEventListener(EventType.BATTLE_WIN, OnBattleWin);
     }
 
+    PlayerSave playerSave{ get{ return SaveSystem.Instance.getSave(); } }
+
     #region Backpack
 
     /// <summary>
@@ -65,6 +67,9 @@ public class PlayerBehaviour : CreatureBehaviour
             if(SaveSystem.Instance.getSave() is not null)
             {
                 if (value < 0) value = 0;
+
+                if (SaveSystem.Instance.getSave().Nutrient < value) AudioManager.Instance.PlaySFX("GainMoney");
+
                 SaveSystem.Instance.getSave().Nutrient = value; 
 
                 OnNutritionChange.Invoke(Nutrition);
@@ -136,12 +141,31 @@ public class PlayerBehaviour : CreatureBehaviour
 
     public void OnWinLeaveDungeon()
     {
-        // totalReward.cardRewardInfos.ForEach(info => SaveSystem.Instance.AddCardToPlayerSave(info.cardID, info.amount));
+        SerializableDictionary<string,int> newPlayerHoldCards = new();
+
+        foreach (CardBehaviour card in this.p_Deck)
+        {
+            if (newPlayerHoldCards.ContainsKey(card.Id))
+            {
+                newPlayerHoldCards[card.Id] += 1;
+            }
+            else
+            {
+                newPlayerHoldCards.Add(card.Id, 0);
+            }
+        }
+
+        playerSave.PlayerHoldCards = newPlayerHoldCards;
+
+        foreach (CardRewardInfo cardRewardInfo in this.totalReward.cardRewardInfos)
+        {
+            SaveSystem.Instance.AddCardToPlayerSave(cardRewardInfo.cardID, cardRewardInfo.amount);
+        }
     }
 
     public void OnLoseLeaveDungeon()
     {
-        // p_Deck.ForEach(card => SaveSystem.Instance.AddCardToPlayerSave(card.Id, -1));
+        playerSave.PlayerHoldCards = new();
     }
 
     #endregion

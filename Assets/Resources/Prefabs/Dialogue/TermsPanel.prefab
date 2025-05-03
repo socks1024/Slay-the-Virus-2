@@ -762,7 +762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &758798299567534676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4650,6 +4650,7 @@ GameObject:
   - component: {fileID: 4925618999186779}
   - component: {fileID: 715947400116454958}
   - component: {fileID: 8514707806199371312}
+  - component: {fileID: 2829208886686665326}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -4771,6 +4772,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2829208886686665326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3867374041742259989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3870004706130755971
 GameObject:
   m_ObjectHideFlags: 0
@@ -6964,6 +6977,7 @@ GameObject:
   - component: {fileID: 1726833598732461958}
   - component: {fileID: 6303247914484075886}
   - component: {fileID: 3048102208753946199}
+  - component: {fileID: 3475300406497633692}
   m_Layer: 5
   m_Name: NextPage
   m_TagString: Untagged
@@ -7084,6 +7098,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3475300406497633692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997333484324034674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5139995928457766187
 GameObject:
   m_ObjectHideFlags: 0
@@ -7305,6 +7331,7 @@ GameObject:
   - component: {fileID: 6689789425828608320}
   - component: {fileID: 8314995307734716132}
   - component: {fileID: 1255509373582224331}
+  - component: {fileID: 4243112179241192532}
   m_Layer: 5
   m_Name: PrevPage
   m_TagString: Untagged
@@ -7425,6 +7452,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4243112179241192532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5453046399682056658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508057200203954971
 GameObject:
   m_ObjectHideFlags: 0

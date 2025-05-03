@@ -21,10 +21,14 @@ public class LootInfo : ScriptableObject
     /// </summary>
     public List<CardBehaviour> cardPool;
 
+    public int GainCardAmount;
+
     /// <summary>
     /// 战利品中所有可能出现的道具
     /// </summary>
     public List<RelicBehaviour> relicPool;
+
+    public int GainRelicAmount;
 
     /// <summary>
     /// 随机获取金钱

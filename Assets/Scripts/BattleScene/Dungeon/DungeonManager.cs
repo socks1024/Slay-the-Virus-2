@@ -258,11 +258,15 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
     public void LoseLeaveDungeon()
     {
+        print("Lose Leave Dungeon");
+        Player.OnLoseLeaveDungeon();
+
         LeaveDungeon();
     }
 
     public void SettingLeaveDungeon()
     {
+        print("Setting Leave Dungeon");
         LeaveDungeon();
     }
 

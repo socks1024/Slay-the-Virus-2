@@ -233,13 +233,18 @@ public class BattleManager : MonoBehaviour
     {
         //将战利品加入背包
         
-        ResetBattleElements();
+        // ResetBattleElements();
         rewardPanel.gameObject.SetActive(false);
 
         // DungeonManager.Instance.RightBGReturnBack(() => {
         //     DungeonManager.Instance.EnterNode(battleNode.connectedNodes[0]);
         // });
 
+        WinLeaveDungeon();
+    }
+
+    void WinLeaveDungeon()
+    {
         TimersManager.SetTimer("WinLeaveDungeon", winLeaveDelay, DungeonManager.Instance.WinLeaveDungeon);
     }
 

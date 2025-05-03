@@ -9,25 +9,19 @@ public class RewardsHolder : MonoBehaviour
 
     PlayerBehaviour Player{ get{ return DungeonManager.Instance.Player; }}
 
-    public int cardAmount = 4;
-
-    public int relicAmount = 0;
-
     public void GenerateRewards(LootInfo lootInfo)
     {
         rewardData = new();
-
-        print("???");
 
         ClearRewardsPanel();
         
         rewardData.money = lootInfo.RandomGetMoney();
 
         rewardData.cardRewardInfos = new();
-        lootInfo.RandomGetCards(cardAmount).ForEach(cardRewardInfo => rewardData.cardRewardInfos.Add(cardRewardInfo));
+        lootInfo.RandomGetCards(lootInfo.GainCardAmount).ForEach(cardRewardInfo => rewardData.cardRewardInfos.Add(cardRewardInfo));
         
         rewardData.relicRewardInfos = new();
-        lootInfo.RandomGetRelics(relicAmount).ForEach(relicRewardInfo => rewardData.relicRewardInfos.Add(relicRewardInfo));
+        lootInfo.RandomGetRelics(lootInfo.GainRelicAmount).ForEach(relicRewardInfo => rewardData.relicRewardInfos.Add(relicRewardInfo));
 
         ShowRewards();
 

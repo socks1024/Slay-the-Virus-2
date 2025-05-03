@@ -25,6 +25,7 @@ public class TestBattle : MonoBehaviour
                 .ShowNextDialogueEvent();
 
             EnterDungeonInfo info = Messenger.enterDungeonInfo;
+
             if (info.p_Cards == null || info.p_Cards.Count == 0) info.p_Cards = deck;
             if (info.p_Relics == null) info.p_Relics = relics;
             if (info.missionData == null) info.missionData = mission;
