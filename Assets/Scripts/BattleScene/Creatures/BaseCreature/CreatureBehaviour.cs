@@ -39,6 +39,7 @@ public abstract class CreatureBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         takeDamage.ActOnDead += OnDead;
+        takeDamage.InitHealth();
         EventCenter.Instance.AddEventListener(EventType.BATTLE_START, OnBattleStart);
     }
 

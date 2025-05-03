@@ -13,12 +13,12 @@ public class PlayerBehaviour : CreatureBehaviour
 
     protected override void Awake()
     {
-        base.Awake();
-
         if (SaveSystem.Instance is not null && SaveSystem.Instance.getSave() is not null)
         {
             MaxHealth = SaveSystem.Instance.getSave().BaseLife;
         }
+        
+        base.Awake();
         
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, OnBattleWin);
     }
@@ -151,7 +151,7 @@ public class PlayerBehaviour : CreatureBehaviour
             }
             else
             {
-                newPlayerHoldCards.Add(card.Id, 0);
+                newPlayerHoldCards.Add(card.Id, 1);
             }
         }
 

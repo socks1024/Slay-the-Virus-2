@@ -32,7 +32,7 @@ public class TestBattle : MonoBehaviour
             SaveSystem.Instance.getSave().TutorialClear[2] = true;
 
             DialogueManager.Instance.ShowDialoguePanel()
-                .AddDialogueEvent(DialogueManager.Instance.loader, new int[]{6,7,8,9,10,11,12,13,14,15,16,17,18,19})
+                .AddDialogueEvent(DialogueManager.Instance.loader, "battle")
                 .ShowNextDialogueEvent();
         }
 

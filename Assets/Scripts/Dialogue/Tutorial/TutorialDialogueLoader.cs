@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,5 +70,18 @@ public class DialogueLoader : MonoBehaviour, IDialogueLoader
         return dialogueEvent;
     }
 
-    
+    public List<DialogueEvent> LoadDialogueEventsByGroup(string groupID)
+    {
+        List<DialogueEvent> dialogueEventList = new();
+
+        foreach (TutorialData data in tutorialLines.Sheet1)
+        {
+            if (data.GroupID == groupID)
+            {
+                dialogueEventList.Add(LoadDialogueEvent(data.ID));
+            }
+        }
+
+        return dialogueEventList;
+    }
 }
