@@ -16,5 +16,4 @@ MonoBehaviour:
   p_Enemies_GameObject:
   - {fileID: 1564478793388295705, guid: 25faf4488fcad7c4dbf452b8676d158c, type: 3}
   - {fileID: 1564478793388295705, guid: 675242269034275449a0fcd02fe22f9f, type: 3}
-  - {fileID: 1564478793388295705, guid: 675242269034275449a0fcd02fe22f9f, type: 3}
   lootInfo: {fileID: 11400000, guid: 54ca0ebd65788b14082b0b2f9c0ddf65, type: 2}

@@ -36,8 +36,6 @@ public class BattleManager : MonoBehaviour
     {
         this.battleNode = battleInfo;
 
-        //还没有添加战利品初始化
-
         board = Instantiate(player.p_Board);
         board.transform.SetParent(boardRoot, false);
 
@@ -139,6 +137,8 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] float NextTurnInterval = 0.5f;
 
+    bool battleEnded = false;
+
     /// <summary>
     /// 在所有行动结束时触发
     /// </summary>
@@ -148,7 +148,7 @@ public class BattleManager : MonoBehaviour
             BuffBehaviour.TriggerAllActOnTurnEnd();
             TimersManager.SetTimer("NextTurnInterval", NextTurnInterval, ()=>{
                 turnCount += 1;
-                EventCenter.Instance.TriggerEvent(EventType.TURN_START);
+                if (!battleEnded) EventCenter.Instance.TriggerEvent(EventType.TURN_START);
             });
         });
     }
@@ -211,7 +211,9 @@ public class BattleManager : MonoBehaviour
     void OnBattleWin()
     {
         // ResetBattleElements();
+        battleEnded = true;
         ShowRewards();
+        AudioManager.Instance.PlaySFX("Win");
     }
 
     /// <summary>
@@ -253,6 +255,8 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void OnPlayerDead()
     {
+        battleEnded = true;
+        AudioManager.Instance.PlaySFX("Lose");
         DungeonManager.Instance.LoseLeaveDungeon();
         //死回家直接结算
         // ResetBattleElements();
@@ -277,10 +281,6 @@ public class BattleManager : MonoBehaviour
 
         currentWave = 0;
     }
-
-    #endregion
-
-    #region BG UI
 
     #endregion
 

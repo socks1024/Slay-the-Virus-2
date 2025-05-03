@@ -28,7 +28,7 @@ public class ChaosVirus : EnemyBehaviour
 
         SplitIntent = new IntentionInfo(
             IntentionType.GIVE_TRASH,
-            SplitIntent.ToString(),
+            SplitTrashAmount.ToString(),
             () => { ActionLib.AddVirusCardToDrawPile("Assassin", SplitTrashAmount);}
         );
 
@@ -53,29 +53,29 @@ public class ChaosVirus : EnemyBehaviour
 
         #endregion
 
-        float r = Random.value;
+        int r = Random.Range(0,6);
 
-        if ( r < 1/6 )
+        if ( r == 0 )
         {
             SetIntention(StrikeIntent);
         }
-        else if ( r < 2/6 )
+        else if ( r == 1 )
         {
             SetIntention(RoarIntent);
         }
-        else if ( r < 3/6 )
+        else if ( r == 2 )
         {
             SetIntention(SplitIntent);
         }
-        else if ( r < 4/6 )
+        else if ( r == 3 )
         {
             SetIntention(GazeIntent);
         }
-        else if ( r < 5/6 )
+        else if ( r == 4 )
         {
             SetIntention(HealIntent);
         }
-        else if ( r < 6/6 )
+        else if ( r == 5 )
         {
             SetIntention(SwellIntent);
         }

@@ -136,7 +136,7 @@ public class PlayerBehaviour : CreatureBehaviour
 
     public void OnBattleWin()
     {
-        buffOwner.ClearBuff();
+        // buffOwner.ClearBuff();
     }
 
     public void OnWinLeaveDungeon()

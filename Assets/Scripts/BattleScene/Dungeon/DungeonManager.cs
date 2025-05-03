@@ -221,6 +221,8 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
         AudioManager.Instance.StopMusic();
 
+        ClearAllBattleEvent();
+
         SceneManager.LoadScene("Base");
     }
 

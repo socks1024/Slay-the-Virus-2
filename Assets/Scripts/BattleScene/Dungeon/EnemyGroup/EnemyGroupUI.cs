@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class EnemyGroupUI : MonoBehaviour
 
     public void OnEnemyAmountChange(List<EnemyBehaviour> enemies)
     {
+        moving = false;
+
         if (enemies.Count == 1)
         {
             BossPos.gameObject.SetActive(true);
@@ -57,6 +60,12 @@ public class EnemyGroupUI : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
 
         print("ForceRebuildLayoutImmediate");
+
+        uprowBasePos = UpRow.position;
+        bossBasePos = BossPos.position;
+        downrowBasePos = DownRow.position;
+
+        TimersManager.SetTimer("move", 0.2f, () => moving = true);
     }
 
     [Header("敌人通常动画")]
@@ -66,6 +75,8 @@ public class EnemyGroupUI : MonoBehaviour
     Vector3 bossBasePos;
     Vector3 downrowBasePos;
 
+    bool moving = true;
+
     void Start()
     {
         uprowBasePos = UpRow.position;
@@ -73,11 +84,14 @@ public class EnemyGroupUI : MonoBehaviour
         downrowBasePos = DownRow.position;
     }
 
-    // void Update()
-    // {
-    //     UpRow.position = new Vector3(uprowBasePos.x, uprowBasePos.y + Mathf.Sin(Time.time) * Amplitude, uprowBasePos.z);
-    //     BossPos.position = new Vector3(bossBasePos.x, bossBasePos.y - Mathf.Sin(Time.time) * Amplitude, bossBasePos.z);
-    //     DownRow.position = new Vector3(downrowBasePos.x, downrowBasePos.y + Mathf.Sin(Time.time) * Amplitude, downrowBasePos.z);
-    // }
+    void Update()
+    {
+        if (moving)
+        {
+            UpRow.position = new Vector3(uprowBasePos.x, uprowBasePos.y + Mathf.Sin(Time.time) * Amplitude, uprowBasePos.z);
+            BossPos.position = new Vector3(bossBasePos.x, bossBasePos.y - Mathf.Sin(Time.time) * Amplitude, bossBasePos.z);
+            DownRow.position = new Vector3(downrowBasePos.x, downrowBasePos.y + Mathf.Sin(Time.time) * Amplitude, downrowBasePos.z);
+        }
+    }
 
 }

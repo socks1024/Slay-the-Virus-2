@@ -25,7 +25,7 @@ public class TestBattle : MonoBehaviour
 
     void StartBattle()
     {
-        if (!SaveSystem.Instance.getSave().TutorialClear[2])
+        if (SaveSystem.Instance != null && !SaveSystem.Instance.getSave().TutorialClear[2])
         {
             SaveSystem.Instance.SetTutorialClear(2);
 

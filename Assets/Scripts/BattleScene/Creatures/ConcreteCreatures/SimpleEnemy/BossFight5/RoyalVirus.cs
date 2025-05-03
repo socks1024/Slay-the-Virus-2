@@ -15,7 +15,7 @@ public class RoyalVirus : EnemyBehaviour
 
         PierceIntent = new IntentionInfo(
             IntentionType.TRIPLE_ATTACK,
-            new DamageInfo(Player, this, PierceDamageAmount).finalDamage.ToString() + "×3",
+            new DamageInfo(Player, this, PierceDamageAmount).finalDamage.ToString(),
             () => { ActionLib.MultiAttackAction(Player, this, PierceDamageAmount, 3);}
         );
 

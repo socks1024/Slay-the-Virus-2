@@ -12,8 +12,11 @@ public class ShakeScreenMovement : MonoBehaviour
         shakeScreenMovements.ForEach(shake => {
             shake.isShaking = true;
             TimersManager.SetTimer("shake", shake.shakeTime, ()=>{
-                shake.isShaking = false;
-                shake.gameObject.transform.position = shake.originalPosition;
+                if (shakeScreenMovements is not null && shake is not null && shake.gameObject is not null)
+                {
+                    shake.isShaking = false;
+                    shake.gameObject.transform.position = shake.originalPosition;
+                }
             });
         });
     }
