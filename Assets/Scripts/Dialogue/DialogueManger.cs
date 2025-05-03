@@ -32,9 +32,16 @@ public class DialogueManager : MonoSingleton<DialogueManager>
 
         return dialoguePanel;
     }
+
+    public void ShowManual()
+    {
+        FindAnyObjectByType<SettingsPanel>().ShowTerms();
+    }
 }
 
 public interface IDialogueLoader
 {
     public DialogueEvent LoadDialogueEvent(int ID);
+
+    public List<DialogueEvent> LoadDialogueEventsByGroup(string groupID);
 }

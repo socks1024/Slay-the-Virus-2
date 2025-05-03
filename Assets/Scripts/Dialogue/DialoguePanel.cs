@@ -98,14 +98,19 @@ public class DialoguePanel : MonoBehaviour
         return this;
     }
 
-    public DialoguePanel AddDialogueEvent(IDialogueLoader loader, int ID)
+    void AddEvent(DialogueEvent dialogueEvent)
     {
-        DialogueEvent dialogueEvent = loader.LoadDialogueEvent(ID);
-
         if (dialogueEvent.head is null) dialogueEvent.head = defaultHead;
         if (dialogueEvent.panel is null) dialogueEvent.panel = defaultPanel;
 
         dialogueEventsQueue.Enqueue(dialogueEvent);
+    }
+
+    public DialoguePanel AddDialogueEvent(IDialogueLoader loader, int ID)
+    {
+        DialogueEvent dialogueEvent = loader.LoadDialogueEvent(ID);
+
+        AddEvent(dialogueEvent);
 
         return this;
     }
@@ -115,6 +120,16 @@ public class DialoguePanel : MonoBehaviour
         for (int i = 0; i < IDs.Length; i++)
         {
             AddDialogueEvent(loader, IDs[i]);
+        }
+
+        return this;
+    }
+
+    public DialoguePanel AddDialogueEvent(IDialogueLoader loader, string groupID)
+    {
+        foreach (DialogueEvent dialogueEvent in loader.LoadDialogueEventsByGroup(groupID))
+        {
+            AddEvent(dialogueEvent);
         }
 
         return this;

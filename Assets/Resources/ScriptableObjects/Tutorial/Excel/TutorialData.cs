@@ -7,6 +7,7 @@ using UnityEngine;
 public class TutorialData
 {
     public int ID;
+    public string GroupID;
     public string Name;
     public string Line;
     public string PanelID;
