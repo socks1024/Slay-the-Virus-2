@@ -17,18 +17,16 @@ public class DialogueManager : MonoSingleton<DialogueManager>
 
     public DialoguePanel ShowDialoguePanel()
     {
-        if (dialoguePanel is null)
-        {
-            DialoguePanel panel = Instantiate(PanelPrefab, FindObjectOfType<Canvas>().transform);
-            panel.transform.localPosition = Vector3.zero;
-            panel.transform.localScale = Vector3.one;
+        DialoguePanel panel = Instantiate(PanelPrefab, FindObjectOfType<Canvas>().transform);
+        panel.transform.localPosition = Vector3.zero;
+        panel.transform.localScale = Vector3.one;
 
-            panel.SetTextPanelPosition(TextPanelPosition.DOWN);
+        panel.SetTextPanelPosition(TextPanelPosition.DOWN);
 
-            panel.transform.SetAsLastSibling();
+        panel.transform.SetAsLastSibling();
 
-            dialoguePanel = panel;
-        }
+        dialoguePanel = panel;
+        
 
         return dialoguePanel;
     }

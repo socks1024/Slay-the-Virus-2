@@ -10,20 +10,18 @@ public class TestBattle : MonoBehaviour
 
     [SerializeField]DungeonMissionData mission;
 
-    bool startedBattle = false;
-
     void Start()
     {
         TimersManager.SetTimer("StartBattle", 0.5f, StartBattle);
     }
 
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0) && !startedBattle)
-        {
-            StartBattle();
-        }
-    }
+    // void Update()
+    // {
+    //     if(Input.GetMouseButtonDown(0) && !startedBattle)
+    //     {
+    //         StartBattle();
+    //     }
+    // }
 
     void StartBattle()
     {
@@ -43,7 +41,6 @@ public class TestBattle : MonoBehaviour
         if (info.missionData == null) info.missionData = mission;
 
         DungeonManager.Instance.StartAdventure(info);
-        startedBattle = true;
 
         AudioManager.Instance.PlaySFX("BattleStart");
     }
