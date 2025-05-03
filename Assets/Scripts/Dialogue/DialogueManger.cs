@@ -35,7 +35,7 @@ public class DialogueManager : MonoSingleton<DialogueManager>
 
     public void ShowManual()
     {
-        FindAnyObjectByType<SettingsPanel>().ShowTerms();
+        FindAnyObjectByType<GameSettingsPanel>().ShowTerms();
     }
 }
 

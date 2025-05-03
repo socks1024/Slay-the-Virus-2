@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingsPanel : MonoBehaviour
+public class GameSettingsPanel : MonoBehaviour
 {
     public void HideSettingsPanel()
     {
@@ -13,11 +13,6 @@ public class SettingsPanel : MonoBehaviour
     public void LeaveBattle()
     {
         DungeonManager.Instance.SettingLeaveDungeon();
-    }
-
-    public void ShowSettings()
-    {
-        
     }
 
     public ManualPanel Terms;

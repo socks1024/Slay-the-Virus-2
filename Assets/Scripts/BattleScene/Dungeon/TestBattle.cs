@@ -29,7 +29,7 @@ public class TestBattle : MonoBehaviour
     {
         if (!SaveSystem.Instance.getSave().TutorialClear[2])
         {
-            SaveSystem.Instance.getSave().TutorialClear[2] = true;
+            SaveSystem.Instance.TutorialClear(2);
 
             DialogueManager.Instance.ShowDialoguePanel()
                 .AddDialogueEvent(DialogueManager.Instance.loader, "battle")
