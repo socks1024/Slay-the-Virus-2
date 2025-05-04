@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Scan : MonoBehaviour
 {
+    public float expand = 1.2f;
+    public float lessen = 0.7f;
+
     public GameObject[] RedDots;
     public Transform[] RedDotPos;
     public DungeonMissionData[] missionDatas;
@@ -111,7 +114,7 @@ public class Scan : MonoBehaviour
                 RedDots[i].transform.position = RedDotPos[randpos].position;
 
                 RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel];
-                RedDots[i].transform.localScale = new Vector3(originalscale.x * 0.8f, originalscale.y * 0.8f);
+                RedDots[i].transform.localScale = new Vector3(originalscale.x * lessen, originalscale.y * lessen);
                 RedDots[i].gameObject.SetActive(true);
             }
         }
@@ -141,7 +144,11 @@ public class Scan : MonoBehaviour
                 RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel];
                 if (SaveSystem.Instance.getSave().ClearLevels[randomlevel] == true)
                 {
-                    RedDots[i].transform.localScale = new Vector3(originalscale.x * 0.7f, originalscale.y * 0.7f);
+                    RedDots[i].transform.localScale = new Vector3(originalscale.x * lessen, originalscale.y * lessen);
+                }
+                else
+                {
+                    RedDots[i].transform.localScale = new Vector3(originalscale.x * expand, originalscale.y * expand);
                 }
                 RedDots[i].gameObject.SetActive(true);
             }
@@ -165,6 +172,7 @@ public class Scan : MonoBehaviour
             }
 
             RedDots[RedDots.Length - 1].transform.position = RedDotPos[randpos2].position;
+            RedDots[RedDots.Length - 1].transform.localScale = new Vector3(originalscale.x * expand, originalscale.y * expand);
             RedDots[RedDots.Length - 1].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel2];
             RedDots[RedDots.Length - 1].gameObject.SetActive(true);
             //RedDots[RedDots.Length - 1].transform.localScale = new Vector3(RedDots[RedDots.Length - 1].transform.localScale.x*1.2f, RedDots[RedDots.Length - 1].transform.localScale.y*1.2f);
