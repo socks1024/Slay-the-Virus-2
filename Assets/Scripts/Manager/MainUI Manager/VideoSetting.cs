@@ -24,6 +24,9 @@ public class VideoSetting : MonoBehaviour
         // InitializeDisplayModes();
 
         screentoggle.isOn = Screen.fullScreen;
+
+        screentoggle.onValueChanged.AddListener(ScreenModeToggle);
+
     }
 
 
@@ -94,8 +97,8 @@ public class VideoSetting : MonoBehaviour
     //    //Screen.SetResolution(1920, 1080, currentFullscreenMode, selected.refreshRateRatio);
     //}
 
-    public void ScreenModeToggle()
+    public void ScreenModeToggle(bool value)
     {
-        Screen.fullScreen = screentoggle.isOn;
+        Screen.fullScreen = value;
     }
 }
