@@ -1754,6 +1754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092ba3718912327468f1b5aa090048c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expand: 1.4
+  lessen: 0.7
   RedDots:
   - {fileID: 2040921148}
   - {fileID: 1027600377}
