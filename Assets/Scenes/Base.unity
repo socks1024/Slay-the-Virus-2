@@ -1770,6 +1770,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2be21fa73ef54134685dc925446e1d02, type: 2}
   - {fileID: 11400000, guid: c534ac5131e8e40419e6e1108448a1d6, type: 2}
   - {fileID: 11400000, guid: ca0158232772c444cb8d8715d2f96085, type: 2}
+  tutorial: {fileID: 11400000, guid: 9ae44ef3a81a283488b25396f895d4b1, type: 2}
 --- !u!114 &656906406
 MonoBehaviour:
   m_ObjectHideFlags: 0

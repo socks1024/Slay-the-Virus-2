@@ -7,6 +7,9 @@ public class Scan : MonoBehaviour
     public GameObject[] RedDots;
     public Transform[] RedDotPos;
     public DungeonMissionData[] missionDatas;
+    public DungeonMissionData tutorial;
+
+    private bool EnterTutorial;
 
     private void Start()
     {
@@ -15,10 +18,24 @@ public class Scan : MonoBehaviour
             RedDots[i].gameObject.SetActive(false);
             RedDots[i].transform.parent.GetChild(RedDots[i].transform.childCount + 1).gameObject.SetActive(false);
         }
+
+        EnterTutorial = SaveSystem.Instance.getSave().TutorialClear[2];
     }
 
     public void SetActive()
     {
+        if (!EnterTutorial)
+        {
+            Debug.Log(SaveSystem.Instance.getSave().ClearLevels[2]);
+            int randpos = Random.Range(0, RedDotPos.Length);
+            RedDots[0].transform.position = RedDotPos[randpos].position;
+            RedDots[0].GetComponent<EnterBattle>().missionData = tutorial;
+            RedDots[0].SetActive(true);
+            return;
+        }
+
+
+
         bool[] levelclear = SaveSystem.Instance.getSave().ClearLevels;
 
         bool[] pos = new bool[RedDotPos.Length];

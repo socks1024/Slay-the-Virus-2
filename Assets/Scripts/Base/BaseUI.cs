@@ -26,6 +26,7 @@ public class BaseUI : MonoBehaviour
 
         if (SaveSystem.Instance.getSave().TutorialClear[0] == true && SaveSystem.Instance.getSave().TutorialClear[2] == true && SaveSystem.Instance.getSave().TutorialClear[3] == false)
         {
+            Debug.Log(SaveSystem.Instance.getSave().TutorialClear[2]);
             DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "base2").ShowNextDialogueEvent();
             SaveSystem.Instance.SetTutorialClear(3);
         }
