@@ -329,7 +329,12 @@ public class PlayerSave//存档储存的所有信息，通过调取SaveSystem下的GetSave获取
 
     public int saveindex;  //存档编号
 
-    public bool[] TutorialClear = new bool[3];
+    public bool[] TutorialClear = new bool[]{ 
+       false,
+       false,
+       false,
+       false
+    };
 }
 
 [System.Serializable]
