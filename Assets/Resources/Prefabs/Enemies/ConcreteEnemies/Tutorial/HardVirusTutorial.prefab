@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7486581336248557323, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: NormalSize
-      value: 225
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 814107337841157531, guid: 17c82d104257aab478d0cf0084ed2f87, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701be48012ada5f4cbdaec890ed5ef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: HardVirus
-  MaxHealth: 20
+  ID: HardVirusTutorial
+  MaxHealth: 25
   enemySprite: {fileID: 21300000, guid: 39226b928825a57409c0d09cef70d3bf, type: 3}
   intention: {fileID: 0}
   type: 2
