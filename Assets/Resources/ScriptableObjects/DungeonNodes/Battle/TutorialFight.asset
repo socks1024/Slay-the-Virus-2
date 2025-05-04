@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1543c7b3d5338a349af8593565f764e1, type: 3}
-  m_Name: TestBattle
+  m_Name: TutorialFight
   m_EditorClassIdentifier: 
-  nodeID: TestBattle
+  nodeID: TutorialFight
   p_Enemies_GameObject:
   - {fileID: 1564478793388295705, guid: 54b3d82521119664bb8a1f28d7a447ed, type: 3}
   lootInfo: {fileID: 11400000, guid: a0fe01ebaa8c4ec4982e29ed05ad97bb, type: 2}

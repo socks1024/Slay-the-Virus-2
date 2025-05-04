@@ -125,6 +125,9 @@ public class MapGenerator : MonoBehaviour
             case "BossFight6":
                 nodeID = "BossFight6";
                 break;
+            case "TutorialFight":
+                nodeID = "TutorialFight";
+                break;
             default:
                 nodeID = "BossFight1";
                 break;
