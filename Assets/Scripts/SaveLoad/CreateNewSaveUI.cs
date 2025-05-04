@@ -62,28 +62,37 @@ public class CreateNewSaveUI : MonoBehaviour
             savedata.illness[i] = illnesses[i].isOn;
         }
 
-        //savedata.PlayerCardInventory["Grenade"] = 99;
-        //savedata.PlayerCardInventory["Interphone"] = 99;
-        //savedata.PlayerCardInventory["Map"] = 99;
-        //savedata.PlayerCardInventory["Medic"] = 99;
-        //savedata.PlayerCardInventory["Militia"] = 99;
-        //savedata.PlayerCardInventory["NoviceEngineer"] = 99;
-        //savedata.PlayerCardInventory["NoviceInfantry"] = 99;
-        //savedata.PlayerCardInventory["BodyArmor"] = 99;
-        //savedata.PlayerCardInventory["Knifeman"] = 99;
-        //savedata.PlayerCardInventory["Shocker"] = 99;
-        //savedata.PlayerCardInventory["SpikeArmor"] = 99;
-        //savedata.PlayerCardInventory["Supplies"] = 99;
-        //savedata.PlayerCardInventory["AttackFlag"] = 99;
-        //savedata.PlayerCardInventory["DefenseFlag"] = 99;
-        //savedata.PlayerCardInventory["EngineerGroup"] = 99;
-        //savedata.PlayerCardInventory["InfantryGroup"] = 99;
-        //savedata.PlayerCardInventory["SeniorEngineer"] = 99;
-        //savedata.PlayerCardInventory["SeniorInfantry"] = 99;
+        savedata.PlayerCardInventory["Grenade"] = 99;
+        savedata.PlayerCardInventory["Interphone"] = 99;
+        savedata.PlayerCardInventory["Map"] = 99;
+        savedata.PlayerCardInventory["Medic"] = 99;
+        savedata.PlayerCardInventory["Militia"] = 99;
+        savedata.PlayerCardInventory["NoviceEngineer"] = 99;
+        savedata.PlayerCardInventory["NoviceInfantry"] = 99;
+        savedata.PlayerCardInventory["BodyArmor"] = 99;
+        savedata.PlayerCardInventory["Knifeman"] = 99;
+        savedata.PlayerCardInventory["Shocker"] = 99;
+        savedata.PlayerCardInventory["SpikeArmor"] = 99;
+        savedata.PlayerCardInventory["Supplies"] = 99;
+        savedata.PlayerCardInventory["AttackFlag"] = 99;
+        savedata.PlayerCardInventory["DefenseFlag"] = 99;
+        savedata.PlayerCardInventory["EngineerGroup"] = 99;
+        savedata.PlayerCardInventory["InfantryGroup"] = 99;
+        savedata.PlayerCardInventory["SeniorEngineer"] = 99;
+        savedata.PlayerCardInventory["SeniorInfantry"] = 99;
 
-        for(int i = 0; i < initCards.Length; i++)
+        for (int i = 0; i < initCards.Length; i++)
         {
-            savedata.PlayerCardInventory[initCards[i].name] = initCards[i].num;
+            //savedata.PlayerCardInventory[initCards[i].name] = initCards[i].num;
+            if (savedata.PlayerHoldCards.ContainsKey(initCards[i].name))
+            {
+                savedata.PlayerHoldCards[initCards[i].name] = initCards[i].num;
+            }
+            else
+            {
+                savedata.PlayerHoldCards.Add(initCards[i].name, initCards[i].num);
+            }
+            savedata.PlayerCardInventory[initCards[i].name] -= initCards[i].num;
         }
 
 
