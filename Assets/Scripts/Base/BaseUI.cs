@@ -13,7 +13,7 @@ public class BaseUI : MonoBehaviour
     public TMPro.TMP_Text Weekdaytext;
     public TMPro.TMP_Text Nut;
 
-    private void Awake()
+    public void Awake()
     {
         UpdateInfo();
 
@@ -24,13 +24,15 @@ public class BaseUI : MonoBehaviour
             Debug.Log("Tutorial");
         }
 
-        if (SaveSystem.Instance.getSave().TutorialClear[0] == true&&SaveSystem.Instance.getSave().TutorialClear[2] == true && SaveSystem.Instance.getSave().TutorialClear[3] == false)
+        if (SaveSystem.Instance.getSave().TutorialClear[0] == true && SaveSystem.Instance.getSave().TutorialClear[2] == true && SaveSystem.Instance.getSave().TutorialClear[3] == false)
         {
             DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "base2").ShowNextDialogueEvent();
             SaveSystem.Instance.SetTutorialClear(3);
         }
-        ItemManager.Instance.InitStorageCard();
+        //ItemManager.Instance.InitStorageCard();
     }
+
+    
 
     private void UpdateInfo()
     {
