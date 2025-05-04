@@ -143,4 +143,4 @@ MonoBehaviour:
   intention: {fileID: 0}
   type: 2
   AttackDamageAmount: 4
-  DedicationHealAmount: 6
+  DedicationHealAmount: 4

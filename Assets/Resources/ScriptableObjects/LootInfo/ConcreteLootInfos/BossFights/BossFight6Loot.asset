@@ -21,6 +21,12 @@ MonoBehaviour:
   - {fileID: -5310642505613678040, guid: 3c84cc868ec95ac49928ba1d5be44817, type: 3}
   - {fileID: 1358433941979891012, guid: 356a63cbce76a864fbd25d675165a9d4, type: 3}
   - {fileID: 6951641245671669132, guid: 183a852d530f8154d92733680c98f2ae, type: 3}
-  GainCardAmount: 12
+  - {fileID: 4839383418720269294, guid: ece242e117be669418a4c11debd2b1eb, type: 3}
+  - {fileID: 3736070460204302272, guid: d3873ddffda379e4f961ea6d20140b65, type: 3}
+  - {fileID: -3572132442226350958, guid: 29cf974d4f37fcb4bab811522d94af68, type: 3}
+  - {fileID: -830253844662833363, guid: a6a90b6bed01f484591405c8d05ebdde, type: 3}
+  - {fileID: -2812815387961407615, guid: 0b9bec01fdc90374d97e9025ef235666, type: 3}
+  - {fileID: -4703211950434784910, guid: 27b7a1198581f534ea9b0f3c7b6f5347, type: 3}
+  GainCardAmount: 18
   relicPool: []
   GainRelicAmount: 0

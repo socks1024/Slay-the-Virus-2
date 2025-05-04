@@ -126,15 +126,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: VirusKing
-  MaxHealth: 100
+  MaxHealth: 125
   enemySprite: {fileID: 21300000, guid: 640a3842b14bc024d97842bd2a9d7c67, type: 3}
   intention: {fileID: 0}
   type: 0
   ScornTrashAmount: 2
   SlimeParalyzeAmount: 2
-  BashDamageAmount: 10
-  BashWoundAmount: 4
+  BashDamageAmount: 12
+  BashWoundAmount: 3
   SuppressLockAmount: 1
   GrowthStrengthAmount: 2
   DoubleAttackDamageAmount: 7
-  DyingHealAmount: 25
+  DyingHealAmount: 33
