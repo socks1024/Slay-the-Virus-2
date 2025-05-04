@@ -69,6 +69,7 @@ public class StatBar : MonoBehaviour
     void UpdateHealth(int health, int block)
     {
         healthBar.value = health;
+        healthBar.maxValue = healthOwner.MaxHealth;
 
         if (block > 0)
         {
