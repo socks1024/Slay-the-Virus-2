@@ -21,6 +21,6 @@ public class Militia : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        
+        ActionLib.GainBlockAction(Player, Player, nextDefense);
     }
 }
