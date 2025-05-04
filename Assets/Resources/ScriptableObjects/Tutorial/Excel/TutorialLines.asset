@@ -82,7 +82,7 @@ MonoBehaviour:
   - ID: 11
     GroupID: battle
     Name: "\u6559\u5B98"
-    Line: "\u6BCF\u8F6E\u8FDB\u653B\u7ED3\u675F\u540E\uFF0C\u4F60\u4F1A\u5F97\u5230\u65B0\u7684\u5361\u724C\u3002"
+    Line: "\u6BCF\u8F6E\u8FDB\u653B\u7ED3\u675F\u540E\uFF0C\u4F60\u4F1A\u62BD\u53D6\u65B0\u7684\u5361\u724C\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 12
@@ -194,57 +194,57 @@ MonoBehaviour:
     PanelID: 
     PanelPosition: 
   - ID: 30
-    GroupID: base
+    GroupID: base1
     Name: "\uFF1F\uFF1F"
     Line: "\u592A\u597D\u4E86\u533B\u751F\uFF0C\u4F60\u7EC8\u4E8E\u6765\u4E86\uFF01"
     PanelID: 
     PanelPosition: "\u4E0B"
   - ID: 31
-    GroupID: base
+    GroupID: base1
     Name: "\uFF1F\uFF1F"
     Line: "\u4EC0\u4E48\uFF1F\u4F60\u95EE\u6211\u662F\u8C01\uFF1F"
     PanelID: 
     PanelPosition: 
   - ID: 32
-    GroupID: base
+    GroupID: base1
     Name: "\u6559\u5B98"
     Line: "\u6211\u662F\u767D\u7EC6\u80DE\u6559\u5B98\uFF0C\u60C5\u51B5\u7D27\u6025\uFF0C\u53EA\u80FD\u7531\u6211\u6765\u6559\u4F60\u5982\u4F55\u6307\u6325\u60A3\u8005\u8EAB\u4F53\u91CC\u7684\u7EC6\u80DE\u519B\u56E2\u6297\u51FB\u75C5\u6BD2\u4E86\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 33
-    GroupID: base
+    GroupID: base1
     Name: "\u6559\u5B98"
     Line: "\u8FD9\u91CC\u662F<color=#FF0000>\u524D\u7EBF\u57FA\u5730</color>\uFF0C\u4E5F\u662F\u6218\u524D\u51C6\u5907\u7684\u5730\u65B9\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 34
-    GroupID: base
+    GroupID: base1
     Name: "\u6559\u5B98"
-    Line: "\u53F3\u4E0A\u89D2\u7684<color=#00610A>\u519B\u8425</color>\u53EF\u4EE5\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u2014\u2014\n\u4E5F\u5C31\u662F\u9009\u62E9\u5361\u724C\u6765\u7EC4\u6210\u5361\u7EC4\u3002"
-    PanelID: 
-    PanelPosition: 
-  - ID: 35
-    GroupID: base
-    Name: "\u6559\u5B98"
-    Line: "\u5F53\u4F60\u7684\u5361\u7EC4\u914D\u597D\u4E4B\u540E\uFF0C\n\u70B9\u51FB\u53F3\u4E0B\u89D2\u7684<color=#FF0000>\u626B\u63CF\u6309\u94AE</color>\u6765\u67E5\u770B\u7EC6\u83CC\u805A\u96C6\u7684\u5730\u65B9\u3002"
+    Line: "\u70B9\u51FB\u53F3\u4E0B\u89D2\u7684<color=#FF0000>\u626B\u63CF\u6309\u94AE</color>\u6765\u67E5\u770B\u7EC6\u83CC\u805A\u96C6\u7684\u5730\u65B9\u3002"
     PanelID: 
     PanelPosition: "\u4E2D"
-  - ID: 36
-    GroupID: base
+  - ID: 35
+    GroupID: base1
     Name: "\u6559\u5B98"
     Line: "\u6BCF\u7FA4\u654C\u4EBA\u90FD\u4F1A\u6807\u8BB0\u4E3A\u4E00\u4E2A<color=#FF0000>\u7EA2\u70B9</color>\uFF0C\n\u70B9\u51FB\u540E\u5C31\u53EF\u4EE5\u67E5\u770B\u6211\u4EEC\u4E3A\u4F60\u51C6\u5907\u7684\u6218\u6597\u7B80\u62A5\u3002"
     PanelID: 
     PanelPosition: "\u4E0B"
-  - ID: 37
-    GroupID: base
+  - ID: 36
+    GroupID: base1
     Name: "\u6559\u5B98"
     Line: "\u4E00\u5207\u51C6\u5907\u5C31\u7EEA\u540E\uFF0C\n\u4F60\u53EF\u4EE5\u70B9\u51FB\u6218\u6597\u7B80\u62A5\u53F3\u4E0B\u89D2\u7684<color=#FF0000>\u6309\u94AE</color>\u8FDB\u5165\u6218\u6597\u3002"
     PanelID: 
     PanelPosition: 
-  - ID: 38
-    GroupID: base
+  - ID: 37
+    GroupID: base1
     Name: "\u6559\u5B98"
-    Line: "\u522B\u62C5\u5FC3\uFF0C\u6211\u4F1A\u6307\u5BFC\u4F60\u7B2C\u4E00\u6B21\u6218\u6597\u7684\uFF01\n\u73B0\u5728\u4E13\u5FC3\u53BB<color=#FF0000>\u51C6\u5907\u4F60\u7684\u5361\u7EC4</color>\u5427\uFF01"
+    Line: "\u522B\u62C5\u5FC3\uFF0C\u6211\u4F1A\u6307\u5BFC\u4F60\u7B2C\u4E00\u6B21\u6218\u6597\u7684\uFF01"
+    PanelID: 
+    PanelPosition: 
+  - ID: 38
+    GroupID: 
+    Name: 
+    Line: 
     PanelID: 
     PanelPosition: 
   - ID: 39
@@ -254,27 +254,27 @@ MonoBehaviour:
     PanelID: 
     PanelPosition: 
   - ID: 40
-    GroupID: 
-    Name: 
-    Line: 
+    GroupID: base2
+    Name: "\u6559\u5B98"
+    Line: "\u4F5C\u4E3A\u9996\u6B21\u6218\u6597\u6765\u8BF4\uFF0C\u6253\u5F97\u4E0D\u9519\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 41
-    GroupID: 
-    Name: 
-    Line: 
+    GroupID: base2
+    Name: "\u6559\u5B98"
+    Line: "\u4F60\u6216\u8BB8\u60F3\u8981\u8C03\u6574<color=#FF0000>\u961F\u4F0D\u7684\u6784\u6210</color>\uFF1F"
     PanelID: 
     PanelPosition: 
   - ID: 42
-    GroupID: 
-    Name: 
-    Line: 
+    GroupID: base2
+    Name: "\u6559\u5B98"
+    Line: "\u53F3\u4E0A\u89D2\u7684<color=#00610A>\u519B\u8425</color>\u53EF\u4EE5\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u2014\u2014\n\u4E5F\u5C31\u662F\u9009\u62E9\u5361\u724C\u6765\u7EC4\u6210\u5361\u7EC4\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 43
-    GroupID: 
-    Name: 
-    Line: 
+    GroupID: base2
+    Name: "\u6559\u5B98"
+    Line: "\u5C1D\u8BD5\u4F18\u5316\u4F60\u7684\u5361\u7EC4\u5427\uFF01"
     PanelID: 
     PanelPosition: 
   - ID: 44
@@ -296,32 +296,110 @@ MonoBehaviour:
     PanelID: 
     PanelPosition: 
   - ID: 47
-    GroupID: camp
-    Name: "\u6559\u5B98"
-    Line: "\u8FD9\u91CC\u662F\u519B\u8425\uFF0C\u4F60\u53EF\u4EE5\u5728\u8FD9\u91CC\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u3002"
+    GroupID: 
+    Name: 
+    Line: 
     PanelID: 
     PanelPosition: 
   - ID: 48
-    GroupID: camp
-    Name: "\u6559\u5B98"
-    Line: "\u70B9\u51FB\u53F3\u4FA7\u4ED3\u5E93\u4E2D\u7684\u5361\u724C\u6765\u52A0\u5165\u5361\u7EC4\uFF0C\u70B9\u51FB\u5361\u7EC4\u4E2D\u7684\u5361\u724C\u53EF\u4EE5\u5C06\u5B83\u653E\u56DE\u4ED3\u5E93\u3002"
+    GroupID: 
+    Name: 
+    Line: 
     PanelID: 
     PanelPosition: 
   - ID: 49
     GroupID: camp
     Name: "\u6559\u5B98"
-    Line: "\u53F3\u952E\u70B9\u51FB\u4ED3\u5E93\u4E2D\u7684\u5361\u724C\u53EF\u4EE5\u653E\u5927\u68C0\u89C6\u3002"
+    Line: "\u8FD9\u91CC\u662F\u519B\u8425\uFF0C\u4F60\u53EF\u4EE5\u5728\u8FD9\u91CC\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 50
     GroupID: camp
     Name: "\u6559\u5B98"
-    Line: "\u51FB\u8D25\u654C\u4EBA\u4E4B\u540E\uFF0C\u53EF\u4EE5\u83B7\u5F97\u66F4\u591A\u79CD\u7C7B\u7684\u5176\u4ED6\u5361\u724C\uFF1B"
+    Line: "\u70B9\u51FB\u53F3\u4FA7\u4ED3\u5E93\u4E2D\u7684\u5361\u724C\u6765\u52A0\u5165\u5361\u7EC4\uFF0C\u70B9\u51FB\u5361\u7EC4\u4E2D\u7684\u5361\u724C\u53EF\u4EE5\u5C06\u5B83\u653E\u56DE\u4ED3\u5E93\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 51
     GroupID: camp
     Name: "\u6559\u5B98"
+    Line: "\u53F3\u952E\u70B9\u51FB\u4ED3\u5E93\u4E2D\u7684\u5361\u724C\u53EF\u4EE5\u653E\u5927\u68C0\u89C6\u3002"
+    PanelID: 
+    PanelPosition: 
+  - ID: 52
+    GroupID: camp
+    Name: "\u6559\u5B98"
+    Line: "\u51FB\u8D25\u654C\u4EBA\u4E4B\u540E\uFF0C\u53EF\u4EE5\u83B7\u5F97\u66F4\u591A\u79CD\u7C7B\u7684\u5176\u4ED6\u5361\u724C\uFF1B"
+    PanelID: 
+    PanelPosition: 
+  - ID: 53
+    GroupID: camp
+    Name: "\u6559\u5B98"
     Line: "\u4E0D\u8FC7\u8981\u6CE8\u610F\u4E86\uFF0C\u5982\u679C\u4F60\u5931\u8D25\u4E86\uFF0C\u4F60\u4F1A<color=#FF0000>\u635F\u5931\u961F\u4F0D\u4E2D\u6240\u6709\u7684\u5361\u724C\u3002</color>"
+    PanelID: 
+    PanelPosition: 
+  - ID: 54
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 55
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 56
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 57
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 58
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 59
+    GroupID: wiki_unprepare
+    Name: "\u6559\u5B98"
+    Line: "\u6211\u4EEC\u6B63\u5728\u52A0\u7D27\u4FEE\u8BA2\u56FE\u9274\uFF01"
+    PanelID: 
+    PanelPosition: 
+  - ID: 60
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 61
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 62
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 63
+    GroupID: 
+    Name: 
+    Line: 
+    PanelID: 
+    PanelPosition: 
+  - ID: 64
+    GroupID: shop_unprepare
+    Name: "\u6559\u5B98"
+    Line: "\u6211\u4EEC\u7684\u5546\u5E97\u524D\u4E9B\u5929\u906D\u5230\u4E86\u88AD\u51FB\uFF0C\u73B0\u5728\u6B63\u5728\u52A0\u7D27\u7EF4\u4FEE\u3002"
     PanelID: 
     PanelPosition: 
