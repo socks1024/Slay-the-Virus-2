@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 15435839}
   - component: {fileID: 15435838}
   - component: {fileID: 15435841}
+  - component: {fileID: 15435842}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -255,6 +256,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &15435842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15435836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226cc1db670c13345a42264df87b42b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialname: shop_unprepare
 --- !u!1 &15500234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,7 +1895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: fc3fd7466e4a4f64a903c9b51cdf33da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2381,6 +2395,7 @@ GameObject:
   - component: {fileID: 1017036708}
   - component: {fileID: 1017036707}
   - component: {fileID: 1017036710}
+  - component: {fileID: 1017036711}
   m_Layer: 5
   m_Name: HandBook
   m_TagString: Untagged
@@ -2501,6 +2516,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525c99950cf976b4288750ea0e3f49c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1017036711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017036705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226cc1db670c13345a42264df87b42b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialname: wiki_unprepare
 --- !u!1 &1027600377
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,7 +3513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: fc3fd7466e4a4f64a903c9b51cdf33da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3778,7 +3806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: fc3fd7466e4a4f64a903c9b51cdf33da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5136,7 +5164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1841806896
 RectTransform:
   m_ObjectHideFlags: 0

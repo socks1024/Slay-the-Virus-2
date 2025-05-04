@@ -19,9 +19,15 @@ public class BaseUI : MonoBehaviour
 
         if (SaveSystem.Instance.getSave().TutorialClear[0] == false)
         {
-            DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "base").ShowNextDialogueEvent();
+            DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "base1").ShowNextDialogueEvent();
             SaveSystem.Instance.SetTutorialClear(0);
             Debug.Log("Tutorial");
+        }
+
+        if (SaveSystem.Instance.getSave().TutorialClear[0] == true&&SaveSystem.Instance.getSave().TutorialClear[2] == true && SaveSystem.Instance.getSave().TutorialClear[3] == false)
+        {
+            DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, "base2").ShowNextDialogueEvent();
+            SaveSystem.Instance.SetTutorialClear(3);
         }
         ItemManager.Instance.InitStorageCard();
     }
@@ -81,7 +87,8 @@ public class BaseUI : MonoBehaviour
 
     public void TransToInventory()
     {
-        SceneManager.LoadScene("Inventory");
+        if(SaveSystem.Instance.getSave().TutorialClear[2] == true)
+            SceneManager.LoadScene("Inventory");
     }
 
     public void Update()
