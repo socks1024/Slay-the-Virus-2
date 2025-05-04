@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcc0c57cefc6ca4e9ef0694eb346696, type: 3}
+  m_Name: TutorialFight
+  m_EditorClassIdentifier: 
+  ID: TutorialFight
+  DungeonName: "\u51FB\u8D25\u6C89\u7761\u75C5\u6BD2"
+  EnemyImage: {fileID: 21300000, guid: 262504fed7ab95145aff73e9e8d0546b, type: 3}
+  EnemyDescription: "\u8FD9\u4E9B\u5BB6\u4F19\u51E0\u4E4E\u6CA1\u6709\u5A01\u80C1\uFF0C\u662F\u62FF\u6765\u7EC3\u624B\u7684\u7EDD\u4F73\u6750\u6599\uFF1AD"
+  RiskLevel: 1
+  Tips: "\u611F\u5192\u75C5\u6BD2\u4F20\u64AD\u5FEB\uFF0C\u6613\u53D8\u5F02\uFF0C\u611F\u67D3\u540E\u53EF\u80FD\u5BFC\u81F4\u4E25\u91CD\u5E76\u53D1\u75C7\u3002\u672A\u6392\u9664\u662F\u7532\u578B\u6D41\u611F\u7684\u53EF\u80FD\u6027\u3002\u8BE5\u75C5\u6BD2\u4F20\u64AD\u8FC5\u901F\uFF0C\u9700\u8981\u7ACB\u5373\u884C\u52A8\u3002"
