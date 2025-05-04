@@ -16,12 +16,12 @@ public static class CardLib
     /// <returns>卡牌的预制体</returns>
     public static CardBehaviour GetCard(string id)
     {
-        return cardPrefabs[id];
+        return cardPrefabs[id.ToLower()];
     }
 
     public static CardRarityType GetCardRarityType(string id)
     {
-        return cardPrefabs[id].RarityType;
+        return cardPrefabs[id.ToLower()].RarityType;
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public static class CardLib
         CardBehaviour[] cards = Resources.LoadAll<CardBehaviour>("Prefabs/Card/ConcreteCards");
         foreach (CardBehaviour card in cards)
         {
-            cardPrefabs.Add(card.Id, card);
+            cardPrefabs.Add(card.Id.ToLower(), card);
         }
     }
 }
