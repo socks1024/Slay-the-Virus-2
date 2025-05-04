@@ -25,10 +25,10 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: 0, y: 1}
   ConditionsShape: []
-  BaseDamage: 5
+  BaseDamage: 15
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 1
+  BaseEffect: 30
   Name: "\u7A7A\u6295\u8865\u7ED9"
-  Description: "\u9020\u62105\u70B9\u4F24\u5BB3\u3002\n\u6BCF\u670910\u91D1\u94B1\uFF0C\u989D\u5916\u9020\u62101\u70B9\u4F24\u5BB3\u3002"
+  Description: "\u9020\u621015\u70B9\u4F24\u5BB3\u3002\n\u5931\u53BB30\u91D1\u94B1\u3002"
   CardTex: {fileID: 21300000, guid: 37b3cb7e85d2fba449bfea02dab7a049, type: 3}

@@ -21,6 +21,7 @@ public class SupplyDrop : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage + nextEffect * Player.Nutrition / 10);
+        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
+        ActionLib.PlayerChangeMoney(-nextEffect);
     }
 }
