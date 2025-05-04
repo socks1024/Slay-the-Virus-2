@@ -10,6 +10,7 @@ public class Scan : MonoBehaviour
     public DungeonMissionData tutorial;
 
     private bool EnterTutorial;
+    private Vector3 originalscale;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Scan : MonoBehaviour
         }
 
         EnterTutorial = SaveSystem.Instance.getSave().TutorialClear[2];
+        originalscale = RedDots[0].transform.localScale;
     }
 
     public void SetActive()
@@ -62,41 +64,38 @@ public class Scan : MonoBehaviour
         if (LevelClearCount == 6)
             LevelClearCount = 5;
 
-        //if (AllClear == false)
-        //{
-        //    for (int i = 0; i < RedDots.Length; i++)
-        //    {
-        //        for (int k = 0; k < levelclear.Length; k++)
-        //        {
-        //            if (levelclear[k] == false && levelchosen[k] == false)
-        //            {
-        //                int randpos = Random.Range(0, pos.Length);
+        if (AllClear == true)
+        {
+            //for (int i = 0; i < RedDots.Length; i++)
+            //{
+            //    for (int k = 0; k < levelclear.Length; k++)
+            //    {
+            //        if (levelclear[k] == false && levelchosen[k] == false)
+            //        {
+            //            int randpos = Random.Range(0, pos.Length);
 
-        //                while (pos[randpos] == true)//重了就重row一下
-        //                {
-        //                    randpos = Random.Range(0, pos.Length);
-        //                }
+            //            while (pos[randpos] == true)//重了就重row一下
+            //            {
+            //                randpos = Random.Range(0, pos.Length);
+            //            }
 
-        //                RedDots[i].transform.position = RedDotPos[randpos].position;
-        //                RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[k];
-        //                RedDots[i].gameObject.SetActive(true);
+            //            RedDots[i].transform.position = RedDotPos[randpos].position;
+            //            RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[k];
+            //            RedDots[i].gameObject.SetActive(true);
 
-        //                levelchosen[k] = true;
-        //                pos[randpos] = true;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
-        //else
-        //{
-           
+            //            levelchosen[k] = true;
+            //            pos[randpos] = true;
+            //            break;
+            //        }
+            //    }
+            //}
+
             for (int i = 0; i < RedDots.Length; i++)
             {
-                int randomlevel = Random.Range(0, LevelClearCount+1);
+                int randomlevel = Random.Range(0, LevelClearCount + 1);
                 while (levelchosen[randomlevel] == true)
                 {
-                    randomlevel = Random.Range(0, LevelClearCount+1);
+                    randomlevel = Random.Range(0, LevelClearCount + 1);
                 }
 
                 int randpos = Random.Range(0, pos.Length);
@@ -112,9 +111,64 @@ public class Scan : MonoBehaviour
                 RedDots[i].transform.position = RedDotPos[randpos].position;
 
                 RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel];
+                RedDots[i].transform.localScale = new Vector3(originalscale.x * 0.8f, originalscale.y * 0.8f);
                 RedDots[i].gameObject.SetActive(true);
             }
-        
-    }
+        }
+        else
+        {
 
+            for (int i = 0; i < RedDots.Length - 1; i++)
+            {
+                int randomlevel = Random.Range(0, LevelClearCount + 1);
+                while (levelchosen[randomlevel] == true)
+                {
+                    randomlevel = Random.Range(0, LevelClearCount + 1);
+                }
+
+                int randpos = Random.Range(0, pos.Length);
+
+                while (pos[randpos] == true)//重了就重row一下
+                {
+                    randpos = Random.Range(0, pos.Length);
+                }
+
+                levelchosen[randomlevel] = true;
+                pos[randpos] = true;
+
+                RedDots[i].transform.position = RedDotPos[randpos].position;
+
+                RedDots[i].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel];
+                if (SaveSystem.Instance.getSave().ClearLevels[randomlevel] == true)
+                {
+                    RedDots[i].transform.localScale = new Vector3(originalscale.x * 0.7f, originalscale.y * 0.7f);
+                }
+                RedDots[i].gameObject.SetActive(true);
+            }
+
+            int randomlevel2 = 0;
+
+
+                for(int i = 0; i < missionDatas.Length; i++)
+                {
+                    if(levelchosen[i] == false&& SaveSystem.Instance.getSave().ClearLevels[i] == false)
+                    {
+                    randomlevel2 = i;
+                    break;
+                    }
+                }
+            
+            int randpos2 = Random.Range(0, pos.Length);
+            while (pos[randpos2] == true)
+            {
+                randpos2 = Random.Range(0, pos.Length);
+            }
+
+            RedDots[RedDots.Length - 1].transform.position = RedDotPos[randpos2].position;
+            RedDots[RedDots.Length - 1].gameObject.GetComponent<EnterBattle>().missionData = missionDatas[randomlevel2];
+            RedDots[RedDots.Length - 1].gameObject.SetActive(true);
+            //RedDots[RedDots.Length - 1].transform.localScale = new Vector3(RedDots[RedDots.Length - 1].transform.localScale.x*1.2f, RedDots[RedDots.Length - 1].transform.localScale.y*1.2f);
+
+        }
+    }
 }
