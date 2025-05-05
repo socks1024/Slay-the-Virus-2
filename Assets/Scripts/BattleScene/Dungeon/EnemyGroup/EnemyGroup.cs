@@ -126,7 +126,8 @@ public class EnemyGroup : MonoBehaviour
 
         OnEnemyAmountChange.Invoke(enemies);
 
-        if (enemies.Count == 0 && allEnemyDestroyed == false)
+        // if (enemies.Count == 0 && allEnemyDestroyed == false)
+        if (!allEnemyDestroyed && (enemy.type == EnemyType.BOSS || enemies.Count == 0))
         {
             DungeonManager.Instance.battleManager.OnAllEnemyDestroyed();
             allEnemyDestroyed = true;
