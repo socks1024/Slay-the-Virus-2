@@ -15,11 +15,8 @@ public class GameSettingsPanel : MonoBehaviour
         DungeonManager.Instance.SettingLeaveDungeon();
     }
 
-    public ManualPanel Terms;
-
     public void ShowTerms()
     {
-        Terms.gameObject.SetActive(true);
-        Terms.CurrContentIndex = 0;
+        ManualPanel.ShowPanel();
     }
 }

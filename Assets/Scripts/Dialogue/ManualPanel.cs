@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class ManualPanel : MonoBehaviour
 {
+    static ManualPanel manualPanel;
+
+    public static void ShowPanel()
+    {
+        manualPanel.gameObject.SetActive(false);
+        manualPanel.CurrContentIndex = 0;
+    }
+
+    public static void ShowPanel(int index)
+    {
+        manualPanel.gameObject.SetActive(true);
+        manualPanel.CurrContentIndex = index;
+    }
+
+    void Awake()
+    {
+        manualPanel = this;
+        gameObject.SetActive(false);
+    }
+
     public void HidePanel()
     {
         currContent.SetActive(false);

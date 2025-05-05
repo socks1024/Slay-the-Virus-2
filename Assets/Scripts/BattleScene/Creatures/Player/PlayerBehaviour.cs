@@ -119,19 +119,28 @@ public class PlayerBehaviour : CreatureBehaviour
 
     Reward totalReward = new();
 
+    public bool nuclearBomb = false;
+
     /// <summary>
     /// 获取战斗奖励
     /// </summary>
     /// <param name="reward">奖励</param>
     public void GetRewards(Reward reward)
     {
-        Nutrition += reward.money;
+        if (!nuclearBomb)
+        {
 
-        if (totalReward.cardRewardInfos is null) totalReward.cardRewardInfos = new();
-        if (totalReward.relicRewardInfos is null) totalReward.relicRewardInfos = new();
+            Nutrition += reward.money;
 
-        totalReward.cardRewardInfos.AddRange(reward.cardRewardInfos);
-        totalReward.relicRewardInfos.AddRange(reward.relicRewardInfos);
+            if (totalReward.cardRewardInfos is null) totalReward.cardRewardInfos = new();
+            if (totalReward.relicRewardInfos is null) totalReward.relicRewardInfos = new();
+
+            totalReward.cardRewardInfos.AddRange(reward.cardRewardInfos);
+            totalReward.relicRewardInfos.AddRange(reward.relicRewardInfos);
+
+        }
+
+        nuclearBomb = false;
     }
 
     public void OnBattleWin()

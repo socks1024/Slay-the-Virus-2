@@ -32,6 +32,9 @@ public class IntentionShow : MonoBehaviour
 
     public void ShowIntention()
     {
+        image.raycastTarget = false;
+        textmesh.raycastTarget = false;
+
         IntentionBehaviour intention = GetComponent<IntentionBehaviour>();
 
         textmesh.text = intention.ShowText;
@@ -83,7 +86,10 @@ public class IntentionShow : MonoBehaviour
         }
     }
 
-
+    public void ShowIntentionManual()
+    {
+        ManualPanel.ShowPanel(6);
+    }
 
     
 }

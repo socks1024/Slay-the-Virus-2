@@ -1150,6 +1150,7 @@ MonoBehaviour:
   p_Deck: []
   p_Board: {fileID: 0}
   p_Relics: []
+  nuclearBomb: 0
 --- !u!114 &193435147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8201,7 +8202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e7cbd6d3a57b5488bc9c14903811cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Terms: {fileID: 1331489890}
 --- !u!1 &1196525966
 GameObject:
   m_ObjectHideFlags: 0
@@ -8965,17 +8965,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 758798299567534676, guid: 9ad1f049c308b9f498c1150f9f6fcfd0, type: 3}
   m_PrefabInstance: {fileID: 7252262495605714016}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1331489890 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4161261876283555645, guid: 9ad1f049c308b9f498c1150f9f6fcfd0, type: 3}
-  m_PrefabInstance: {fileID: 7252262495605714016}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6c147c2f999694b96f8ba5f04fd187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1362620479
 GameObject:
   m_ObjectHideFlags: 0
@@ -14623,7 +14612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1171948084223898117, guid: 9ad1f049c308b9f498c1150f9f6fcfd0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1370781868839539381, guid: 9ad1f049c308b9f498c1150f9f6fcfd0, type: 3}
       propertyPath: m_AnchorMax.y

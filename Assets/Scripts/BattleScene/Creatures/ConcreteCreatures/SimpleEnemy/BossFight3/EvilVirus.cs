@@ -22,7 +22,7 @@ public class EvilVirus : EnemyBehaviour
         LaughIntent = new IntentionInfo(
             IntentionType.GAIN_BUFF,
             LaughBuffAmount.ToString(),
-            () => { ActionLib.ApplyBuffNextTurnAction(this, this, "Counter", LaughBuffAmount);}
+            () => { ActionLib.ApplyBuffNextTurnAction(this, this, "Strength", LaughBuffAmount);}
         );
 
         #endregion
