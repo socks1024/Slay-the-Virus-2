@@ -67,7 +67,6 @@ public class CardFlowController : MonoBehaviour
 
     void TurnStartDrawCard()
     {
-        print(autoDrawAmount);
         DrawCards(AutoDrawAmount);
     }
 
