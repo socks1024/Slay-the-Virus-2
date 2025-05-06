@@ -35,4 +35,47 @@ public class EnemyShow : MonoBehaviour
                 break;
         }
     }
+
+    [Header("高亮/聚焦")]
+    public float FocusScale = 1.2f;
+
+    public void EnterHighlight()
+    {
+        // switch (enemyBehaviour.type)
+        // {
+        //     case EnemyType.BOSS:
+        //         rect.sizeDelta = new Vector2(BossSize * FocusScale, BossSize * FocusScale);
+        //         break;
+        //     case EnemyType.ELITE:
+        //         break;
+        //     case EnemyType.NORMAL:
+        //         rect.sizeDelta = new Vector2(NormalSize * FocusScale, NormalSize * FocusScale);
+        //         break;
+        //     default:
+        //         Debug.LogError("enemy no type");
+        //         break;
+        // }
+
+        rect.localScale *= FocusScale;
+    }
+
+    public void ExitHighlight()
+    {
+        // switch (enemyBehaviour.type)
+        // {
+        //     case EnemyType.BOSS:
+        //         rect.sizeDelta = new Vector2(BossSize, BossSize);
+        //         break;
+        //     case EnemyType.ELITE:
+        //         break;
+        //     case EnemyType.NORMAL:
+        //         rect.sizeDelta = new Vector2(NormalSize, NormalSize);
+        //         break;
+        //     default:
+        //         Debug.LogError("enemy no type");
+        //         break;
+        // }
+
+        rect.localScale = Vector3.one;
+    }
 }

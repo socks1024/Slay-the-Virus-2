@@ -48,6 +48,26 @@ public class CardSetTarget : MonoBehaviour
 
     DynamicCurve currCurve;
 
+    EnemyBehaviour HoveredEnemy
+    {
+        get{ return hoveredEnemy; }
+        set
+        {
+            if (hoveredEnemy is not null)
+            {
+                hoveredEnemy.GetComponent<EnemyShow>().ExitHighlight();
+            }
+
+            hoveredEnemy = value;
+
+            if (hoveredEnemy != null)
+            {
+                hoveredEnemy.GetComponent<EnemyShow>().EnterHighlight();
+            }
+        }
+    }
+    EnemyBehaviour hoveredEnemy;
+
     void Start()
     {
         mainCam = Camera.main;
@@ -67,6 +87,9 @@ public class CardSetTarget : MonoBehaviour
             if (!HasTarget)
             {
                 transform.SetAsLastSibling();
+
+                HoveredEnemy = enemyGroup.GetHoveredEnemy();
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     SetTarget();

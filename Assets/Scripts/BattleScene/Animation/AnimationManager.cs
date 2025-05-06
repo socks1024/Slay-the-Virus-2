@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
 {
@@ -57,6 +58,37 @@ public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
     {
         PlayAnimEffect(position, name, onComplete, PlayMode);
     }
+
+    
+
+    #region Flash
+
+    [Header("闪烁")]
+    public Color FlashColor;
+    public float FlashDuration = 0;
+
+    public void StartFlash(Image image)
+    {
+        
+        StartCoroutine("Flash", image);
+    }
+
+    IEnumerator Flash(Image image)
+    {
+        float time = 0;
+
+        while (time <= FlashDuration)
+        {
+            if (image != null) image.color = Color.Lerp(FlashColor, Color.white, time / FlashDuration);
+            
+            time += Time.deltaTime;
+
+            yield return null;
+        }
+        image.color = Color.white;
+    }
+
+    #endregion
 
     
 }

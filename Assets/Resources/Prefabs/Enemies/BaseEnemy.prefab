@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossSize: 500
   NormalSize: 280
+  FocusScale: 1.2
 --- !u!114 &6444130689038702932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c95b37be448ff41932f8b53c25d2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockHealthAtOne: 0
 --- !u!222 &5628389649302327424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

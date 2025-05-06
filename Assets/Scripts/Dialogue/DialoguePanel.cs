@@ -164,12 +164,14 @@ public class DialoguePanel : MonoBehaviour
 
             if (currLine[index] == '<')
             {
-                while (currLine[index - 1] != '>')
+
+                do 
                 {
                     time += 1;
 
                     index = Mathf.FloorToInt(time);
-                }
+                } 
+                while (currLine[index - 1] != '>');
             }
 
             index = Mathf.FloorToInt(time);
