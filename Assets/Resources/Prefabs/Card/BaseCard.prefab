@@ -71,8 +71,8 @@ MonoBehaviour:
   BattleFieldBGF: {fileID: 21300000, guid: 97da3a814a52474489b49ca17ff3e739, type: 3}
   CommandBGF: {fileID: 21300000, guid: fc409069c70e1f44287bf5124834c83c, type: 3}
   VirusBGF: {fileID: 21300000, guid: 6a81e708e4278e747b757e2429dff442, type: 3}
-  BattleFieldDescription: {fileID: 21300000, guid: cff6622b8a919a94caa58baf77ce3439, type: 3}
-  CommandDescription: {fileID: 21300000, guid: cff6622b8a919a94caa58baf77ce3439, type: 3}
+  BattleFieldDescription: {fileID: 21300000, guid: 0ae3528e2bae5aa498d382839b37727f, type: 3}
+  CommandDescription: {fileID: 21300000, guid: 0ae3528e2bae5aa498d382839b37727f, type: 3}
   VirusDescription: {fileID: 21300000, guid: 0bd79aea73e38994189f1fdfe37a67ca, type: 3}
   CommonFrame: {fileID: 21300000, guid: dd4514e4fc05edb4e8cf4cdcd5a3b029, type: 3}
   UncommonFrame: {fileID: 21300000, guid: c520ce180e2674b4982a8bb2bda56967, type: 3}
@@ -142,8 +142,8 @@ MonoBehaviour:
   SkillTex: {fileID: 21300000, guid: 0009fc28ade511b4fa8cd40ebbb8c55a, type: 3}
   ExpandTex: {fileID: 21300000, guid: 3f5167e1a4021cf488468cdf402a96da, type: 3}
   TrashTex: {fileID: 21300000, guid: 903f6f03a22fd5b4f8e8f420e4bdc1f1, type: 3}
-  TriggerSquareTex: {fileID: 21300000, guid: 4691a580ade94f8438ea670b24df3aa2, type: 3}
-  AffectSquareTex: {fileID: 21300000, guid: 4691a580ade94f8438ea670b24df3aa2, type: 3}
+  TriggerSquareTex: {fileID: 21300000, guid: e2faace5dfd4284498499b378dde4bc4, type: 3}
+  AffectSquareTex: {fileID: 21300000, guid: 631f035f0e8e08041beb35a9b1707b23, type: 3}
   ExpandSquareTex: {fileID: 21300000, guid: 4691a580ade94f8438ea670b24df3aa2, type: 3}
 --- !u!114 &8294401681459355877
 MonoBehaviour:
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cff6622b8a919a94caa58baf77ce3439, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ae3528e2bae5aa498d382839b37727f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

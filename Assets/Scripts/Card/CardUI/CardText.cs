@@ -6,6 +6,41 @@ using UnityEngine;
 
 public class CardText : MonoBehaviour
 {
+
+    #region Keywords
+
+    [Header("关键词")]
+    public List<Keyword> keywords;
+
+    string keywordColorCloseTag = "</color>";
+
+    List<Keyword> usedKeywords = new();
+
+    string ReplaceKeywordText(string text)
+    {
+        usedKeywords.Clear();
+
+        foreach (Keyword keyword in keywords)
+        {
+            if (text.Contains(keyword.name))
+            {
+                usedKeywords.Add(keyword);
+                text = text.Replace(keyword.name, BuildColorTag(keyword.color) + keyword.name + keywordColorCloseTag);
+            }
+        }
+
+        return text;
+    }
+
+    string BuildColorTag(Color color)
+    {
+        return "<color=#"+ ColorUtility.ToHtmlStringRGB(color) +">";
+    }
+
+    #endregion
+
+    #region Numbers
+
     List<string> numbersLabel = new List<string>{
         "damage",
         "defense",
@@ -13,13 +48,31 @@ public class CardText : MonoBehaviour
         "effect",
     };
 
-    [Header("关键词")]
-    public List<Keyword> keywords;
+    CardBehaviour cardBehaviour{ get{ return GetComponent<CardBehaviour>(); } }
 
+    string ReplaceNumbersText(string description)
+    {
+        foreach (string label in numbersLabel)
+        {
+            if (description.Contains(label))
+            {
+                switch (label)
+                {
+                    case "damage":
+                        description.Replace(label, "");
+                        break;
+                    case "defense":
+                        description.Replace(label, "");
+                        break;
+                    
+                }
+            }
+        }
 
-    string keywordColorCloseTag = "</color>";
+        return description;
+    }
 
-    List<Keyword> usedKeywords = new();
+    #endregion
 
     public void RefreshCardText(CardData data, TextMeshProUGUI nameText, TextMeshProUGUI descriptionText)
     {
@@ -28,31 +81,9 @@ public class CardText : MonoBehaviour
         nameText.text = name;
 
         string description = data.Description;
-        descriptionText.text = ReplaceKeywordText(description);
+        description = ReplaceKeywordText(description);
 
-    }
-
-    string ReplaceKeywordText(string text)
-    {
-        usedKeywords.Clear();
-
-        string newDescription = text;
-
-        foreach (Keyword keyword in keywords)
-        {
-            if (text.Contains(keyword.name))
-            {
-                usedKeywords.Add(keyword);
-                newDescription = newDescription.Replace(keyword.name, BuildColorTag(keyword.color) + keyword.name + keywordColorCloseTag);
-            }
-        }
-
-        return newDescription;
-    }
-
-    string BuildColorTag(Color color)
-    {
-        return "<color=#"+ ColorUtility.ToHtmlStringRGB(color) +">";
+        descriptionText.text = description;
     }
 }
 
