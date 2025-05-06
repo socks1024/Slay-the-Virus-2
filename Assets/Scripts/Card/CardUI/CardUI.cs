@@ -269,8 +269,6 @@ public class CardUI : MonoBehaviour
     {
         CardData data = cardBehaviour.cardData;
 
-        cardText.RefreshCardText(data, nameText, descriptionText);
-
         nameText.raycastTarget = false;
         descriptionText.raycastTarget = false;
 

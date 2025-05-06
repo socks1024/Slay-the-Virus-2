@@ -455,12 +455,11 @@ public class DamageInfo
     {
         finalDamage = baseDamage;
 
-        finalDamage += source.buffOwner.GetBuffAmount("Strength");
+        if (source != null) finalDamage += source.buffOwner.GetBuffAmount("Strength");
 
-        finalDamage -= source.buffOwner.GetBuffAmount("Paralyze");
-        if (finalDamage < 0) finalDamage = 0;
+        if (source != null) finalDamage -= source.buffOwner.GetBuffAmount("Paralyze");
 
-        if (target.buffOwner.HasBuff("Weakness")) finalDamage *= 2;
+        if (target != null && target.buffOwner.HasBuff("Weakness")) finalDamage *= 2;
 
         if (source is PlayerBehaviour)
         {
@@ -469,5 +468,7 @@ public class DamageInfo
                 finalDamage += finalDamage / 2;
             }
         }
+        
+        if (finalDamage < 0) finalDamage = 0;
     }
 }

@@ -42,10 +42,10 @@ public class CardText : MonoBehaviour
     #region Numbers
 
     List<string> numbersLabel = new List<string>{
-        "damage",
-        "defense",
-        "heal",
-        "effect",
+        "#d",
+        "#b",
+        "#h",
+        "#e",
     };
 
     CardBehaviour cardBehaviour{ get{ return GetComponent<CardBehaviour>(); } }
@@ -58,13 +58,18 @@ public class CardText : MonoBehaviour
             {
                 switch (label)
                 {
-                    case "damage":
-                        description.Replace(label, "");
+                    case "#d":
+                        description = description.Replace(label, cardBehaviour.nextDamage.ToString());
                         break;
-                    case "defense":
-                        description.Replace(label, "");
+                    case "#b":
+                        description = description.Replace(label, cardBehaviour.nextDefense.ToString());
                         break;
-                    
+                    case "#h":
+                        description = description.Replace(label, cardBehaviour.nextHeal.ToString());
+                        break;
+                    case "#e":
+                        description = description.Replace(label, cardBehaviour.nextEffect.ToString());
+                        break;
                 }
             }
         }
@@ -74,16 +79,32 @@ public class CardText : MonoBehaviour
 
     #endregion
 
-    public void RefreshCardText(CardData data, TextMeshProUGUI nameText, TextMeshProUGUI descriptionText)
-    {
+    CardUI cardUI;
 
+    CardData data;
+
+    public void RefreshCardText()
+    {
         string name = data.Name;
-        nameText.text = name;
+        cardUI.nameText.text = name;
 
         string description = data.Description;
-        description = ReplaceKeywordText(description);
 
-        descriptionText.text = description;
+        description = ReplaceKeywordText(description);
+        description = ReplaceNumbersText(description);
+
+        cardUI.descriptionText.text = description;
+    }
+
+    void Start()
+    {
+        cardUI = GetComponent<CardUI>();
+        data = GetComponent<CardBehaviour>().cardData;
+    }
+
+    void Update()
+    {
+        RefreshCardText();
     }
 }
 

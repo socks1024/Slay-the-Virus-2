@@ -48,7 +48,7 @@ MonoBehaviour:
   BaseDamage: 75
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 15
+  BaseEffect: 0
   Name: "\u7EA2\u8272\u6309\u94AE"
-  Description: "\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u621075\u70B9\u4F24\u5BB3\u3002\n\u4E0D\u4F1A\u83B7\u5F97\u6218\u5229\u54C1\u3002\n\u6467\u6BC1\u3002"
+  Description: "\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002\n\u4E0D\u4F1A\u83B7\u5F97\u6218\u5229\u54C1\u3002\n\u6467\u6BC1\u3002"
   CardTex: {fileID: 21300000, guid: b7d7f4051cd6290478ba06b608676b16, type: 3}

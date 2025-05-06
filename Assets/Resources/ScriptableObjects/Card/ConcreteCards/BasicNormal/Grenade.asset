@@ -29,5 +29,5 @@ MonoBehaviour:
   BaseHeal: 0
   BaseEffect: 0
   Name: "\u624B\u96F7"
-  Description: "\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u62103\u70B9\u4F24\u5BB3\u3002"
+  Description: "\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002"
   CardTex: {fileID: 21300000, guid: 16b2365dfa2bd2142a5d597b16027759, type: 3}
