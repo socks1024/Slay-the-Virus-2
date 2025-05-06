@@ -170,6 +170,8 @@ public class BattleManager : MonoBehaviour
         // }
 
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
+
+        AudioManager.Instance.StopMusic();
     }
 
     #endregion

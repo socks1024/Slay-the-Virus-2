@@ -45,13 +45,20 @@ public class DialoguePanel : MonoBehaviour
 
     public void OnPointerClick()
     {
-        if (dialogueEventsQueue.Count == 0)
+        if (!typing)
         {
-            Destroy(gameObject);
+            if (dialogueEventsQueue.Count == 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                ShowNextDialogueEvent();
+            }
         }
         else
         {
-            ShowNextDialogueEvent();
+            EndType();
         }
     }
 
@@ -136,16 +143,74 @@ public class DialoguePanel : MonoBehaviour
     }
 
     #endregion
+
+    #region Typing
+
+    public float speed = 10;
+
+    [HideInInspector] public string currLine;
+
+    bool typing = false;
+
+    IEnumerator TypeLine()
+    {
+        float time = 0;
+
+        int index = 0;
+
+        while(index < currLine.Length)
+        {
+            time += Time.deltaTime * speed;
+
+            if (currLine[index] == '<')
+            {
+                while (currLine[index - 1] != '>')
+                {
+                    time += 1;
+
+                    index = Mathf.FloorToInt(time);
+                }
+            }
+
+            index = Mathf.FloorToInt(time);
+
+            index = Mathf.Clamp(index, 0, currLine.Length);
+
+            lineText.text = currLine.Substring(0,index);
+
+            yield return null;
+        }
+
+        typing = false;
+    }
+
+    void StartType()
+    {
+        StartCoroutine("TypeLine");
+        typing = true;
+    }
+
+    void EndType()
+    {
+        StopCoroutine("TypeLine");
+        typing = false;
+        lineText.text = currLine;
+    }
+
+    #endregion
+    
     public void ShowNextDialogueEvent()
     {
         DialogueEvent dialogueEvent = dialogueEventsQueue.Dequeue();
 
         nameText.text = dialogueEvent.name;
-        lineText.text = dialogueEvent.line;
+        currLine = dialogueEvent.line;
         headImage.sprite = dialogueEvent.head;
         panelImage.sprite = dialogueEvent.panel;
 
         SetTextPanelPosition(dialogueEvent.textPanelPosition);
+
+        StartType();
     }
 }
 
