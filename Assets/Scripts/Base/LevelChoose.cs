@@ -11,6 +11,8 @@ public class LevelChoose : MonoBehaviour
 
     public bool Levelchoose = false;
 
+    
+
     private void Start()
     {
         for(int i = 0; i < RedDots.Length; i++)
@@ -39,7 +41,16 @@ public class LevelChoose : MonoBehaviour
             RedDots[i].gameObject.SetActive(levelclear[i - 2]);
         }
 
-        cameraControl.StartFocus();
+        int latestlevel = 0;
+        for(int i = RedDots.Length-1; i > 0; i--)
+        {
+            if (RedDots[i].gameObject.activeSelf == true)
+            {
+                latestlevel = i;
+                break;
+            }
+        }
+        cameraControl.StartFocus(RedDots[latestlevel].transform);
     }
     public void ReturnMain()
     {

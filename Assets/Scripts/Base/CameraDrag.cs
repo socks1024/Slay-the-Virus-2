@@ -7,6 +7,9 @@ public class CameraDrag : MonoBehaviour
     [Tooltip("控制拖拽移动的速度")]
     public float dragSpeed = 0.01f;
 
+    [Tooltip("移动平滑速度")]
+    public float smoothSpeed = 5f;
+
     [Tooltip("允许移动的最小Y坐标")]
     public float minY = 0f;
 
@@ -15,8 +18,22 @@ public class CameraDrag : MonoBehaviour
 
     private float _lastMouseY;
     private bool _isDragging;
+    private Vector3 _targetPosition;
+
+    void Start()
+    {
+        // 初始化目标位置为当前位置
+        _targetPosition = transform.position;
+    }
+
 
     void Update()
+    {
+        HandleInput();
+        SmoothMovement();
+    }
+
+    void HandleInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,9 +47,37 @@ public class CameraDrag : MonoBehaviour
 
         if (_isDragging)
         {
-            HandleDragMovement();
+            CalculateTargetPosition();
         }
     }
+
+    void SmoothMovement()
+    {
+        // 使用Lerp平滑移动到目标位置
+        transform.position = Vector3.Lerp(
+            transform.position,
+            _targetPosition,
+            smoothSpeed * Time.deltaTime
+        );
+    }
+
+    void CalculateTargetPosition()
+    {
+        float currentMouseY = Input.mousePosition.y;
+        float deltaY = currentMouseY - _lastMouseY;
+
+        // 计算原始目标位置
+        Vector3 newPosition = _targetPosition +
+                            Vector3.up * (deltaY * dragSpeed);
+
+        // 应用范围限制
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        // 更新最终目标位置
+        _targetPosition = newPosition;
+        _lastMouseY = currentMouseY;
+    }
+
 
     void StartDragging()
     {
@@ -48,7 +93,7 @@ public class CameraDrag : MonoBehaviour
     void HandleDragMovement()
     {
         float currentMouseY = Input.mousePosition.y;
-        float deltaY = currentMouseY - _lastMouseY;
+        float deltaY = (currentMouseY - _lastMouseY);
 
         // 计算新位置
         Vector3 newPosition = transform.position +
