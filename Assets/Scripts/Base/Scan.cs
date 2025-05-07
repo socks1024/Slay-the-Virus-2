@@ -12,6 +12,8 @@ public class Scan : MonoBehaviour
     public DungeonMissionData[] missionDatas;
     public DungeonMissionData tutorial;
 
+   
+
     private bool EnterTutorial;
     private Vector3 originalscale;
 
@@ -179,4 +181,14 @@ public class Scan : MonoBehaviour
 
         }
     }
+
+
+    public void ReturnMain()
+    {
+        for(int i = 0; i < RedDots.Length;i++)
+        {
+            RedDots[i].gameObject.SetActive(false);
+        }
+    }
+
 }

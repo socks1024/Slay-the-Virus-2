@@ -13,6 +13,10 @@ public class BaseUI : MonoBehaviour
     public TMPro.TMP_Text Weekdaytext;
     public TMPro.TMP_Text Nut;
 
+    public CameraControl cameraControl;
+    public CameraDrag drag;
+    public GameObject scanbutton;
+
     public void Awake()
     {
         UpdateInfo();
@@ -99,8 +103,17 @@ public class BaseUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameObject.Destroy(GameObject.Find("Managers"));
-            SceneManager.LoadScene("Start");
+
+            if (cameraControl.currentState != CameraControl.FocusState.Waiting)
+            {
+                GameObject.Destroy(GameObject.Find("Managers"));
+                SceneManager.LoadScene("Start");
+            }
+            else
+            {
+                cameraControl.OnStartReturn();
+                scanbutton.GetComponent<LevelChoose>().ReturnMain();
+            }
         }
     }
 }

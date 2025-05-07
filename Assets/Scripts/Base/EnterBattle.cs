@@ -14,6 +14,8 @@ public class EnterBattle : MonoBehaviour
 
     public void OnOpenEnterBattlePanel()
     {
+        //Vector3 newpos = GameObject.Find("MainCamera").transform.position;
+        //EnterBattlePanel.transform.position = new Vector3(newpos.x,newpos.y);
         EnterBattlePanel.GetComponentInChildren<EnterBattlePanel>().MissionData = missionData;
         EnterBattlePanel.SetActive(true);
         EnterBattlePanel.GetComponentInChildren<EnterBattlePanel>().Start();
