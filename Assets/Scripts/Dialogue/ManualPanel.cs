@@ -8,7 +8,7 @@ public class ManualPanel : MonoBehaviour
 
     public static void ShowPanel()
     {
-        manualPanel.gameObject.SetActive(false);
+        manualPanel.gameObject.SetActive(true);
         manualPanel.CurrContentIndex = 0;
     }
 
