@@ -490,7 +490,7 @@ MonoBehaviour:
   ApplyBuffIntentionSprite: {fileID: 21300000, guid: 42c8f76b9feb1734395fff8adc409700, type: 3}
   AttackAndGiveDebuffSprite: {fileID: 21300000, guid: e963674550e06e2408c6429d9873ee6a, type: 3}
   GainBuffAndGiveDebuffSprite: {fileID: 21300000, guid: 0618ce731caf92b4c8f7733338a672b6, type: 3}
-  HealIntentionSprite: {fileID: 21300000, guid: f85f5f5627fa5bf469e829bc3e6ac185, type: 3}
+  HealIntentionSprite: {fileID: 21300000, guid: eea814ef4f307ef4082b226ca7ada215, type: 3}
   StunIntentionSprite: {fileID: 21300000, guid: 8db81e51d4eb48440a0ee4e7b8fe31c6, type: 3}
   SummonIntentionSprite: {fileID: 21300000, guid: 2db907c47a86b2b4a9436decc91fb5b6, type: 3}
   GiveTrashIntentionSprite: {fileID: 21300000, guid: a7b3d4cfe7f10dc49a0c2eae00d94bdc, type: 3}
