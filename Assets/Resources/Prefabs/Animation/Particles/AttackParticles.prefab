@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 8902400349032349494, guid: a2a60025d96494c4185a5dc8bb4465cb, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.41823888
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902400349032349494, guid: a2a60025d96494c4185a5dc8bb4465cb, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.41823888
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902400349032349494, guid: a2a60025d96494c4185a5dc8bb4465cb, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

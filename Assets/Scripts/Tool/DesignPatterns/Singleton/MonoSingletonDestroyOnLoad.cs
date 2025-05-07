@@ -20,7 +20,7 @@ public class MonoSingletonDestroyOnLoad<T> : MonoBehaviour where T : MonoSinglet
                     {
                         // instance = new GameObject(typeof(T) + "SingletonManager").AddComponent<T>();
                         // instance.Init();
-                        Debug.LogError("No " + typeof(T) + " in this scene, please create the game object first.");
+                        // Debug.LogError("No " + typeof(T) + " in this scene, please create the game object first.");
                     }
 
                     // DontDestroyOnLoad(instance.gameObject);

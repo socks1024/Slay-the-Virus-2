@@ -147,6 +147,11 @@ public abstract class CardBehaviour : MonoBehaviour
     /// </summary>
     public virtual void ActAfterCardAct(){}
 
+    /// <summary>
+    /// 卡牌的回合开始时效果
+    /// </summary>
+    public virtual void ActOnTurnStart(){}
+
     #endregion
 
     protected virtual void Awake()
@@ -179,6 +184,8 @@ public abstract class CardBehaviour : MonoBehaviour
         nextEffect = cardData.BaseEffect;
 
         lockedOnBoard = false;
+
+        ActOnTurnStart();
     }
 
     // void OnDrawGizmos()

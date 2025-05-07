@@ -67,6 +67,7 @@ public class CardSetTarget : MonoBehaviour
             if (!HasTarget)
             {
                 transform.SetAsLastSibling();
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     SetTarget();

@@ -21,8 +21,13 @@ public class FightMaster : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, Player, nextDamage + nextEffect * playCount);
+        ActionLib.DamageAction(targetEnemy, Player, nextDamage);
         playCount += 1;
+    }
+
+    public override void ActOnTurnStart()
+    {
+        nextDamage += nextEffect * playCount;
     }
 
     int playCount = 0;

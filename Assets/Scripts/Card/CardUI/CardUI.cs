@@ -167,6 +167,8 @@ public class CardUI : MonoBehaviour
     /// </summary>
     public Image cardImage;
 
+    CardText cardText;
+
     #region card art
 
     // [Header("Card Background")]
@@ -206,6 +208,7 @@ public class CardUI : MonoBehaviour
         cardBehaviour = GetComponent<CardBehaviour>();
         Mode = CardMode.CARD;
         EventCenter.Instance.AddEventListener(EventType.ACT_START, OnCardAct);
+        cardText = GetComponent<CardText>();
         SetCardUI();
     }
 
@@ -266,9 +269,6 @@ public class CardUI : MonoBehaviour
     {
         CardData data = cardBehaviour.cardData;
 
-        nameText.text = data.Name;
-        descriptionText.text = data.Description;
-
         nameText.raycastTarget = false;
         descriptionText.raycastTarget = false;
 
@@ -321,6 +321,7 @@ public class CardUI : MonoBehaviour
             cardBG.color = Color.white;
         }
     }
+
 
     [Header("摧毁卡牌")]
     [SerializeField] float destroyDelay = 0.3f;

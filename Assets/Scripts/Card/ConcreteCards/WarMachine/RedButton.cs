@@ -13,28 +13,14 @@ public class RedButton : CardBehaviour
     {
         ActionLib.DamageAllAction(Player, nextDamage);
 
-        // List<CardBehaviour> allCards = new List<CardBehaviour>();
-        // allCards.AddRange(DungeonManager.Instance.battleManager.cardFlow.hand.GetCards());
-        // allCards.AddRange(DungeonManager.Instance.battleManager.cardFlow.drawPile.GetCards());
-        // allCards.AddRange(DungeonManager.Instance.battleManager.cardFlow.discardPile.GetCards());
-        // allCards.AddRange(DungeonManager.Instance.battleManager.cardFlow.exhaustedPile.GetCards());
-
-        // allCards.Remove(this);
-
-        // for (int i = 0; i < nextEffect; i++)
-        // {
-        //     if (allCards.Count > 0)
-        //     {
-        //         ActionLib.RemoveCardFromBattle(allCards[Random.Range(0,allCards.Count)]);
-        //     }
-        // }
+        Player.nuclearBomb = true;
 
         ActionLib.RemoveCardFromBattle(this);
     }
 
     public override void ActOnRemoved()
     {
-        // print("RemoveCard");
+        
     }
 
     public override void ActOnCardAct()

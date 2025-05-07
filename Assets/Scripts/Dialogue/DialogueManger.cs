@@ -17,7 +17,14 @@ public class DialogueManager : MonoSingleton<DialogueManager>
 
     public DialoguePanel ShowDialoguePanel()
     {
-        DialoguePanel panel = Instantiate(PanelPrefab, FindObjectOfType<Canvas>().transform);
+        ShowDialoguePanel(FindObjectOfType<Canvas>());
+
+        return dialoguePanel;
+    }
+
+    public DialoguePanel ShowDialoguePanel(Canvas canvas)
+    {
+        DialoguePanel panel = Instantiate(PanelPrefab, canvas.transform);
         panel.transform.localPosition = Vector3.zero;
         panel.transform.localScale = Vector3.one;
 
