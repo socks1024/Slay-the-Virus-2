@@ -14,12 +14,37 @@ public class EnemyGroup : MonoBehaviour
 
     UnityAction<List<EnemyBehaviour>> OnEnemyAmountChange;
 
+    public EnemyBehaviour HoveredEnemy
+    {
+        get { return hoveredEnemy;}
+        set 
+        {
+            if (hoveredEnemy != null)
+            {
+                hoveredEnemy.GetComponent<EnemyShow>().ExitHighlight();
+            }
+
+            hoveredEnemy = value;
+
+            if (hoveredEnemy != null)
+            {
+                hoveredEnemy.GetComponent<EnemyShow>().EnterHighlight();
+            }
+        }
+    }
+    EnemyBehaviour hoveredEnemy;
+
     void Awake()
     {
         OnEnemyAmountChange = GetComponent<EnemyGroupUI>().OnEnemyAmountChange;
 
         EventCenter.Instance.AddEventListener(EventType.CARD_ACT_END, EnemyAct);
         EventCenter.Instance.AddEventListener(EventType.BATTLE_WIN, ClearEnemy);
+    }
+
+    void Update()
+    {
+        HoveredEnemy = GetHoveredEnemy();
     }
 
     void OnDestroy()

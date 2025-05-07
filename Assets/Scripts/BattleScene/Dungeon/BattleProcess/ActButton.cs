@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +24,14 @@ public class ActButton : MonoSingletonDestroyOnLoad<ActButton>
         
         EventCenter.Instance.RemoveEventListener(EventType.TURN_START, SetEnableButton);
         EventCenter.Instance.RemoveEventListener(EventType.ACT_START, SetDisableButton);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            button.onClick.Invoke();
+        }
     }
 
     public void Act()
