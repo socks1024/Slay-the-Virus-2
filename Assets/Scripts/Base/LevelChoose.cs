@@ -6,6 +6,7 @@ public class LevelChoose : MonoBehaviour
 {
     public CameraControl cameraControl;
     public GameObject[] RedDots;
+    public Transform cametarget;
 
     private bool EnterTutorial;
 
@@ -50,7 +51,9 @@ public class LevelChoose : MonoBehaviour
                 break;
             }
         }
-        cameraControl.StartFocus(RedDots[latestlevel].transform);
+        cametarget.transform.position = new Vector3(cametarget.transform.position.x, RedDots[latestlevel].transform.position.y);
+
+        cameraControl.StartFocus(cametarget);
     }
     public void ReturnMain()
     {
