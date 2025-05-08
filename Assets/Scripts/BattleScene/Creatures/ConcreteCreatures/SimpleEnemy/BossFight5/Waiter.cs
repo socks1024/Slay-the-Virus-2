@@ -36,6 +36,6 @@ public class Waiter : EnemyBehaviour
 
     void OnWaiterDead()
     {
-        DialogueManager.Instance.StartDialogue("BossFight5_2");
+        (DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("RoyalVirus") as RoyalVirus).GetAngry();
     }
 }

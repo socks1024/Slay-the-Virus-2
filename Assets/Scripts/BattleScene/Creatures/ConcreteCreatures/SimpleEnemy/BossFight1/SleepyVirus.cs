@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SleepyVirus : EnemyBehaviour
 {
@@ -80,6 +81,8 @@ public class SleepyVirus : EnemyBehaviour
 
     bool loseHalfHealth = false;
 
+    public Sprite wakeVirus;
+
     #region Dialogue
 
     void OnLoseHalfHealth(int health, int block)
@@ -88,6 +91,7 @@ public class SleepyVirus : EnemyBehaviour
         {
             DialogueManager.Instance.StartDialogue("BossFight1_2");
             loseHalfHealth = true;
+            GetComponent<Image>().sprite = wakeVirus;
         }
     }
 

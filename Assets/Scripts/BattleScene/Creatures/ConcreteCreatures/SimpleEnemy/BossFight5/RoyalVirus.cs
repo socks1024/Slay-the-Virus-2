@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoyalVirus : EnemyBehaviour
 {
@@ -85,4 +86,12 @@ public class RoyalVirus : EnemyBehaviour
     IntentionInfo DrinkIntent;
 
     IntentionInfo NobleIntent;
+
+    public Sprite angrySprite;
+
+    public void GetAngry()
+    {
+        DialogueManager.Instance.StartDialogue("BossFight5_2");
+        GetComponent<Image>().sprite = angrySprite;
+    }
 }
