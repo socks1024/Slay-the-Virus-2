@@ -70,6 +70,16 @@ public class CameraControl : MonoBehaviour
         OnFocusStart?.Invoke();
     }
 
+    public void StartFocus(Transform transform)
+    {
+        currentTarget = transform;
+        CacheOriginalState();
+        CalculateTargetPosition();
+        transitionProgress = 0;
+        currentState = FocusState.Focusing;
+        OnFocusStart?.Invoke();
+    }
+
     private void UpdateFocus()
     {
         float t = Mathf.SmoothStep(0, 1, transitionProgress);
