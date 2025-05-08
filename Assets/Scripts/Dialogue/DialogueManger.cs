@@ -15,6 +15,16 @@ public class DialogueManager : MonoSingleton<DialogueManager>
         loader = GetComponent<IDialogueLoader>();
     }
 
+    public void StartDialogue(string groupID)
+    {
+        ShowDialoguePanel().AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
+    }
+
+    public void StartDialogue(string groupID, Canvas canvas)
+    {
+        ShowDialoguePanel(canvas).AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
+    }
+
     public DialoguePanel ShowDialoguePanel()
     {
         ShowDialoguePanel(FindObjectOfType<Canvas>());
