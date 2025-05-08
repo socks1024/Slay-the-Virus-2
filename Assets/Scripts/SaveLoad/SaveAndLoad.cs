@@ -110,6 +110,18 @@ public class SaveSystem : MonoBehaviour
                 {
                     savefile.PlayerCardInventory[name] = 0;
                 }
+
+                int num = savefile.PlayerCardInventory[name];
+                if (savefile.PlayerHoldCards.ContainsKey(name))
+                {
+                    num += savefile.PlayerHoldCards[name];
+                }
+
+                num -= 99;
+                if (num < 0)
+                    num = 0;
+                savefile.PlayerCardInventory[name] -= num;
+                
             }
             else
             {
