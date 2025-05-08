@@ -6,7 +6,7 @@ public class ChaosVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        
+        DialogueManager.Instance.StartDialogue("BossFight4_1");
     }
 
     public override void EnemyChooseIntention(int turnCount)

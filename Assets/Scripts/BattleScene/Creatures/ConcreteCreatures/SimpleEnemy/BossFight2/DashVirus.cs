@@ -6,7 +6,7 @@ public class DashVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        
+        DialogueManager.Instance.StartDialogue("BossFight2_1");
     }
 
     public override void EnemyChooseIntention(int turnCount)

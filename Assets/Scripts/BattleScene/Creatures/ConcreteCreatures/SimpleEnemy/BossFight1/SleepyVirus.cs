@@ -6,7 +6,8 @@ public class SleepyVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        
+        takeDamage.OnHealthChange += OnLoseHalfHealth;
+        DialogueManager.Instance.StartDialogue("BossFight1_1");
     }
 
     public override void OnBattleStart()
@@ -42,7 +43,7 @@ public class SleepyVirus : EnemyBehaviour
         {
             SetIntention(SnoreIntent);
         }
-        else if (takeDamage.Health >= MaxHealth / 2)
+        else if (!loseHalfHealth)
         {
             if (turnCount % 2 == 0)
             {
@@ -76,4 +77,19 @@ public class SleepyVirus : EnemyBehaviour
     IntentionInfo RestIntent;
 
     IntentionInfo AngerIntent;
+
+    bool loseHalfHealth = false;
+
+    #region Dialogue
+
+    void OnLoseHalfHealth(int health, int block)
+    {
+        if (!loseHalfHealth && health < MaxHealth / 2)
+        {
+            DialogueManager.Instance.StartDialogue("BossFight1_2");
+            loseHalfHealth = true;
+        }
+    }
+
+    #endregion
 }

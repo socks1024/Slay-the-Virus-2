@@ -7,6 +7,7 @@ public class VirusKing : EnemyBehaviour
     public override void ActOnEnterBattle()
     {
         takeDamage.lockHealthAtOne = true;
+        DialogueManager.Instance.StartDialogue("BossFight6_1");
     }
 
     int nextIntentNumber = 0;
@@ -82,11 +83,18 @@ public class VirusKing : EnemyBehaviour
                 {
                     ActionLib.HealAction(this, this, DyingHealAmount);
                     ActionLib.DamageAction(virusFollower, this, 999);
+                    
+                    if (!dyingHealed)
+                    {
+                        DialogueManager.Instance.StartDialogue("BossFight6_2");
+                        dyingHealed = true;
+                    }
                 }
                 else
                 {
                     takeDamage.lockHealthAtOne = false;
                     ActionLib.DamageAction(this, this, 999);
+                    DialogueManager.Instance.StartDialogue("BossFight6_3");
                 }
             }
         );
@@ -188,5 +196,7 @@ public class VirusKing : EnemyBehaviour
     [SerializeField] int DyingHealAmount = 25;
 
     IntentionInfo OrderIntent;
+
+    bool dyingHealed = false;
 
 }

@@ -6,7 +6,7 @@ public class VirusArmy : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        
+        DialogueManager.Instance.StartDialogue("BossFight3_1");
     }
 
     public override void EnemyChooseIntention(int turnCount)

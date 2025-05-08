@@ -6,7 +6,7 @@ public class Waiter : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        
+        takeDamage.ActOnDead += OnWaiterDead;
     }
 
     public override void EnemyChooseIntention(int turnCount)
@@ -33,4 +33,9 @@ public class Waiter : EnemyBehaviour
     [SerializeField] int ServeHealAmount = 8;
 
     IntentionInfo ServeIntent;
+
+    void OnWaiterDead()
+    {
+        DialogueManager.Instance.StartDialogue("BossFight5_2");
+    }
 }

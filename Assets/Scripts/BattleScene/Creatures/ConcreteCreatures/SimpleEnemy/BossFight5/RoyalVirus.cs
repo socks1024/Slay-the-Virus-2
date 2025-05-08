@@ -6,7 +6,7 @@ public class RoyalVirus : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        
+        DialogueManager.Instance.StartDialogue("BossFight5_1");
     }
 
     public override void EnemyChooseIntention(int turnCount)
