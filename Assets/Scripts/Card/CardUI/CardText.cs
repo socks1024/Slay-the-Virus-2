@@ -12,7 +12,7 @@ public class CardText : MonoBehaviour
     [Header("关键词")]
     public List<Keyword> keywords;
 
-    string keywordColorCloseTag = "</color>";
+    string colorCloseTag = "</color>";
 
     List<Keyword> usedKeywords = new();
 
@@ -25,7 +25,7 @@ public class CardText : MonoBehaviour
             if (text.Contains(keyword.name))
             {
                 usedKeywords.Add(keyword);
-                text = text.Replace(keyword.name, BuildColorTag(keyword.color) + keyword.name + keywordColorCloseTag);
+                text = text.Replace(keyword.name, BuildColorTag(keyword.color) + keyword.name + colorCloseTag);
             }
         }
 
@@ -79,6 +79,66 @@ public class CardText : MonoBehaviour
 
     #endregion
 
+    #region Sprites
+
+    [Header("精灵字符")]
+    public List<SpriteLabel> spriteLabels;
+
+    string ReplaceSpritesText(string description)
+    {
+        foreach (SpriteLabel label in spriteLabels)
+        {
+            if (description.Contains(label.name))
+            {
+                description = description.Replace(label.name, "<sprite=" + label.index.ToString() + ">");
+            }
+        }
+
+        return description;
+    }
+
+    #endregion
+
+    #region CardName
+
+    [Header("卡牌标记")]
+    public Color CellCardColor;
+    public Color VirusCardColor;
+
+    string ReplaceCardNameText(string description)
+    {
+        foreach (string cardID in CardLib.cardPrefabs.Keys)
+        {
+            if (description.Contains(cardID))
+            {
+                string cardName = CardLib.GetCard(cardID).cardData.Name;
+
+                int index = 0;
+                Color color = CellCardColor;
+                switch(CardLib.GetCard(cardID).ActType)
+                {
+                    case CardActType.BATTLE_FIELD:
+                        index = 2;
+                        break;
+                    case CardActType.COMMAND:
+                        index = 1;
+                        break;
+                    case CardActType.VIRUS:
+                        index = 0;
+                        color = VirusCardColor;
+                        break;                    
+                }
+
+                description = description.Replace(cardID, "<sprite=" + index.ToString() + ">" + BuildColorTag(color) + cardName + colorCloseTag);
+            }
+            
+        }
+
+        return description;
+    }
+
+    #endregion
+
     CardUI cardUI;
 
     CardData data;
@@ -92,6 +152,8 @@ public class CardText : MonoBehaviour
 
         description = ReplaceKeywordText(description);
         description = ReplaceNumbersText(description);
+        description = ReplaceSpritesText(description);
+        description = ReplaceCardNameText(description);
 
         cardUI.descriptionText.text = description;
     }
@@ -114,4 +176,12 @@ public struct Keyword
     public string name;
 
     public Color color;
+}
+
+[Serializable]
+public struct SpriteLabel
+{
+    public string name;
+
+    public int index;
 }

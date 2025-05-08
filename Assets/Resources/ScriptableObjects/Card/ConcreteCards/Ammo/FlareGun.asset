@@ -30,5 +30,5 @@ MonoBehaviour:
   BaseHeal: 0
   BaseEffect: 2
   Name: "\u4FE1\u53F7\u67AA"
-  Description: "\u89E6\u53D1\u6548\u679C\uFF1A\u62BD #e \u5F20\u724C\u3002\n\u9501\u5B9A\u3002"
+  Description: "\u89E6\u53D1\u6548\u679C:\u62BD #e \u5F20\u724C\u3002\n\u9501\u5B9A\u3002"
   CardTex: {fileID: 21300000, guid: 4dd1aaa7257d7ac4e864be3e1b4dd924, type: 3}

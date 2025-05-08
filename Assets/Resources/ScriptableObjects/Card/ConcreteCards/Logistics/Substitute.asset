@@ -30,6 +30,6 @@ MonoBehaviour:
   BaseHeal: 0
   BaseEffect: 1
   Name: "\u66FF\u8865\u58EB\u5175"
-  Description: "\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C\uFF1A\u4E0B\u56DE\u5408\u5F00\u59CB\u65F6\uFF0C\u989D\u5916\u62BD
+  Description: "\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C:\u4E0B\u56DE\u5408\u5F00\u59CB\u65F6\uFF0C\u989D\u5916\u62BD
     #e \u5F20\u724C\u3002"
   CardTex: {fileID: 21300000, guid: bdd82e54b42611a46b2b4c47cf4f3f61, type: 3}

@@ -94,12 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keywords:
-  - name: "\u6269\u5C55\u7A7A\u95F4"
-    color: {r: 1, g: 0.78823537, b: 0, a: 1}
-  - name: "\u89E6\u53D1\u6548\u679C"
-    color: {r: 0.39982584, g: 0.7562204, b: 0.9559748, a: 1}
-  - name: "\u65BD\u52A0\u6548\u679C"
-    color: {r: 0.9559748, g: 0.45666748, b: 0.4238755, a: 1}
   - name: "\u683C\u6321"
     color: {r: 1, g: 0.78823537, b: 0, a: 1}
   - name: "\u6D88\u8017"
@@ -108,6 +102,19 @@ MonoBehaviour:
     color: {r: 1, g: 0.78823537, b: 0, a: 1}
   - name: "\u9501\u5B9A"
     color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u65BD\u52A0\u6548\u679C"
+    color: {r: 0.9559748, g: 0.45666748, b: 0.4238755, a: 1}
+  - name: "\u6269\u5C55\u7A7A\u95F4"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u89E6\u53D1\u6548\u679C"
+    color: {r: 0.39982584, g: 0.7562204, b: 0.9559748, a: 1}
+  spriteLabels:
+  - name: "\u89E6\u53D1\u6548\u679C"
+    index: 4
+  - name: "\u65BD\u52A0\u6548\u679C"
+    index: 5
+  CellCardColor: {r: 1, g: 0.78823537, b: 0, a: 1}
+  VirusCardColor: {r: 0.74374783, g: 0.38813722, b: 0.98742133, a: 0}
 --- !u!114 &2359035785780278894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u3010\u9020\u62102\u70B9\u4F24\u5BB3\u3011\u3002\n\u89E6\u53D1\u6548\u679C\uFF1A\u6BCF\u6B21\u5C061\u5F20\u8BE5\u724C\u7684\u590D\u5236\u52A0\u5165\u62BD\u724C\u5806\u3002\n\u6D88\u8017\u3002\n\u6D88\u8017\u3002"
+  m_text: "\u9020\u62102\u70B9\u4F24\u5BB3\u3002\n\u6BCF\u9897<sprite=4>\u5C061\u5F20<sprite=0><color=#FF00FF>\u6740\u6BD2\u5947\u5175</color>\u52A0\u5165\u62BD\u724C\u5806\u3002\n<sprite=5>:\u6D88\u8017\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a8f2c401eba4a84b87e55f3da2fec81, type: 2}
   m_sharedMaterial: {fileID: -899699710880701677, guid: 5a8f2c401eba4a84b87e55f3da2fec81, type: 2}
@@ -639,7 +646,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 368e7491362b09140bee674581d3ca18, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -647,8 +654,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -683,7 +690,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.7097168, y: -0.24559402, z: -0.18016052, w: -0.42861938}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
