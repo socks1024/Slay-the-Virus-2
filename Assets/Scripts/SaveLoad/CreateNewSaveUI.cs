@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CreateNewSaveUI : MonoBehaviour
@@ -113,14 +114,18 @@ public class CreateNewSaveUI : MonoBehaviour
       
 
         SaveSystem.Instance.SavePlayerToSlot(savedata, index);
+
+        SaveSystem.Instance.SetSave(SaveSystem.Instance.LoadPlayerFromSlot(index));
+        ItemManager.Instance.InitStorageCard();
+        SceneManager.LoadScene("Base");
     }
 
     public void StartCreate()
     {
         CreateNewSave(thisindex);
-        panel1.SetActive(false);
-        confirmpanel.SetActive(false);
-        gameObject.SetActive(false);
+        //panel1.SetActive(false);
+        //confirmpanel.SetActive(false);
+        //gameObject.SetActive(false);
         GetComponentInParent<StartPanel>().updateslots();
     }
 
