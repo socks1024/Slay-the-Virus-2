@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NoviceEngineer
   m_EditorClassIdentifier: 
   Id: NoviceEngineer
+  Pack: 3
   AbilityType: 1
   ActType: 0
   ConditionType: 0

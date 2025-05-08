@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Medic
   m_EditorClassIdentifier: 
   Id: Medic
+  Pack: 3
   AbilityType: 2
   ActType: 0
   ConditionType: 0

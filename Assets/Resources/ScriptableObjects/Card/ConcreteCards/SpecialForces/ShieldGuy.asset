@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ShieldGuy
   m_EditorClassIdentifier: 
   Id: ShieldGuy
+  Pack: 10
   AbilityType: 1
   ActType: 0
   ConditionType: 1

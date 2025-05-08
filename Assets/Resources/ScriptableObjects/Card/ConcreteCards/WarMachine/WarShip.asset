@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WarShip
   m_EditorClassIdentifier: 
   Id: WarShip
+  Pack: 12
   AbilityType: 0
   ActType: 0
   ConditionType: 1

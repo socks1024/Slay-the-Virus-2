@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Jet
   m_EditorClassIdentifier: 
   Id: Jet
+  Pack: 12
   AbilityType: 3
   ActType: 0
   ConditionType: 1

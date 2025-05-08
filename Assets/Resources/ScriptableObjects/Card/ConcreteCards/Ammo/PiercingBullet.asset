@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PiercingBullet
   m_EditorClassIdentifier: 
   Id: PiercingBullet
+  Pack: 2
   AbilityType: 0
   ActType: 0
   ConditionType: 1

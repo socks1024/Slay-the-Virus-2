@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Guerrillas
   m_EditorClassIdentifier: 
   Id: Guerrillas
+  Pack: 10
   AbilityType: 0
   ActType: 0
   ConditionType: 1

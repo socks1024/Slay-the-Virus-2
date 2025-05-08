@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   Id: Map
+  Pack: 3
   AbilityType: 4
   ActType: 0
   ConditionType: 3

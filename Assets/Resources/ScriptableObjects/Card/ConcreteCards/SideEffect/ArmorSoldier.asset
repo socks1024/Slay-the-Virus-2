@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ArmorSoldier
   m_EditorClassIdentifier: 
   Id: ArmorSoldier
+  Pack: 9
   AbilityType: 1
   ActType: 0
   ConditionType: 2

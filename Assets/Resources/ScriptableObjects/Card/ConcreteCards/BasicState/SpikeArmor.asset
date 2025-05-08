@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpikeArmor
   m_EditorClassIdentifier: 
   Id: SpikeArmor
+  Pack: 4
   AbilityType: 1
   ActType: 0
   ConditionType: 1

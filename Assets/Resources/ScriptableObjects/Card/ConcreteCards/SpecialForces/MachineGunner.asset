@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MachineGunner
   m_EditorClassIdentifier: 
   Id: MachineGunner
+  Pack: 10
   AbilityType: 0
   ActType: 0
   ConditionType: 1

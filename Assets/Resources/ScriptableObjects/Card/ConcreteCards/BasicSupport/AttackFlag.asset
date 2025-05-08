@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AttackFlag
   m_EditorClassIdentifier: 
   Id: AttackFlag
+  Pack: 5
   AbilityType: 3
   ActType: 0
   ConditionType: 2

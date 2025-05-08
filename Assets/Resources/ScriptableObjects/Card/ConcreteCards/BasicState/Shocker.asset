@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shocker
   m_EditorClassIdentifier: 
   Id: Shocker
+  Pack: 4
   AbilityType: 3
   ActType: 0
   ConditionType: 1

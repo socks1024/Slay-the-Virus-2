@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SimpleShelter
   m_EditorClassIdentifier: 
   Id: SimpleShelter
+  Pack: 8
   AbilityType: 1
   ActType: 0
   ConditionType: 1

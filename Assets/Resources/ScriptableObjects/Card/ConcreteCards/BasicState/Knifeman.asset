@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Knifeman
   m_EditorClassIdentifier: 
   Id: Knifeman
+  Pack: 4
   AbilityType: 3
   ActType: 0
   ConditionType: 1

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RemoteSatellite
   m_EditorClassIdentifier: 
   Id: RemoteSatellite
+  Pack: 6
   AbilityType: 4
   ActType: 0
   ConditionType: 0

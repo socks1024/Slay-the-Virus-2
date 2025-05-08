@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HeadNurse
   m_EditorClassIdentifier: 
   Id: HeadNurse
+  Pack: 6
   AbilityType: 2
   ActType: 0
   ConditionType: 1

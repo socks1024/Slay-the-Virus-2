@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Antihistamine
   m_EditorClassIdentifier: 
   Id: Antihistamine
+  Pack: 7
   AbilityType: 3
   ActType: 1
   ConditionType: 0

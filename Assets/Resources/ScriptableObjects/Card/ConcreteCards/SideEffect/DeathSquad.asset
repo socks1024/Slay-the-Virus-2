@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DeathSquad
   m_EditorClassIdentifier: 
   Id: DeathSquad
+  Pack: 9
   AbilityType: 0
   ActType: 0
   ConditionType: 1

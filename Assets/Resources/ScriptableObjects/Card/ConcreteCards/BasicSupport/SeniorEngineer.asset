@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SeniorEngineer
   m_EditorClassIdentifier: 
   Id: SeniorEngineer
+  Pack: 5
   AbilityType: 1
   ActType: 0
   ConditionType: 1

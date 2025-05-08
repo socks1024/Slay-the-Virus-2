@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Herbs
   m_EditorClassIdentifier: 
   Id: Herbs
+  Pack: 7
   AbilityType: 4
   ActType: 1
   ConditionType: 0

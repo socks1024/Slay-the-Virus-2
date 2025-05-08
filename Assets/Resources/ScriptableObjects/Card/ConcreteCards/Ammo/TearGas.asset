@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TearGas
   m_EditorClassIdentifier: 
   Id: TearGas
+  Pack: 2
   AbilityType: 3
   ActType: 0
   ConditionType: 1

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Assassin
   m_EditorClassIdentifier: 
   Id: Assassin
+  Pack: 1
   AbilityType: 5
   ActType: 2
   ConditionType: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spy
   m_EditorClassIdentifier: 
   Id: Spy
+  Pack: 1
   AbilityType: 5
   ActType: 2
   ConditionType: 0

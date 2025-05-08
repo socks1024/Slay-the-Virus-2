@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Drone
   m_EditorClassIdentifier: 
   Id: Drone
+  Pack: 8
   AbilityType: 1
   ActType: 0
   ConditionType: 3

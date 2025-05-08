@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Supplies
   m_EditorClassIdentifier: 
   Id: Supplies
+  Pack: 4
   AbilityType: 3
   ActType: 0
   ConditionType: 1

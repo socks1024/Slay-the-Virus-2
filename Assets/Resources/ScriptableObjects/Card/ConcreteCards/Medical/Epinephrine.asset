@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Epinephrine
   m_EditorClassIdentifier: 
   Id: Epinephrine
+  Pack: 7
   AbilityType: 3
   ActType: 0
   ConditionType: 2

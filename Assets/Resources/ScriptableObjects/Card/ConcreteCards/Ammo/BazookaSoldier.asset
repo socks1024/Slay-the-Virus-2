@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BazookaSoldier
   m_EditorClassIdentifier: 
   Id: BazookaSoldier
+  Pack: 2
   AbilityType: 0
   ActType: 0
   ConditionType: 0

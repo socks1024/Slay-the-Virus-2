@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NoviceInfantry
   m_EditorClassIdentifier: 
   Id: NoviceInfantry
+  Pack: 3
   AbilityType: 0
   ActType: 0
   ConditionType: 0
