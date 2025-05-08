@@ -92,7 +92,8 @@ public class ShopManager : MonoBehaviour
         GameObject newcard = GameObject.Instantiate(shopitemprifab, Contentpanel) as GameObject;
         newcard.name = item.Name;
         newcard.GetComponent<ShopItemCard>().item = item;
-        newcard.AddComponent<ButtonConflict>();
+        //newcard.AddComponent<ButtonConflict>();
+        
         newcard.transform.localScale = new Vector3(1.05f, 1.15f, 0);
         
 

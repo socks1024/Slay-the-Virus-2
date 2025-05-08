@@ -9,6 +9,8 @@ public class ShopUI : MonoBehaviour
     public Text resource;
     public Text price;
     public GameObject content;
+    public GameObject previewPanel;
+    public TMPro.TMP_Text storagenum;
     
     private List<ShopItemCard> items = new List<ShopItemCard>();
     private int sumprice;
@@ -82,4 +84,37 @@ public class ShopUI : MonoBehaviour
 
         SceneManager.LoadScene("Base");
     }
+
+    public void PreviewCard(GameObject card)
+    {
+        previewPanel.SetActive(true);
+        string name = card.GetComponent<ShopItemCard>().item.Name;
+        int num = SaveSystem.Instance.getSave().PlayerCardInventory[name];
+        if (SaveSystem.Instance.getSave().PlayerHoldCards.ContainsKey(name))
+        {
+            num+= SaveSystem.Instance.getSave().PlayerHoldCards[name];
+        }
+
+        storagenum.text = "¿â´æÊý" + num.ToString();
+
+        card.transform.SetParent(previewPanel.transform);
+        card.transform.SetAsFirstSibling();
+        card.transform.localPosition = Vector3.zero;
+        card.transform.localScale = new Vector3(card.GetComponent<ShopItemCard>().originalscale.x * 1.75f, card.GetComponent<ShopItemCard>().originalscale.y * 1.75f, 0);
+
+
+    }
+
+    public void CancelPreview(GameObject card)
+    {
+        previewPanel.SetActive(false);
+
+        card.transform.SetParent(content.transform);
+        card.transform.SetSiblingIndex(card.GetComponent<ShopItemCard>().index);
+        card.transform.localScale = card.GetComponent<ShopItemCard>().originalscale;
+
+        card.transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
+    }
+
+
 }
