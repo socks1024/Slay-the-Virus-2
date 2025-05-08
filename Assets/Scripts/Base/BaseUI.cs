@@ -98,6 +98,12 @@ public class BaseUI : MonoBehaviour
             SceneManager.LoadScene("Inventory");
     }
 
+    public void TransToShop()
+    {
+        if (SaveSystem.Instance.getSave().TutorialClear[2] == true)
+            SceneManager.LoadScene("Shop");
+    }
+
     public void Update()
     {
 

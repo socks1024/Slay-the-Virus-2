@@ -5,141 +5,106 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 
 
 //商店
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] 
-    private List<Item> StorageItems = new List<Item>();//把商店卖的东西放进这里
+
     [SerializeField]
-    private List<Item> ExtractItems = new List<Item>();//抽奖池物品放这里
-
-    private Item OneItem;
-
-    public Dictionary<Item, int> storage = new Dictionary<Item, int>();
-    public Dictionary<Item, int> extract = new Dictionary<Item, int>();
+    private List<string> StorageItems = new List<string>();
 
     public static ShopManager Instance { get; private set; }
+
+    public GameObject shopitemprifab;
+
+    public Transform Contentpanel;
+
     private void Start()
     {
-        InitStorage();
-        InitExtract();
-        //for (int i = 0; i < 10; i++) Extract();
+        //InitStorage();
+        //InitExtract();
+        ////for (int i = 0; i < 10; i++) Extract();
         Instance = this;
-    }
-    private void InitStorage()
-    {
-        foreach (var item in StorageItems)
-        {
-            AddToShopStorage(item, item.StorageAmount);
-           // Debug.Log("加载了一个商品！");
-        }
+        InitCards();
     }
 
-    private void InitExtract()
+    public void Purchase(ShopItemCard shopItemCard)
     {
-        foreach (var item in ExtractItems)
-        {
-            AddToExtract(item, item.weight);
-        }
+        SaveSystem.Instance.AddCardToPlayerSave(shopItemCard.item.Name, 1);
+        SaveSystem.Instance.AddNutrientToPlayerSave(-shopItemCard.price);
     }
 
-    private Item Extract()//抽奖！
+    private void InitCards()
     {
-        int totalweight = 0;
-        foreach(int weight in extract.Values)
+        StorageItems.Clear();
+
+        bool[] levelclear = SaveSystem.Instance.getSave().ClearLevels;
+
+        foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
         {
-            totalweight += weight;
-        }
-        int rand = Random.Range(0, totalweight);
-        int currentnum = 0;
-        foreach (var item in extract)
-        {
-            currentnum += item.Value;
-            if (rand < currentnum)
+            string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + item.Key;
+            CardItem cardItem = Resources.Load<CardItem>(FindCardItem);
+
+            switch (cardItem.cardBehaviour.Pack)
             {
-                //Debug.Log(item.Key.Name);
-                return item.Key;
+                case CardPack.MEDICAL:
+                case CardPack.TRAINING:
+                    CardInit(cardItem);
+                    break;
+                case CardPack.WAR_MACHINE:
+                    if (levelclear[5] == true)
+                        CardInit(cardItem);
+                    break;
+                case CardPack.SHELTER:
+                    if (levelclear[4] == true)
+                        CardInit(cardItem);
+                    break;
+                case CardPack.LOGISTICS:
+                    if (levelclear[3] == true)
+                        CardInit(cardItem);
+                    break;
+                case CardPack.SPECIAL_FORCES:
+                    if (levelclear[2] == true)
+                        CardInit(cardItem);
+                    break;
+                case CardPack.SIDE_EFFECT:
+                    if (levelclear[1] == true)
+                        CardInit(cardItem);
+                    break;
+                case CardPack.AMMO:
+                    if (levelclear[0]==true)
+                        CardInit(cardItem);
+                    break;
+                case CardPack.BASIC_NORMAL:
+                case CardPack.BASIC_STATE:
+                case CardPack.BASIC_SUPPORT:
+                    CardInit(cardItem);
+                    break;
             }
         }
-        //Debug.Log(extract.Keys.Last().Name);
-        return extract.Keys.Last();
     }
 
-    private void AddToShopStorage(Item item, int amount)//往库存里添加
+    private void CardInit(CardItem item)
     {
-        if (storage.ContainsKey(item))
-        {
-            storage[item] += amount;
-        }
-        else
-        {
-            storage.Add(item, amount);
-        }
+        GameObject newcard = GameObject.Instantiate(shopitemprifab, Contentpanel) as GameObject;
+        newcard.name = item.Name;
+        newcard.GetComponent<ShopItemCard>().item = item;
+        newcard.AddComponent<ButtonConflict>();
+        newcard.transform.localScale = new Vector3(1.05f, 1.15f, 0);
+        
+
+        GameObject card = GameObject.Instantiate(item.cardBehaviour.gameObject, newcard.transform) as GameObject;
+        card.transform.SetSiblingIndex(0);
+
+        card.gameObject.GetComponent<CardRotate>().enabled = false;
+        card.gameObject.GetComponent<CardPosition>().enabled = false;
+        card.gameObject.GetComponent<CardSetTarget>().enabled = false;
+        //card.AddComponent<ButtonConflict>();
+        card.transform.localScale = new Vector3(75f, 75f, 0);
     }
-
-    private void AddToExtract(Item item, int weight)//往抽奖池里添加一定权重的某物
-    {
-        if (extract.ContainsKey(item))
-        {
-            extract[item] += weight;
-        }
-        else
-        {
-            extract.Add(item, weight);
-        }
-    }
-
-
-    public bool Purchase(Item item,int amount)//用对应资源购买物品添加到仓库
-    {
-        int need = amount * item.price;
-       /* if (amount > storage[item])
-        {
-            return false;
-        }*/
-
-
-        switch (item.resourceCatogory)
-        {
-            case ResourceCatogory.Nutrition:
-                if (ResourceManager.Instance.nutrition() >= need)
-                {
-                    ResourceManager.Instance.RemoveNutrition(need);
-                    ItemManager.Instance.AddItem(item, amount);
-                    //storage[item] -= amount;
-                    break;
-                }
-                else return false;
-        }
-        return true;
-        //return ItemManager.Instance.AddItem(item, amount); 
-    }
-
-    private bool SellItem(Item item,int amount)//从仓库里卖东西
-    {
-        if (ItemManager.Instance.GetItemCount(item) < amount)
-        {
-            return false;
-        }
-
-        int earning = amount * item.sellprice;
-
-        switch (item.resourceCatogory)
-        {
-            case ResourceCatogory.Nutrition:
-                ResourceManager.Instance.AddNutrition(earning);
-                break;
-        }
-
-        return ItemManager.Instance.RemoveItem(item, amount);
-
-
-    }
-
-
 }
 
 

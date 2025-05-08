@@ -17,6 +17,6 @@ public class PlayTutorialButton : MonoBehaviour
 
     public void PlayTutorial()
     {
-        DialogueManager.Instance.ShowDialoguePanel().AddDialogueEvent(DialogueManager.Instance.loader, tutorialname).ShowNextDialogueEvent();
+        DialogueManager.Instance.ShowDialoguePanel(transform.GetComponentInParent<Canvas>()).AddDialogueEvent(DialogueManager.Instance.loader, tutorialname).ShowNextDialogueEvent();
     }
 }

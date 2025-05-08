@@ -1,22 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopUI : MonoBehaviour
 {
     public Text resource;
     public Text price;
+    public GameObject content;
     
-    private List<Item> items = new List<Item>();
+    private List<ShopItemCard> items = new List<ShopItemCard>();
     private int sumprice;
+
+
+   
 
     public void Start()
     {
-       resource.text = ResourceManager.Instance.nutrition().ToString();
+       resource.text = SaveSystem.Instance.getSave().Nutrient.ToString();
+       
     }
 
-    public void GetOneItem(Item oneitem)
+    public void GetOneItem(ShopItemCard oneitem)
     {
         Debug.Log("price change!");
         items.Add(oneitem);
@@ -28,13 +34,13 @@ public class ShopUI : MonoBehaviour
     private void UpdatePrice()
     {
         sumprice = 0;
-       foreach(Item oneitem in items)
+       foreach(ShopItemCard oneitem in items)
         {
             sumprice += oneitem.price;
         }
     }
 
-    public void RemoveOneItem(Item item)
+    public void RemoveOneItem(ShopItemCard item)
     {
         items.Remove(item);
         UpdatePrice();
@@ -46,23 +52,34 @@ public class ShopUI : MonoBehaviour
 
     public void trybuysth()
     {
-        if (ResourceManager.Instance.nutrition()<sumprice)
+        if (SaveSystem.Instance.getSave().Nutrient<sumprice)
         {
             return;
         }
-        foreach (Item item in items)
+
+        foreach (ShopItemCard item in items)
         {
-            ShopManager.Instance.Purchase(item, 1);
+            ShopManager.Instance.Purchase(item);
         }
-        resource.text = ResourceManager.Instance.nutrition().ToString();
+        resource.text = SaveSystem.Instance.getSave().Nutrient.ToString();
         resourcetextcolor();
     }
 
     private void resourcetextcolor()
     {
-        if (ResourceManager.Instance.nutrition() >= sumprice)
+        if (SaveSystem.Instance.getSave().Nutrient >= sumprice)
             resource.color = Color.green;
         else resource.color = Color.red;
     }
 
+
+    public void OnReturn()
+    {
+        for (int i = content.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(content.transform.GetChild(i).gameObject);
+        }
+
+        SceneManager.LoadScene("Base");
+    }
 }

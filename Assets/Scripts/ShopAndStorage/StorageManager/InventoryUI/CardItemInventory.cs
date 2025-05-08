@@ -30,6 +30,7 @@ public class CardItemInventory : MonoBehaviour
     {
         num = SaveSystem.Instance.getSave().PlayerCardInventory[carditem.Name];
         numtext.text = num.ToString();
+        
     }
 
 }
