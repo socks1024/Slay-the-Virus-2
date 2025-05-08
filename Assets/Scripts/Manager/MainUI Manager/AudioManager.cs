@@ -38,6 +38,16 @@ public class AudioManager : MonoSingleton<AudioManager>
         if (sfxManager != null) sfxManager.PlaySound(id);
     }
 
+    public void PlayLoopSFX(string id)
+    {
+        if (sfxManager != null) sfxManager.PlaySoundContinuous(id, true);
+    }
+
+    public void StopSFX(string id)
+    {
+        if (sfxManager != null) sfxManager.StopSound(id);
+    }
+
     public void PlayMusic(string id)
     {
         if (musicManager != null) musicManager.PlaySoundContinuous(id, true);
@@ -45,8 +55,12 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void StopMusic()
     {
-        print("stop music");
         if (musicManager != null) musicManager.StopSound();
+    }
+
+    public void StopMusic(string id)
+    {
+        if (musicManager != null) musicManager.StopSound(id);
     }
 
     public void ToggleMusic()//¾²ÒôºÍ½â³ý
