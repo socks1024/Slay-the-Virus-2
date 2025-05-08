@@ -22,6 +22,11 @@ public abstract class CardBehaviour : MonoBehaviour
     public string Id{ get {return cardData.Id;} }
 
     /// <summary>
+    /// 卡牌所属的卡包
+    /// </summary>
+    public CardPack Pack{ get {return cardData.Pack;} }
+
+    /// <summary>
     /// 卡牌能力类型
     /// </summary>
     public CardAbilityType AbilityType{ get{return cardData.AbilityType;} }

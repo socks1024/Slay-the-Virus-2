@@ -11,6 +11,11 @@ public class CardData : ScriptableObject
     public string Id;
 
     /// <summary>
+    /// 卡牌所属的包
+    /// </summary>
+    public CardPack Pack;
+
+    /// <summary>
     /// 卡牌能力类型
     /// </summary>
     public CardAbilityType AbilityType;
@@ -138,4 +143,21 @@ public enum CardConditionType
     TRIGGER,
     AFFECT,
     EXPAND,
+}
+
+public enum CardPack
+{
+    OTHER,
+    VIRUS,
+    AMMO,
+    BASIC_NORMAL,
+    BASIC_STATE,
+    BASIC_SUPPORT,
+    LOGISTICS,
+    MEDICAL,
+    SHELTER,
+    SIDE_EFFECT,
+    SPECIAL_FORCES,
+    TRAINING,
+    WAR_MACHINE,
 }
