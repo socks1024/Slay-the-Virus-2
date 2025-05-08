@@ -68,7 +68,7 @@ public class CameraDrag : MonoBehaviour
 
         // 计算原始目标位置
         Vector3 newPosition = _targetPosition +
-                            Vector3.up * (deltaY * dragSpeed);
+                            Vector3.up * (deltaY * dragSpeed*-1);
 
         // 应用范围限制
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
