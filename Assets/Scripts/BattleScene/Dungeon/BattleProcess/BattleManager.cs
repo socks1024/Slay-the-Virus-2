@@ -259,6 +259,7 @@ public class BattleManager : MonoBehaviour
     {
         battleEnded = true;
         AudioManager.Instance.PlaySFX("Lose");
+        TimersManager.SetTimer("LoseMusic", 1, ()=>AudioManager.Instance.PlaySFX("LoseMusic"));
         DungeonManager.Instance.LoseLeaveDungeon();
         //死回家直接结算
         // ResetBattleElements();

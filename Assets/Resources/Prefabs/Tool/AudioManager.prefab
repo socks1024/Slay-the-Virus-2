@@ -67,14 +67,6 @@ MonoBehaviour:
   mute: 0
   logSounds: 0
   soundClips:
-  - name: MainTheme_Loop
-    sound: {fileID: 8300000, guid: d651f7a65a2918b4c876ae58ced9d8b0, type: 3}
-    variations: []
-    volume: 1
-    pitchVariance: 0
-    cooldown: 0
-    lastVariationPlayed: 0
-    timeLastPlayed: 0
   - name: BossFight1
     sound: {fileID: 8300000, guid: 3e48d7919d41bab4097bc8d49a535340, type: 3}
     variations: []
@@ -117,14 +109,6 @@ MonoBehaviour:
     timeLastPlayed: 0
   - name: BossFight6
     sound: {fileID: 8300000, guid: 03a76653a7713d14d9b2b703b9007e9f, type: 3}
-    variations: []
-    volume: 1
-    pitchVariance: 0
-    cooldown: 0
-    lastVariationPlayed: 0
-    timeLastPlayed: 0
-  - name: MainThemeOpen
-    sound: {fileID: 8300000, guid: a86013445d5490541a2c7ae66b62a410, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
@@ -416,6 +400,22 @@ MonoBehaviour:
     timeLastPlayed: 0
   - name: Win
     sound: {fileID: 8300000, guid: fd2454be6b4051848a233aabded5f506, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: Lose
+    sound: {fileID: 8300000, guid: 745d4915b798c074bb2e6dbcb8548580, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: LoseMusic
+    sound: {fileID: 8300000, guid: 94937a53f047f77458931dd74dc85822, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
