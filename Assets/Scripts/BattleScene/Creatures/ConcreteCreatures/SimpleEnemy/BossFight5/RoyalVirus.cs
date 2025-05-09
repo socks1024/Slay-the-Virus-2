@@ -55,13 +55,34 @@ public class RoyalVirus : EnemyBehaviour
         }
         else
         {
-            if (turnCount % 2 == 1)
+            if (DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("NobleVirus1") != null || DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("NobleVirus2") != null)
             {
-                SetIntention(DrinkIntent);
+                if (turnCount % 2 == 1)
+                {
+                    SetIntention(DrinkIntent);
+                }
+                else
+                {
+                    SetIntention(NobleIntent);
+                }
             }
             else
             {
-                SetIntention(NobleIntent);
+                if (turnCount % 2 == 1)
+                {
+                    SetIntention(DrinkIntent);
+                }
+                else
+                {
+                    if (Random.value < 0.5)
+                    {
+                        SetIntention(PierceIntent);
+                    }
+                    else
+                    {
+                        SetIntention(SlashIntent);
+                    }
+                }
             }
         }
     }

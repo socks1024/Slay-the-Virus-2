@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: VirusFollower
-  MaxHealth: 15
+  MaxHealth: 12
   enemySprite: {fileID: 21300000, guid: 10a19fb089de7d242a779e9b545ba40a, type: 3}
   intention: {fileID: 0}
   type: 2
-  AttackDamageAmount: 4
-  DedicationHealAmount: 4
+  AttackDamageAmount: 3
+  DedicationHealAmount: 3
