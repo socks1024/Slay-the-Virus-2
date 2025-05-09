@@ -43,7 +43,9 @@ public class ManualPanel : MonoBehaviour
         
         set
         {
-            if (value >= 0 && value < contents.Count) currContentIndex = value;
+            if (value >= contents.Count) value = 0;
+            if (value < 0) value = contents.Count - 1;
+            currContentIndex = value;
             ShowContent(currContentIndex);
         }
     }

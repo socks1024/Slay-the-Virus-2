@@ -19,8 +19,17 @@ public class TacticalCommander : CardBehaviour
         // print("RemoveCard");
     }
 
+    int cardAmount = 0;
+
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, Player, nextDamage + nextEffect * DungeonManager.Instance.battleManager.board.GetPlacedCards().Count - 1);
+        ActionLib.DamageAction(targetEnemy, Player, nextDamage + nextEffect * cardAmount);
+        cardAmount = 0;
+    }
+
+    public override void ActBeforeCardAct()
+    {
+        base.ActBeforeCardAct();
+        cardAmount = DungeonManager.Instance.battleManager.board.GetPlacedCards().Count - 1;
     }
 }

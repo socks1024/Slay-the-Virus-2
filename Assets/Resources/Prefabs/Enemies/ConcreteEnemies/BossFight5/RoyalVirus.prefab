@@ -140,3 +140,4 @@ MonoBehaviour:
   DrinkHealAmount: 4
   DrinkStrengthAmount: 1
   NobleTrashAmount: 2
+  angrySprite: {fileID: 21300000, guid: 46ca62a5e6ba0524396a51419d65815d, type: 3}
