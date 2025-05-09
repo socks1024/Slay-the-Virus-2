@@ -68,7 +68,7 @@ MonoBehaviour:
   logSounds: 0
   soundClips:
   - name: MainTheme_Loop
-    sound: {fileID: 8300000, guid: cd2636b2d0a8b884c9ee8d78bcaa4b33, type: 3}
+    sound: {fileID: 8300000, guid: d651f7a65a2918b4c876ae58ced9d8b0, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
     lastVariationPlayed: 0
     timeLastPlayed: 0
   - name: BossFight1
-    sound: {fileID: 8300000, guid: e4921ea5987635d44831a4275ff5eef2, type: 3}
+    sound: {fileID: 8300000, guid: 3e48d7919d41bab4097bc8d49a535340, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     lastVariationPlayed: 0
     timeLastPlayed: 0
   - name: BossFight6
-    sound: {fileID: 8300000, guid: ce1626f2a503f7c40b39e5031e68562d, type: 3}
+    sound: {fileID: 8300000, guid: 03a76653a7713d14d9b2b703b9007e9f, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     lastVariationPlayed: 0
     timeLastPlayed: 0
   - name: MainThemeLoop
-    sound: {fileID: 8300000, guid: cd2636b2d0a8b884c9ee8d78bcaa4b33, type: 3}
+    sound: {fileID: 8300000, guid: d651f7a65a2918b4c876ae58ced9d8b0, type: 3}
     variations: []
     volume: 1
     pitchVariance: 0

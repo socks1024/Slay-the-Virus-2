@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f67e3f2a0884a440a998f04ee7c757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicName: MainThemeOpen
+  MusicName: MainTheme_Loop
 --- !u!1 &614103700
 GameObject:
   m_ObjectHideFlags: 0

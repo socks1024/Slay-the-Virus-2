@@ -23,6 +23,16 @@ public class TopMenu : MonoBehaviour
         DateText.text = DateTime.Now.ToString("MM/dd/yyyy");
     }
 
+    
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && SettingsPanel.activeInHierarchy == false)
+        {
+            EnterSettingsPanel();
+        }
+    }
+
     public void EnterSettingsPanel()
     {
         SettingsPanel.gameObject.SetActive(true);

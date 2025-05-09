@@ -11,11 +11,7 @@ public class RedButton : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        ActionLib.DamageAllAction(Player, nextDamage);
-
-        Player.nuclearBomb = true;
-
-        ActionLib.RemoveCardFromBattle(this);
+        
     }
 
     public override void ActOnRemoved()
@@ -25,6 +21,10 @@ public class RedButton : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        
+        ActionLib.DamageAllAction(Player, nextDamage);
+
+        Player.nuclearBomb = true;
+
+        ActionLib.RemoveCardFromBattle(this);
     }
 }

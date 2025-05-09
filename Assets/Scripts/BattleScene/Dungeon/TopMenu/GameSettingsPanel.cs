@@ -19,4 +19,14 @@ public class GameSettingsPanel : MonoBehaviour
     {
         ManualPanel.ShowPanel();
     }
+
+    
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            HideSettingsPanel();
+        }
+    }
 }
