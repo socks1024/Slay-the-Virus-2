@@ -477,19 +477,19 @@ MonoBehaviour:
     PanelPosition: 
   - ID: 77
     GroupID: BossFight1_1
-    Name: "\u61D2\u60F0\u75C5\u6BD22"
+    Name: "\u61D2\u60F0\u75C5\u6BD2\uFF08\u7761\u7740\uFF09"
     Line: "ZZZ\u2026\u2026"
     PanelID: 
     PanelPosition: 
   - ID: 78
     GroupID: BossFight1_1
-    Name: "\u61D2\u60F0\u75C5\u6BD22"
+    Name: "\u61D2\u60F0\u75C5\u6BD2\uFF08\u7761\u7740\uFF09"
     Line: "ZZZZZZZZZZZ\u2026\u2026"
     PanelID: 
     PanelPosition: 
   - ID: 79
     GroupID: BossFight1_1
-    Name: "\u61D2\u60F0\u75C5\u6BD22"
+    Name: "\u61D2\u60F0\u75C5\u6BD2\uFF08\u7761\u7740\uFF09"
     Line: "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ\u2026\u2026"
     PanelID: 
     PanelPosition: 
@@ -603,8 +603,8 @@ MonoBehaviour:
     PanelPosition: 
   - ID: 98
     GroupID: BossFight5_2
-    Name: "\u7687\u5BB6\u75C5\u6BD22"
-    Line: "\u6253\u7FFB\u522B\u4EBA\u7684\u5496\u5561\u53EF\u4E0D\u662F\u7EC5\u58EB\u6240\u4E3A\u3002"
+    Name: "\u7687\u5BB6\u75C5\u6BD2\uFF08\u7EA2\u6E29\uFF09"
+    Line: "\u4F60\u7ADF\u6562\u6253\u7FFB\u6211\u7684\u5496\u5561\uFF01"
     PanelID: 
     PanelPosition: 
   - ID: 99
