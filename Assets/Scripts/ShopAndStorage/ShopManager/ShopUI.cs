@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopUI : MonoBehaviour
 {
-    public Text resource;
-    public Text price;
+    public TextMeshProUGUI resource;
+    public TextMeshProUGUI price;
     public GameObject content;
     public GameObject previewPanel;
     public TMPro.TMP_Text storagenum;
