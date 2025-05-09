@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f67e3f2a0884a440a998f04ee7c757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicName: MainTheme_Loop
+  MusicName: MainThemeLoop
 --- !u!1 &614103700
 GameObject:
   m_ObjectHideFlags: 0
@@ -11607,6 +11607,82 @@ PrefabInstance:
       propertyPath: soundClips.Array.data[21].volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[0].name
+      value: BossFight1
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[1].name
+      value: BossFight2
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[2].name
+      value: BossFight3
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[3].name
+      value: BossFight4
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[4].name
+      value: BossFight5
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[5].name
+      value: BossFight6
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[6].name
+      value: MainThemeLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[7].name
+      value: MainThemeLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[8].name
+      value: MainThemeOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[0].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e48d7919d41bab4097bc8d49a535340, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[1].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b8bc15f764dec14291d97de7d774afd, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[2].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cf3aad25f0734246859f09913969881, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[3].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: ce1626f2a503f7c40b39e5031e68562d, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[4].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 42b692c0121634e47bc23c76b667dcdc, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[5].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 03a76653a7713d14d9b2b703b9007e9f, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[6].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: d651f7a65a2918b4c876ae58ced9d8b0, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[7].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: d651f7a65a2918b4c876ae58ced9d8b0, type: 3}
+    - target: {fileID: 211196656037522475, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[8].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: a86013445d5490541a2c7ae66b62a410, type: 3}
     - target: {fileID: 2878072774049727240, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -137.7139

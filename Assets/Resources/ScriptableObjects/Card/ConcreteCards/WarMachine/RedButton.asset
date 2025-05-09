@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: RedButton
   Pack: 12
   AbilityType: 0
-  ActType: 1
+  ActType: 0
   ConditionType: 0
   TargetType: 3
   RarityType: 2
