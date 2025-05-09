@@ -94,7 +94,7 @@ public class ShopManager : MonoBehaviour
         newcard.GetComponent<ShopItemCard>().item = item;
         //newcard.AddComponent<ButtonConflict>();
         
-        newcard.transform.localScale = new Vector3(1.05f, 1.15f, 0);
+        newcard.transform.localScale = new Vector3(1.05f, 1.1f, 0);
         
 
         GameObject card = GameObject.Instantiate(item.cardBehaviour.gameObject, newcard.transform) as GameObject;

@@ -11,7 +11,10 @@ public class ShopUI : MonoBehaviour
     public GameObject content;
     public GameObject previewPanel;
     public TMPro.TMP_Text storagenum;
-    
+
+    public float previewExpand_x = 1.60f;
+    public float previewExpand_y = 1.75f;
+
     private List<ShopItemCard> items = new List<ShopItemCard>();
     private int sumprice;
 
@@ -100,12 +103,12 @@ public class ShopUI : MonoBehaviour
             num+= SaveSystem.Instance.getSave().PlayerHoldCards[name];
         }
 
-        storagenum.text = "¿â´æÊý" + num.ToString();
+        storagenum.text = "¿â´æÊý:" + num.ToString();
 
         card.transform.SetParent(previewPanel.transform);
         card.transform.SetAsFirstSibling();
         card.transform.localPosition = Vector3.zero;
-        card.transform.localScale = new Vector3(card.GetComponent<ShopItemCard>().originalscale.x * 1.75f, card.GetComponent<ShopItemCard>().originalscale.y * 1.75f, 0);
+        card.transform.localScale = new Vector3(card.GetComponent<ShopItemCard>().originalscale.x * previewExpand_x, card.GetComponent<ShopItemCard>().originalscale.y * previewExpand_y, 0);
 
 
     }
