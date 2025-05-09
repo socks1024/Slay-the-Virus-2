@@ -23,11 +23,15 @@ public class InitItems : MonoBehaviour
     {
         //ItemManager.Instance.AddItem(testcard, 10);//≤‚ ‘
         // storagecards = ItemManager.Instance.GetItemByCategory(ItemCategory.Card);//≥ı ºªØø‚¥Ê
-        
-
-        foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
+        SerializableDictionary<string, int> pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().PlayerHoldCards);
+        foreach (var item in pholdcards)
         {
-            if (item.Value > 0 || SaveSystem.Instance.getSave().PlayerHoldCards.ContainsKey(item.Key))
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
+        }
+
+            foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
+           {
+            if (item.Value > 0 )
             {
                 GameObject shopitem = GameObject.Instantiate(ShopItemPrefab, contentpanel.transform) as GameObject;
                 string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + item.Key;
@@ -65,14 +69,14 @@ public class InitItems : MonoBehaviour
         //    SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
         //}
 
-        SerializableDictionary<string, int> pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().PlayerHoldCards);
+       
         
 
         foreach (var item in pholdcards)
         {
             string findcard = contentpanel.name + "/" + item.Key;
             GameObject CardAdd = GameObject.Find(findcard);
-            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
+            //SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
 
             for (int i = 0; i < item.Value; i++)
             {
