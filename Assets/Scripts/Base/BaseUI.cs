@@ -96,12 +96,20 @@ public class BaseUI : MonoBehaviour
     {
         if(SaveSystem.Instance.getSave().TutorialClear[2] == true)
             SceneManager.LoadScene("Inventory");
+        else
+        {
+            DialogueManager.Instance.StartDialogue("camp_unprepare", transform.GetComponentInParent<Canvas>());
+        }
     }
 
     public void TransToShop()
     {
         if (SaveSystem.Instance.getSave().TutorialClear[2] == true)
             SceneManager.LoadScene("Shop");
+        else
+        {
+            DialogueManager.Instance.StartDialogue("shop_unprepare", transform.GetComponentInParent<Canvas>());
+        }
     }
 
     public void Update()

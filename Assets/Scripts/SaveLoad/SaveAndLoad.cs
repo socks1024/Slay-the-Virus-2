@@ -345,7 +345,8 @@ public class PlayerSave//存档储存的所有信息，通过调取SaveSystem下的GetSave获取
        false,
        false,
        false,
-       false
+       false,
+        false
     };
 }
 

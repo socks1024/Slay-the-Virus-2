@@ -21,7 +21,12 @@ public class ShopUI : MonoBehaviour
     public void Start()
     {
        resource.text = SaveSystem.Instance.getSave().Nutrient.ToString();
-       
+        if (SaveSystem.Instance.getSave().TutorialClear[4] == false)
+        {
+            DialogueManager.Instance.StartDialogue("shop");
+            SaveSystem.Instance.SetTutorialClear(4);
+        }
+
     }
 
     public void GetOneItem(ShopItemCard oneitem)
