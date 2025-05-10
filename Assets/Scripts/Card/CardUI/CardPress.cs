@@ -28,6 +28,8 @@ public class CardPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// </summary>
     CardUI cardUI;
 
+    public CardMode targetMode;
+
     void Start()
     {
         cardImg = GetComponent<Image>();
@@ -37,6 +39,8 @@ public class CardPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (cardUI.Mode != targetMode) return;
+
         switch(cardUI.UIState)
         {
             case UIStates.CUSTOM:
@@ -64,6 +68,8 @@ public class CardPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (cardUI.Mode != targetMode) return;
+
         switch(cardUI.UIState)
         {
             case UIStates.CUSTOM:

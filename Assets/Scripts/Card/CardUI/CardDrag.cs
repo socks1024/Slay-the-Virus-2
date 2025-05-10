@@ -51,6 +51,8 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     CardRotate rotateComponent;
 
+    public CardMode targetMode;
+
     #endregion
 
     void Start()
@@ -67,6 +69,8 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (cardUI.Mode != targetMode) return;
+
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             switch(cardUI.UIState)

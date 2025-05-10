@@ -129,7 +129,7 @@ public class CardSetTarget : MonoBehaviour
         if (currCurve != null)
         {
             SetArrowAlpha(0);
-            Destroy(currCurve);
+            Destroy(currCurve.gameObject);
             currCurve = null;
         }
     }

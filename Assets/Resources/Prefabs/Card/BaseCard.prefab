@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5389f64773632ef4faed0733c0f7ea70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetMode: 0
 --- !u!114 &5420087582556749565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +385,7 @@ MonoBehaviour:
   CardHandViewScale: 1.6
   CardHandViewOffset: 1.2
   CardHandViewTime: 0.05
+  targetMode: 0
 --- !u!114 &5243978757651986605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressable: 0
+  targetMode: 0
 --- !u!1 &1842771434572183849
 GameObject:
   m_ObjectHideFlags: 0

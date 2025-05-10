@@ -42,6 +42,8 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     Vector3 originalPos;
 
+    public CardMode targetMode;
+
     void Start()
     {
         cardRoot = transform.parent.parent;
@@ -56,6 +58,8 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (cardUI.Mode != targetMode) return;
+
         switch(cardUI.UIState)
         {
             case UIStates.CUSTOM:
@@ -132,6 +136,9 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         LeaveHandPreview();
+
+        if (cardUI.Mode != targetMode) return;
+
         switch(cardUI.UIState)
         {
             case UIStates.CUSTOM:

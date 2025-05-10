@@ -22,8 +22,8 @@ public class CardSwitchMode : MonoBehaviour
     {
         // cardMode.SetActive(true);
         // blockMode.SetActive(false);
-        VisualUI.SetVisible(cardMode, true);
-        VisualUI.SetVisible(blockMode, false);
+        SetCardInteract(cardMode, true);
+        SetCardInteract(blockMode, false);
     }
 
     /// <summary>
@@ -33,11 +33,31 @@ public class CardSwitchMode : MonoBehaviour
     {
         // cardMode.SetActive(false);
         // blockMode.SetActive(true);
-        VisualUI.SetVisible(cardMode, false);
-        VisualUI.SetVisible(blockMode, true);
+        SetCardInteract(cardMode, false);
+        SetCardInteract(blockMode, true);
     }
 
-    
+    void SetCardInteract(GameObject gameObject, bool cardInteract)
+    {
+        VisualUI.SetVisible(gameObject, cardInteract);
+
+        if (!cardInteract) gameObject.transform.SetAsFirstSibling();
+
+        // foreach (CardDrag c in gameObject.GetComponentsInChildren<CardDrag>())
+        // {
+        //     c.enabled = cardInteract;
+        // }
+
+        // foreach (CardHover c in gameObject.GetComponentsInChildren<CardHover>())
+        // {
+        //     c.enabled = cardInteract;
+        // }
+
+        // foreach (CardPress c in gameObject.GetComponentsInChildren<CardPress>())
+        // {
+        //     c.enabled = cardInteract;
+        // }
+    }
 
     
 }
