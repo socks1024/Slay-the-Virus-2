@@ -30,7 +30,7 @@ public static class ActionLib
         damage = new DamageInfo(target, source, damage).finalDamage;
 
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.DAMAGED, () => {
-            target.takeDamage.GetDamage(damage);
+            target.GetDamage(damage);
         });
 
         if (target.buffOwner.HasBuff("Counter")) CounterAction(source, target, target.buffOwner.GetBuffAmount("Counter"));
@@ -42,8 +42,6 @@ public static class ActionLib
                 ApplyBuffAction(target, source, "Wound", 1);
             }
         }
-
-        if (target is EnemyBehaviour) AnimationManager.Instance.StartFlash(target.GetComponent<Image>());
     }
 
     
@@ -56,7 +54,7 @@ public static class ActionLib
     public static void CounterAction(CreatureBehaviour target, CreatureBehaviour source, int amount)
     {
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.COUNTER, () => {
-            target.takeDamage.GetDamage(amount);
+            target.GetDamage(amount);
         });
     }
 
@@ -83,11 +81,8 @@ public static class ActionLib
     /// <param name="heal">治疗数值</param>
     public static void HealAction(CreatureBehaviour target, CreatureBehaviour source, int heal)
     {
-        if (source is PlayerBehaviour && (source as PlayerBehaviour).HasRelic("IdolSign")) heal += 1;
-        
-        // 治疗动画
         AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.HEALED, () => {
-            target.takeDamage.Health += heal;
+            target.GetHeal(heal);
         });
     }
 
@@ -227,11 +222,11 @@ public static class ActionLib
         AnimationManager.Instance.PlayAnimEffect(owner.transform.position, AnimEffectType.WOUND, () => {
             if (owner is PlayerBehaviour && (owner as PlayerBehaviour).HasRelic("ConceptShield"))
             {
-                owner.takeDamage.GetDamage(amount);
+                owner.GetDamage(amount);
             }
             else
             {
-                owner.takeDamage.Health -= amount;
+                owner.GetDamage(amount, false);
             }
         });
     }
@@ -413,14 +408,14 @@ public static class ActionLib
         DungeonManager.Instance.Player.Nutrition += variation;
     }
 
-    /// <summary>
-    /// 给予玩家新的遗物
-    /// </summary>
-    /// <param name="p_Relic">遗物预制体</param>
-    public static void PlayerGainRelic(RelicBehaviour p_Relic)
-    {
-        DungeonManager.Instance.Player.p_Relics.Add(p_Relic);
-    }
+    // /// <summary>
+    // /// 给予玩家新的遗物
+    // /// </summary>
+    // /// <param name="p_Relic">遗物预制体</param>
+    // public static void PlayerGainRelic(RelicBehaviour p_Relic)
+    // {
+    //     DungeonManager.Instance.Player.p_Relics.Add(p_Relic);
+    // }
 
     /// <summary>
     /// 给予玩家新的卡牌并添加至卡组

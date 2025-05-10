@@ -6368,7 +6368,7 @@ MonoBehaviour:
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   - {fileID: -8531457554832991480, guid: 47c717a90a877df45ad6e033bba05c72, type: 3}
   relics: []
-  mission: {fileID: 11400000, guid: e58df0b7090339a4a8531fccba2f4fc9, type: 2}
+  mission: {fileID: 11400000, guid: 05b99bac472463d45aa05eab891ac842, type: 2}
 --- !u!114 &978686532
 MonoBehaviour:
   m_ObjectHideFlags: 0

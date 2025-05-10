@@ -26,7 +26,7 @@ public class BuffOwner : MonoBehaviour
     public void GainBuff(string buffName, int amount)
     {
 
-        if (HasBuff(buffName) && !GetBuff(buffName).isDestroying)
+        if (HasBuff(buffName))
         {
             GetBuff(buffName).Amount += amount;
         }
@@ -70,7 +70,10 @@ public class BuffOwner : MonoBehaviour
         {
             if (oldBuff.ID == ID)
             {
-                return true;
+                if (!oldBuff.isDestroying)
+                {
+                    return true;
+                }
             }
         }
         return false;

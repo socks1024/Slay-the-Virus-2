@@ -36,14 +36,12 @@ public class BattleManager : MonoBehaviour
     {
         this.battleNode = battleInfo;
 
-        board = Instantiate(player.p_Board);
-        board.transform.SetParent(boardRoot, false);
+        board = Instantiate(player.p_Board, boardRoot);
 
         List<CardBehaviour> deck = InstantiateHelper.MultipleInstatiate(player.p_Deck);
         cardFlow.FillDrawPile(deck);
 
-        List<RelicBehaviour> relics = InstantiateHelper.MultipleInstatiate(player.p_Relics);
-        relics.ForEach(relicBehaviour => relicBehaviour.transform.SetParent(relicsRoot));
+        List<RelicBehaviour> relics = InstantiateHelper.MultipleInstatiate(player.p_Relics, relicsRoot);
 
         List<GameObject> enemies = InstantiateHelper.MultipleInstatiate((battleInfo.nodeInfo as BattleNodeInfo).p_Enemies_GameObject);
         enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e.GetComponent<EnemyBehaviour>());});
@@ -235,9 +233,6 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     public void OnGetRewards()
     {
-        //将战利品加入背包
-        
-        // ResetBattleElements();
         rewardPanel.gameObject.SetActive(false);
 
         // DungeonManager.Instance.RightBGReturnBack(() => {
@@ -261,29 +256,27 @@ public class BattleManager : MonoBehaviour
         AudioManager.Instance.PlaySFX("Lose");
         TimersManager.SetTimer("LoseMusic", 1, ()=>AudioManager.Instance.PlaySFX("LoseMusic"));
         DungeonManager.Instance.LoseLeaveDungeon();
-        //死回家直接结算
-        // ResetBattleElements();
     }
 
-    /// <summary>
-    /// 战斗结束后的清理
-    /// </summary>
-    void ResetBattleElements()
-    {
-        //板子淡出
-        Destroy(board.gameObject);
-        board = null;
+    // /// <summary>
+    // /// 战斗结束后的清理
+    // /// </summary>
+    // void ResetBattleElements()
+    // {
+    //     //板子淡出
+    //     Destroy(board.gameObject);
+    //     board = null;
 
-        cardFlow.hand.ClearCards();
-        cardFlow.drawPile.ClearCards();
-        cardFlow.discardPile.ClearCards();
+    //     cardFlow.hand.ClearCards();
+    //     cardFlow.drawPile.ClearCards();
+    //     cardFlow.discardPile.ClearCards();
 
-        enemyGroup.ResetEnemyGroup();
+    //     enemyGroup.ResetEnemyGroup();
 
-        relicsRoot.GetComponentsInChildren<RelicBehaviour>().ToList().ForEach(r => Destroy(r.gameObject));
+    //     relicsRoot.GetComponentsInChildren<RelicBehaviour>().ToList().ForEach(r => Destroy(r.gameObject));
 
-        currentWave = 0;
-    }
+    //     currentWave = 0;
+    // }
 
     #endregion
 

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: TestEvacuateBattle
   m_EditorClassIdentifier: 
   nodeID: TestEvacuateBattle
-  p_Enemies:
-  - {fileID: 5673493791340955577, guid: 653daa971e4c66b4d9d10c439e43fcdb, type: 3}
+  p_Enemies_GameObject: []
+  lootInfo: {fileID: 0}
+  LeftBG: {fileID: 21300000, guid: d8df4c4e69084134c8793fb37f600dee, type: 3}
   p_AfterEnemies_1: []
   p_AfterEnemies_2: []
   p_AfterEnemies_3: []

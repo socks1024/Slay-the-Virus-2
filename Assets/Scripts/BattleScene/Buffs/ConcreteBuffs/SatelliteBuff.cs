@@ -7,5 +7,6 @@ public class SatelliteBuff : BuffBehaviour
     public override void ActOnTurnStart()
     {
         ActionLib.EnableRandomSquareAction(Amount);
+        Amount -= 1;
     }
 }

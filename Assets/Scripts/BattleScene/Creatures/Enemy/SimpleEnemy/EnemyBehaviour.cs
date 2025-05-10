@@ -74,9 +74,14 @@ public abstract class EnemyBehaviour : CreatureBehaviour
         holdIntention.ClearIntention();
     }
 
+    public override void GetDamage(int damage, bool blockable = false)
+    {
+        base.GetDamage(damage);
+        AnimationManager.Instance.StartFlash(GetComponent<Image>());
+    }
+
     protected override void Awake()
     {
-        print("enemy awake");
         base.Awake();
 
         holdIntention = GetComponent<HoldIntention>();

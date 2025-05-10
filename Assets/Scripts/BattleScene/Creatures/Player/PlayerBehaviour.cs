@@ -11,6 +11,12 @@ public class PlayerBehaviour : CreatureBehaviour
         
     }
 
+    public override void GetHeal(int heal)
+    {
+        if (HasRelic("IdolSign")) heal += 1;
+        base.GetHeal(heal);
+    }
+
     protected override void Awake()
     {
         if (SaveSystem.Instance is not null && SaveSystem.Instance.getSave() is not null)

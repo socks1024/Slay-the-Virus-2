@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 1564478793388295705, guid: ad88c27c14b102e4fbb7aa949db1fbfa, type: 3}
   - {fileID: 1564478793388295705, guid: ad88c27c14b102e4fbb7aa949db1fbfa, type: 3}
   lootInfo: {fileID: 11400000, guid: 37e7777032e7a134499b0de69cf7f78a, type: 2}
+  LeftBG: {fileID: 21300000, guid: d8df4c4e69084134c8793fb37f600dee, type: 3}

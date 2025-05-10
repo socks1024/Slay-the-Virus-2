@@ -36,7 +36,23 @@ public class LootInfo : ScriptableObject
     /// <returns>金钱的数量</returns>
     public int RandomGetMoney()
     {
-        return Random.Range(moneyVariationMin, moneyVariationMax + 1);
+        return RandomGetMoney(1);
+    }
+
+    /// <summary>
+    /// 随机获取金钱
+    /// </summary>
+    /// <param name="multiplier">获取金钱的比例</param>
+    /// <returns>金钱的数量</returns>
+    public int RandomGetMoney(float multiplier)
+    {
+        int money = 0;
+
+        money = Random.Range(moneyVariationMin, moneyVariationMax + 1);
+        
+        money = (int)(multiplier * money);
+
+        return money;
     }
 
     /// <summary>

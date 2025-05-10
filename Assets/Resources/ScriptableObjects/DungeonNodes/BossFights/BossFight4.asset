@@ -16,3 +16,4 @@ MonoBehaviour:
   p_Enemies_GameObject:
   - {fileID: 1564478793388295705, guid: 7a28ac1ee5b06c348b07c33be5c9b6f9, type: 3}
   lootInfo: {fileID: 11400000, guid: 68b1ae4302ba6d243a1686d36a323eb8, type: 2}
+  LeftBG: {fileID: 21300000, guid: 1391d72cc01eb134c8a374a5088c11bb, type: 3}

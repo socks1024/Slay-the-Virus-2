@@ -14,8 +14,15 @@ public class RewardsHolder : MonoBehaviour
         rewardData = new();
 
         ClearRewardsPanel();
-        
-        rewardData.money = lootInfo.RandomGetMoney();
+
+        if (Player.HasRelic("NutritionDetector"))
+        {
+            rewardData.money = lootInfo.RandomGetMoney(1.2f);
+        }
+        else
+        {
+            rewardData.money = lootInfo.RandomGetMoney();
+        }
 
         rewardData.cardRewardInfos = new();
         lootInfo.RandomGetCards(lootInfo.GainCardAmount).ForEach(cardRewardInfo => rewardData.cardRewardInfos.Add(cardRewardInfo));

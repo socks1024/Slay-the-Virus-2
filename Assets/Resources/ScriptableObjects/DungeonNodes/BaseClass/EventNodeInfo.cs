@@ -106,7 +106,6 @@ public class EventChoice
                     if(Random.value < choice.Value) ActionLib.DirectlyChangeHealthAction(DungeonManager.Instance.Player, healthVariation);
                     break;
                 case EventChoiceType.RELIC_LOOT:
-                    if(Random.value < choice.Value) ActionLib.PlayerGainRelic(p_Relic);
                     break;
                 case EventChoiceType.CARD_LOOT:
                     if(Random.value < choice.Value) ActionLib.PlayerAddCardToDeck(p_Card);

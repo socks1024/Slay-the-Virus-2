@@ -21,6 +21,17 @@ public abstract class CreatureBehaviour : MonoBehaviour
     /// </summary>
     [HideInInspector]public TakeDamage takeDamage{ get{ return GetComponent<TakeDamage>();}}
 
+    public virtual void GetDamage(int damage, bool blockable = true)
+    {
+        if (blockable) takeDamage.GetDamage(damage);
+        else takeDamage.Health -= damage;
+    }
+
+    public virtual void GetHeal(int heal)
+    {
+        takeDamage.Health += heal;
+    }
+
     /// <summary>
     /// buff处理组件的引用
     /// </summary>
