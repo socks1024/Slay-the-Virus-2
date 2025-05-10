@@ -22,9 +22,7 @@ MonoBehaviour:
   CardShape:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
-  - {x: -1, y: -1}
   - {x: -1, y: 0}
-  - {x: 1, y: -1}
   ConditionsShape: []
   BaseDamage: 0
   BaseDefense: 0
