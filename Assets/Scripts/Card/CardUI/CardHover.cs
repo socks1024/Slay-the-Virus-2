@@ -44,11 +44,14 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public CardMode targetMode;
 
+    CardKeyword cardKeyword;
+
     void Start()
     {
         cardRoot = transform.parent.parent;
         cardUI = cardRoot.GetComponent<CardUI>();
         cardUI.OnLeaveHand += ReturnHandPreview;
+        cardKeyword = cardRoot.GetComponent<CardKeyword>();
     }
 
     void OnDestroy()
@@ -97,6 +100,8 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             Vector3 vec = cardRoot.position;
             vec.y += CardHandViewOffset;
 
+            cardKeyword.ShowKeywords();
+
             cardRoot.DOMove(vec, CardHandViewTime);
 
             cardRoot.SetAsLastSibling();
@@ -115,6 +120,8 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
             cardRoot.DOMove(originalPos, CardHandViewTime);
 
+            cardKeyword.HideKeywords();
+
             isHandPreviewing = false;
         }
     }
@@ -128,6 +135,8 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             cardRoot.DOScale(cardUI.baseScale, CardHandViewTime);
 
             cardRoot.DOMove(originalPos, CardHandViewTime);
+
+            cardKeyword.HideKeywords();
 
             isHandPreviewing = false;
         }

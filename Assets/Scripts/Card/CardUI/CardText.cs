@@ -32,6 +32,19 @@ public class CardText : MonoBehaviour
         return text;
     }
 
+    void IdentifyKeywords(string text)
+    {
+        usedKeywords.Clear();
+
+        foreach (Keyword keyword in keywords)
+        {
+            if (text.Contains(keyword.name))
+            {
+                usedKeywords.Add(keyword);
+            }
+        }
+    }
+
     string BuildColorTag(Color color)
     {
         return "<color=#"+ ColorUtility.ToHtmlStringRGB(color) +">";
@@ -143,6 +156,8 @@ public class CardText : MonoBehaviour
 
     CardData data;
 
+    CardKeyword cardKeyword;
+
     public void RefreshCardText()
     {
         string name = data.Name;
@@ -162,6 +177,9 @@ public class CardText : MonoBehaviour
     {
         cardUI = GetComponent<CardUI>();
         data = GetComponent<CardBehaviour>().cardData;
+        cardKeyword = GetComponent<CardKeyword>();
+        IdentifyKeywords(data.Description);
+        cardKeyword.SetKeywords(usedKeywords);
     }
 
     void Update()
@@ -174,6 +192,9 @@ public class CardText : MonoBehaviour
 public struct Keyword
 {
     public string name;
+
+    [TextArea]
+    public string description;
 
     public Color color;
 }

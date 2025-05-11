@@ -35,10 +35,14 @@ public class TetrisAssembler : MonoBehaviour
     /// </summary>
     CardBehaviour card;
 
+    CardKeyword cardKeyword;
+
     /// <summary>
     /// 方块预制体
     /// </summary>
     [SerializeField] GameObject BlockPrefab;
+
+    [SerializeField] GameObject KeywordBlockPrefab;
 
     [Header("方块配图")]
     [SerializeField] Sprite AttackTex;
@@ -56,6 +60,7 @@ public class TetrisAssembler : MonoBehaviour
     void Start()
     {
         card = GetComponent<CardBehaviour>();
+        cardKeyword = GetComponent<CardKeyword>();
         CardShape = card.CardShape;
         ConditionsShape = card.ConditionsShape;
 
@@ -95,6 +100,8 @@ public class TetrisAssembler : MonoBehaviour
         }
 
         AssembleBlocks();
+
+        AssembleKeywordBlocks();
         
         card.GetComponent<CardUI>().Mode = CardMode.CARD;
     }
@@ -124,6 +131,33 @@ public class TetrisAssembler : MonoBehaviour
             block.GetComponent<Image>().sprite = ConditionTex;
 
             block.GetComponent<Image>().raycastTarget = false;
+        }
+    }
+
+    void AssembleKeywordBlocks()
+    {
+        Transform tetrisKeywordRoot = cardKeyword.tetrisRoot.transform;
+
+        int size = cardKeyword.tetrisSize;
+
+        foreach (Vector2 v in CardShape)
+        {
+            GameObject block = Instantiate(KeywordBlockPrefab);
+            block.transform.SetParent(tetrisKeywordRoot, false);
+            block.GetComponent<Image>().sprite = BlockTex;
+
+            block.GetComponent<RectTransform>().sizeDelta = new Vector2(size, size);
+            block.transform.localPosition = new Vector2(v.x * size, v.y * size);
+        }
+
+        foreach (Vector2 v in ConditionsShape)
+        {
+            GameObject block = Instantiate(KeywordBlockPrefab);
+            block.transform.SetParent(tetrisKeywordRoot, false);
+            block.GetComponent<Image>().sprite = ConditionTex;
+
+            block.GetComponent<RectTransform>().sizeDelta = new Vector2(size, size);
+            block.transform.localPosition = new Vector2(v.x * size, v.y * size);
         }
     }
 }

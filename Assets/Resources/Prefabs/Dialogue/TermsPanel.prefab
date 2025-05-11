@@ -3064,7 +3064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5C06\u8BE5\u5361\u724C\u7279\u6B8A\u6548\u679C\u683C\u5B50\u89E3\u9501\uFF0C\u4F7F\u5176\u80FD\u591F\u653E\u7F6E\u5361\u724C\u3002"
+  m_text: "\u5C06<sprite=3>\u5904\u7684\u683C\u5B50\u89E3\u9501\uFF0C\u4F7F\u5176\u80FD\u591F\u653E\u7F6E\u5361\u724C\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
   m_sharedMaterial: {fileID: -899699710880701677, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
@@ -3083,7 +3083,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 368e7491362b09140bee674581d3ca18, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -7265,7 +7265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u82E5\u8BE5\u5361\u724C\u7279\u6B8A\u6548\u679C\u683C\u5B50\u88AB\u586B\u5145\u4E86\u5361\u724C\uFF0C\u5219\u89E6\u53D1\u67D0\u4E9B\u989D\u5916\u7684\u6548\u679C\u3002"
+  m_text: "\u82E5<sprite=4>\u88AB\u586B\u5145\u4E86\u5361\u724C\uFF0C\u5219\u89E6\u53D1\u67D0\u4E9B\u989D\u5916\u7684\u6548\u679C\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
   m_sharedMaterial: {fileID: -899699710880701677, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
@@ -7284,7 +7284,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 368e7491362b09140bee674581d3ca18, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -7913,7 +7913,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5C06\u67D0\u4E9B\u6548\u679C\u5E94\u7528\u5230\u8BE5\u5361\u724C\u7279\u6B8A\u6548\u679C\u683C\u5B50\u7684\u5361\u724C\u4E0A\u3002"
+  m_text: "\u5C06\u67D0\u4E9B\u6548\u679C\u5E94\u7528\u5230<sprite=5>\u7684\u5361\u724C\u4E0A\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
   m_sharedMaterial: {fileID: -899699710880701677, guid: ccf5841d0e4d81f4a86dfdcbd6f6036e, type: 2}
@@ -7932,7 +7932,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 368e7491362b09140bee674581d3ca18, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901

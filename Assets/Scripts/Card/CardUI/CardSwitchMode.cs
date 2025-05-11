@@ -41,7 +41,7 @@ public class CardSwitchMode : MonoBehaviour
     {
         VisualUI.SetVisible(gameObject, cardInteract);
 
-        if (!cardInteract) gameObject.transform.SetAsFirstSibling();
+        if (cardInteract) gameObject.transform.SetAsLastSibling();
 
         // foreach (CardDrag c in gameObject.GetComponentsInChildren<CardDrag>())
         // {
