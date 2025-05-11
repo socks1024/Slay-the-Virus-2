@@ -22,6 +22,6 @@ public class SpikeRoadblock : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.GainBlockAction(Player, Player, nextDefense);
-        if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(Player, Player, "Counter", nextEffect);
+        ActionLib.AddVirusCardToDrawPile("Barrier", nextEffect);
     }
 }

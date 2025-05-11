@@ -19,9 +19,23 @@ public class DeathSquad : CardBehaviour
         // print("RemoveCard");
     }
 
+    int virusCardCount = 0;
+
     public override void ActOnCardAct()
     {
-        ActionLib.ApplyBuffAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, "Wound", nextEffect);
-        if (cardPosition.Conditioned) ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage * cardPosition.GetSatisfiedSquaresCount());
+        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage + nextEffect * virusCardCount);
+        virusCardCount = 0;
+    }
+
+    public override void ActBeforeCardAct()
+    {
+        base.ActBeforeCardAct();
+        foreach (CardBehaviour card in DungeonManager.Instance.battleManager.board.GetPlacedCards())
+        {
+            if (card.ActType == CardActType.VIRUS)
+            {
+                virusCardCount += 1;
+            }
+        }
     }
 }

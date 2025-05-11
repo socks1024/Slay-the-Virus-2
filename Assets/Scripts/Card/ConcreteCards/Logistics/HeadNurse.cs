@@ -11,7 +11,12 @@ public class HeadNurse : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        
+        for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
+        {
+            ActionLib.AddCardToHand("Medic", nextEffect);
+        }
+
+        lockedOnBoard = true;
     }
 
     public override void ActOnRemoved()
@@ -21,7 +26,6 @@ public class HeadNurse : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.HealAction(Player, Player, nextHeal);
-        if (cardPosition.Conditioned) ActionLib.HealAction(Player, Player, nextEffect);
+        
     }
 }

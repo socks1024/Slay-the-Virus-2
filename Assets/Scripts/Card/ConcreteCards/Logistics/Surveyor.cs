@@ -22,9 +22,6 @@ public class Surveyor : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.GainBlockAction(Player, Player, nextDefense);
-        foreach (Square s in cardPosition.ConditionedSquares)
-        {
-            s.IsActive = true;
-        }
+        if (cardPosition.Conditioned) ActionLib.AddCardToDrawPile("Map", nextEffect);
     }
 }

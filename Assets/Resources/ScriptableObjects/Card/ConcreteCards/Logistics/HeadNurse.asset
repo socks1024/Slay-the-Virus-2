@@ -17,23 +17,20 @@ MonoBehaviour:
   AbilityType: 2
   ActType: 0
   ConditionType: 1
-  TargetType: 1
+  TargetType: 0
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}
-  - {x: -1, y: 0}
-  - {x: -1, y: 1}
-  - {x: -1, y: -1}
-  - {x: 1, y: 0}
-  - {x: 1, y: 1}
-  - {x: 1, y: -1}
-  ConditionsShape:
   - {x: 0, y: -1}
+  ConditionsShape:
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
   BaseDamage: 0
   BaseDefense: 0
-  BaseHeal: 9
-  BaseEffect: 6
+  BaseHeal: 0
+  BaseEffect: 1
   Name: "\u62A4\u58EB\u957F"
-  Description: "\u6062\u590D #h \u70B9\u751F\u547D\u3002\n\u89E6\u53D1\u6548\u679C:\u6062\u590D
-    #e \u70B9\u751F\u547D\u3002"
+  Description: "\u653E\u7F6E\u65F6\u6BCF\u89E6\u53D1\u89E6\u53D1\u6548\u679C:\n\u5C06
+    #e \u5F20 medic \u52A0\u5165\u624B\u724C\u3002\n\u9501\u5B9A\u3002"
   CardTex: {fileID: 21300000, guid: b9b58d8d2865ce347987e6def1c7310f, type: 3}

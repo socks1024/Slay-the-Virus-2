@@ -27,11 +27,11 @@ MonoBehaviour:
   - {x: 1, y: -1}
   ConditionsShape:
   - {x: 0, y: -1}
-  BaseDamage: 0
+  BaseDamage: 3
   BaseDefense: 3
   BaseHeal: 0
-  BaseEffect: 3
+  BaseEffect: 0
   Name: "\u5C16\u523A\u88C5\u7532"
-  Description: "\u83B7\u5F97 #b \u70B9\u683C\u6321\u3002\n\u89E6\u53D1\u6548\u679C:\u83B7\u5F97
-    #e \u5C42\u53CD\u51FB\u3002"
+  Description: "\u83B7\u5F97 #b \u70B9\u683C\u6321\u3002\n\u89E6\u53D1\u6548\u679C:\u9020\u6210
+    #d \u70B9\u4F24\u5BB3\u3002"
   CardTex: {fileID: 21300000, guid: 4c8619e54a18b3441988be512c7e2be5, type: 3}

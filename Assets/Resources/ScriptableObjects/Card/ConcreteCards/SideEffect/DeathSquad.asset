@@ -16,7 +16,7 @@ MonoBehaviour:
   Pack: 9
   AbilityType: 0
   ActType: 0
-  ConditionType: 1
+  ConditionType: 0
   TargetType: 2
   RarityType: 1
   CardShape:
@@ -25,13 +25,12 @@ MonoBehaviour:
   - {x: 1, y: 1}
   - {x: 0, y: 1}
   - {x: -1, y: 1}
-  ConditionsShape:
-  - {x: 1, y: 0}
-  - {x: -1, y: 0}
-  BaseDamage: 5
+  ConditionsShape: []
+  BaseDamage: 4
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 3
+  BaseEffect: 5
   Name: "\u6562\u6B7B\u961F\u5458"
-  Description: "\u83B7\u5F973\u5C42\u53D7\u4F24\u3002\n\u89E6\u53D1\u6548\u679C:\u6BCF\u6B21\u9020\u62105\u70B9\u4F24\u5BB3\u3002"
+  Description: "\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002\n\u672C\u56DE\u5408\u6BCF\u6253\u51FA\u4E00\u5F20\u75C5\u6BD2\u724C\uFF0C\u989D\u5916\u9020\u6210
+    #e \u70B9\u4F24\u5BB3\u3002"
   CardTex: {fileID: 21300000, guid: 2e795c6354077f043a219e20278a6d02, type: 3}

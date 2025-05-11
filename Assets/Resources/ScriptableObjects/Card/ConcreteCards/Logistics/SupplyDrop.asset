@@ -14,22 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: SupplyDrop
   Pack: 6
-  AbilityType: 0
+  AbilityType: 3
   ActType: 0
   ConditionType: 0
-  TargetType: 2
+  TargetType: 0
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}
-  - {x: -1, y: 0}
   - {x: 1, y: 0}
-  - {x: 0, y: -1}
-  - {x: 0, y: 1}
   ConditionsShape: []
-  BaseDamage: 15
+  BaseDamage: 0
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 30
+  BaseEffect: 3
   Name: "\u7A7A\u6295\u8865\u7ED9"
-  Description: "\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002\n\u5931\u53BB #e \u91D1\u94B1\u3002"
+  Description: "\u62BD #e \u5F20\u724C\uFF0C\u9501\u5B9A\u3002\n\u51FA\u724C\u65F6\uFF1A\u6D88\u8017\u3002"
   CardTex: {fileID: 21300000, guid: 37b3cb7e85d2fba449bfea02dab7a049, type: 3}

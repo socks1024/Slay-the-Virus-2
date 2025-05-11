@@ -16,22 +16,19 @@ MonoBehaviour:
   Pack: 8
   AbilityType: 1
   ActType: 1
-  ConditionType: 1
+  ConditionType: 0
   TargetType: 1
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
-  - {x: 1, y: -1}
-  - {x: 0, y: -1}
-  - {x: 2, y: 0}
-  ConditionsShape:
   - {x: -1, y: 0}
+  ConditionsShape: []
   BaseDamage: 0
-  BaseDefense: 8
+  BaseDefense: 4
   BaseHeal: 0
-  BaseEffect: 2
+  BaseEffect: 1
   Name: "\u88C5\u7532\u8F66"
-  Description: "\u83B7\u5F97 #b \u70B9\u683C\u6321\uFF0C\u9501\u5B9A\u3002\n\u653E\u7F6E\u65F6\u89E6\u53D1\u89E6\u53D1\u6548\u679C:\u62BD
-    #e \u5F20\u724C\u3002"
+  Description: "\u83B7\u5F97 #b \u70B9\u683C\u6321\u3002\n\u5C06 #e \u5F20 barrier
+    \u52A0\u5165\u624B\u724C\u3002"
   CardTex: {fileID: 21300000, guid: cd665eee2f560fe4b9b9fad5c1f882b5, type: 3}

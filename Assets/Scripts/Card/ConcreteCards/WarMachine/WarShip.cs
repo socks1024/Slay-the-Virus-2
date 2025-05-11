@@ -21,11 +21,6 @@ public class WarShip : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        if (cardPosition.Conditioned) ActionLib.GainBlockAction(Player, Player, nextDefense);
-    }
-
-    public override void ActAfterCardAct()
-    {
-        ActionLib.DamageAction(targetEnemy, Player, Player.takeDamage.Block + nextDamage);
+        
     }
 }

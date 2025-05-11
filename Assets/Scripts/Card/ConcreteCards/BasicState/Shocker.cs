@@ -21,7 +21,7 @@ public class Shocker : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Paralyze", nextEffect);
+        ActionLib.GainBlockAction(Player, Player, nextDefense);
         if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Paralyze", nextEffect);
     }
 }

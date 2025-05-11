@@ -30,7 +30,7 @@ MonoBehaviour:
   BaseDamage: 0
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 3
+  BaseEffect: 1
   Name: "\u7A7F\u7532\u5F39"
   Description: "\u7ED9\u4E88 #e \u5C42\u53D7\u4F24\u3002\n\u89E6\u53D1\u6548\u679C:\u7ED9\u4E88
     #e \u5C42\u53D7\u4F24\u3002"

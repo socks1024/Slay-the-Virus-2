@@ -22,6 +22,6 @@ public class SpikeArmor : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.GainBlockAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, nextDefense);
-        if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, "Counter", nextEffect);
+        if (cardPosition.Conditioned) ActionLib.DamageAction(targetEnemy, Player, nextDamage);
     }
 }

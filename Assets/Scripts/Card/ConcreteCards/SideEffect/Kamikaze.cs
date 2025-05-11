@@ -21,7 +21,9 @@ public class Kamikaze : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAllAction(DungeonManager.Instance.Player, nextDamage);
-        ActionLib.DamageAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, nextDamage);
+        for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
+        {
+            ActionLib.AddCardToDrawPile("SupplyDrop", nextEffect);
+        }
     }
 }

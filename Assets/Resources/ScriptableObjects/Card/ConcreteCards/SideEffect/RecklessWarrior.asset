@@ -17,7 +17,7 @@ MonoBehaviour:
   AbilityType: 0
   ActType: 0
   ConditionType: 1
-  TargetType: 2
+  TargetType: 3
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}
@@ -27,10 +27,11 @@ MonoBehaviour:
   - {x: -1, y: -1}
   ConditionsShape:
   - {x: 1, y: -1}
-  BaseDamage: 11
+  BaseDamage: 9
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 1
   Name: "\u9C81\u83BD\u6218\u58EB"
-  Description: "\u9020\u621011\u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C:\u5C061\u5F20trap\u52A0\u5165\u62BD\u724C\u5806\u3002"
+  Description: "\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u6210 #d \u70B9\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C:\u5C06
+    #e \u5F20 roadexplosion \u52A0\u5165\u62BD\u724C\u5806\u3002"
   CardTex: {fileID: 21300000, guid: e87ace4a013338a419e8d2a5b3832554, type: 3}

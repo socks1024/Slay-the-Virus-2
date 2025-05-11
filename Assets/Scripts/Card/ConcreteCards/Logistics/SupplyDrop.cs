@@ -11,7 +11,8 @@ public class SupplyDrop : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        
+        ActionLib.DrawCardAction(nextEffect);
+        lockedOnBoard = true;
     }
 
     public override void ActOnRemoved()
@@ -21,7 +22,6 @@ public class SupplyDrop : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
-        ActionLib.PlayerChangeMoney(-nextEffect);
+        ActionLib.ExhaustCardAction(this);
     }
 }

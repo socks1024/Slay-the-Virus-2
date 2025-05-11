@@ -7,7 +7,7 @@ public class Assassin : CardBehaviour
     public override void ActOnDiscard()
     {
         ActionLib.ApplyBuffNextTurnAction(Player, Player, "Wound", nextEffect);
-        ActionLib.ApplyBuffNextTurnAction(Player, Player, "Paralyze", nextEffect);
+        // ActionLib.ApplyBuffNextTurnAction(Player, Player, "Paralyze", nextEffect);
     }
 
     public override void ActOnPlaced()

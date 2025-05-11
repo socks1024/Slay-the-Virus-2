@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Guerrillas
   Pack: 10
   AbilityType: 0
-  ActType: 0
+  ActType: 1
   ConditionType: 1
   TargetType: 2
   RarityType: 1
@@ -24,13 +24,11 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: 1, y: 0}
   - {x: -1, y: 0}
-  ConditionsShape:
-  - {x: 2, y: 0}
+  ConditionsShape: []
   BaseDamage: 5
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 5
   Name: "\u6E38\u51FB\u961F"
-  Description: "\u83B7\u5F97 #e \u5C42\u53CD\u51FB\u3002\n\u89E6\u53D1\u6548\u679C:\u9020\u6210
-    #d\u70B9\u4F24\u5BB3\u3002"
+  Description: "\u83B7\u5F97 #e \u5C42\u53CD\u51FB\u3002"
   CardTex: {fileID: 21300000, guid: c3b9cd0d489044a4caad9e19d6155e75, type: 3}

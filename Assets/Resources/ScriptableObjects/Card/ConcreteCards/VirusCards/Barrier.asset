@@ -21,8 +21,7 @@ MonoBehaviour:
   RarityType: 4
   CardShape:
   - {x: 0, y: 0}
-  - {x: 1, y: 0}
-  - {x: -1, y: 0}
+  - {x: 0, y: 1}
   ConditionsShape: []
   BaseDamage: 0
   BaseDefense: 0

@@ -12,8 +12,7 @@ public class ArmouredCar : CardBehaviour
     public override void ActOnPlaced()
     {
         ActionLib.GainBlockAction(Player, Player, nextDefense);
-        lockedOnBoard = true;
-        if (cardPosition.Conditioned) ActionLib.DrawCardAction(nextEffect);
+        ActionLib.PlayerGainVirusCard("Barrier", nextEffect);
     }
 
     public override void ActOnRemoved()

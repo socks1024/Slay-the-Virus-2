@@ -14,25 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: WarShip
   Pack: 12
-  AbilityType: 0
-  ActType: 0
-  ConditionType: 1
-  TargetType: 2
+  AbilityType: 3
+  ActType: 1
+  ConditionType: 0
+  TargetType: 0
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}
-  - {x: -1, y: 0}
-  - {x: 0, y: -1}
-  - {x: 1, y: -1}
   - {x: 1, y: 0}
-  - {x: 2, y: 0}
-  ConditionsShape:
-  - {x: 0, y: 1}
+  - {x: -1, y: 0}
+  - {x: 1, y: -1}
+  ConditionsShape: []
   BaseDamage: 0
-  BaseDefense: 6
+  BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 0
+  BaseEffect: 2
   Name: "\u6218\u5217\u8230"
-  Description: "\u51FA\u724C\u7ED3\u675F\u65F6\uFF0C\u9020\u6210\u81EA\u8EAB\u683C\u6321\u7B49\u91CF\u7684\u4F24\u5BB3\u3002\n\u89E6\u53D1\u6548\u679C:\u83B7\u5F97
-    #b \u683C\u6321\u3002"
+  Description: "\u672C\u56DE\u5408\u83B7\u5F97\u53CD\u51FB\u5C42\u6570 \xD7 #e \u3002\n\u9501\u5B9A\u3002"
   CardTex: {fileID: 21300000, guid: 9fcfebd1534910c4fbfaf23e18ca65a4, type: 3}
