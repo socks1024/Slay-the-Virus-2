@@ -111,6 +111,28 @@ MonoBehaviour:
   - name: "\u6269\u5C55\u7A7A\u95F4"
     description: "\u5C06<sprite=3>\u5904\u7684\u683C\u5B50\u89E3\u9501\uFF0C\u4F7F\u5176\u80FD\u591F\u653E\u7F6E\u5361\u724C\u3002"
     color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u529B\u91CF"
+    description: "\u589E\u52A0\u9020\u6210\u7684\u4F24\u5BB3\u91CF\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u575A\u6BC5"
+    description: "\u589E\u52A0\u9020\u6210\u7684\u683C\u6321\u91CF\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u53CD\u51FB"
+    description: "\u53D7\u5230\u653B\u51FB\u65F6\uFF0C\u8FD4\u8FD8\u5C42\u6570\u70B9\u4F24\u5BB3\u3002\u56DE\u5408\u7ED3\u675F\u65F6\u6E05\u96F6\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u53D7\u4F24"
+    description: "\u56DE\u5408\u7ED3\u675F\u65F6\uFF0C\u53D7\u5230\u7B49\u91CF\u4F24\u5BB3\u5E76\u6E05\u96F6\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u5F31\u70B9"
+    description: "\u53D7\u5230\u7684\u4F24\u5BB3\u7FFB\u500D\uFF0C\u56DE\u5408\u7ED3\u675F\u65F6\u5C42\u6570
+      -1\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u9EBB\u75F9"
+    description: "\u51CF\u5C11\u9020\u6210\u7684\u4F24\u5BB3\u91CF\u3002\u56DE\u5408\u7ED3\u675F\u65F6\u6E05\u96F6\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
+  - name: "\u6655\u7729"
+    description: "\u672C\u56DE\u5408\u65E0\u6CD5\u884C\u52A8\u3002"
+    color: {r: 1, g: 0.78823537, b: 0, a: 1}
   spriteLabels:
   - name: "\u89E6\u53D1\u6548\u679C"
     index: 4

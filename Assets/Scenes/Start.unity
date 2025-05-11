@@ -11679,6 +11679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6458897147274909584, guid: d7824ccf8a83ec442bd32d29fdd5e9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7726133562648187746, guid: d7824ccf8a83ec442bd32d29fdd5e9be, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
