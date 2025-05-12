@@ -156,17 +156,6 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     public void OnAllEnemyDestroyed()
     {
-        // if (IsEnduranceBattle && turnCount <= enduranceTurn)
-        // {
-        //     List<EnemyBehaviour> enemies = InstantiateHelper.MultipleInstatiate(moreEnemies[currentWave]);
-        //     if (currentWave < moreEnemies.Count - 1) currentWave++;
-        //     enemies.ForEach(e => {enemyGroup.AddEnemyToBattle(e);});
-        // }
-        // else
-        // {
-        //     EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
-        // }
-
         EventCenter.Instance.TriggerEvent(EventType.BATTLE_WIN);
 
         AudioManager.Instance.StopMusic();

@@ -23,5 +23,6 @@ public class PiercingBullet : CardBehaviour
     {
         ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Wound", nextEffect);
         if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Wound", nextEffect);
+        ActionLib.ExhaustCardAction(this);
     }
 }

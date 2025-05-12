@@ -180,7 +180,7 @@ public class PlayerBehaviour : CreatureBehaviour
 
     public void OnLoseLeaveDungeon()
     {
-        playerSave.PlayerHoldCards = new();
+        // playerSave.PlayerHoldCards = new();
     }
 
     #endregion
