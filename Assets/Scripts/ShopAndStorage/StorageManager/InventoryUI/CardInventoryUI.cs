@@ -197,5 +197,7 @@ public class CardInventoryUI : MonoBehaviour
         Detailed.transform.SetParent(detailPanel.transform);
         Detailed.transform.localScale = new Vector3(inventoryitem.originalscale.x * 1.6f, inventoryitem.originalscale.y * 1.75f, 0);
         Detailed.transform.localPosition = Vector3.zero;
+        Detailed.transform.SetAsFirstSibling();
+        detailPanel.GetComponent<DetailPanel>().Start();
     }
 }

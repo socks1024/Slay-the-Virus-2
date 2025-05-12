@@ -110,7 +110,7 @@ public class ShopUI : MonoBehaviour
         card.transform.SetAsFirstSibling();
         card.transform.localPosition = Vector3.zero;
         card.transform.localScale = new Vector3(card.GetComponent<ShopItemCard>().originalscale.x * previewExpand_x, card.GetComponent<ShopItemCard>().originalscale.y * previewExpand_y, 0);
-
+        previewPanel.gameObject.GetComponent<ShopCardPreviewPanel>().Start();
 
     }
 

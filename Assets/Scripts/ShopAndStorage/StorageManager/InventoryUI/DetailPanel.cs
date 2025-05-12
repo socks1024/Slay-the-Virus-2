@@ -10,6 +10,12 @@ public class DetailPanel : MonoBehaviour,IPointerDownHandler
     
     private void Awake() { 
         cardInventoryUI = GameObject.Find("CardInventory").GetComponent<CardInventoryUI>();
+
+    }
+
+    public void Start()
+    {
+        transform.GetChild(0).gameObject.GetComponentInChildren<CardKeyword>().ShowKeywords();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -17,22 +23,23 @@ public class DetailPanel : MonoBehaviour,IPointerDownHandler
         
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            transform.transform.GetChild(0).gameObject.GetComponentInChildren<CardKeyword>().HideKeywords();
             cardInventoryUI.CancelDetail();
             //transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
             //Debug.Log("cancel");
         }
     }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            transform.GetComponentInChildren<CardUI>().Mode=CardMode.BLOCKS;
-        }
+    //public void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Mouse1))
+    //    {
+    //        transform.GetComponentInChildren<CardUI>().Mode=CardMode.BLOCKS;
+    //    }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
-        }
-    }
+    //    if (Input.GetKeyUp(KeyCode.Mouse1))
+    //    {
+    //        transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
+    //    }
+    //}
 }

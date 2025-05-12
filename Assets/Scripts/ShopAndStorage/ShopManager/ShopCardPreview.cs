@@ -11,21 +11,27 @@ public class ShopCardPreviewPanel : MonoBehaviour, IPointerDownHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            transform.GetChild(0).gameObject.GetComponentInChildren<CardKeyword>().HideKeywords();
             shopUI.CancelPreview(transform.GetChild(0).gameObject);
         }
     }
 
-    public void Update()
+    public void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            transform.GetComponentInChildren<CardUI>().Mode = CardMode.BLOCKS;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
-        }
+        transform.GetChild(0).gameObject.GetComponentInChildren<CardKeyword>().ShowKeywords();
     }
+
+    //public void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Mouse1))
+    //    {
+    //        transform.GetComponentInChildren<CardUI>().Mode = CardMode.BLOCKS;
+    //    }
+
+    //    if (Input.GetKeyUp(KeyCode.Mouse1))
+    //    {
+    //        transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
+    //    }
+    //}
 
 }
