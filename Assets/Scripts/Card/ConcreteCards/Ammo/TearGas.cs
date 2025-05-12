@@ -23,5 +23,6 @@ public class TearGas : CardBehaviour
     {
         ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Paralyze", nextEffect);
         if (cardPosition.Conditioned) ActionLib.ApplyBuffAction(targetEnemy, DungeonManager.Instance.Player, "Paralyze", nextEffect);
+        ActionLib.ExhaustCardAction(this);
     }
 }

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: RoyalVirus
-  MaxHealth: 50
+  MaxHealth: 60
   enemySprite: {fileID: 21300000, guid: 9adb0949edc67174196f04828436b5d5, type: 3}
   intention: {fileID: 0}
   type: 0

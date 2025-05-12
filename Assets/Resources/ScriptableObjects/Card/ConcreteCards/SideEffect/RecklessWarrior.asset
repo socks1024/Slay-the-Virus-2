@@ -27,7 +27,7 @@ MonoBehaviour:
   - {x: -1, y: -1}
   ConditionsShape:
   - {x: 1, y: -1}
-  BaseDamage: 9
+  BaseDamage: 5
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 1

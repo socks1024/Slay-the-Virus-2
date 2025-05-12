@@ -11,9 +11,9 @@ public class AccurateAirdrop : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        ActionLib.RandomDamageAction(Player, nextDamage);
+        ActionLib.DamageAction(Player, Player, nextDamage);
         ActionLib.DrawCardAction(nextEffect);
-        lockedOnBoard = true;
+        ActionLib.ExhaustCardAction(this);
     }
 
     public override void ActOnRemoved()

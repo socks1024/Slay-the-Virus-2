@@ -23,7 +23,7 @@ public class Kamikaze : CardBehaviour
     {
         for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
         {
-            ActionLib.AddCardToDrawPile("SupplyDrop", nextEffect);
+            ActionLib.AddCardToDrawPile("AccurateAirdrop", nextEffect);
         }
     }
 }

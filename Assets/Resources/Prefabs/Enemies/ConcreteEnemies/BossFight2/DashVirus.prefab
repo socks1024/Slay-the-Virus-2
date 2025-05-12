@@ -164,5 +164,5 @@ MonoBehaviour:
   type: 0
   DashDamageAmount: 6
   DashBuffAmount: 2
-  ScrapeBuffAmount: 1
+  ScrapeBuffAmount: 2
   TentacleStrengthAmount: 1

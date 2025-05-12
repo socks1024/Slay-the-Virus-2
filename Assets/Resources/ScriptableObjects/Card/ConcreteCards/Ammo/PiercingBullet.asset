@@ -33,5 +33,5 @@ MonoBehaviour:
   BaseEffect: 1
   Name: "\u7A7F\u7532\u5F39"
   Description: "\u7ED9\u4E88 #e \u5C42\u53D7\u4F24\u3002\n\u89E6\u53D1\u6548\u679C:\u7ED9\u4E88
-    #e \u5C42\u53D7\u4F24\u3002"
+    #e \u5C42\u53D7\u4F24\u3002\n\u6D88\u8017\u3002"
   CardTex: {fileID: 21300000, guid: 118eed55d83c48e44ba2316469d76c4b, type: 3}

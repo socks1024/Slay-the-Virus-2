@@ -11,6 +11,8 @@ public class RewardsHolder : MonoBehaviour
 
     public void GenerateRewards(LootInfo lootInfo)
     {
+        print("generate reward");
+        
         rewardData = new();
 
         ClearRewardsPanel();

@@ -114,7 +114,6 @@ public class EnemyGroup : MonoBehaviour
     /// <param name="moveIndex">敌人的行动顺序（从0开始）</param>
     public void AddEnemyToBattle(EnemyBehaviour enemy, int moveIndex)
     {
-        if (enemy is null) print("null enemy");
         enemy.transform.SetParent(transform, false);
         enemies.Insert(moveIndex, enemy);
         enemy.ActOnEnterBattle();
@@ -128,12 +127,9 @@ public class EnemyGroup : MonoBehaviour
     /// <param name="enemy">要添加的敌人</param>
     public void AddEnemyToBattle(EnemyBehaviour enemy)
     {
-        if (enemy is null) print("null enemy");
         enemy.transform.SetParent(transform, false);
         enemies.Add(enemy);
         enemy.ActOnEnterBattle();
-
-        if (OnEnemyAmountChange is null) print("null signal");
 
         OnEnemyAmountChange.Invoke(enemies);
     }
@@ -146,16 +142,18 @@ public class EnemyGroup : MonoBehaviour
     /// <param name="enemy">要销毁的敌人</param>
     public void DestroyEnemyFromBattle(EnemyBehaviour enemy)
     {
-        enemies.Remove(enemy);
-        Destroy(enemy.gameObject);
-
-        OnEnemyAmountChange.Invoke(enemies);
-
-        // if (enemies.Count == 0 && allEnemyDestroyed == false)
-        if (!allEnemyDestroyed && (enemy.type == EnemyType.BOSS || enemies.Count == 0))
+        if (enemies.Contains(enemy))
         {
-            DungeonManager.Instance.battleManager.OnAllEnemyDestroyed();
-            allEnemyDestroyed = true;
+            enemies.Remove(enemy);
+            Destroy(enemy.gameObject);
+
+            OnEnemyAmountChange.Invoke(enemies);
+
+            if (!allEnemyDestroyed && (enemy.type == EnemyType.BOSS || enemies.Count == 0))
+            {
+                allEnemyDestroyed = true;
+                DungeonManager.Instance.battleManager.OnAllEnemyDestroyed();
+            }
         }
     }
 
@@ -209,13 +207,5 @@ public class EnemyGroup : MonoBehaviour
         {
             DestroyEnemyFromBattle(enemies[i]);
         }
-    }
-
-    /// <summary>
-    /// 重置敌人组
-    /// </summary>
-    public void ResetEnemyGroup()
-    {
-        ClearEnemy();
     }
 }
