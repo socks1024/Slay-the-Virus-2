@@ -136,7 +136,7 @@ MonoBehaviour:
   type: 0
   PierceDamageAmount: 3
   SlashDamageAmount: 7
-  SlashWoundAmount: 3
+  SlashWoundAmount: 1
   DrinkHealAmount: 4
   DrinkStrengthAmount: 1
   NobleTrashAmount: 2

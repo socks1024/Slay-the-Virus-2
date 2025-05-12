@@ -23,7 +23,7 @@ public class MachineGunner : CardBehaviour
     {
         for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
         {
-            ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
+            ActionLib.RandomDamageAction(DungeonManager.Instance.Player, nextDamage);
         }
     }
 }

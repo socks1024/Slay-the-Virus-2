@@ -17,7 +17,7 @@ public class DashVirus : EnemyBehaviour
             IntentionType.ATTACK_AND_GIVE_DEBUFF,
             new DamageInfo(Player, this, DashDamageAmount).finalDamage.ToString(),
             () => { ActionLib.DamageAction(Player, this, DashDamageAmount);
-                ActionLib.ApplyBuffNextTurnAction(Player, this, "Wound", DashBuffAmount);}
+                ActionLib.ApplyBuffNextTurnAction(Player, this, "Paralyze", DashBuffAmount);}
         );
 
         ScrapeIntent = new IntentionInfo(

@@ -27,7 +27,7 @@ public class LazyVirus : EnemyBehaviour
         YawnIntent = new IntentionInfo(
             IntentionType.GIVE_TRASH,
             YawnCardAmount.ToString(),
-            () => { ActionLib.AddVirusCardToDrawPile("Barrier", YawnCardAmount); }
+            () => { ActionLib.AddVirusCardToDrawPile("Trap", YawnCardAmount); }
         );
 
         AngerIntent = new IntentionInfo(

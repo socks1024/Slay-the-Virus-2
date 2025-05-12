@@ -21,14 +21,15 @@ public class FightMaster : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, Player, nextDamage);
-        playCount += 1;
+        if 
+        (
+            targetEnemy.intention.IntentionType == IntentionType.ATTACK || 
+            targetEnemy.intention.IntentionType == IntentionType.DOUBLE_ATTACK ||
+            targetEnemy.intention.IntentionType == IntentionType.TRIPLE_ATTACK ||
+            targetEnemy.intention.IntentionType == IntentionType.ATTACK_AND_GIVE_DEBUFF
+        )
+        {
+            ActionLib.DamageAction(targetEnemy, Player, nextDamage);
+        }
     }
-
-    public override void ActOnTurnStart()
-    {
-        nextDamage += nextEffect * playCount;
-    }
-
-    int playCount = 0;
 }

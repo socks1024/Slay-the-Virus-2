@@ -21,6 +21,6 @@ public class WarShip : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        
+        ActionLib.GainBlockAction(Player, Player, nextDefense * DungeonManager.Instance.battleManager.board.GetFilledSquareCount());
     }
 }

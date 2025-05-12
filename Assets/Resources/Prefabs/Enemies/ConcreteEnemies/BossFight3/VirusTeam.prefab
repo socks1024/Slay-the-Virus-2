@@ -162,4 +162,4 @@ MonoBehaviour:
   enemySprite: {fileID: 21300000, guid: 4f05b1c369edff9408d1abadadd180d5, type: 3}
   intention: {fileID: 0}
   type: 2
-  AttackDamageAmount: 2
+  AttackDamageAmount: 3

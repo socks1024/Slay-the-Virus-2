@@ -21,13 +21,15 @@ public class Tank : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        for (int i = 0; i < cardPosition.GetSatisfiedSquaresCount(); i++)
-        {
-            nextDamage += nextEffect;
-            nextDefense += nextEffect;
-        }
-
-        ActionLib.DamageAction(targetEnemy, Player, nextDamage);
         ActionLib.GainBlockAction(Player, Player, nextDefense);
+    }
+
+    public override void ActBeforeCardAct()
+    {
+        base.ActBeforeCardAct();
+        foreach (CardBehaviour card in cardPosition.GetCardsSatisfiedCondition())
+        {
+            card.nextDamage += nextEffect;
+        }
     }
 }

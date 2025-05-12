@@ -11,6 +11,7 @@ public class AccurateAirdrop : CardBehaviour
 
     public override void ActOnPlaced()
     {
+        ActionLib.RandomDamageAction(Player, nextDamage);
         ActionLib.DrawCardAction(nextEffect);
         lockedOnBoard = true;
     }
@@ -22,9 +23,6 @@ public class AccurateAirdrop : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        if (cardPosition.Conditioned)
-        {
-            ActionLib.ApplyBuffAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, "Wound", nextEffect);
-        }
+        
     }
 }

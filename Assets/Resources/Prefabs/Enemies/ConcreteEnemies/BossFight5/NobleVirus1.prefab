@@ -132,6 +132,6 @@ MonoBehaviour:
   type: 2
   AttackTurn: 0
   PierceDamageAmount: 3
-  SlashDamageAmount: 6
-  SlashWoundAmount: 3
+  SlashDamageAmount: 7
+  SlashWoundAmount: 1
   DrinkHealAmount: 4

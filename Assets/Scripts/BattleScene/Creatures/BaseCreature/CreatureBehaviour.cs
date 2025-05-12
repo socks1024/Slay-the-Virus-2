@@ -23,12 +23,14 @@ public abstract class CreatureBehaviour : MonoBehaviour
 
     public virtual void GetDamage(int damage, bool blockable = true)
     {
+        if (damage < 0) damage = 0;
         if (blockable) takeDamage.GetDamage(damage);
         else takeDamage.Health -= damage;
     }
 
     public virtual void GetHeal(int heal)
     {
+        if (heal < 0) heal = 0;
         takeDamage.Health += heal;
     }
 

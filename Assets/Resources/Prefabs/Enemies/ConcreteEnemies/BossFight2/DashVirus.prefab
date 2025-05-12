@@ -163,6 +163,6 @@ MonoBehaviour:
   intention: {fileID: 0}
   type: 0
   DashDamageAmount: 6
-  DashBuffAmount: 1
-  ScrapeBuffAmount: 3
+  DashBuffAmount: 2
+  ScrapeBuffAmount: 1
   TentacleStrengthAmount: 1

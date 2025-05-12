@@ -22,14 +22,11 @@ MonoBehaviour:
   CardShape:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
-  - {x: 0, y: -1}
-  ConditionsShape:
-  - {x: 0, y: 2}
+  ConditionsShape: []
   BaseDamage: 0
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 2
+  BaseEffect: 1
   Name: "\u4FE1\u53F7\u67AA"
-  Description: "\u653E\u7F6E\u65F6\u89E6\u53D1\u89E6\u53D1\u6548\u679C:\n\u62BD #e
-    \u5F20\u724C\uFF0C\u9501\u5B9A\u3002"
+  Description: "\u5C06 #e \u5F20 supplydrop \u6DFB\u52A0\u5230\u624B\u724C\u3002"
   CardTex: {fileID: 21300000, guid: 4dd1aaa7257d7ac4e864be3e1b4dd924, type: 3}

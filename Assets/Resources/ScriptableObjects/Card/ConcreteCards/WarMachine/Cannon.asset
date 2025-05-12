@@ -15,21 +15,20 @@ MonoBehaviour:
   Id: Cannon
   Pack: 12
   AbilityType: 3
-  ActType: 0
+  ActType: 1
   ConditionType: 2
   TargetType: 0
   RarityType: 1
   CardShape:
   - {x: 0, y: 0}
   - {x: -1, y: 0}
-  - {x: -1, y: -1}
   - {x: 1, y: 0}
   ConditionsShape:
   - {x: 2, y: 0}
   BaseDamage: 0
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 3
+  BaseEffect: 1
   Name: "\u5927\u70AE"
-  Description: "\u65BD\u52A0\u6548\u679C:\u9020\u6210 #e \u500D\u4F24\u5BB3\u3002\n\u6D88\u8017\u3002"
+  Description: "\u89E6\u53D1 #e \u6B21\u65BD\u52A0\u6548\u679C\u724C\u7684\u51FA\u724C\u65F6\u6548\u679C\u3002\n\u6D88\u8017\u3002"
   CardTex: {fileID: 21300000, guid: 3b7c3c0ff2fdaea49a84a9767261be8d, type: 3}

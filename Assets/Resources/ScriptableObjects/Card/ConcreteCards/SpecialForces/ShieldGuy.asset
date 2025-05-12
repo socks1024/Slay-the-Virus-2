@@ -28,7 +28,7 @@ MonoBehaviour:
   ConditionsShape:
   - {x: 0, y: 1}
   BaseDamage: 5
-  BaseDefense: 6
+  BaseDefense: 5
   BaseHeal: 0
   BaseEffect: 0
   Name: "\u9632\u7206\u76FE\u5175"

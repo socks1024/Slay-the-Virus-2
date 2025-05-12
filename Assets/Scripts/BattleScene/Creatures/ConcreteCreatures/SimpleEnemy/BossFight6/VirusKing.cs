@@ -18,23 +18,15 @@ public class VirusKing : EnemyBehaviour
 
         string virusID = "";
 
-        float r = Random.Range(0,4);
+        float r = Random.Range(0,2);
         
         if (r == 0)
         {
-            virusID = "RoadExplosion";
+            virusID = "Spy";
         }
         else if (r == 1)
         {
-            virusID = "Barrier";
-        }
-        else if (r == 2)
-        {
-            virusID = "Spy";
-        }
-        else if (r == 3)
-        {
-            virusID = "Trap";
+            virusID = "Assasin";
         }
 
         ScornIntent = new IntentionInfo(

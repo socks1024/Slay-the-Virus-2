@@ -11,8 +11,7 @@ public class TrainingDummy : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        cardPosition.GetCardsSatisfiedCondition().ForEach(card => ActionLib.AddCardToHand(card.Id, nextEffect));
-        ActionLib.ExhaustCardAction(this);
+        
     }
 
     public override void ActOnRemoved()
@@ -22,6 +21,7 @@ public class TrainingDummy : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        
+        ActionLib.ApplyBuffAction(Player, Player, "Strength", nextEffect);
+        ActionLib.ExhaustCardAction(this);
     }
 }

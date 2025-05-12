@@ -21,7 +21,9 @@ public class BazookaSoldier : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
-        ActionLib.ExhaustCardAction(this);
+        if (cardPosition.Conditioned)
+        {
+            ActionLib.DamageAllAction(Player, nextDamage);
+        }
     }
 }

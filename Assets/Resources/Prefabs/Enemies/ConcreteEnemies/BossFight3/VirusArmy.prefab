@@ -123,4 +123,4 @@ MonoBehaviour:
   intention: {fileID: 0}
   type: 0
   AllAttackDamageAmount: 0
-  AllAttackDamageIncreasement: 2
+  AllAttackDamageIncreasement: 3

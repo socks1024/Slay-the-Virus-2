@@ -3546,9 +3546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735dec10d7418a34da2e7e228cc36ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCardOffset: 4
+  baseCardOffset: 5
   baseCardAmount: 5
-  cardOffsetDecrement: 0.4
+  cardOffsetDecrement: 0.5
   arrangeTime: 0.3
   drawPosition: {fileID: 690340520}
   discardPosition: {fileID: 107909879}

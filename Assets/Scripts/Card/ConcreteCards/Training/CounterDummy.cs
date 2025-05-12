@@ -21,7 +21,7 @@ public class CounterDummy : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.ApplyBuffAction(Player, Player, "CounterDummy", nextEffect);
+        ActionLib.ApplyBuffNextTurnAction(Player, Player, "Tenacity", nextEffect);
         ActionLib.ExhaustCardAction(this);
     }
 }

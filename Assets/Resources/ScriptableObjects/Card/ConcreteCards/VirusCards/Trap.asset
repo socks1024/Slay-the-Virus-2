@@ -17,18 +17,17 @@ MonoBehaviour:
   AbilityType: 5
   ActType: 2
   ConditionType: 0
-  TargetType: 1
+  TargetType: 0
   RarityType: 4
   CardShape:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
-  - {x: 1, y: 0}
+  - {x: 0, y: -1}
   ConditionsShape: []
   BaseDamage: 0
   BaseDefense: 0
   BaseHeal: 0
-  BaseEffect: 1
+  BaseEffect: 0
   Name: "\u9677\u9631"
-  Description: "\u6467\u6BC1\u3002\n\u88AB\u4E22\u5F03\u65F6\uFF1A\u968F\u673A\u7981\u7528
-    #e \u4E2A\u683C\u5B50\u3002"
+  Description: "\u6467\u6BC1\u3002"
   CardTex: {fileID: 21300000, guid: 7efafd1310e8b4246a8e2e4cd7e52a98, type: 3}

@@ -11,8 +11,12 @@ public class EmergencyCommunication : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        ActionLib.GetRandomCardFromExhaustPile(nextEffect);
-        lockedOnBoard = true;
+        foreach (CardBehaviour card in cardPosition.GetCardsSatisfiedCondition())
+        {
+            card.lockedOnBoard = false;
+        }
+
+        DungeonManager.Instance.battleManager.cardFlow.DiscardCard(this);
     }
 
     public override void ActOnRemoved()

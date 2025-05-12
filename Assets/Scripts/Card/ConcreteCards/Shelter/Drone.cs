@@ -11,21 +11,24 @@ public class Drone : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        
+        if (cardPosition.Conditioned)
+        {
+            foreach (CardBehaviour card in cardPosition.GetCardsSatisfiedCondition())
+            {
+                DungeonManager.Instance.battleManager.cardFlow.DiscardCard(card);
+            }
+
+            ActionLib.DrawCardAction(nextEffect);
+        }
     }
 
     public override void ActOnRemoved()
     {
-        // print("RemoveCard");
+        
     }
 
     public override void ActOnCardAct()
     {
-        ActionLib.GainBlockAction(Player, Player, nextDefense);
-        foreach (Square s in cardPosition.ConditionedSquares)
-        {
-            s.IsActive = true;
-        }
-        ActionLib.ExhaustCardAction(this);
+
     }
 }

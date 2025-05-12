@@ -11,11 +11,7 @@ public class FlareGun : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        if (cardPosition.Conditioned)
-        {
-            ActionLib.DrawCardAction(nextEffect);
-            lockedOnBoard = true;
-        }
+        ActionLib.AddCardToHand("SupplyDrop", nextEffect);
     }
 
     public override void ActOnRemoved()

@@ -11,7 +11,7 @@ public class ArmorSoldier : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        
+        lockedOnBoard = true;
     }
 
     public override void ActOnRemoved()
@@ -22,15 +22,5 @@ public class ArmorSoldier : CardBehaviour
     public override void ActOnCardAct()
     {
         ActionLib.GainBlockAction(DungeonManager.Instance.Player, DungeonManager.Instance.Player, nextDefense);
-    }
-
-    public override void ActBeforeCardAct()
-    {
-        cardPosition.GetCardsSatisfiedCondition().ForEach(c => Affection(c));
-    }
-
-    void Affection(CardBehaviour card)
-    {
-        card.nextDamage = 0;
     }
 }

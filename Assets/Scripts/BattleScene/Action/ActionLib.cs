@@ -33,7 +33,7 @@ public static class ActionLib
             target.GetDamage(damage);
         });
 
-        if (target.buffOwner.HasBuff("Counter")) CounterAction(source, target, target.buffOwner.GetBuffAmount("Counter"));
+        // if (target.buffOwner.HasBuff("Counter")) CounterAction(source, target, target.buffOwner.GetBuffAmount("Counter"));
 
         if (source is PlayerBehaviour)
         {

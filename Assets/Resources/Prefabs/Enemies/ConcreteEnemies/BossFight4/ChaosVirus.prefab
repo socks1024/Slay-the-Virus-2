@@ -122,7 +122,7 @@ MonoBehaviour:
   RoarWeaknessAmount: 3
   RoarStrengthAmount: 3
   SplitTrashAmount: 2
-  GazeWoundAmount: 6
+  GazeWoundAmount: 2
   GazeParalyzeAmount: 4
   HealHealAmount: 12
   SwellSquareAmount: 1

@@ -11,7 +11,15 @@ public class Cannon : CardBehaviour
 
     public override void ActOnPlaced()
     {
-        
+        foreach (CardBehaviour card in cardPosition.GetCardsSatisfiedCondition())
+        {
+            for (int i = 0; i < nextEffect; i++)
+            {
+                card.ActOnCardAct();
+            }
+        }
+
+        ActionLib.ExhaustCardAction(this);
     }
 
     public override void ActOnRemoved()
@@ -21,16 +29,6 @@ public class Cannon : CardBehaviour
 
     public override void ActOnCardAct()
     {
-        ActionLib.ExhaustCardAction(this);
-    }
-
-    public override void ActBeforeCardAct()
-    {
-        cardPosition.GetCardsSatisfiedCondition().ForEach(c => Affection(c));
-    }
-
-    void Affection(CardBehaviour card)
-    {
-        card.nextDamage *= nextEffect;
+        
     }
 }

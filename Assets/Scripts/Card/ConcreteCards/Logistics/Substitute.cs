@@ -19,9 +19,11 @@ public class Substitute : CardBehaviour
         // print("RemoveCard");
     }
 
+    int powerCount = 0;
+
     public override void ActOnCardAct()
     {
-        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
-        if (cardPosition.Conditioned) ActionLib.ApplyBuffNextTurnAction(Player, Player, "SystemEngineer", nextEffect);
+        powerCount += cardPosition.GetSatisfiedSquaresCount();
+        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage + nextEffect * powerCount);
     }
 }

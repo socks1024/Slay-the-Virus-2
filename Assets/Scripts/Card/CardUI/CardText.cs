@@ -118,6 +118,8 @@ public class CardText : MonoBehaviour
     public Color CellCardColor;
     public Color VirusCardColor;
 
+    string usedCardID;
+
     string ReplaceCardNameText(string description)
     {
         foreach (string cardID in CardLib.cardPrefabs.Keys)
@@ -150,6 +152,19 @@ public class CardText : MonoBehaviour
         return description;
     }
 
+    void IdentifyCardIDs(string text)
+    {
+        usedCardID = null;
+
+        foreach (string cardID in CardLib.cardPrefabs.Keys)
+        {
+            if (text.Contains(cardID))
+            {
+                usedCardID = cardID;
+            }
+        }
+    }
+
     #endregion
 
     CardUI cardUI;
@@ -178,8 +193,12 @@ public class CardText : MonoBehaviour
         cardUI = GetComponent<CardUI>();
         data = GetComponent<CardBehaviour>().cardData;
         cardKeyword = GetComponent<CardKeyword>();
+
         IdentifyKeywords(data.Description);
+        IdentifyCardIDs(data.Description);
+
         cardKeyword.SetKeywords(usedKeywords);
+        cardKeyword.SetShowCard(usedCardID);
     }
 
     void Update()
