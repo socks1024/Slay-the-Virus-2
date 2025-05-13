@@ -22,19 +22,30 @@ public class ShopManager : MonoBehaviour
 
     public Transform Contentpanel;
 
+
     private void Start()
     {
         //InitStorage();
         //InitExtract();
         ////for (int i = 0; i < 10; i++) Extract();
         Instance = this;
+        
         InitCards();
     }
 
+  
+
+    
     public void Purchase(ShopItemCard shopItemCard)
     {
         SaveSystem.Instance.AddCardToPlayerSave(shopItemCard.item.Name, 1);
         SaveSystem.Instance.AddNutrientToPlayerSave(-shopItemCard.price);
+    }
+
+    public void Purchase(ShopItemCard shopItemCard,int num)
+    {
+        SaveSystem.Instance.AddCardToPlayerSave(shopItemCard.item.Name, num);
+        SaveSystem.Instance.AddNutrientToPlayerSave(-shopItemCard.price*num);
     }
 
     private void InitCards()

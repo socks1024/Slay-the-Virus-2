@@ -20,7 +20,10 @@ public class ShopUI : MonoBehaviour
     private int sumprice;
 
 
-   
+    public int num = 1;
+
+    public TMPro.TMP_Text numtext;
+
 
     public void Start()
     {
@@ -31,7 +34,39 @@ public class ShopUI : MonoBehaviour
             SaveSystem.Instance.SetTutorialClear(4);
         }
 
+        ResetNumtext();
+
     }
+
+    private void ResetNumtext()
+    {
+        numtext.text = num.ToString();
+    }
+
+    public void AddNum()
+    {
+        if (num < 10)
+        {
+            num++;
+            ResetNumtext();
+
+            UpdatePrice();
+            price.text = sumprice.ToString();
+        }
+    }
+
+    public void Subnum()
+    {
+        if (num > 1)
+        {
+            num--;
+            ResetNumtext();
+
+            UpdatePrice();
+            price.text = sumprice.ToString();
+        }
+    }
+
 
     public void GetOneItem(ShopItemCard oneitem)
     {
@@ -49,6 +84,8 @@ public class ShopUI : MonoBehaviour
         {
             sumprice += oneitem.price;
         }
+
+        sumprice *= num;
     }
 
     public void RemoveOneItem(ShopItemCard item)
@@ -70,7 +107,7 @@ public class ShopUI : MonoBehaviour
 
         foreach (ShopItemCard item in items)
         {
-            ShopManager.Instance.Purchase(item);
+            ShopManager.Instance.Purchase(item,num);
         }
         resource.text = SaveSystem.Instance.getSave().Nutrient.ToString();
         resourcetextcolor();
