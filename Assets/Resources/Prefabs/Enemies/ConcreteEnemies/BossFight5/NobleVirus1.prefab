@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: NobleVirus1
-  MaxHealth: 30
+  MaxHealth: 25
   enemySprite: {fileID: 21300000, guid: 94b699b097258b544b710be9e61733bd, type: 3}
   intention: {fileID: 0}
   type: 2
