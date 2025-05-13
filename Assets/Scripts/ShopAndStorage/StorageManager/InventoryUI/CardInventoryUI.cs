@@ -1,10 +1,12 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using static UnityEditor.Progress;
 
 
 public class CardInventoryUI : MonoBehaviour
@@ -28,10 +30,12 @@ public class CardInventoryUI : MonoBehaviour
     private List<int> chosencards = new List<int>();
     private int[] CardExistInInventory = new int[100];
 
+    private DetailPanel detail;
+
     private void Awake()
     {
         detailPanel.gameObject.SetActive(false);
-
+        detail = detailPanel.gameObject.GetComponent<DetailPanel>();
         
     }
 
@@ -57,7 +61,7 @@ public class CardInventoryUI : MonoBehaviour
                 SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1);
                 inventoryitem.ResetNumText();
 
-                Debug.Log("Add!");
+                //Debug.Log("Add!");
             }
                 //inventoryitem.num--;
             //}
@@ -84,7 +88,7 @@ public class CardInventoryUI : MonoBehaviour
             //}
             //else
             //{
-                Debug.Log("inventoryitem.originalparent");
+                //Debug.Log("inventoryitem.originalparent");
                 //content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().num++;
                 content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().ResetNumText();
                 //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
@@ -136,8 +140,8 @@ public class CardInventoryUI : MonoBehaviour
 
     private int Search(int code)
     {
-        int count=0;
-        foreach(int i in chosencards)
+        int count = 0;
+        foreach (int i in chosencards)
         {
             if (i < code)
                 count++;
@@ -156,7 +160,7 @@ public class CardInventoryUI : MonoBehaviour
     //    Messenger.enterBattleInfoTest.p_Board = boardBehaviour;
     //    Messenger.enterBattleInfoTest.p_Cards = PlayerHold.Instance.GetCardBehaviours();
     //    SceneManager.LoadScene("BattleScene");
-        
+
     //    //DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
     //}
 
@@ -197,9 +201,38 @@ public class CardInventoryUI : MonoBehaviour
         inventoryitem.showstate = 1;
         detailPanel.gameObject.SetActive(true);
         Detailed.transform.SetParent(detailPanel.transform);
-        Detailed.transform.localScale = new Vector3(inventoryitem.originalscale.x * 1.6f, inventoryitem.originalscale.y * 1.75f, 0);
+        Detailed.transform.localScale = new Vector3(inventoryitem.originalscale.x * 8f, inventoryitem.originalscale.y * 8f, 0);
         Detailed.transform.localPosition = Vector3.zero;
         Detailed.transform.SetAsFirstSibling();
+       
+
+        int price = 0;
+        if (inventoryitem.carditem.cardBehaviour.Pack == CardPack.MEDICAL)
+        {
+            if (inventoryitem.carditem.cardBehaviour.RarityType == CardRarityType.RARE)
+            {
+                price = 60;
+            }
+            else if (inventoryitem.carditem.cardBehaviour.RarityType == CardRarityType.UNCOMMON)
+            {
+                price = 100;
+            }
+        }
+        else
+        {
+            if (inventoryitem.carditem.cardBehaviour.RarityType == CardRarityType.RARE)
+            {
+                price = 30;
+            }
+            else if (inventoryitem.carditem.cardBehaviour.RarityType == CardRarityType.UNCOMMON)
+            {
+                price = 60;
+            }
+        }
+
+        detail.price = price;
+        detail.CardName = Detailed.name;
+
         detailPanel.GetComponent<DetailPanel>().Start();
     }
 }
