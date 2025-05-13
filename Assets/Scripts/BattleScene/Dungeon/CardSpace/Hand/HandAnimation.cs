@@ -94,6 +94,8 @@ public class HandAnimation : MonoBehaviour
             Vector3 pos = transform.position;
             pos.x = transform.position.x - ( CardOffset / 2 * ( cards.Count - 1 ) ) + i * CardOffset;
 
+            card.transform.DOComplete();
+
             card.transform.DOMove(pos, arrangeTime).OnComplete(
                 () => {card.GetComponent<CardUI>().UIState = UIStates.HAND;}
             );

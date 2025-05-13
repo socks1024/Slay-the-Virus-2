@@ -48,8 +48,8 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void Start()
     {
-        cardRoot = transform.parent.parent;
-        cardUI = cardRoot.GetComponent<CardUI>();
+        cardUI = GetComponentInParent<CardUI>();
+        cardRoot = cardUI.transform;
         cardUI.OnLeaveHand += ReturnHandPreview;
         cardKeyword = cardRoot.GetComponent<CardKeyword>();
     }
@@ -130,7 +130,7 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (isHandPreviewing)
         {
-            cardRoot.DOKill();
+            cardRoot.DOComplete();
 
             cardRoot.DOScale(cardUI.baseScale, CardHandViewTime);
 

@@ -25,6 +25,8 @@ public class DialoguePanel : MonoBehaviour
 
     Queue<DialogueEvent> dialogueEventsQueue = new();
 
+    UnityAction OnCurrEventsEnd;
+
     void Awake()
     {
         defaultHead = headImage.sprite;
@@ -49,6 +51,7 @@ public class DialoguePanel : MonoBehaviour
         {
             if (dialogueEventsQueue.Count == 0)
             {
+                OnCurrEventsEnd?.Invoke();
                 Destroy(gameObject);
             }
             else
@@ -142,6 +145,12 @@ public class DialoguePanel : MonoBehaviour
         return this;
     }
 
+    public DialoguePanel AddOnEventEndCallback(UnityAction callback)
+    {
+        OnCurrEventsEnd += callback;
+        return this;
+    }
+
     #endregion
 
     #region Typing
@@ -201,7 +210,7 @@ public class DialoguePanel : MonoBehaviour
 
     #endregion
     
-    public void ShowNextDialogueEvent()
+    public DialoguePanel ShowNextDialogueEvent()
     {
         DialogueEvent dialogueEvent = dialogueEventsQueue.Dequeue();
 
@@ -213,6 +222,8 @@ public class DialoguePanel : MonoBehaviour
         SetTextPanelPosition(dialogueEvent.textPanelPosition);
 
         StartType();
+
+        return this;
     }
 }
 

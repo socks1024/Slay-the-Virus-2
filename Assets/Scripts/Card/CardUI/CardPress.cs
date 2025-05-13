@@ -33,7 +33,7 @@ public class CardPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void Start()
     {
         cardImg = GetComponent<Image>();
-        cardUI = transform.parent.parent.GetComponent<CardUI>();
+        cardUI = GetComponentInParent<CardUI>();
         callback += cardUI.OnPress;
     }
 

@@ -58,9 +58,9 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     void Start()
     {
         mainCam = Camera.main;
-        cardRoot = transform.parent.parent;
+        cardUI = GetComponentInParent<CardUI>();
+        cardRoot = cardUI.transform;
         card = cardRoot.GetComponent<CardBehaviour>();
-        cardUI = cardRoot.GetComponent<CardUI>();
         targetType = card.TargetType;
         rotateComponent = cardRoot.GetComponent<CardRotate>();
     }

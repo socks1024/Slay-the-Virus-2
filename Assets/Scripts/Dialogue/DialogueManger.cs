@@ -15,14 +15,14 @@ public class DialogueManager : MonoSingleton<DialogueManager>
         loader = GetComponent<IDialogueLoader>();
     }
 
-    public void StartDialogue(string groupID)
+    public DialoguePanel StartDialogue(string groupID)
     {
-        ShowDialoguePanel().AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
+        return ShowDialoguePanel().AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
     }
 
-    public void StartDialogue(string groupID, Canvas canvas)
+    public DialoguePanel StartDialogue(string groupID, Canvas canvas)
     {
-        ShowDialoguePanel(canvas).AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
+        return ShowDialoguePanel(canvas).AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
     }
 
     public DialoguePanel ShowDialoguePanel()

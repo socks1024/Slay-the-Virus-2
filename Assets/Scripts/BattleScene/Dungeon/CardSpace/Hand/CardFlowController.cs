@@ -70,6 +70,11 @@ public class CardFlowController : MonoBehaviour
         DrawCards(AutoDrawAmount);
     }
 
+    public void Rearrange()
+    {
+        handAnimation.ArrangeCardsInHand();
+    }
+
     /// <summary>
     /// 将一张牌直接加入手牌
     /// </summary>

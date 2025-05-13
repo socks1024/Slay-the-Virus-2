@@ -31,7 +31,8 @@ public class TestBattle : MonoBehaviour
 
             DialogueManager.Instance.ShowDialoguePanel()
                 .AddDialogueEvent(DialogueManager.Instance.loader, "battle")
-                .ShowNextDialogueEvent();
+                .ShowNextDialogueEvent()
+                .AddOnEventEndCallback(ShowManual);
         }
 
         EnterDungeonInfo info = Messenger.enterDungeonInfo;
@@ -43,5 +44,10 @@ public class TestBattle : MonoBehaviour
         DungeonManager.Instance.StartAdventure(info);
 
         AudioManager.Instance.PlaySFX("BattleStart");
+    }
+
+    void ShowManual()
+    {
+        ManualPanel.ShowPanel();
     }
 }
