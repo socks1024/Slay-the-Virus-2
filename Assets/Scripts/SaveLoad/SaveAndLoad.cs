@@ -127,6 +127,12 @@ public class SaveSystem : MonoBehaviour
             {
                 savefile.PlayerCardInventory.Add(name, amount);
             }
+
+            if (!savefile.PlayerGotCards.Contains(name))
+            {
+                savefile.PlayerGotCards.Add(name);
+            }
+            
         }
 
         SavePlayerToSlot(savefile, savefile.saveindex);
@@ -338,6 +344,19 @@ public class PlayerSave//存档储存的所有信息，通过调取SaveSystem下的GetSave获取
     };  //玩家仓库的卡牌
 
     public SerializableDictionary<string, int> PlayerHoldCards = new SerializableDictionary<string, int>();  //玩家卡组里的卡牌
+
+    public List<string> PlayerGotCards = new List<string>();//玩家是否获得过某张卡牌
+
+    public bool[] CardsPresetsExist = new bool[]
+    {
+        false,
+        false
+    };  //预设1
+
+    public int CardPresetNum;
+
+    public SerializableDictionary<string, int> CardPreset1 = new SerializableDictionary<string, int>();
+    public SerializableDictionary<string, int> CardPreset2 = new SerializableDictionary<string, int>();
 
     public int saveindex;  //存档编号
 

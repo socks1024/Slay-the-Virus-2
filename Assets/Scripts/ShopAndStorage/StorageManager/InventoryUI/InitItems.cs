@@ -31,7 +31,7 @@ public class InitItems : MonoBehaviour
 
             foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
            {
-            if (item.Value > 0 )
+            if (SaveSystem.Instance.getSave().PlayerGotCards.Contains(item.Key))
             {
                 GameObject shopitem = GameObject.Instantiate(ShopItemPrefab, contentpanel.transform) as GameObject;
                 string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + item.Key;

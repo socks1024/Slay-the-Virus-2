@@ -63,24 +63,43 @@ public class CreateNewSaveUI : MonoBehaviour
             savedata.illness[i] = illnesses[i].isOn;
         }
 
-        savedata.PlayerCardInventory["Grenade"] = 99;
-        savedata.PlayerCardInventory["Interphone"] = 99;
-        savedata.PlayerCardInventory["Map"] = 99;
-        savedata.PlayerCardInventory["Medic"] = 99;
-        savedata.PlayerCardInventory["Militia"] = 99;
-        savedata.PlayerCardInventory["NoviceEngineer"] = 99;
-        savedata.PlayerCardInventory["NoviceInfantry"] = 99;
-        savedata.PlayerCardInventory["BodyArmor"] = 99;
-        savedata.PlayerCardInventory["Knifeman"] = 99;
-        savedata.PlayerCardInventory["Shocker"] = 99;
-        savedata.PlayerCardInventory["SpikeArmor"] = 99;
-        savedata.PlayerCardInventory["Supplies"] = 99;
-        savedata.PlayerCardInventory["AttackFlag"] = 99;
-        savedata.PlayerCardInventory["DefenseFlag"] = 99;
-        savedata.PlayerCardInventory["EngineerGroup"] = 99;
-        savedata.PlayerCardInventory["InfantryGroup"] = 99;
-        savedata.PlayerCardInventory["SeniorEngineer"] = 99;
-        savedata.PlayerCardInventory["SeniorInfantry"] = 99;
+        savedata.PlayerCardInventory["Grenade"] =20;
+        savedata.PlayerCardInventory["Interphone"] = 20;
+        savedata.PlayerCardInventory["Map"] = 20;
+        savedata.PlayerCardInventory["Medic"] = 20;
+        savedata.PlayerCardInventory["Militia"] = 20;
+        savedata.PlayerCardInventory["NoviceEngineer"] = 20;
+        savedata.PlayerCardInventory["NoviceInfantry"] = 20;
+        savedata.PlayerCardInventory["BodyArmor"] = 20;
+        savedata.PlayerCardInventory["Knifeman"] = 20;
+        savedata.PlayerCardInventory["Shocker"] = 20;
+        savedata.PlayerCardInventory["SpikeArmor"] = 20;
+        savedata.PlayerCardInventory["Supplies"] = 20;
+        savedata.PlayerCardInventory["AttackFlag"] = 20;
+        savedata.PlayerCardInventory["DefenseFlag"] = 20;
+        savedata.PlayerCardInventory["EngineerGroup"] = 20;
+        savedata.PlayerCardInventory["InfantryGroup"] = 20;
+        savedata.PlayerCardInventory["SeniorEngineer"] = 20;
+        savedata.PlayerCardInventory["SeniorInfantry"] = 20;
+
+        savedata.PlayerGotCards.Add("Grenade");
+        savedata.PlayerGotCards.Add("Interphone");
+        savedata.PlayerGotCards.Add("Map");
+        savedata.PlayerGotCards.Add("Medic");
+        savedata.PlayerGotCards.Add("Militia");
+        savedata.PlayerGotCards.Add("NoviceEngineer");
+        savedata.PlayerGotCards.Add("NoviceInfantry");
+        savedata.PlayerGotCards.Add("BodyArmor");
+        savedata.PlayerGotCards.Add("Knifeman");
+        savedata.PlayerGotCards.Add("Shocker");
+        savedata.PlayerGotCards.Add("SpikeArmor");
+        savedata.PlayerGotCards.Add("Supplies");
+        savedata.PlayerGotCards.Add("AttackFlag");
+        savedata.PlayerGotCards.Add("DefenseFlag");
+        savedata.PlayerGotCards.Add("EngineerGroup");
+        savedata.PlayerGotCards.Add("InfantryGroup");
+        savedata.PlayerGotCards.Add("SeniorEngineer");
+        savedata.PlayerGotCards.Add("SeniorInfantry");
 
         for (int i = 0; i < initCards.Length; i++)
         {
@@ -106,6 +125,7 @@ public class CreateNewSaveUI : MonoBehaviour
            foreach (var key in savedata.PlayerCardInventory.Keys.ToList())
             {
                 savedata.PlayerCardInventory[key] = 99;
+                savedata.PlayerGotCards.Add(key);
             }
 
             savedata.BaseLife = 1000;

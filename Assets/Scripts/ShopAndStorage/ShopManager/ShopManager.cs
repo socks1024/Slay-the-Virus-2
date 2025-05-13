@@ -78,11 +78,11 @@ public class ShopManager : MonoBehaviour
                     if (levelclear[0]==true)
                         CardInit(cardItem);
                     break;
-                case CardPack.BASIC_NORMAL:
-                case CardPack.BASIC_STATE:
-                case CardPack.BASIC_SUPPORT:
-                    CardInit(cardItem);
-                    break;
+                //case CardPack.BASIC_NORMAL:
+                //case CardPack.BASIC_STATE:
+                //case CardPack.BASIC_SUPPORT:
+                //    CardInit(cardItem);
+                //    break;
             }
         }
     }

@@ -40,26 +40,28 @@ public class CardInventoryUI : MonoBehaviour
         
         Detailed = card;
         inventoryitem = card.GetComponent<CardItemInventory>();
-        Detailed.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
+        //Detailed.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
 
-        if (inventoryitem.showstate==0||inventoryitem.showstate==1)//放大
+        if (inventoryitem.showstate==0||inventoryitem.showstate==1)
         {
-            if (inventoryitem.num == 1)
+            //if (inventoryitem.num == 1)
+            //{
+            //    SetToPlayer();
+            //    CardExistInInventory[inventoryitem.index] = 1;
+            //}
+            //else
+            //{
+            if (inventoryitem.num > 0)
             {
-                SetToPlayer();
-                CardExistInInventory[inventoryitem.index] = 1;
-            }
-            else
-            {
-               
                 SetToPlayerWithoutRemove();
+                SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1);
+                inventoryitem.ResetNumText();
 
-                //inventoryitem.num--;
+                Debug.Log("Add!");
             }
-            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1);
-            inventoryitem.ResetNumText();
-
-            Debug.Log("Add!");
+                //inventoryitem.num--;
+            //}
+            
             //Preview();
         }
         else if (inventoryitem.showstate == 2)//放回
@@ -67,27 +69,27 @@ public class CardInventoryUI : MonoBehaviour
             inventoryitem.showstate = 0;
             //ClearBlank();
             SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, -1);
-            if (CardExistInInventory[inventoryitem.index]==1)
-            {
-                Detailed.transform.SetParent(null);
-                Detailed.transform.SetParent(content);
-                Detailed.transform.GetChild(2).gameObject.SetActive(true);
-                Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
-                Detailed.transform.localScale = inventoryitem.originalscale;
-                //inventoryitem.num = 1;
-                inventoryitem.ResetNumText();
-                CardExistInInventory[inventoryitem.index] = 0;
-                //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
-                chosencards.Remove(inventoryitem.index);
-            }
-            else
-            {
+            //if (CardExistInInventory[inventoryitem.index]==1)
+            //{
+            //    Detailed.transform.SetParent(null);
+            //    Detailed.transform.SetParent(content);
+            //    Detailed.transform.GetChild(2).gameObject.SetActive(true);
+            //    Detailed.transform.SetSiblingIndex(inventoryitem.index - Search(inventoryitem.index));
+            //    Detailed.transform.localScale = inventoryitem.originalscale;
+            //    //inventoryitem.num = 1;
+            //    inventoryitem.ResetNumText();
+            //    CardExistInInventory[inventoryitem.index] = 0;
+            //    //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
+            //    chosencards.Remove(inventoryitem.index);
+            //}
+            //else
+            //{
                 Debug.Log("inventoryitem.originalparent");
                 //content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().num++;
                 content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().ResetNumText();
                 //PlayerHold.Instance.RemoveCard(inventoryitem.carditem.cardBehaviour);
                 GameObject.Destroy(Detailed);
-            }
+            //}
 
             
 
@@ -158,22 +160,22 @@ public class CardInventoryUI : MonoBehaviour
     //    //DungeonManager.Instance.EnterBattleForTest(PlayerHold.Instance.GetCardBehaviours(), boardBehaviour, enemies);
     //}
 
-    public void SetToPlayer()
-    {
-        CancelDetail();
-        inventoryitem.showstate = 2;
-        //ClearBlank();
-        sum += 1;
-        num = 4 - (sum % 4);
-        Detailed.transform.GetChild(2).gameObject.SetActive(false);
-        Detailed.transform.SetParent(PlayerHoldPanel.transform);
-        Detailed.transform.localScale = PlayerHoldPanelCardSize;
-        Detailed.transform.SetSiblingIndex(0);
-        //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
-        chosencards.Add(inventoryitem.index);
-        //if(sum>0)
-        //FillBlank();
-    }
+    //public void SetToPlayer()
+    //{
+    //    CancelDetail();
+    //    inventoryitem.showstate = 2;
+    //    //ClearBlank();
+    //    sum += 1;
+    //    num = 4 - (sum % 4);
+    //    Detailed.transform.GetChild(2).gameObject.SetActive(false);
+    //    Detailed.transform.SetParent(PlayerHoldPanel.transform);
+    //    Detailed.transform.localScale = PlayerHoldPanelCardSize;
+    //    Detailed.transform.SetSiblingIndex(0);
+    //    //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
+    //    chosencards.Add(inventoryitem.index);
+    //    //if(sum>0)
+    //    //FillBlank();
+    //}
 
     public void SetToPlayerWithoutRemove()
     {
@@ -182,7 +184,7 @@ public class CardInventoryUI : MonoBehaviour
         newplayercard.GetComponent<CardItemInventory>().showstate = 2;
         newplayercard.transform.GetChild(2).gameObject.SetActive(false);
         newplayercard.transform.SetParent(PlayerHoldPanel.transform);
-        newplayercard.transform.localScale = PlayerHoldPanelCardSize;
+        newplayercard.transform.localScale = Detailed.transform.localScale;
         newplayercard.transform.SetSiblingIndex(0);
         newplayercard.GetComponent<CardItemInventory>().index = inventoryitem.index;
         //PlayerHold.Instance.AddCard(inventoryitem.carditem.cardBehaviour);
