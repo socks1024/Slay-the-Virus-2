@@ -11720,6 +11720,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100840019717605829, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[23].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ed9c349a0464844f927effd248d97c5, type: 3}
+    - target: {fileID: 100840019717605829, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[24].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 482371d59ca5fa74b9b06f837ae51127, type: 3}
+    - target: {fileID: 100840019717605829, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: soundClips.Array.data[25].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: e0b9b9a1f76f0c8418dc190d76fa45ce, type: 3}
+    - target: {fileID: 2676327298914942698, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2878072774049727240, guid: 0886f95912c080443a6e5fefc51164e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -137.7139

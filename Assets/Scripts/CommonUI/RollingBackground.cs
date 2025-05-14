@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class RollingBackground : MonoBehaviour
 {
@@ -11,11 +10,9 @@ public class RollingBackground : MonoBehaviour
     public struct RollingLayer
     {
         public GameObject Layer;
-        [HideInInspector] public SpriteRenderer LayerSpriteRenderer;
+        [HideInInspector] public Image LayerImage;
         [HideInInspector] public Transform LayerTransform;
         public float Speed;
-        [HideInInspector] public float currMoveLength;
-
         [HideInInspector] public Transform subLayerTransform;
     }
 
@@ -23,7 +20,9 @@ public class RollingBackground : MonoBehaviour
 
     public float TotalSpeed;
 
-    public float Length;
+    public Transform StartPoint;
+
+    public Transform EndPoint;
 
     void Start()
     {
@@ -33,11 +32,12 @@ public class RollingBackground : MonoBehaviour
 
             currLayer.Layer = layers[i].Layer;
             currLayer.Speed = layers[i].Speed;
-            currLayer.LayerSpriteRenderer = currLayer.Layer.GetComponent<SpriteRenderer>();
+            currLayer.LayerImage = currLayer.Layer.GetComponent<Image>();
             currLayer.LayerTransform = currLayer.Layer.transform;
 
             currLayer.subLayerTransform = Instantiate(currLayer.Layer, currLayer.LayerTransform.parent).transform;
-            currLayer.subLayerTransform.position += Vector3.down * Length;
+            currLayer.subLayerTransform.position = (EndPoint.position + StartPoint.position)/2;
+            currLayer.subLayerTransform.SetSiblingIndex(currLayer.LayerTransform.GetSiblingIndex() + 1);
 
             layers[i] = currLayer;
         }
@@ -51,19 +51,14 @@ public class RollingBackground : MonoBehaviour
 
             layers[i].subLayerTransform.position += Vector3.down * layers[i].Speed * TotalSpeed;
 
-            RollingLayer newLayer = layers[i];
-            newLayer.currMoveLength += newLayer.Speed * TotalSpeed;
-            layers[i] = newLayer;
-
-            if (layers[i].currMoveLength >= Length)
+            if (layers[i].LayerTransform.position.y < EndPoint.position.y)
             {
-                layers[i].LayerTransform.position += Vector3.up * Length;
+                layers[i].LayerTransform.position = StartPoint.position;
+            }
 
-                layers[i].subLayerTransform.position += Vector3.up * Length;
-
-                RollingLayer newLayer2 = layers[i];
-                newLayer2.currMoveLength = 0;
-                layers[i] = newLayer2;
+            if (layers[i].subLayerTransform.position.y < EndPoint.position.y)
+            {
+                layers[i].subLayerTransform.position = StartPoint.position;
             }
         }
     }

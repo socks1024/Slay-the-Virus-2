@@ -23,10 +23,12 @@ public class Square : MonoBehaviour
             if (IsActive)
             {
                 GetComponent<Image>().color = new Color(0,0,0,0);
+                AudioManager.Instance.PlaySFX("EnableSquare");
             }
             else
             {
                 GetComponent<Image>().color = Color.white;
+                AudioManager.Instance.PlaySFX("DisableSquare");
             }
         }
     }

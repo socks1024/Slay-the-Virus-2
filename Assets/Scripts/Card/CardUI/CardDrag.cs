@@ -87,6 +87,10 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                         boardData.RemoveCard(card);
                         cardUI.UIState = UIStates.DRAG;
                     }
+                    if (card.lockedOnBoard)
+                    {
+                        AudioManager.Instance.PlaySFX("DragLockedCard");
+                    }
                     break;
                 case UIStates.SETTING_TARGET:
                     originPosition = card.transform.position;

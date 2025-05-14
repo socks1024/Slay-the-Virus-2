@@ -422,6 +422,30 @@ MonoBehaviour:
     cooldown: 0
     lastVariationPlayed: 0
     timeLastPlayed: 0
+  - name: EnableSquare
+    sound: {fileID: 8300000, guid: 94937a53f047f77458931dd74dc85822, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: DisableSquare
+    sound: {fileID: 8300000, guid: 94937a53f047f77458931dd74dc85822, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
+  - name: DragLockedCard
+    sound: {fileID: 8300000, guid: 94937a53f047f77458931dd74dc85822, type: 3}
+    variations: []
+    volume: 1
+    pitchVariance: 0
+    cooldown: 0
+    lastVariationPlayed: 0
+    timeLastPlayed: 0
   audioMixer: {fileID: 24100000, guid: b2808f305923bb343886cecb0e555f46, type: 2}
   poolSize: 10
   sampleSource: {fileID: 6699553320823641750}
