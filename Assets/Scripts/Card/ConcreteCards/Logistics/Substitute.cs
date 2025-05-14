@@ -24,6 +24,11 @@ public class Substitute : CardBehaviour
     public override void ActOnCardAct()
     {
         powerCount += cardPosition.GetSatisfiedSquaresCount();
-        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage + nextEffect * powerCount);
+        ActionLib.DamageAction(targetEnemy, DungeonManager.Instance.Player, nextDamage);
+    }
+
+    public override void ActOnTurnStart()
+    {
+        nextDamage += nextEffect * powerCount;
     }
 }

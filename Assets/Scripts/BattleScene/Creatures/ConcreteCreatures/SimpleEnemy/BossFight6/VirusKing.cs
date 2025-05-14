@@ -6,11 +6,14 @@ public class VirusKing : EnemyBehaviour
 {
     public override void ActOnEnterBattle()
     {
-        takeDamage.lockHealthAtOne = true;
+        // takeDamage.lockHealthAtOne = true;
+        // takeDamage.OnHealthChange += OnGetDamage;
         DialogueManager.Instance.StartDialogue("BossFight6_1");
     }
 
     int nextIntentNumber = 0;
+
+    bool readyToRevive = false;
 
     public override void EnemyChooseIntention(int turnCount)
     {
@@ -26,7 +29,7 @@ public class VirusKing : EnemyBehaviour
         }
         else if (r == 1)
         {
-            virusID = "Assasin";
+            virusID = "Assassin";
         }
 
         ScornIntent = new IntentionInfo(
@@ -75,6 +78,7 @@ public class VirusKing : EnemyBehaviour
                 {
                     ActionLib.HealAction(this, this, DyingHealAmount);
                     ActionLib.DamageAction(virusFollower, this, 999);
+                    readyToRevive = false;
                     
                     if (!dyingHealed)
                     {
@@ -99,7 +103,8 @@ public class VirusKing : EnemyBehaviour
 
         #endregion
 
-        if (takeDamage.Health <= 1)
+        // if (readyToRevive)
+        if (false)
         {
             SetIntention(DyingIntent);
         }
@@ -160,6 +165,14 @@ public class VirusKing : EnemyBehaviour
     public override void OnBattleStart()
     {
         
+    }
+
+    void OnGetDamage(int health, int block)
+    {
+        if (health <= 1)
+        {
+            readyToRevive = true;
+        }
     }
 
     
