@@ -133,7 +133,7 @@ MonoBehaviour:
   ScornTrashAmount: 2
   SlimeParalyzeAmount: 2
   BashDamageAmount: 12
-  BashWoundAmount: 3
+  BashWoundAmount: 2
   SuppressLockAmount: 1
   GrowthStrengthAmount: 2
   DoubleAttackDamageAmount: 7
