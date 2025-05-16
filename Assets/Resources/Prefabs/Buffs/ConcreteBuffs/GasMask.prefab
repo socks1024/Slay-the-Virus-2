@@ -123,5 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: GasMask
   Name: "\u9632\u6BD2\u9762\u5177"
-  BuffSprite: {fileID: 0}
+  Description: "\u62B5\u6D88\u83B7\u5F97\u75C5\u6BD2\u724C\u7684\u6548\u679C"
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}
+  turnEndBehaviour: 0

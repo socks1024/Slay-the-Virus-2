@@ -19,7 +19,7 @@ public class LazyVirus : EnemyBehaviour
         #region generate intent
 
         LazyIntent = new IntentionInfo(
-            IntentionType.UNKNOWN,
+            IntentionType.STUN,
             "",
             null
         );

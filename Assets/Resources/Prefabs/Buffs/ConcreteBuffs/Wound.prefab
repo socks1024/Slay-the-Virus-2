@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Wound
   Name: "\u53D7\u4F24"
-  BuffSprite: {fileID: 0}
+  Description: "\u56DE\u5408\u7ED3\u675F\u65F6\uFF0C\u5931\u53BB\u7B49\u91CF\u751F\u547D"
   Type: 1
+  isDestroying: 0
+  Owner: {fileID: 0}

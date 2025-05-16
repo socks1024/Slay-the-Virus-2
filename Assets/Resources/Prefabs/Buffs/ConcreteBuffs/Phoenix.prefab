@@ -123,5 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Phoenix
   Name: "\u4E0D\u6B7B\u9E1F"
-  BuffSprite: {fileID: 0}
+  Description: "\u53D7\u5230\u81F4\u6B7B\u4F24\u5BB3\u65F6\uFF0C\u4FDD\u75591\u751F\u547D"
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}
+  turnEndBehaviour: 0

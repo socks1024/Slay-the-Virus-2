@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Stun
   Name: "\u7729\u6655"
-  BuffSprite: {fileID: 0}
+  Description: "\u672C\u56DE\u5408\u65E0\u6CD5\u884C\u52A8"
   Type: 1
+  isDestroying: 0
+  Owner: {fileID: 0}

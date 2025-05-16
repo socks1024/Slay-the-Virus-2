@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: BodyArmor
   Name: "\u9632\u5F39\u8863"
+  Description: "\u56DE\u5408\u5F00\u59CB\u65F6\uFF0C\u83B7\u5F97\u5C42\u6570\u70B9\u683C\u6321"
   Type: 0
   isDestroying: 0
+  Owner: {fileID: 0}

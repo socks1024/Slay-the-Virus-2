@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Timers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -59,7 +61,7 @@ public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
         PlayAnimEffect(position, name, onComplete, PlayMode);
     }
 
-    
+
 
     #region Flash
 
@@ -69,7 +71,7 @@ public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
 
     public void StartFlash(Image image)
     {
-        
+
         StartCoroutine("Flash", image);
     }
 
@@ -80,7 +82,7 @@ public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
         while (time <= FlashDuration)
         {
             if (image != null) image.color = Color.Lerp(FlashColor, Color.white, time / FlashDuration);
-            
+
             time += Time.deltaTime;
 
             yield return null;
@@ -90,7 +92,57 @@ public class AnimationManager : MonoSingletonDestroyOnLoad<AnimationManager>
 
     #endregion
 
-    
+    #region Number
+
+    [Header("数字")]
+
+    public GameObject root;
+
+    public TextMeshProUGUI numberPrefab;
+
+    public float maxFadeDuration;
+
+    public float minFadeDuration;
+
+    public float offsetDistance;
+
+    public float maxSize;
+
+    public int numberAtMaxSize;
+
+    public float minSize;
+
+    public SerializableDictionary<NumberType, Color> typeColors = new();
+
+    public void ShowNumber(int number, NumberType type, Vector3 position)
+    {
+        print("show number");
+        TextMeshProUGUI numText = Instantiate(numberPrefab, root.transform);
+        numText.text = number.ToString();
+        numText.transform.position = position + new Vector3(Random.value, Random.value, 0).normalized * (offsetDistance * Random.value);
+        numText.transform.localScale *= Mathf.Lerp(minSize, maxSize, number / numberAtMaxSize);
+        numText.color = typeColors[type];
+
+        StartCoroutine(NumberFade(numText.gameObject));
+    }
+
+    IEnumerator NumberFade(GameObject numberObj)
+    {
+        float time = 0;
+        float duration = Random.Range(minFadeDuration, maxFadeDuration);
+        CanvasGroup canvasGroup = numberObj.GetComponent<CanvasGroup>();
+
+        while (time <= duration)
+        {
+            canvasGroup.alpha = Mathf.Lerp(1, 0, time/duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(numberObj);
+    }
+
+    #endregion
 }
 
 public enum AnimationPlayMode
@@ -109,4 +161,12 @@ public enum AnimEffectType
     HEALED,
     WOUND,
     COUNTER,
+}
+
+public enum NumberType
+{
+    DAMAGE,
+    HEAL,
+    GAIN_BLOCK,
+    WOUND,
 }

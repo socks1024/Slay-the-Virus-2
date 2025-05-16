@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Fortress
   Name: "\u5821\u5792"
+  Description: "\u56DE\u5408\u7ED3\u675F\u65F6\uFF0C\u4E0D\u4F1A\u5931\u53BB\u683C\u6321"
   Type: 0
   isDestroying: 0
   Owner: {fileID: 0}

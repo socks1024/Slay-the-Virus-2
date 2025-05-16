@@ -223,7 +223,7 @@ public class DungeonManager : MonoSingletonDestroyOnLoad<DungeonManager>
 
         ClearAllBattleEvent();
 
-        SceneManager.LoadScene("Base");
+        SceneManager.LoadScene("Inventory");
     }
 
     public void WinLeaveDungeon()

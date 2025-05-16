@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: TempStrength
   Name: "\u4E34\u65F6\u529B\u91CF"
+  Description: "\u9020\u6210\u4F24\u5BB3\u65F6\uFF0C\u4F24\u5BB3\u91CF\u589E\u52A0"
   Type: 0
   isDestroying: 0
   Owner: {fileID: 0}

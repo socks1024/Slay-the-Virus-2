@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: RemoteSatellite
   Name: "\u9065\u611F\u536B\u661F"
-  BuffSprite: {fileID: 0}
+  Description: "\u56DE\u5408\u5F00\u59CB\u65F6\uFF0C\u542F\u7528 1 \u4E2A\u683C\u5B50"
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}

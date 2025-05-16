@@ -19,6 +19,8 @@ public class ApplyBuffNextTurnBuff : BuffBehaviour
         BuffBehaviour buffPrefab = DungeonBuffLib.buffPrefabs[newBuffID];
         GetComponent<Image>().sprite = buffPrefab.GetComponent<Image>().sprite;
         Type = buffPrefab.Type;
+        Name = buffPrefab.Name;
+        Description = buffPrefab.Description;
     }
 
     public override void ActOnLateTurnEnd()
