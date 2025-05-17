@@ -6,18 +6,24 @@ public class DialogueManager : MonoSingleton<DialogueManager>
 {
     [SerializeField] DialoguePanel PanelPrefab;
 
+    [SerializeField] CursorInfoPanel InfoPanelPrefab;
+
     public IDialogueLoader loader;
 
     DialoguePanel dialoguePanel;
+
+    CursorInfoPanel infoPanel;
 
     void Start()
     {
         loader = GetComponent<IDialogueLoader>();
     }
+    
+    #region DialoguePanel
 
     public DialoguePanel StartDialogue(string groupID)
     {
-        return ShowDialoguePanel().AddDialogueEvent(loader,groupID).ShowNextDialogueEvent();
+        return ShowDialoguePanel().AddDialogueEvent(loader, groupID).ShowNextDialogueEvent();
     }
 
     public DialoguePanel StartDialogue(string groupID, Canvas canvas)
@@ -47,6 +53,39 @@ public class DialogueManager : MonoSingleton<DialogueManager>
 
         return dialoguePanel;
     }
+
+    #endregion
+
+    #region CursorInfoPanel
+
+    public void ShowCursorInfo(string text)
+    {
+        ShowCursorInfo(text, FindAnyObjectByType<Canvas>());
+    }
+
+    public void ShowCursorInfo(string text, Canvas canvas)
+    {
+        if (infoPanel is null)
+        {
+            CursorInfoPanel iPanel = Instantiate(InfoPanelPrefab, canvas.transform);
+            iPanel.SetText(text);
+            infoPanel = iPanel;
+        }
+        else
+        {
+            infoPanel.gameObject.SetActive(true);
+            infoPanel.SetText(text);
+        }
+        Cursor.visible = false;
+    }
+
+    public void HideCursorInfo()
+    {
+        infoPanel.gameObject.SetActive(false);
+        Cursor.visible = true;
+    }
+
+    #endregion
 
     public void ShowManual()
     {

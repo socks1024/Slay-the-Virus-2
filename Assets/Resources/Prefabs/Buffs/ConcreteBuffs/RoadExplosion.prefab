@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: RoadExplosion
   Name: "\u7206\u7834\u9053\u8DEF"
+  Description: "\u56DE\u5408\u5F00\u59CB\u65F6\uFF0C\u5C11\u62BD\u7B49\u91CF\u7684\u724C"
   Type: 1
   isDestroying: 0
   Owner: {fileID: 0}

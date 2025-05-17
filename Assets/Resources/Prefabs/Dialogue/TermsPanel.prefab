@@ -1568,7 +1568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1089.25, y: -265}
+  m_AnchoredPosition: {x: 653.55005, y: -265}
   m_SizeDelta: {x: 435.7, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433295088863649946
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6218\u6597\u4E2D\u5076\u5C14\u6389\u843D\uFF0C\u7279\u5B9A\u724C\u53EA\u80FD\u5728\u5546\u5E97\u8D2D\u4E70"
+  m_text: "\u6218\u6597\u4E2D\u6389\u843D\u8F83\u5C11\uFF0C\u8D2D\u4E70\u4EF7\u683C\u8F83\u8D35"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e188762bb7b57c547917d86d58b602e8, type: 2}
   m_sharedMaterial: {fileID: -899699710880701677, guid: e188762bb7b57c547917d86d58b602e8, type: 2}
@@ -5195,7 +5195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 217.85, y: -455}
+  m_AnchoredPosition: {x: 1089.25, y: -265}
   m_SizeDelta: {x: 435.7, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7325978638495506210
@@ -6145,7 +6145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 217.85, y: -265}
+  m_AnchoredPosition: {x: 1089.25, y: -75}
   m_SizeDelta: {x: 435.7, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3492976350528076225
@@ -7757,8 +7757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 91, y: 12}
-  m_SizeDelta: {x: 1500, y: 540}
+  m_AnchoredPosition: {x: 0, y: 36}
+  m_SizeDelta: {x: 1328.1626, y: 348.8011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &988953574096082745
 MonoBehaviour:
@@ -13476,7 +13476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6218\u6597\u4E2D\u4E0D\u4F1A\u6389\u843D\n\u53EF\u4EE5\u5728\u5546\u5E97\u514D\u8D39\u83B7\u53D6"
+  m_text: "\u6700\u57FA\u7840\u7684\u5361\u724C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e188762bb7b57c547917d86d58b602e8, type: 2}
   m_sharedMaterial: {fileID: -899699710880701677, guid: e188762bb7b57c547917d86d58b602e8, type: 2}
@@ -14372,7 +14372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 653.55005, y: -265}
+  m_AnchoredPosition: {x: 217.85, y: -265}
   m_SizeDelta: {x: 435.7, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319014526806937836
@@ -14632,7 +14632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2026800503735958811
 RectTransform:
   m_ObjectHideFlags: 0

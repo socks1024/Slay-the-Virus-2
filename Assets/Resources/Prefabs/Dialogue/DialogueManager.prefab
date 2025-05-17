@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelPrefab: {fileID: 3824631511970630263, guid: 3b4c02943038b054b9a137f7e56b4c24, type: 3}
+  InfoPanelPrefab: {fileID: 6807922816077671783, guid: 01ebc53f9e18fef4f9d052d3fd899637, type: 3}
 --- !u!114 &5575299762516214268
 MonoBehaviour:
   m_ObjectHideFlags: 0

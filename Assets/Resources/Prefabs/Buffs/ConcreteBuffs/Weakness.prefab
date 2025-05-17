@@ -123,5 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Weakness
   Name: "\u5F31\u70B9"
-  BuffSprite: {fileID: 0}
+  Description: "\u53D7\u5230 2 \u500D\u4F24\u5BB3"
   Type: 1
+  isDestroying: 0
+  Owner: {fileID: 0}

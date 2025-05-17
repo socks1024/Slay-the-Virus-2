@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9164719599414904584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3655616638740166122}
+  - component: {fileID: 8128571428541346419}
+  m_Layer: 0
+  m_Name: AnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3655616638740166122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164719599414904584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8128571428541346419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164719599414904584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fec8c32a22eef84a8031f784d04243f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayMode: 2
+  animations:
+    m_keys: 01000000
+    m_values:
+    - {fileID: 4795805241297724030, guid: 04cad89844c58cb439d1ea2a4f954ac3, type: 3}
+  particles:
+    m_keys: 010000000400000002000000030000000500000006000000
+    m_values:
+    - {fileID: 7952111213035177249, guid: 5541143f9f08db0408f33a1c48ebcd49, type: 3}
+    - {fileID: 7952111213035177249, guid: 15bb6acbe6c63d045a9f9354699ce0cd, type: 3}
+    - {fileID: 7952111213035177249, guid: 918f1cc964b72ed48aeafb453451304b, type: 3}
+    - {fileID: 7952111213035177249, guid: 903c134a116fad540b13b921d58a5e5b, type: 3}
+    - {fileID: 7952111213035177249, guid: 61794e2779230e94480a6b185f7d1ac7, type: 3}
+    - {fileID: 7952111213035177249, guid: 5541143f9f08db0408f33a1c48ebcd49, type: 3}
+  FlashColor: {r: 1, g: 0.58176094, b: 0.58176094, a: 1}
+  FlashDuration: 1
+  root: {fileID: 0}
+  numberPrefab: {fileID: 7126086789859167571, guid: 981da83eb620f0d4d9acb735f03518a1, type: 3}
+  maxFadeDuration: 1
+  minFadeDuration: 3
+  offsetDistance: 4
+  maxSize: 8
+  numberAtMaxSize: 99
+  minSize: 2
+  typeColors:
+    m_keys: 00000000010000000200000003000000
+    m_values:
+    - {r: 0.7987421, g: 0.10800585, b: 0.10800585, a: 1}
+    - {r: 0.14130776, g: 0.8, b: 0.109803915, a: 1}
+    - {r: 0.63522005, g: 0.63522005, b: 0.63522005, a: 1}
+    - {r: 0.46540874, g: 0, b: 0, a: 1}

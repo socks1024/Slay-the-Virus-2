@@ -33,6 +33,8 @@ public static class ActionLib
             target.GetDamage(damage);
         });
 
+        AnimationManager.Instance.ShowNumber(damage, NumberType.DAMAGE, target.transform.position);
+
         // if (target.buffOwner.HasBuff("Counter")) CounterAction(source, target, target.buffOwner.GetBuffAmount("Counter"));
 
         if (source is PlayerBehaviour)
@@ -81,9 +83,14 @@ public static class ActionLib
     /// <param name="heal">治疗数值</param>
     public static void HealAction(CreatureBehaviour target, CreatureBehaviour source, int heal)
     {
-        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.HEALED, () => {
+        if (heal < 0) heal = 0;
+
+        AnimationManager.Instance.PlayAnimEffect(target.transform.position, AnimEffectType.HEALED, () =>
+        {
             target.GetHeal(heal);
         });
+
+        AnimationManager.Instance.ShowNumber(heal, NumberType.HEAL, target.transform.position);
     }
 
     /// <summary>
@@ -171,6 +178,8 @@ public static class ActionLib
             target.takeDamage.Block += amount;
         });
 
+        AnimationManager.Instance.ShowNumber(amount, NumberType.GAIN_BLOCK, target.transform.position);
+
         if (source is PlayerBehaviour)
         {
             if ((source as PlayerBehaviour).HasRelic("ElectricArmor"))
@@ -219,7 +228,8 @@ public static class ActionLib
     /// <param name="amount">量</param>
     public static void WoundAction(CreatureBehaviour owner, int amount)
     {
-        AnimationManager.Instance.PlayAnimEffect(owner.transform.position, AnimEffectType.WOUND, () => {
+        AnimationManager.Instance.PlayAnimEffect(owner.transform.position, AnimEffectType.WOUND, () =>
+        {
             if (owner is PlayerBehaviour && (owner as PlayerBehaviour).HasRelic("ConceptShield"))
             {
                 owner.GetDamage(amount);
@@ -229,6 +239,8 @@ public static class ActionLib
                 owner.GetDamage(amount, false);
             }
         });
+
+        AnimationManager.Instance.ShowNumber(amount, NumberType.WOUND, owner.transform.position);
     }
 
 

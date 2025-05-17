@@ -16,7 +16,7 @@ MonoBehaviour:
   Pack: 6
   AbilityType: 4
   ActType: 0
-  ConditionType: 3
+  ConditionType: 1
   TargetType: 0
   RarityType: 2
   CardShape:

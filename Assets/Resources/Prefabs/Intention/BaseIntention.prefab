@@ -482,20 +482,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 6934119003450652678}
   textmesh: {fileID: 5025032473178124888}
-  AttackIntentionSprite: {fileID: 21300000, guid: fa0b1bbe51894934ba59a758ea8b3840, type: 3}
-  DoubleAttackSprite: {fileID: 21300000, guid: 1a236748fbf3fc84eb3c397e39998863, type: 3}
-  TrippleAttackSprite: {fileID: 21300000, guid: 5bd491f359a16cb4cab13a027cdb1806, type: 3}
-  DefenseIntentionSprite: {fileID: 21300000, guid: ee5ee905d962bbc428a91268b474677c, type: 3}
-  GainBuffIntentionSprite: {fileID: 21300000, guid: d56a17bc255494a479d870e79084955f, type: 3}
-  ApplyBuffIntentionSprite: {fileID: 21300000, guid: 42c8f76b9feb1734395fff8adc409700, type: 3}
-  AttackAndGiveDebuffSprite: {fileID: 21300000, guid: e963674550e06e2408c6429d9873ee6a, type: 3}
-  GainBuffAndGiveDebuffSprite: {fileID: 21300000, guid: 0618ce731caf92b4c8f7733338a672b6, type: 3}
-  HealIntentionSprite: {fileID: 21300000, guid: eea814ef4f307ef4082b226ca7ada215, type: 3}
-  StunIntentionSprite: {fileID: 21300000, guid: 8db81e51d4eb48440a0ee4e7b8fe31c6, type: 3}
-  SummonIntentionSprite: {fileID: 21300000, guid: 2db907c47a86b2b4a9436decc91fb5b6, type: 3}
-  GiveTrashIntentionSprite: {fileID: 21300000, guid: a7b3d4cfe7f10dc49a0c2eae00d94bdc, type: 3}
-  DeactivateSquareIntentionSprite: {fileID: 21300000, guid: 1c96992c452fe904cac1661be06ae02a, type: 3}
-  UnknownIntentionSprite: {fileID: 21300000, guid: ee3331815734e6c469ef14aae7ce5206, type: 3}
+  intentionDetails:
+  - intentionType: 0
+    sprite: {fileID: 21300000, guid: fa0b1bbe51894934ba59a758ea8b3840, type: 3}
+    intentionName: "\u653B\u51FB"
+    intentionDescription: "\u9020\u6210\u4F24\u5BB3"
+  - intentionType: 1
+    sprite: {fileID: 21300000, guid: 1a236748fbf3fc84eb3c397e39998863, type: 3}
+    intentionName: "\u4E8C\u8FDE\u51FB"
+    intentionDescription: "\u9020\u6210 2 \u6B21\u7B49\u91CF\u4F24\u5BB3"
+  - intentionType: 2
+    sprite: {fileID: 21300000, guid: 5bd491f359a16cb4cab13a027cdb1806, type: 3}
+    intentionName: "\u4E09\u8FDE\u51FB"
+    intentionDescription: "\u9020\u6210 3 \u6B21\u7B49\u91CF\u4F24\u5BB3"
+  - intentionType: 3
+    sprite: {fileID: 21300000, guid: ee5ee905d962bbc428a91268b474677c, type: 3}
+    intentionName: "\u9632\u5FA1"
+    intentionDescription: "\u83B7\u5F97\u683C\u6321"
+  - intentionType: 4
+    sprite: {fileID: 21300000, guid: d56a17bc255494a479d870e79084955f, type: 3}
+    intentionName: "\u6210\u957F"
+    intentionDescription: "\u7ED9\u4E88\u81EA\u8EAB\u6B63\u9762\u72B6\u6001"
+  - intentionType: 5
+    sprite: {fileID: 21300000, guid: 42c8f76b9feb1734395fff8adc409700, type: 3}
+    intentionName: "\u5E72\u6270"
+    intentionDescription: "\u7ED9\u4E88\u73A9\u5BB6\u8D1F\u9762\u72B6\u6001"
+  - intentionType: 6
+    sprite: {fileID: 21300000, guid: e963674550e06e2408c6429d9873ee6a, type: 3}
+    intentionName: "\u5E72\u6270\u653B\u51FB"
+    intentionDescription: "\u9020\u6210\u4F24\u5BB3\uFF0C\u7136\u540E\u7ED9\u4E88\u73A9\u5BB6\u8D1F\u9762\u72B6\u6001"
+  - intentionType: 7
+    sprite: {fileID: 21300000, guid: 0618ce731caf92b4c8f7733338a672b6, type: 3}
+    intentionName: "\u6210\u957F\u4E0E\u5E72\u6270"
+    intentionDescription: "\u83B7\u5F97\u6B63\u9762\u72B6\u6001\uFF0C\u7136\u540E\u7ED9\u4E88\u73A9\u5BB6\u8D1F\u9762\u72B6\u6001"
+  - intentionType: 8
+    sprite: {fileID: 21300000, guid: eea814ef4f307ef4082b226ca7ada215, type: 3}
+    intentionName: "\u6CBB\u7597"
+    intentionDescription: "\u6062\u590D\u751F\u547D"
+  - intentionType: 10
+    sprite: {fileID: 21300000, guid: 2db907c47a86b2b4a9436decc91fb5b6, type: 3}
+    intentionName: "\u53EC\u5524"
+    intentionDescription: "\u53EC\u5524\u65B0\u7684\u654C\u4EBA"
+  - intentionType: 9
+    sprite: {fileID: 21300000, guid: 8db81e51d4eb48440a0ee4e7b8fe31c6, type: 3}
+    intentionName: "\u6655\u7729"
+    intentionDescription: "\u672C\u56DE\u5408\u4E0D\u4F1A\u884C\u52A8"
+  - intentionType: 11
+    sprite: {fileID: 21300000, guid: a7b3d4cfe7f10dc49a0c2eae00d94bdc, type: 3}
+    intentionName: "\u7ED9\u4E88\u75C5\u6BD2\u724C"
+    intentionDescription: "\u5C06\u75C5\u6BD2\u724C\u7F6E\u5165\u62BD\u724C\u5806"
+  - intentionType: 12
+    sprite: {fileID: 21300000, guid: 1c96992c452fe904cac1661be06ae02a, type: 3}
+    intentionName: "\u7981\u7528\u683C\u5B50"
+    intentionDescription: "\u7981\u7528\u968F\u673A\u683C\u5B50\uFF0C\u4F7F\u5176\u65E0\u6CD5\u653E\u7F6E\u5361\u724C"
+  - intentionType: 13
+    sprite: {fileID: 21300000, guid: ee3331815734e6c469ef14aae7ce5206, type: 3}
+    intentionName: "\u672A\u77E5"
+    intentionDescription: "\u672A\u77E5\u610F\u56FE"
+  currIntention:
+    intentionType: 0
+    sprite: {fileID: 0}
+    intentionName: 
+    intentionDescription: 
 --- !u!222 &-4683197317565102445
 CanvasRenderer:
   m_ObjectHideFlags: 0

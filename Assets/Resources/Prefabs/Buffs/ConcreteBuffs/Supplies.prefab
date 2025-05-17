@@ -123,5 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Supplies
   Name: "\u8865\u7ED9\u7269\u8D44"
-  BuffSprite: {fileID: 0}
+  Description: "\u56DE\u5408\u5F00\u59CB\u65F6\uFF0C\u591A\u62BD\u7B49\u91CF\u7684\u724C"
   Type: 0
+  isDestroying: 0
+  Owner: {fileID: 0}
+  turnEndBehaviour: 0

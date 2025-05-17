@@ -31,6 +31,11 @@ public abstract class BuffBehaviour : MonoBehaviour
     /// </summary>
     public string Name;
 
+    /// <summary>
+    /// Buff的描述
+    /// </summary>
+    public string Description;
+
     // /// <summary>
     // /// 状态效果的图片
     // /// </summary>

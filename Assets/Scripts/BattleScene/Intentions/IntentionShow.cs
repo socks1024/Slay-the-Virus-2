@@ -1,34 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class IntentionShow : MonoBehaviour
+public class IntentionShow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Image image;
 
     [SerializeField] TextMeshProUGUI textmesh;
 
-    #region texture
+    [SerializeField] List<IntentionDetail> intentionDetails = new();
 
-    [Header("意图图片")]
-    public Sprite AttackIntentionSprite;
-    public Sprite DoubleAttackSprite;
-    public Sprite TrippleAttackSprite;
-    public Sprite DefenseIntentionSprite;
-    public Sprite GainBuffIntentionSprite;
-    public Sprite ApplyBuffIntentionSprite;
-    public Sprite AttackAndGiveDebuffSprite;
-    public Sprite GainBuffAndGiveDebuffSprite;
-    public Sprite HealIntentionSprite;
-    public Sprite StunIntentionSprite;
-    public Sprite SummonIntentionSprite;
-    public Sprite GiveTrashIntentionSprite;
-    public Sprite DeactivateSquareIntentionSprite;
-    public Sprite UnknownIntentionSprite;
+    [HideInInspector] public IntentionDetail currIntention;
 
-    #endregion
 
     public void ShowIntention()
     {
@@ -39,57 +26,40 @@ public class IntentionShow : MonoBehaviour
 
         textmesh.text = intention.ShowText;
 
-        switch (intention.IntentionType)
+        foreach (IntentionDetail data in intentionDetails)
         {
-            case IntentionType.ATTACK:
-                image.sprite = AttackIntentionSprite;
-                break;
-            case IntentionType.DOUBLE_ATTACK:
-                image.sprite = DoubleAttackSprite;
-                break;
-            case IntentionType.TRIPLE_ATTACK:
-                image.sprite = TrippleAttackSprite;
-                break;
-            case IntentionType.DEFENSE:
-                image.sprite = DefenseIntentionSprite;
-                break;
-            case IntentionType.GAIN_BUFF:
-                image.sprite = GainBuffIntentionSprite;
-                break;
-            case IntentionType.GIVE_DEBUFF:
-                image.sprite = ApplyBuffIntentionSprite;
-                break;
-            case IntentionType.ATTACK_AND_GIVE_DEBUFF:
-                image.sprite = AttackAndGiveDebuffSprite;
-                break;
-            case IntentionType.GAIN_BUFF_AND_GIVE_DEBUFF:
-                image.sprite = GainBuffAndGiveDebuffSprite;
-                break;
-            case IntentionType.HEAL:
-                image.sprite = HealIntentionSprite;
-                break;
-            case IntentionType.STUN:
-                image.sprite = StunIntentionSprite;
-                break;
-            case IntentionType.SUMMON:
-                image.sprite = SummonIntentionSprite;
-                break;
-            case IntentionType.GIVE_TRASH:
-                image.sprite = GiveTrashIntentionSprite;
-                break;
-            case IntentionType.DEACTIVATE_SQUARE:
-                image.sprite = DeactivateSquareIntentionSprite;
-                break;
-            case IntentionType.UNKNOWN:
-                image.sprite = UnknownIntentionSprite;
-                break;
+            if (intention.IntentionType == data.intentionType)
+            {
+                currIntention = data;
+                image.sprite = data.sprite;
+            }
         }
     }
 
     public void ShowIntentionManual()
     {
-        ManualPanel.ShowPanel(6);
+        // ManualPanel.ShowPanel(6);
     }
 
-    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        DialogueManager.Instance.ShowCursorInfo(currIntention.intentionDescription);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        DialogueManager.Instance.HideCursorInfo();
+    }
+}
+
+[Serializable]
+public struct IntentionDetail
+{
+    public IntentionType intentionType;
+
+    public Sprite sprite;
+
+    public string intentionName;
+
+    public string intentionDescription;
 }
