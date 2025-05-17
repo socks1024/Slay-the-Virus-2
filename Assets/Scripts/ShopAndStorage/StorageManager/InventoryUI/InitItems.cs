@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,10 +24,24 @@ public class InitItems : MonoBehaviour
     {
         //ItemManager.Instance.AddItem(testcard, 10);//≤‚ ‘
         // storagecards = ItemManager.Instance.GetItemByCategory(ItemCategory.Card);//≥ı ºªØø‚¥Ê
-        SerializableDictionary<string, int> pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().PlayerHoldCards);
+
+        SerializableDictionary<string, int> pholdcards=new SerializableDictionary<string, int>();
+        switch (SaveSystem.Instance.getSave().CardPresetIndex)
+        {
+            case 1:
+                pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().CardPreset1);
+                break;
+            case 2:
+                pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().CardPreset2);
+                break;
+            case 3:
+                pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().CardPreset3);
+                break;
+        }
+        
         foreach (var item in pholdcards)
         {
-            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value);
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value,SaveSystem.Instance.getSave().CardPresetIndex);
         }
 
             foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
@@ -97,6 +112,46 @@ public class InitItems : MonoBehaviour
         }
     }
 
+    public void ReInitPlayerHoldCards(int index)
+    {
+        SaveSystem.Instance.ChangePreset(index);
+
+
+        for (int i = PlayerHoldPanel.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(PlayerHoldPanel.transform.GetChild(i).gameObject);
+        }
+
+        SerializableDictionary<string, int> pholdcards = new SerializableDictionary<string, int>();
+        switch (index)
+        {
+            case 1:
+                pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().CardPreset1);
+                break;
+            case 2:
+                pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().CardPreset2);
+                break;
+            case 3:
+                pholdcards = new SerializableDictionary<string, int>(SaveSystem.Instance.getSave().CardPreset3);
+                break;
+        }
+
+        foreach (var item in pholdcards)
+        {
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(item.Key, -item.Value,index);
+            string findcard = contentpanel.name + "/" + item.Key;
+            GameObject CardAdd = GameObject.Find(findcard);
+            if (CardAdd != null)
+            {
+                for (int i = 0; i < item.Value; i++)
+                {
+                    cardInventoryUI.ShowItem(CardAdd,index);
+                }
+            }
+            CardAdd.GetComponent<CardItemInventory>().ResetNumText();
+        }
+    }
+
     public void Return()
     {
         //Dictionary<string, int> newplayerhold = new Dictionary<string, int>();
@@ -135,6 +190,8 @@ public class InitItems : MonoBehaviour
         {
             Destroy(contentpanel.transform.GetChild(i).gameObject);
         }
+
+        SaveSystem.Instance.ChangePreset(SaveSystem.Instance.getSave().CardPresetIndex);
 
         SceneManager.LoadScene("Base");
     }

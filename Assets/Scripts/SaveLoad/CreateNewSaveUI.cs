@@ -104,13 +104,13 @@ public class CreateNewSaveUI : MonoBehaviour
         for (int i = 0; i < initCards.Length; i++)
         {
             //savedata.PlayerCardInventory[initCards[i].name] = initCards[i].num;
-            if (savedata.PlayerHoldCards.ContainsKey(initCards[i].name))
+            if (savedata.CardPreset1.ContainsKey(initCards[i].name))
             {
-                savedata.PlayerHoldCards[initCards[i].name] = initCards[i].num;
+                savedata.CardPreset1[initCards[i].name] = initCards[i].num;
             }
             else
             {
-                savedata.PlayerHoldCards.Add(initCards[i].name, initCards[i].num);
+                savedata.CardPreset1.Add(initCards[i].name, initCards[i].num);
             }
             savedata.PlayerCardInventory[initCards[i].name] -= initCards[i].num;
         }
