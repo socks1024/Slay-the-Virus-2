@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 //using static UnityEditor.Progress;
 
 
@@ -56,8 +57,35 @@ public class CardInventoryUI : MonoBehaviour
             //}
             //else
             //{
+            if (!inventoryitem.carditem.cardBehaviour.UnlimitedInDeck)
+            {
+
+                if (SaveSystem.Instance.GetPresetByIndex(SaveSystem.Instance.getSave().CardPresetIndex).ContainsKey(inventoryitem.carditem.Name)&&
+                    SaveSystem.Instance.GetPresetByIndex(SaveSystem.Instance.getSave().CardPresetIndex)[inventoryitem.carditem.Name] >= 4)
+                {
+                    Debug.Log(SaveSystem.Instance.GetPresetByIndex(SaveSystem.Instance.getSave().CardPresetIndex)[inventoryitem.carditem.Name]);
+                    return;
+                }
+                
+            }
+
+            int a = 0;
+            foreach(var item in SaveSystem.Instance.GetPresetByIndex(SaveSystem.Instance.getSave().CardPresetIndex))
+            {
+                a += item.Value;
+            }
+
+            if (a >= 40)
+            {
+                return;
+            }
+
+           
+
+
             if (inventoryitem.num > 0)
             {
+                
                 SetToPlayerWithoutRemove();
                 SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1,SaveSystem.Instance.getSave().CardPresetIndex);
                 inventoryitem.ResetNumText();

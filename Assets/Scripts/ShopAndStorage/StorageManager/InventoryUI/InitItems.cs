@@ -191,7 +191,21 @@ public class InitItems : MonoBehaviour
             Destroy(contentpanel.transform.GetChild(i).gameObject);
         }
 
+
         SaveSystem.Instance.ChangePreset(SaveSystem.Instance.getSave().CardPresetIndex);
+
+        int a = 0;
+        foreach (var item in SaveSystem.Instance.getSave().PlayerHoldCards)
+        {
+            a += item.Value;
+        }
+
+        if (a <20)
+        {
+            a = 20 - a;
+            SaveSystem.Instance.AddPlayerHoldCards("Militia", a);
+           
+        }
 
         SceneManager.LoadScene("Base");
     }

@@ -336,6 +336,20 @@ public class SaveSystem : MonoBehaviour
         }
        
     }
+
+    public SerializableDictionary<string, int> GetPresetByIndex(int index)
+    {
+        switch (index)
+        {
+            case 1:
+                return savefile.CardPreset1;
+            case 2:
+                return savefile.CardPreset2;
+            case 3:
+                return savefile.CardPreset3;
+        }
+        return null;
+    }
 }
 
 

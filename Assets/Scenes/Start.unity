@@ -1600,13 +1600,15 @@ MonoBehaviour:
   - name: EngineerGroup
     num: 2
   - name: Map
-    num: 3
+    num: 4
   - name: Medic
     num: 2
   - name: Interphone
-    num: 1
-  - name: Militia
     num: 2
+  - name: Militia
+    num: 3
+  - name: Grenede
+    num: 1
   illnesses:
   - {fileID: 573322899}
   - {fileID: 2120801519}
