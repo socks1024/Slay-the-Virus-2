@@ -205,6 +205,10 @@ public class SaveSystem : MonoBehaviour
                     savefile.PlayerHoldCards.Remove(name);
                 }
             }
+            else
+            {
+                savefile.PlayerHoldCards.Add(name, amount);
+            }
         }
         SavePlayerToSlot(savefile, savefile.saveindex);
     }
@@ -216,6 +220,59 @@ public class SaveSystem : MonoBehaviour
             savefile.TutorialClear[index] = true;
         }
 
+        SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void AddToCardPreset(int index,string name,int amount)
+    {
+        if (savefile != null)
+        {
+            switch (index)
+            {
+                case 1:
+                    if (savefile.CardPreset1.ContainsKey(name))
+                    {
+                        savefile.CardPreset1[name] += amount;
+                        if (savefile.CardPreset1[name] <= 0)
+                        {
+                            savefile.CardPreset1.Remove(name);
+                        }
+                    }
+                    else
+                    {
+                        savefile.CardPreset1.Add(name, amount);
+                    }
+                break;
+                case 2:
+                    if (savefile.CardPreset2.ContainsKey(name))
+                    {
+                        savefile.CardPreset2[name] += amount;
+                        if (savefile.CardPreset2[name] <= 0)
+                        {
+                            savefile.CardPreset2.Remove(name);
+                        }
+                    }
+                    else
+                    {
+                        savefile.CardPreset2.Add(name, amount);
+                    }
+                    break;
+                case 3:
+                    if (savefile.CardPreset3.ContainsKey(name))
+                    {
+                        savefile.CardPreset3[name] += amount;
+                        if (savefile.CardPreset3[name] <= 0)
+                        {
+                            savefile.CardPreset3.Remove(name);
+                        }
+                    }
+                    else
+                    {
+                        savefile.CardPreset3.Add(name, amount);
+                    }
+                    break;
+            }
+        }
         SavePlayerToSlot(savefile, savefile.saveindex);
     }
 
@@ -238,6 +295,46 @@ public class SaveSystem : MonoBehaviour
         }
 
         SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void AddPlayerHoldCardsFromInventory(string name, int amount,int index)
+    {
+        if (savefile != null)
+        {
+            savefile.PlayerCardInventory[name] -= amount;
+            AddToCardPreset(index, name, amount);
+        }
+
+        SavePlayerToSlot(savefile, savefile.saveindex);
+    }
+
+    public void ChangePreset(int index)
+    {
+        savefile.CardPresetIndex = index;
+
+        ResetPlayerHoldCards();
+
+        switch(index){
+            case 1:
+                foreach (var card in savefile.CardPreset1)
+                {
+                    AddPlayerHoldCards(card.Key, card.Value);
+                }
+                break;
+            case 2:
+                foreach (var card in savefile.CardPreset2)
+                {
+                    AddPlayerHoldCards(card.Key, card.Value);
+                }
+                break;
+            case 3:
+                foreach (var card in savefile.CardPreset3)
+                {
+                    AddPlayerHoldCards(card.Key, card.Value);
+                }
+                break;
+        }
+       
     }
 }
 
@@ -353,10 +450,11 @@ public class PlayerSave//存档储存的所有信息，通过调取SaveSystem下的GetSave获取
         false
     };  //预设1
 
-    public int CardPresetNum;
+    public int CardPresetIndex=1;
 
     public SerializableDictionary<string, int> CardPreset1 = new SerializableDictionary<string, int>();
     public SerializableDictionary<string, int> CardPreset2 = new SerializableDictionary<string, int>();
+    public SerializableDictionary<string, int> CardPreset3 = new SerializableDictionary<string, int>();
 
     public int saveindex;  //存档编号
 

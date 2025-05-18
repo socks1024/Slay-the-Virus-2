@@ -36,7 +36,8 @@ public class CardInventoryUI : MonoBehaviour
     {
         detailPanel.gameObject.SetActive(false);
         detail = detailPanel.gameObject.GetComponent<DetailPanel>();
-        
+
+        GameObject.Find("PresetButton").GetComponent<ButtonSets>().SetButtonSprite(SaveSystem.Instance.getSave().CardPresetIndex-1);
     }
 
     public void ShowItem(GameObject card)
@@ -58,7 +59,7 @@ public class CardInventoryUI : MonoBehaviour
             if (inventoryitem.num > 0)
             {
                 SetToPlayerWithoutRemove();
-                SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1);
+                SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1,SaveSystem.Instance.getSave().CardPresetIndex);
                 inventoryitem.ResetNumText();
 
                 //Debug.Log("Add!");
@@ -72,7 +73,7 @@ public class CardInventoryUI : MonoBehaviour
         {
             inventoryitem.showstate = 0;
             //ClearBlank();
-            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, -1);
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, -1, SaveSystem.Instance.getSave().CardPresetIndex);
             //if (CardExistInInventory[inventoryitem.index]==1)
             //{
             //    Detailed.transform.SetParent(null);
@@ -103,6 +104,30 @@ public class CardInventoryUI : MonoBehaviour
             //    num = 0;
             //if(sum>0)
             //FillBlank();
+        }
+    }
+
+    public void ShowItem(GameObject card,int cardpresetindex)
+    {
+
+        Detailed = card;
+        inventoryitem = card.GetComponent<CardItemInventory>();
+       
+        if (inventoryitem.showstate == 0 || inventoryitem.showstate == 1)
+        {
+            if (inventoryitem.num > 0)
+            {
+                SetToPlayerWithoutRemove();
+                SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, 1, cardpresetindex);
+                inventoryitem.ResetNumText();
+            }
+        }
+        else if (inventoryitem.showstate == 2)
+        {
+            inventoryitem.showstate = 0;
+            SaveSystem.Instance.AddPlayerHoldCardsFromInventory(inventoryitem.carditem.Name, -1, cardpresetindex);
+            content.GetChild(inventoryitem.index - Search(inventoryitem.index)).gameObject.GetComponent<CardItemInventory>().ResetNumText();
+            GameObject.Destroy(Detailed);
         }
     }
 
