@@ -256,25 +256,25 @@ MonoBehaviour:
   - ID: 40
     GroupID: base2
     Name: "\u6559\u5B98"
-    Line: "\u4F5C\u4E3A\u9996\u6B21\u6218\u6597\u2014\u2014\u6253\u5F97\u8FD8\u7B97\u662F\u4E0D\u9519\u3002"
+    Line: "\u9664\u4E86\u53F3\u4E0A\u89D2\u7684<color=#00610A>\u519B\u8425</color>\uFF0C\u8FD8\u53EF\u4EE5\u5728\u5546\u5E97\u91CC\u8865\u5145\u5361\u724C\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 41
     GroupID: base2
     Name: "\u6559\u5B98"
-    Line: "\u6216\u8BB8\u4F60\u60F3\u8981\u8C03\u6574<color=#FF0000>\u961F\u4F0D\u7684\u6784\u6210</color>\uFF1F"
+    Line: "\u70B9\u51FB\u5546\u5E97\u8BD5\u8BD5\u5427\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 42
-    GroupID: base2
-    Name: "\u6559\u5B98"
-    Line: "\u53F3\u4E0A\u89D2\u7684<color=#00610A>\u519B\u8425</color>\u53EF\u4EE5\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u2014\u2014\n\u4E5F\u5C31\u662F\u9009\u62E9\u5361\u724C\u6765\u7EC4\u6210\u5361\u7EC4\u3002"
+    GroupID: 
+    Name: 
+    Line: 
     PanelID: 
     PanelPosition: 
   - ID: 43
-    GroupID: base2
-    Name: "\u6559\u5B98"
-    Line: "\u5C1D\u8BD5\u4F18\u5316\u4F60\u7684\u5361\u7EC4\u5427\uFF01"
+    GroupID: 
+    Name: 
+    Line: 
     PanelID: 
     PanelPosition: 
   - ID: 44
@@ -296,21 +296,21 @@ MonoBehaviour:
     PanelID: 
     PanelPosition: 
   - ID: 47
-    GroupID: 
-    Name: 
-    Line: 
+    GroupID: camp
+    Name: "\u6559\u5B98"
+    Line: "\u4F5C\u4E3A\u9996\u6B21\u6218\u6597\u2014\u2014\u6253\u5F97\u8FD8\u7B97\u662F\u4E0D\u9519\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 48
-    GroupID: 
-    Name: 
-    Line: 
+    GroupID: camp
+    Name: "\u6559\u5B98"
+    Line: "\u6216\u8BB8\u4F60\u60F3\u8981\u8C03\u6574<color=#FF0000>\u961F\u4F0D\u7684\u6784\u6210</color>\uFF1F"
     PanelID: 
     PanelPosition: 
   - ID: 49
     GroupID: camp
     Name: "\u6559\u5B98"
-    Line: "\u6B22\u8FCE\u6765\u5230\u519B\u8425\uFF0C\u4F60\u53EF\u4EE5\u5728\u8FD9\u91CC\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u3002"
+    Line: "\u5411\u4F60\u4ECB\u7ECD\u519B\u8425\uFF0C\u4F60\u53EF\u4EE5\u5728\u8FD9\u91CC\u914D\u7F6E\u4F60\u7684\u961F\u4F0D\u3002"
     PanelID: 
     PanelPosition: 
   - ID: 50
