@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Map
   Pack: 3
+  UnlimitedInDeck: 1
   AbilityType: 4
   ActType: 0
   ConditionType: 3
@@ -31,5 +32,5 @@ MonoBehaviour:
   BaseHeal: 0
   BaseEffect: 1
   Name: "\u5730\u56FE"
-  Description: "\u6269\u5C55\u7A7A\u95F4\u3002\n\u6D88\u8017\u3002"
+  Description: "\u6269\u5C55\u7A7A\u95F4\u3002\n\u6D88\u8017\u3002\n\u65E0\u9650\u3002"
   CardTex: {fileID: 21300000, guid: 53b1362927cf7694e9e9a1e326f02876, type: 3}

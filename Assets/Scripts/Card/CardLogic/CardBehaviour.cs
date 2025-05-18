@@ -25,11 +25,16 @@ public abstract class CardBehaviour : MonoBehaviour
     /// 卡牌所属的卡包
     /// </summary>
     public CardPack Pack{ get {return cardData.Pack;} }
+    
+    /// <summary>
+    /// 是否可以向卡组中添加无限张
+    /// </summary>
+    public bool UnlimitedInDeck { get { return cardData.UnlimitedInDeck; } }
 
     /// <summary>
     /// 卡牌能力类型
     /// </summary>
-    public CardAbilityType AbilityType{ get{return cardData.AbilityType;} }
+    public CardAbilityType AbilityType { get { return cardData.AbilityType; } }
 
     /// <summary>
     /// 卡牌行动类型

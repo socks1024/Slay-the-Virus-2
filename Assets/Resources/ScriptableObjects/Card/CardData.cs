@@ -16,6 +16,11 @@ public class CardData : ScriptableObject
     public CardPack Pack;
 
     /// <summary>
+    /// 是否可以向卡组中添加无限张
+    /// </summary>
+    public bool UnlimitedInDeck;
+
+    /// <summary>
     /// 卡牌能力类型
     /// </summary>
     public CardAbilityType AbilityType;
