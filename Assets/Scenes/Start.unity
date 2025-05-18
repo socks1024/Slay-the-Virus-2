@@ -1607,7 +1607,7 @@ MonoBehaviour:
     num: 2
   - name: Militia
     num: 3
-  - name: Grenede
+  - name: Grenade
     num: 1
   illnesses:
   - {fileID: 573322899}
