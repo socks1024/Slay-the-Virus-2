@@ -22,8 +22,9 @@ public class CardInventoryUI : MonoBehaviour
 
     public Vector3 PlayerHoldPanelCardSize = new Vector3(0.2f, 0.25f, 0f);
 
-    public GameObject CardFilterPanel;
-
+    public GameObject CardFilterPanelByPack;
+    public GameObject CardFilterPanelByRarity;
+    public GameObject CardFilterPanelByType;
 
     private int sum = 0;
     private int num = 0;
@@ -36,7 +37,9 @@ public class CardInventoryUI : MonoBehaviour
     private void Awake()
     {
         detailPanel.gameObject.SetActive(false);
-        CardFilterPanel.SetActive(false);
+        CardFilterPanelByPack.SetActive(false);
+        CardFilterPanelByRarity.SetActive(false);
+        CardFilterPanelByType.SetActive(false);
         detail = detailPanel.gameObject.GetComponent<DetailPanel>();
 
         GameObject.Find("PresetButton").GetComponent<ButtonSets>().SetButtonSprite(SaveSystem.Instance.getSave().CardPresetIndex-1);
@@ -210,8 +213,18 @@ public class CardInventoryUI : MonoBehaviour
 
 
 
-    public void OnOpenCardFilterPanel()
+    public void OnOpenCardFilterPanelByPack()
     {
-        CardFilterPanel.SetActive(true);
+        CardFilterPanelByPack.SetActive(true);
+    }
+
+    public void OnOpenCardFilterPaenlByRarity()
+    {
+        CardFilterPanelByRarity.SetActive(true);
+    }
+
+    public void OnOpenCardFilterPaenlByType()
+    {
+        CardFilterPanelByType.SetActive(true);
     }
 }

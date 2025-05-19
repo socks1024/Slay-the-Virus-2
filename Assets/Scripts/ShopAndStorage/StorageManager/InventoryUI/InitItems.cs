@@ -21,8 +21,7 @@ public class InitItems : MonoBehaviour
     public GameObject PlayerHoldPanel;
     public CardInventoryUI cardInventoryUI;
 
-    public bool[] CardSelector = new bool[9];
-
+    
    
     private void Start()
     {
@@ -123,16 +122,9 @@ public class InitItems : MonoBehaviour
         }
     }
 
-    public void SetCardSelector(bool[] bools)
-    {
-        Debug.Log(bools.Length);
-        for(int i = 0; i < 9; i++)
-        {
-            CardSelector[i] = bools[i];
-        }
-    }
+   
 
-    public void ReInitCards(bool[] bools)
+    public void ReInitCardsByPack(bool[] bools)
     {
         for (int i = contentpanel.transform.childCount - 1; i >= 0; i--)
         {
@@ -209,6 +201,98 @@ public class InitItems : MonoBehaviour
             }
         }
 
+    }
+
+    public void ReInitCardsByRarity(bool[] bools)
+    {
+        for (int i = contentpanel.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(contentpanel.transform.GetChild(i).gameObject);
+        }
+
+
+        foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
+        {
+            if (SaveSystem.Instance.getSave().PlayerGotCards.Contains(item.Key))
+            {
+                string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + item.Key;
+                CardItem cardItem = Resources.Load<CardItem>(FindCardItem);
+
+                switch (cardItem.cardBehaviour.RarityType)
+                {
+                    case CardRarityType.COMMON:
+                        if (bools[0] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                    case CardRarityType.UNCOMMON:
+                        if (bools[1] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                    case CardRarityType.RARE:
+                        if (bools[2] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                }
+            }
+        }
+
+    }
+
+    public void ReInitCardByType(bool[] bools)
+    {
+        for (int i = contentpanel.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(contentpanel.transform.GetChild(i).gameObject);
+        }
+
+        foreach (var item in SaveSystem.Instance.getSave().PlayerCardInventory)
+        {
+            if (SaveSystem.Instance.getSave().PlayerGotCards.Contains(item.Key))
+            {
+                string FindCardItem = "ScriptableObjects/StorageAndShop/Cards/" + item.Key;
+                CardItem cardItem = Resources.Load<CardItem>(FindCardItem);
+
+                switch (cardItem.cardBehaviour.AbilityType)
+                {
+                    case CardAbilityType.ATTACK:
+                        if (bools[0] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                    case CardAbilityType.DEFEND:
+                        if (bools[1] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                    case CardAbilityType.HEAL:
+                        if (bools[2] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                    case CardAbilityType.EXPAND:
+                        if (bools[3] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                    case CardAbilityType.SKILL:
+                        if (bools[4] == true)
+                        {
+                            Initcard(cardItem, item.Value);
+                        }
+                        break;
+                }
+            }
+        }
     }
 
     public void Initcard(CardItem cardItem,int value)
