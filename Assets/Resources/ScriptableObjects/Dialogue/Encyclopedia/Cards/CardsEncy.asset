@@ -1,0 +1,359 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c592f964972c24885c61e1ca298665, type: 3}
+  m_Name: CardsEncy
+  m_EditorClassIdentifier: 
+  Sheet1:
+  - Index: 0
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 1
+    CardID: NoviceInfantry
+    StoryText: 
+    ScienceText: 
+  - Index: 2
+    CardID: NoviceEngineer
+    StoryText: 
+    ScienceText: 
+  - Index: 3
+    CardID: Militia
+    StoryText: 
+    ScienceText: 
+  - Index: 4
+    CardID: Interphone
+    StoryText: 
+    ScienceText: 
+  - Index: 5
+    CardID: Grenade
+    StoryText: 
+    ScienceText: 
+  - Index: 6
+    CardID: Map
+    StoryText: 
+    ScienceText: 
+  - Index: 7
+    CardID: Medic
+    StoryText: 
+    ScienceText: 
+  - Index: 8
+    CardID: DefenseFlag
+    StoryText: 
+    ScienceText: 
+  - Index: 9
+    CardID: AttackFlag
+    StoryText: 
+    ScienceText: 
+  - Index: 10
+    CardID: SeniorInfantry
+    StoryText: 
+    ScienceText: 
+  - Index: 11
+    CardID: SeniorEngineer
+    StoryText: 
+    ScienceText: 
+  - Index: 12
+    CardID: InfantryGroup
+    StoryText: 
+    ScienceText: 
+  - Index: 13
+    CardID: EngineerGroup
+    StoryText: 
+    ScienceText: 
+  - Index: 14
+    CardID: Knifeman
+    StoryText: 
+    ScienceText: 
+  - Index: 15
+    CardID: Shocker
+    StoryText: 
+    ScienceText: 
+  - Index: 16
+    CardID: SpikeArmor
+    StoryText: 
+    ScienceText: 
+  - Index: 17
+    CardID: Supplies
+    StoryText: 
+    ScienceText: 
+  - Index: 18
+    CardID: BodyArmor
+    StoryText: 
+    ScienceText: 
+  - Index: 19
+    CardID: Epinephrine
+    StoryText: 
+    ScienceText: 
+  - Index: 20
+    CardID: BloodBag
+    StoryText: 
+    ScienceText: 
+  - Index: 21
+    CardID: Steroid
+    StoryText: 
+    ScienceText: 
+  - Index: 22
+    CardID: Antihistamine
+    StoryText: 
+    ScienceText: 
+  - Index: 23
+    CardID: Herbs
+    StoryText: 
+    ScienceText: 
+  - Index: 24
+    CardID: Antibody
+    StoryText: 
+    ScienceText: 
+  - Index: 25
+    CardID: TrainingDummy
+    StoryText: 
+    ScienceText: 
+  - Index: 26
+    CardID: CounterDummy
+    StoryText: 
+    ScienceText: 
+  - Index: 27
+    CardID: EmergencyCommunication
+    StoryText: 
+    ScienceText: 
+  - Index: 28
+    CardID: CloningFighters
+    StoryText: 
+    ScienceText: 
+  - Index: 29
+    CardID: DismissalSeal
+    StoryText: 
+    ScienceText: 
+  - Index: 30
+    CardID: GasMask
+    StoryText: 
+    ScienceText: 
+  - Index: 31
+    CardID: BazookaSoldier
+    StoryText: 
+    ScienceText: 
+  - Index: 32
+    CardID: TearGas
+    StoryText: 
+    ScienceText: 
+  - Index: 33
+    CardID: PiercingBullet
+    StoryText: 
+    ScienceText: 
+  - Index: 34
+    CardID: StunGrenade
+    StoryText: 
+    ScienceText: 
+  - Index: 35
+    CardID: FlareGun
+    StoryText: 
+    ScienceText: 
+  - Index: 36
+    CardID: ElectricGrenade
+    StoryText: 
+    ScienceText: 
+  - Index: 37
+    CardID: Kamikaze
+    StoryText: 
+    ScienceText: 
+  - Index: 38
+    CardID: AccurateAirdrop
+    StoryText: 
+    ScienceText: 
+  - Index: 39
+    CardID: ArmorSoldier
+    StoryText: 
+    ScienceText: 
+  - Index: 40
+    CardID: DeathSquad
+    StoryText: 
+    ScienceText: 
+  - Index: 41
+    CardID: RecklessWarrior
+    StoryText: 
+    ScienceText: 
+  - Index: 42
+    CardID: Painkiller
+    StoryText: 
+    ScienceText: 
+  - Index: 43
+    CardID: ShieldGuy
+    StoryText: 
+    ScienceText: 
+  - Index: 44
+    CardID: FightMaster
+    StoryText: 
+    ScienceText: 
+  - Index: 45
+    CardID: Guerrillas
+    StoryText: 
+    ScienceText: 
+  - Index: 46
+    CardID: MachineGunner
+    StoryText: 
+    ScienceText: 
+  - Index: 47
+    CardID: TacticalCommander
+    StoryText: 
+    ScienceText: 
+  - Index: 48
+    CardID: SystemEngineer
+    StoryText: 
+    ScienceText: 
+  - Index: 49
+    CardID: Substitute
+    StoryText: 
+    ScienceText: 
+  - Index: 50
+    CardID: SupplyDrop
+    StoryText: 
+    ScienceText: 
+  - Index: 51
+    CardID: Surveyor
+    StoryText: 
+    ScienceText: 
+  - Index: 52
+    CardID: RemoteSatellite
+    StoryText: 
+    ScienceText: 
+  - Index: 53
+    CardID: Bandage
+    StoryText: 
+    ScienceText: 
+  - Index: 54
+    CardID: HeadNurse
+    StoryText: 
+    ScienceText: 
+  - Index: 55
+    CardID: SimpleShelter
+    StoryText: 
+    ScienceText: 
+  - Index: 56
+    CardID: ArmouredCar
+    StoryText: 
+    ScienceText: 
+  - Index: 57
+    CardID: SpikeRoadblock
+    StoryText: 
+    ScienceText: 
+  - Index: 58
+    CardID: Fortress
+    StoryText: 
+    ScienceText: 
+  - Index: 59
+    CardID: Drone
+    StoryText: 
+    ScienceText: 
+  - Index: 60
+    CardID: BarbedWire
+    StoryText: 
+    ScienceText: 
+  - Index: 61
+    CardID: AirBombing
+    StoryText: 
+    ScienceText: 
+  - Index: 62
+    CardID: Cannon
+    StoryText: 
+    ScienceText: 
+  - Index: 63
+    CardID: Jet
+    StoryText: 
+    ScienceText: 
+  - Index: 64
+    CardID: Tank
+    StoryText: 
+    ScienceText: 
+  - Index: 65
+    CardID: WarShip
+    StoryText: 
+    ScienceText: 
+  - Index: 66
+    CardID: RedButton
+    StoryText: 
+    ScienceText: 
+  - Index: 67
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 68
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 69
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 70
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 71
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 72
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 73
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 74
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 75
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 76
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 77
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 78
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 79
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 80
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 81
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 82
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 83
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 84
+    CardID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 85
+    CardID: 
+    StoryText: 
+    ScienceText: 

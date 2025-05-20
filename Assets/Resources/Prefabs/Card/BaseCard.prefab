@@ -896,6 +896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6911738929177703954}
+  - component: {fileID: 924929655455920546}
   m_Layer: 5
   m_Name: BlockMode
   m_TagString: Untagged
@@ -918,6 +919,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3402003431734438305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &924929655455920546
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2555226792854221908}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2872669785690230641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8213028218249264305}
+  - component: {fileID: 1389473447652483376}
   m_Layer: 5
   m_Name: CardMode
   m_TagString: Untagged
@@ -1541,6 +1555,18 @@ Transform:
   - {fileID: 7210249132370533414}
   m_Father: {fileID: 3402003431734438305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1389473447652483376
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789486552173866346}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5013332809992767247
 GameObject:
   m_ObjectHideFlags: 0

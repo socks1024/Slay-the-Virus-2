@@ -398,6 +398,11 @@ public abstract class BoardBehaviour : MonoBehaviour
     /// </summary>
     public void PlayAllCards()
     {
+        if (GetPlacedCards().Count == 0)
+        {
+            TriggerCardActEnd();
+        }
+
         foreach (CardBehaviour card in GetPlacedCards())
         {
             PlayCard(card);

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: BazookaSoldier
   Pack: 2
+  UnlimitedInDeck: 0
   AbilityType: 0
   ActType: 0
   ConditionType: 1
@@ -27,7 +28,7 @@ MonoBehaviour:
   - {x: 0, y: -1}
   ConditionsShape:
   - {x: 0, y: 2}
-  BaseDamage: 8
+  BaseDamage: 6
   BaseDefense: 0
   BaseHeal: 0
   BaseEffect: 0

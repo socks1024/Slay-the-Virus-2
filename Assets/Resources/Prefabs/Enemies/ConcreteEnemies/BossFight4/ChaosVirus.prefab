@@ -119,10 +119,10 @@ MonoBehaviour:
   intention: {fileID: 0}
   type: 0
   StrikeDamageAmount: 12
-  RoarWeaknessAmount: 3
-  RoarStrengthAmount: 3
+  RoarWeaknessAmount: 2
+  RoarStrengthAmount: 2
   SplitTrashAmount: 2
   GazeWoundAmount: 2
-  GazeParalyzeAmount: 4
+  GazeParalyzeAmount: 3
   HealHealAmount: 12
   SwellSquareAmount: 1

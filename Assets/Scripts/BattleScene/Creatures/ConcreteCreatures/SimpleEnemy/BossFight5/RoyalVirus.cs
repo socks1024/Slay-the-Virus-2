@@ -55,7 +55,7 @@ public class RoyalVirus : EnemyBehaviour
         }
         else
         {
-            if (DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("NobleVirus1") != null || DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("NobleVirus2") != null)
+            if (DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("NobleVirus") != null || DungeonManager.Instance.battleManager.enemyGroup.GetEnemyByID("NobleVirus2") != null)
             {
                 if (turnCount % 2 == 1)
                 {

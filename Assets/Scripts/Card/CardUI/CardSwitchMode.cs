@@ -39,24 +39,19 @@ public class CardSwitchMode : MonoBehaviour
 
     void SetCardInteract(GameObject gameObject, bool cardInteract)
     {
-        VisualUI.SetVisible(gameObject, cardInteract);
+        CanvasGroup canvasGroup = gameObject.GetComponent<CanvasGroup>();
 
-        if (cardInteract) gameObject.transform.SetAsLastSibling();
+        if (cardInteract)
+        {
+            canvasGroup.alpha = 1;
+        }
+        else
+        {
+            canvasGroup.alpha = 0;
+        }
 
-        // foreach (CardDrag c in gameObject.GetComponentsInChildren<CardDrag>())
-        // {
-        //     c.enabled = cardInteract;
-        // }
-
-        // foreach (CardHover c in gameObject.GetComponentsInChildren<CardHover>())
-        // {
-        //     c.enabled = cardInteract;
-        // }
-
-        // foreach (CardPress c in gameObject.GetComponentsInChildren<CardPress>())
-        // {
-        //     c.enabled = cardInteract;
-        // }
+        canvasGroup.blocksRaycasts = cardInteract;
+        canvasGroup.interactable = cardInteract;
     }
 
     

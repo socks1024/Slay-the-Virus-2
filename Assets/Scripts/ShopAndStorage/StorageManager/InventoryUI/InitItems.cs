@@ -10,7 +10,6 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class InitItems : MonoBehaviour
 {

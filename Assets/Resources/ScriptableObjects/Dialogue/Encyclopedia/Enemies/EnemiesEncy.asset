@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1b65296e3d5dc4dbabf6f1ba99b63a, type: 3}
+  m_Name: EnemiesEncy
+  m_EditorClassIdentifier: 
+  Sheet1:
+  - Index: 0
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 1
+    EnemyID: SleepyVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 2
+    EnemyID: LazyVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 3
+    EnemyID: DashVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 4
+    EnemyID: VirusArmy
+    StoryText: 
+    ScienceText: 
+  - Index: 5
+    EnemyID: VirusTeam
+    StoryText: 
+    ScienceText: 
+  - Index: 6
+    EnemyID: EvilVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 7
+    EnemyID: HardVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 8
+    EnemyID: ChaosVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 9
+    EnemyID: RoyalVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 10
+    EnemyID: NobleVirus
+    StoryText: 
+    ScienceText: 
+  - Index: 11
+    EnemyID: Waiter
+    StoryText: 
+    ScienceText: 
+  - Index: 12
+    EnemyID: VirusKing
+    StoryText: 
+    ScienceText: 
+  - Index: 13
+    EnemyID: VirusFollower
+    StoryText: 
+    ScienceText: 
+  - Index: 14
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 15
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 16
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 17
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 18
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 19
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 20
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 21
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 22
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 23
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
+  - Index: 24
+    EnemyID: 
+    StoryText: 
+    ScienceText: 
