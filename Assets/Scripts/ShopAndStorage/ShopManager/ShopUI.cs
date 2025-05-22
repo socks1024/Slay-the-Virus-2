@@ -25,6 +25,10 @@ public class ShopUI : MonoBehaviour
     public TMPro.TMP_Text numtext;
 
 
+    public GameObject CardFilterPanelByPack;
+    public GameObject CardFilterPanelByRarity;
+    public GameObject CardFilterPanelByType;
+
     public void Start()
     {
        resource.text = SaveSystem.Instance.getSave().Nutrient.ToString();
@@ -36,6 +40,9 @@ public class ShopUI : MonoBehaviour
 
         ResetNumtext();
 
+        CardFilterPanelByPack.SetActive(false);
+        CardFilterPanelByRarity.SetActive(false);
+        CardFilterPanelByType.SetActive(false);
     }
 
     private void ResetNumtext()
@@ -162,5 +169,26 @@ public class ShopUI : MonoBehaviour
         card.transform.GetComponentInChildren<CardUI>().Mode = CardMode.CARD;
     }
 
+    public void OnOpenCardFilterPanelByPack()
+    {
+        CardFilterPanelByPack.SetActive(true);
+    }
 
+    public void OnOpenCardFilterPaenlByRarity()
+    {
+        CardFilterPanelByRarity.SetActive(true);
+    }
+
+    public void OnOpenCardFilterPaenlByType()
+    {
+        CardFilterPanelByType.SetActive(true);
+    }
+
+    public void ResetPriceInfo()
+    {
+        items.Clear();
+        UpdatePrice();
+        price.text = sumprice.ToString();
+        resourcetextcolor();
+    }
 }
